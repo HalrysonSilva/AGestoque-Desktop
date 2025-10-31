@@ -5630,2820 +5630,2845 @@
         TabOrder = 6
       end
     end
-    object PageControl1: TPageControl
+    object PageControl2: TPageControl
       Left = 161
       Top = 0
       Width = 1763
       Height = 882
-      ActivePage = TabSheet6
+      ActivePage = TabSheet9
       Align = alClient
       TabOrder = 1
-      object TabSheet1: TTabSheet
-        Caption = 'Produtos Vendidos'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object Panel3: TPanel
+      object TabSheet7: TTabSheet
+        Caption = 'Conf'#234'rencia de Estoque'
+        object PageControl1: TPageControl
           Left = 0
           Top = 0
           Width = 1755
           Height = 852
+          ActivePage = TabSheet5
           Align = alClient
-          BevelOuter = bvNone
           TabOrder = 0
-          object Panel4: TPanel
-            Left = 0
-            Top = 0
-            Width = 1755
-            Height = 796
-            Align = alClient
-            BevelOuter = bvNone
-            TabOrder = 0
-            object Labelitensvendidos: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 772
-              Width = 4
-              Height = 21
-              Align = alBottom
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -16
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object dbgridprodutos: TDBCtrlGrid
+          object TabSheet1: TTabSheet
+            Caption = 'Produtos Vendidos'
+            object Panel3: TPanel
               Left = 0
               Top = 0
-              Width = 1575
-              Height = 768
+              Width = 1747
+              Height = 822
               Align = alClient
-              DataSource = dsQRYRKVEND
-              PanelHeight = 128
-              PanelWidth = 1558
+              BevelOuter = bvNone
               TabOrder = 0
-              RowCount = 6
-              SelectedColor = 16763522
-              Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoParentPassthrough]
-              StyleElements = []
-              ExplicitLeft = -2
-              ExplicitTop = -3
-              ExplicitHeight = 769
-              object Panel5: TPanel
-                Left = 1457
+              object Panel4: TPanel
+                Left = 0
                 Top = 0
-                Width = 101
-                Height = 128
-                Align = alRight
+                Width = 1747
+                Height = 766
+                Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 0
-                object DBText9: TDBText
+                object Labelitensvendidos: TLabel
                   AlignWithMargins = True
                   Left = 3
-                  Top = 57
-                  Width = 95
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Localizacao'
+                  Top = 742
+                  Width = 1741
+                  Height = 21
+                  Align = alBottom
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -16
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 4
+                end
+                object dbgridprodutos: TDBCtrlGrid
+                  Left = 0
+                  Top = 0
+                  Width = 1567
+                  Height = 739
+                  Align = alClient
                   DataSource = dsQRYRKVEND
+                  PanelHeight = 123
+                  PanelWidth = 1550
+                  TabOrder = 0
+                  RowCount = 6
+                  SelectedColor = 16763522
+                  Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoParentPassthrough]
                   StyleElements = []
-                  ExplicitTop = 75
-                  ExplicitWidth = 183
+                  ExplicitLeft = -2
+                  ExplicitTop = -3
+                  object Panel5: TPanel
+                    Left = 1449
+                    Top = 0
+                    Width = 101
+                    Height = 123
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 0
+                    object DBText9: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 57
+                      Width = 95
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Localizacao'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitTop = 75
+                      ExplicitWidth = 183
+                    end
+                    object Label19: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 40
+                      Width = 95
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Localiza'#231#227'o'
+                      StyleElements = []
+                      ExplicitWidth = 62
+                    end
+                    object DBText10: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 95
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Unidade'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitTop = 23
+                      ExplicitWidth = 183
+                    end
+                    object Label20: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 95
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Unidade'
+                      StyleElements = []
+                      ExplicitWidth = 44
+                    end
+                  end
+                  object Panel6: TPanel
+                    Left = 1303
+                    Top = 0
+                    Width = 146
+                    Height = 123
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 1
+                    object DBText4: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 140
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Estoque'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitTop = 26
+                    end
+                    object Label14: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 140
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Estoque'
+                      StyleElements = []
+                      ExplicitWidth = 42
+                    end
+                    object DBText5: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 57
+                      Width = 140
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'QuantidadeVendida'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitTop = 75
+                    end
+                    object Label15: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 40
+                      Width = 140
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Vendas'
+                      StyleElements = []
+                      ExplicitWidth = 38
+                    end
+                  end
+                  object Panel7: TPanel
+                    Left = 1101
+                    Top = 0
+                    Width = 202
+                    Height = 123
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 2
+                    object Label16: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 196
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Grupo'
+                      StyleElements = []
+                      ExplicitWidth = 33
+                    end
+                    object DBText6: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 196
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Grupo'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = -54
+                      ExplicitTop = 75
+                      ExplicitWidth = 239
+                    end
+                    object Label17: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 40
+                      Width = 196
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Marca'
+                      StyleElements = []
+                      ExplicitWidth = 33
+                    end
+                    object DBText7: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 57
+                      Width = 196
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Marca'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = -6
+                      ExplicitTop = 75
+                      ExplicitWidth = 191
+                    end
+                  end
+                  object Panel8: TPanel
+                    Left = 0
+                    Top = 0
+                    Width = 161
+                    Height = 123
+                    Align = alLeft
+                    BevelOuter = bvNone
+                    TabOrder = 3
+                    object DBText3: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 57
+                      Width = 155
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'CodBarra'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = 18
+                      ExplicitTop = 75
+                      ExplicitWidth = 146
+                    end
+                    object Label13: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 79
+                      Width = 155
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'C'#243'd Fornecedor'
+                      StyleElements = []
+                      ExplicitWidth = 84
+                    end
+                    object DBText1: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 96
+                      Width = 155
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Codfornecedor'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = 18
+                      ExplicitTop = 26
+                      ExplicitWidth = 87
+                    end
+                    object Label11: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 40
+                      Width = 155
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'C'#243'digo Barras'
+                      StyleElements = []
+                      ExplicitWidth = 73
+                    end
+                    object Label24: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 155
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'C'#243'd Interno'
+                      StyleElements = []
+                      ExplicitWidth = 63
+                    end
+                    object DBText50: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 155
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'CodInterno'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 16
+                    end
+                  end
+                  object Panel9: TPanel
+                    Left = 161
+                    Top = 0
+                    Width = 940
+                    Height = 123
+                    Align = alClient
+                    BevelOuter = bvNone
+                    TabOrder = 4
+                    object DBText2: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 934
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Produto'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = 95
+                      ExplicitTop = 26
+                      ExplicitWidth = 415
+                    end
+                    object Label12: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 934
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Produto'
+                      StyleElements = []
+                      ExplicitWidth = 43
+                    end
+                    object Label18: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 40
+                      Width = 934
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Fornecedor'
+                      StyleElements = []
+                      ExplicitWidth = 60
+                    end
+                    object DBText8: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 57
+                      Width = 934
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Fornecedor'
+                      DataSource = dsQRYRKVEND
+                      StyleElements = []
+                      ExplicitLeft = 287
+                      ExplicitTop = 60
+                      ExplicitWidth = 223
+                    end
+                  end
                 end
-                object Label19: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 40
-                  Width = 62
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Localiza'#231#227'o'
-                  StyleElements = []
-                end
-                object DBText10: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
-                  Width = 95
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Unidade'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitTop = 23
-                  ExplicitWidth = 183
-                end
-                object Label20: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 44
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Unidade'
-                  StyleElements = []
+                object Panel10: TPanel
+                  Left = 1567
+                  Top = 0
+                  Width = 180
+                  Height = 739
+                  Align = alRight
+                  TabOrder = 1
+                  object Label21: TLabel
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 628
+                    Width = 172
+                    Height = 15
+                    Align = alBottom
+                    Alignment = taCenter
+                    Caption = 'Diferen'#231'a'
+                    StyleElements = []
+                    ExplicitWidth = 51
+                  end
+                  object Labeldiferença: TLabel
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 649
+                    Width = 172
+                    Height = 30
+                    Align = alBottom
+                    Alignment = taCenter
+                    Caption = '0'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clBlack
+                    Font.Height = -21
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    StyleElements = []
+                    ExplicitWidth = 12
+                  end
+                  object Label23: TLabel
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 563
+                    Width = 172
+                    Height = 15
+                    Align = alBottom
+                    Alignment = taCenter
+                    Caption = 'Quantidade'
+                    StyleElements = []
+                    ExplicitWidth = 62
+                  end
+                  object DBTextquantidade: TDBText
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 527
+                    Width = 172
+                    Height = 30
+                    Align = alBottom
+                    Alignment = taCenter
+                    AutoSize = True
+                    DataField = 'Estoque'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clBlack
+                    Font.Height = -21
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    StyleElements = []
+                    ExplicitWidth = 176
+                  end
+                  object Label22: TLabel
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 506
+                    Width = 172
+                    Height = 15
+                    Align = alBottom
+                    Alignment = taCenter
+                    Caption = 'Estoque'
+                    StyleElements = []
+                    ExplicitWidth = 42
+                  end
+                  object btnconsultprevenda: TButton
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 450
+                    Width = 172
+                    Height = 50
+                    Align = alBottom
+                    Caption = 'Consultar em Pre-Venda'
+                    TabOrder = 0
+                    OnClick = btnconsultprevendaClick
+                  end
+                  object btnconfirma: TBitBtn
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 685
+                    Width = 172
+                    Height = 50
+                    Align = alBottom
+                    Caption = 'Confirmar'
+                    TabOrder = 1
+                    OnClick = btnconfirmaClick
+                  end
+                  object Editcontagem: TEdit
+                    AlignWithMargins = True
+                    Left = 4
+                    Top = 584
+                    Width = 172
+                    Height = 38
+                    Align = alBottom
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clBlack
+                    Font.Height = -21
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 2
+                    OnChange = EditcontagemChange
+                    OnKeyPress = EditcontagemKeyPress
+                  end
                 end
               end
-              object Panel6: TPanel
-                Left = 1311
-                Top = 0
-                Width = 146
-                Height = 128
+              object Panel14: TPanel
+                Left = 0
+                Top = 766
+                Width = 1747
+                Height = 56
+                Align = alBottom
+                BevelOuter = bvNone
+                Color = clNavy
+                ParentBackground = False
+                TabOrder = 1
+                StyleElements = []
+                object Pnproduto: TPanel
+                  Left = 0
+                  Top = 0
+                  Width = 1747
+                  Height = 56
+                  Align = alClient
+                  BevelOuter = bvNone
+                  Color = clNavy
+                  ParentBackground = False
+                  TabOrder = 0
+                  StyleElements = []
+                  object Labelinfor: TLabel
+                    AlignWithMargins = True
+                    Left = 1695
+                    Top = 3
+                    Width = 42
+                    Height = 50
+                    Margins.Right = 10
+                    Align = alRight
+                    Caption = 'Infor'
+                    Color = clNavy
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWhite
+                    Font.Height = -19
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentColor = False
+                    ParentFont = False
+                    StyleElements = []
+                    OnClick = LabelinforClick
+                    ExplicitHeight = 25
+                  end
+                  object Label1: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 69
+                    Height = 50
+                    Align = alLeft
+                    Caption = 'Produto'
+                    Color = clWhite
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWhite
+                    Font.Height = -19
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentColor = False
+                    ParentFont = False
+                    StyleElements = []
+                    OnClick = Label1Click
+                    ExplicitHeight = 25
+                  end
+                  object DBTextproduto: TDBText
+                    AlignWithMargins = True
+                    Left = 78
+                    Top = 3
+                    Width = 128
+                    Height = 50
+                    Align = alLeft
+                    AutoSize = True
+                    Color = clWhite
+                    DataField = 'Produto'
+                    DataSource = dsQRYRKVEND
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWhite
+                    Font.Height = -19
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentColor = False
+                    ParentFont = False
+                    StyleElements = []
+                    OnClick = DBTextprodutoClick
+                    ExplicitHeight = 25
+                  end
+                end
+              end
+            end
+          end
+          object TabSheet2: TTabSheet
+            Caption = 'Produtos Conferidos'
+            ImageIndex = 1
+            object Panel22: TPanel
+              Left = 0
+              Top = 0
+              Width = 1747
+              Height = 822
+              Align = alClient
+              Caption = 'Panel22'
+              TabOrder = 0
+              object DBCtrlGrid1: TDBCtrlGrid
+                Left = 1
+                Top = 1
+                Width = 1565
+                Height = 754
+                Align = alClient
+                DataSource = DataModule1.DSCDSPRODUTOS
+                PanelHeight = 125
+                PanelWidth = 1548
+                TabOrder = 0
+                RowCount = 6
+                SelectedColor = 16763522
+                StyleElements = []
+                object Panel16: TPanel
+                  Left = 0
+                  Top = 0
+                  Width = 155
+                  Height = 125
+                  Align = alLeft
+                  BevelOuter = bvNone
+                  TabOrder = 0
+                  object Label26: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 36
+                    Width = 149
+                    Height = 15
+                    Margins.Top = 0
+                    Margins.Bottom = 0
+                    Align = alTop
+                    Caption = 'C'#243'digo'
+                    StyleElements = []
+                    ExplicitWidth = 38
+                  end
+                  object DBTextcod: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 51
+                    Width = 149
+                    Height = 20
+                    Margins.Top = 0
+                    Margins.Bottom = 0
+                    Align = alTop
+                    DataField = 'Codbarra'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 73
+                  end
+                  object DBText22: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 86
+                    Width = 149
+                    Height = 20
+                    Margins.Top = 0
+                    Margins.Bottom = 0
+                    Align = alTop
+                    DataField = 'CodFornecedor'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 125
+                  end
+                  object Label72: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 149
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 0
+                    Align = alTop
+                    Caption = 'C'#243'd Interno'
+                    StyleElements = []
+                    ExplicitWidth = 63
+                  end
+                  object DBText49: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 16
+                    Width = 149
+                    Height = 20
+                    Margins.Top = 0
+                    Margins.Bottom = 0
+                    Align = alTop
+                    DataField = 'CodInterno'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 23
+                  end
+                  object Label73: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 71
+                    Width = 149
+                    Height = 15
+                    Margins.Top = 0
+                    Margins.Bottom = 0
+                    Align = alTop
+                    Caption = 'C'#243'digo'
+                    StyleElements = []
+                    ExplicitWidth = 38
+                  end
+                end
+                object Panel17: TPanel
+                  Left = 1448
+                  Top = 0
+                  Width = 100
+                  Height = 125
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 1
+                  object DBTextdif: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 76
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Marca'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 26
+                    ExplicitWidth = 117
+                  end
+                  object Label27: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Diferen'#231'a'
+                    StyleElements = []
+                    ExplicitWidth = 51
+                  end
+                  object DBText25: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 24
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Diferenca'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitLeft = 6
+                    ExplicitTop = 38
+                  end
+                  object Label71: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 55
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Marca'
+                    StyleElements = []
+                    ExplicitWidth = 33
+                  end
+                end
+                object Panel18: TPanel
+                  Left = 1348
+                  Top = 0
+                  Width = 100
+                  Height = 125
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 2
+                  object DBTextqtd: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 76
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Grupo'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 26
+                    ExplicitWidth = 154
+                  end
+                  object Label28: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Quantidade'
+                    StyleElements = []
+                    ExplicitWidth = 62
+                  end
+                  object DBText24: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 24
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Contagem'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitLeft = 6
+                    ExplicitTop = 38
+                  end
+                  object Label69: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 55
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Grupo'
+                    StyleElements = []
+                    ExplicitWidth = 33
+                  end
+                end
+                object Panel19: TPanel
+                  Left = 256
+                  Top = 56
+                  Width = 185
+                  Height = 41
+                  BevelOuter = bvNone
+                  TabOrder = 3
+                  object Label29: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 179
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Produto'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 50
+                  end
+                  object DBText11: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 26
+                    Width = 179
+                    Height = 20
+                    Align = alTop
+                    DataField = 'Produto'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitLeft = 8
+                    ExplicitTop = 35
+                    ExplicitWidth = 759
+                  end
+                end
+                object Panel20: TPanel
+                  Left = 1248
+                  Top = 0
+                  Width = 100
+                  Height = 125
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 4
+                  object Label30: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 55
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Localiza'#231#227'o'
+                    StyleElements = []
+                    ExplicitWidth = 62
+                  end
+                  object DBTextest: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 76
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Localizacao'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 26
+                    ExplicitWidth = 170
+                  end
+                  object DBText23: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 24
+                    Width = 94
+                    Height = 25
+                    Align = alTop
+                    Alignment = taCenter
+                    DataField = 'Estoque'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitLeft = 6
+                    ExplicitTop = 38
+                  end
+                  object Label63: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 94
+                    Height = 15
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Estoque'
+                    StyleElements = []
+                    ExplicitWidth = 42
+                  end
+                end
+                object Panel21: TPanel
+                  Left = 155
+                  Top = 0
+                  Width = 1093
+                  Height = 125
+                  Align = alClient
+                  BevelOuter = bvNone
+                  TabOrder = 5
+                  object Label31: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 55
+                    Width = 1087
+                    Height = 15
+                    Align = alTop
+                    Caption = 'Fornecedor'
+                    StyleElements = []
+                    ExplicitWidth = 60
+                  end
+                  object DBTextprod: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 24
+                    Width = 1087
+                    Height = 25
+                    Align = alTop
+                    DataField = 'Produto'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitTop = 26
+                    ExplicitWidth = 613
+                  end
+                  object DBText26: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 76
+                    Width = 1087
+                    Height = 25
+                    Align = alTop
+                    DataField = 'Fornecedor'
+                    DataSource = DataModule1.DSCDSPRODUTOS
+                    StyleElements = []
+                    ExplicitLeft = 0
+                    ExplicitTop = 70
+                    ExplicitWidth = 848
+                  end
+                  object Label62: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 1087
+                    Height = 15
+                    Align = alTop
+                    Caption = 'Produto'
+                    StyleElements = []
+                    ExplicitWidth = 43
+                  end
+                end
+              end
+              object Panel23: TPanel
+                Left = 1566
+                Top = 1
+                Width = 180
+                Height = 754
                 Align = alRight
                 BevelOuter = bvNone
+                ParentBackground = False
                 TabOrder = 1
-                object DBText4: TDBText
+                object btnsalvaprog: TBitBtn
                   AlignWithMargins = True
                   Left = 3
-                  Top = 18
-                  Width = 140
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Estoque'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitTop = 26
+                  Top = 645
+                  Width = 174
+                  Height = 50
+                  Align = alBottom
+                  Caption = 'Salvar'
+                  TabOrder = 0
+                  OnClick = btnsalvaprogClick
                 end
-                object Label14: TLabel
+                object btnatualizahist: TBitBtn
                   AlignWithMargins = True
                   Left = 3
-                  Top = 1
-                  Width = 42
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Estoque'
-                  StyleElements = []
+                  Top = 701
+                  Width = 174
+                  Height = 50
+                  Align = alBottom
+                  Caption = 'Atualizar'
+                  TabOrder = 1
+                  OnClick = btnatualizahistClick
                 end
-                object DBText5: TDBText
+                object btnlimpalista: TBitBtn
                   AlignWithMargins = True
                   Left = 3
-                  Top = 57
-                  Width = 140
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
+                  Top = 59
+                  Width = 174
+                  Height = 50
                   Align = alTop
-                  DataField = 'QuantidadeVendida'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitTop = 75
+                  Caption = 'Nova Confer'#234'ncia'
+                  TabOrder = 2
+                  OnClick = btnlimpalistaClick
                 end
-                object Label15: TLabel
+                object btnapagar: TBitBtn
                   AlignWithMargins = True
                   Left = 3
-                  Top = 40
-                  Width = 38
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
+                  Top = 3
+                  Width = 174
+                  Height = 50
                   Align = alTop
-                  Caption = 'Vendas'
-                  StyleElements = []
+                  Caption = 'Apagar Seleciondo'
+                  TabOrder = 3
+                  OnClick = btnapagarClick
                 end
               end
-              object Panel7: TPanel
-                Left = 1109
-                Top = 0
-                Width = 202
-                Height = 128
-                Align = alRight
+              object Panel26: TPanel
+                Left = 1
+                Top = 755
+                Width = 1745
+                Height = 66
+                Align = alBottom
                 BevelOuter = bvNone
                 TabOrder = 2
-                object Label16: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 33
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Grupo'
+                object LabelStatusConferencia: TLabel
+                  Left = 0
+                  Top = 0
+                  Width = 1745
+                  Height = 66
+                  Align = alClient
+                  Alignment = taCenter
+                  Color = clBtnFace
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -21
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  Layout = tlCenter
                   StyleElements = []
-                end
-                object DBText6: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
-                  Width = 196
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Grupo'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitLeft = -54
-                  ExplicitTop = 75
-                  ExplicitWidth = 239
-                end
-                object Label17: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 40
-                  Width = 33
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Marca'
-                  StyleElements = []
-                end
-                object DBText7: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 57
-                  Width = 196
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Marca'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitLeft = -6
-                  ExplicitTop = 75
-                  ExplicitWidth = 191
+                  ExplicitWidth = 6
+                  ExplicitHeight = 30
                 end
               end
-              object Panel8: TPanel
+            end
+          end
+          object TabSheet4: TTabSheet
+            Caption = 'Produtos em Aberto'
+            ImageIndex = 3
+            object Panel46: TPanel
+              Left = 0
+              Top = 0
+              Width = 1747
+              Height = 822
+              Align = alClient
+              TabOrder = 0
+              object DBCtrlGridprodabertos: TDBCtrlGrid
+                Left = 1
+                Top = 1
+                Width = 1745
+                Height = 359
+                Align = alClient
+                DataSource = DSQRYPRODUTOSABERTOS
+                PanelHeight = 89
+                PanelWidth = 1728
+                TabOrder = 0
+                RowCount = 4
+                SelectedColor = 16763522
+                StyleElements = []
+                object Panel33: TPanel
+                  Left = 0
+                  Top = 0
+                  Width = 153
+                  Height = 89
+                  Align = alLeft
+                  BevelOuter = bvNone
+                  TabOrder = 0
+                  object Label34: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 147
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'C'#243'digo Barras'
+                    StyleElements = []
+                    ExplicitWidth = 73
+                  end
+                  object DBText27: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 18
+                    Width = 147
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'CodBarra'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = 6
+                    ExplicitTop = 32
+                    ExplicitWidth = 187
+                  end
+                  object Label40: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 40
+                    Width = 147
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'C'#243'd Fornecedor'
+                    StyleElements = []
+                    ExplicitWidth = 84
+                  end
+                  object DBText28: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 57
+                    Width = 147
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'CodFornecedor'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = 6
+                    ExplicitTop = 77
+                    ExplicitWidth = 187
+                  end
+                end
+                object Panel38: TPanel
+                  Left = 153
+                  Top = 0
+                  Width = 1073
+                  Height = 89
+                  Align = alClient
+                  BevelOuter = bvNone
+                  TabOrder = 1
+                  object DBText29: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 18
+                    Width = 1067
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'Produto'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = 95
+                    ExplicitTop = 26
+                    ExplicitWidth = 415
+                  end
+                  object Label41: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 1067
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Produto'
+                    StyleElements = []
+                    ExplicitWidth = 43
+                  end
+                  object Label42: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 40
+                    Width = 1067
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Fornecedor'
+                    StyleElements = []
+                    ExplicitWidth = 60
+                  end
+                  object DBText30: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 57
+                    Width = 1067
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'Fornecedor'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = 287
+                    ExplicitTop = 60
+                    ExplicitWidth = 223
+                  end
+                end
+                object Panel39: TPanel
+                  Left = 1526
+                  Top = 0
+                  Width = 202
+                  Height = 89
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 2
+                  object Label43: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 196
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Grupo'
+                    StyleElements = []
+                    ExplicitWidth = 33
+                  end
+                  object DBText31: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 18
+                    Width = 196
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'Grupo'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = -54
+                    ExplicitTop = 75
+                    ExplicitWidth = 239
+                  end
+                  object Label44: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 40
+                    Width = 196
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Marca'
+                    StyleElements = []
+                    ExplicitWidth = 33
+                  end
+                  object DBText32: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 57
+                    Width = 196
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'Marca'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitLeft = -6
+                    ExplicitTop = 75
+                    ExplicitWidth = 191
+                  end
+                end
+                object Panel40: TPanel
+                  Left = 1376
+                  Top = 0
+                  Width = 150
+                  Height = 89
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 3
+                  object DBText33: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 18
+                    Width = 144
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'QtdEstoque'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitTop = 26
+                    ExplicitWidth = 140
+                  end
+                  object Label45: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 144
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Estoque'
+                    StyleElements = []
+                    ExplicitWidth = 42
+                  end
+                  object DBText34: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 57
+                    Width = 144
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'QtdReserva'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitTop = 75
+                    ExplicitWidth = 140
+                  end
+                  object Label46: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 40
+                    Width = 144
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Reservado'
+                    StyleElements = []
+                    ExplicitWidth = 54
+                  end
+                end
+                object Panel41: TPanel
+                  Left = 1226
+                  Top = 0
+                  Width = 150
+                  Height = 89
+                  Align = alRight
+                  BevelOuter = bvNone
+                  TabOrder = 4
+                  object DBText35: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 57
+                    Width = 144
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'Localizacao'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitTop = 75
+                    ExplicitWidth = 183
+                  end
+                  object Label47: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 40
+                    Width = 144
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'Localiza'#231#227'o'
+                    StyleElements = []
+                    ExplicitWidth = 62
+                  end
+                  object DBText36: TDBText
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 18
+                    Width = 144
+                    Height = 20
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    DataField = 'NumPedidos'
+                    DataSource = DSQRYPRODUTOSABERTOS
+                    StyleElements = []
+                    ExplicitTop = 23
+                    ExplicitWidth = 183
+                  end
+                  object Label48: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 1
+                    Width = 144
+                    Height = 15
+                    Margins.Top = 1
+                    Margins.Bottom = 1
+                    Align = alTop
+                    Caption = 'N'#186' Pedidos'
+                    StyleElements = []
+                    ExplicitWidth = 59
+                  end
+                end
+              end
+              object Panel49: TPanel
+                Left = 1
+                Top = 763
+                Width = 1745
+                Height = 58
+                Align = alBottom
+                TabOrder = 1
+                object btnconsultartodos: TBitBtn
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 4
+                  Width = 152
+                  Height = 50
+                  Align = alLeft
+                  Caption = 'Consultar todos'
+                  TabOrder = 0
+                  OnClick = btnconsultartodosClick
+                end
+              end
+              object Panel11: TPanel
+                Left = 1
+                Top = 360
+                Width = 1745
+                Height = 403
+                Align = alBottom
+                TabOrder = 2
+                object Label75: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 1743
+                  Height = 21
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Pedidos'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -16
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 58
+                end
+                object DBCtrlGridpedidos: TDBCtrlGrid
+                  Left = 1
+                  Top = 22
+                  Width = 1743
+                  Height = 380
+                  Align = alClient
+                  DataSource = DataModule1.DSQRYPEDIDOS
+                  PanelHeight = 95
+                  PanelWidth = 1726
+                  TabOrder = 0
+                  RowCount = 4
+                  SelectedColor = 16763522
+                  StyleElements = []
+                  object Panel42: TPanel
+                    Left = 370
+                    Top = 0
+                    Width = 1056
+                    Height = 95
+                    Align = alClient
+                    BevelOuter = bvNone
+                    TabOrder = 0
+                    object DBText39: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 1050
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Cliente'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitTop = 80
+                      ExplicitWidth = 298
+                    end
+                    object Label51: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 1050
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Cliente'
+                      StyleElements = []
+                      ExplicitWidth = 36
+                    end
+                  end
+                  object Panel43: TPanel
+                    Left = 1576
+                    Top = 0
+                    Width = 150
+                    Height = 95
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 1
+                    object DBText41: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 20
+                      Width = 144
+                      Height = 17
+                      Align = alTop
+                      DataField = 'Vendedor'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 9
+                      ExplicitWidth = 183
+                    end
+                    object Label53: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 41
+                      Width = 144
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Usu'#225'rio'
+                      StyleElements = []
+                      ExplicitWidth = 40
+                    end
+                    object DBText42: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 60
+                      Width = 144
+                      Height = 17
+                      Align = alTop
+                      DataField = 'LkUsuario'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 15
+                      ExplicitWidth = 183
+                    end
+                    object Label54: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 144
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Vendedor'
+                      StyleElements = []
+                      ExplicitWidth = 51
+                    end
+                  end
+                  object Panel44: TPanel
+                    Left = 1426
+                    Top = 0
+                    Width = 150
+                    Height = 95
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 2
+                    object DBText43: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 20
+                      Width = 144
+                      Height = 17
+                      Align = alTop
+                      DataField = 'QtdItens'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 9
+                      ExplicitWidth = 183
+                    end
+                    object Label55: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 41
+                      Width = 144
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Obs'
+                      StyleElements = []
+                      ExplicitWidth = 21
+                    end
+                    object DBText44: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 60
+                      Width = 144
+                      Height = 17
+                      Align = alTop
+                      DataField = 'Km'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 15
+                      ExplicitWidth = 183
+                    end
+                    object Label56: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 144
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Itens'
+                      StyleElements = []
+                      ExplicitWidth = 26
+                    end
+                  end
+                  object Panel45: TPanel
+                    Left = 0
+                    Top = 0
+                    Width = 185
+                    Height = 95
+                    Align = alLeft
+                    BevelOuter = bvNone
+                    TabOrder = 3
+                    object DBText40: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 18
+                      Width = 179
+                      Height = 40
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Situacao'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitTop = 24
+                    end
+                    object Label52: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 179
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Situa'#231#227'o'
+                      StyleElements = []
+                      ExplicitWidth = 46
+                    end
+                    object DBText37: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 62
+                      Width = 179
+                      Height = 17
+                      Align = alTop
+                      DataField = 'DataEntrega'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 2
+                      ExplicitTop = 77
+                      ExplicitWidth = 185
+                    end
+                  end
+                  object Panel32: TPanel
+                    Left = 185
+                    Top = 0
+                    Width = 185
+                    Height = 95
+                    Align = alLeft
+                    BevelOuter = bvNone
+                    TabOrder = 4
+                    object DBText38: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 20
+                      Width = 179
+                      Height = 40
+                      Align = alTop
+                      DataField = 'Pedido'
+                      DataSource = DataModule1.DSQRYPEDIDOS
+                      StyleElements = []
+                      ExplicitLeft = 0
+                      ExplicitTop = 23
+                      ExplicitWidth = 185
+                    end
+                    object Label50: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 1
+                      Width = 179
+                      Height = 15
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Pedido'
+                      StyleElements = []
+                      ExplicitWidth = 37
+                    end
+                  end
+                end
+              end
+            end
+          end
+          object TabSheet3: TTabSheet
+            Caption = 'Hist'#243'rico de Conf'#234'rencia'
+            ImageIndex = 2
+            object Panel37: TPanel
+              Left = 1587
+              Top = 0
+              Width = 160
+              Height = 822
+              Align = alRight
+              BevelOuter = bvNone
+              ParentBackground = False
+              TabOrder = 0
+              object btnRetomarProgresso: TButton
+                AlignWithMargins = True
+                Left = 3
+                Top = 769
+                Width = 154
+                Height = 50
+                Align = alBottom
+                Caption = 'Recarregar'
+                TabOrder = 0
+                OnClick = btnRetomarProgressoClick
+              end
+              object btnapagahistorico: TButton
+                AlignWithMargins = True
+                Left = 3
+                Top = 713
+                Width = 154
+                Height = 50
+                Align = alBottom
+                Caption = 'Apagar'
+                TabOrder = 1
+                OnClick = btnapagahistoricoClick
+              end
+              object btnrelatpositivo: TBitBtn
+                AlignWithMargins = True
+                Left = 3
+                Top = 3
+                Width = 154
+                Height = 50
+                Align = alTop
+                Caption = 'Relat'#243'rio Positivo'
+                TabOrder = 2
+                OnClick = btnrelatpositivoClick
+              end
+              object btnrelatnegativo: TBitBtn
+                AlignWithMargins = True
+                Left = 3
+                Top = 59
+                Width = 154
+                Height = 50
+                Align = alTop
+                Caption = 'Relat'#243'rio Negativo'
+                TabOrder = 3
+                OnClick = btnrelatnegativoClick
+              end
+              object btnrelacorreto: TBitBtn
+                AlignWithMargins = True
+                Left = 3
+                Top = 115
+                Width = 154
+                Height = 50
+                Align = alTop
+                Caption = 'Relat'#243'rio Correto'
+                TabOrder = 4
+                OnClick = btnrelacorretoClick
+              end
+              object btnatualizaestoque: TBitBtn
+                AlignWithMargins = True
+                Left = 3
+                Top = 171
+                Width = 154
+                Height = 50
+                Align = alTop
+                Caption = 'Atualizar Estoque'
+                TabOrder = 5
+                OnClick = btnatualizaestoqueClick
+              end
+              object btnmovimento: TButton
+                AlignWithMargins = True
+                Left = 3
+                Top = 227
+                Width = 154
+                Height = 50
+                Align = alTop
+                Caption = 'Consultar Movimenta'#231#227'o'
+                TabOrder = 6
+                OnClick = btnmovimentoClick
+              end
+            end
+            object Panel12: TPanel
+              Left = 0
+              Top = 0
+              Width = 1587
+              Height = 822
+              Align = alClient
+              TabOrder = 1
+              object Panel13: TPanel
+                Left = 1
+                Top = 458
+                Width = 1585
+                Height = 363
+                Align = alBottom
+                TabOrder = 0
+                object Label9: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 1583
+                  Height = 21
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Lista'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -16
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 33
+                end
+                object DBGridprodcontados: TDBCtrlGrid
+                  Left = 1
+                  Top = 22
+                  Width = 1583
+                  Height = 340
+                  Align = alClient
+                  Color = clBtnFace
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  PanelHeight = 113
+                  PanelWidth = 1566
+                  ParentColor = False
+                  TabOrder = 0
+                  SelectedColor = 16763522
+                  ShowFocus = False
+                  StyleElements = []
+                  object Panel24: TPanel
+                    Left = 161
+                    Top = 0
+                    Width = 1105
+                    Height = 113
+                    Align = alClient
+                    BevelOuter = bvNone
+                    TabOrder = 0
+                    object Label32: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 55
+                      Width = 1099
+                      Height = 15
+                      Align = alTop
+                      Caption = 'Fornecedor'
+                      StyleElements = []
+                      ExplicitWidth = 60
+                    end
+                    object DBText14: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 24
+                      Width = 1099
+                      Height = 25
+                      Align = alTop
+                      DataField = 'PRODUTO_DESCRICAO'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitTop = 26
+                      ExplicitWidth = 613
+                    end
+                    object DBText15: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 76
+                      Width = 1099
+                      Height = 25
+                      Align = alTop
+                      DataField = 'FORNECEDOR'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitLeft = 0
+                      ExplicitTop = 70
+                      ExplicitWidth = 848
+                    end
+                    object Label58: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 3
+                      Width = 1099
+                      Height = 15
+                      Align = alTop
+                      Caption = 'Produto'
+                      StyleElements = []
+                      ExplicitWidth = 43
+                    end
+                  end
+                  object Panel25: TPanel
+                    Left = 1266
+                    Top = 0
+                    Width = 100
+                    Height = 113
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 1
+                    object Label33: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 55
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Localiza'#231#227'o'
+                      StyleElements = []
+                      ExplicitWidth = 62
+                    end
+                    object DBText16: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 76
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'Localizacao'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitTop = 26
+                      ExplicitWidth = 170
+                    end
+                    object DBText17: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 24
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'ESTOQUE_ANTERIOR'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitLeft = 6
+                      ExplicitTop = 38
+                    end
+                    object Label59: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 3
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Estoque'
+                      StyleElements = []
+                      ExplicitWidth = 42
+                    end
+                  end
+                  object Panel27: TPanel
+                    Left = 1366
+                    Top = 0
+                    Width = 100
+                    Height = 113
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 2
+                    object DBText18: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 76
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'GRUPO'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitTop = 26
+                      ExplicitWidth = 154
+                    end
+                    object Label35: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 55
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Grupo'
+                      StyleElements = []
+                      ExplicitWidth = 33
+                    end
+                    object DBText19: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 24
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'CONTAGEM_FINAL'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitLeft = 6
+                      ExplicitTop = 38
+                    end
+                    object Label60: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 3
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Contagem'
+                      StyleElements = []
+                      ExplicitWidth = 55
+                    end
+                  end
+                  object Panel28: TPanel
+                    Left = 1466
+                    Top = 0
+                    Width = 100
+                    Height = 113
+                    Align = alRight
+                    BevelOuter = bvNone
+                    TabOrder = 3
+                    object DBText20: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 76
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'MARCA'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitTop = 26
+                      ExplicitWidth = 117
+                    end
+                    object Label36: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 55
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Marca'
+                      StyleElements = []
+                      ExplicitWidth = 33
+                    end
+                    object DBText21: TDBText
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 24
+                      Width = 94
+                      Height = 25
+                      Align = alTop
+                      Alignment = taCenter
+                      DataField = 'DIFERENCA'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      StyleElements = []
+                      ExplicitLeft = 6
+                      ExplicitTop = 38
+                    end
+                    object Label61: TLabel
+                      AlignWithMargins = True
+                      Left = 3
+                      Top = 3
+                      Width = 94
+                      Height = 15
+                      Align = alTop
+                      Alignment = taCenter
+                      Caption = 'Diferen'#231'a'
+                      StyleElements = []
+                      ExplicitWidth = 51
+                    end
+                  end
+                  object Panel15: TPanel
+                    Left = 0
+                    Top = 0
+                    Width = 161
+                    Height = 113
+                    Align = alLeft
+                    BevelOuter = bvNone
+                    TabOrder = 4
+                    object DBText12: TDBText
+                      Left = 0
+                      Top = 46
+                      Width = 161
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'CodBarra'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitLeft = 18
+                      ExplicitTop = 75
+                      ExplicitWidth = 146
+                    end
+                    object Label25: TLabel
+                      Left = 0
+                      Top = 66
+                      Width = 161
+                      Height = 13
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'C'#243'd Fornecedor'
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitWidth = 82
+                    end
+                    object DBText13: TDBText
+                      Left = 0
+                      Top = 79
+                      Width = 161
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'Codfornecedor'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitTop = 90
+                      ExplicitWidth = 155
+                    end
+                    object Label37: TLabel
+                      Left = 0
+                      Top = 33
+                      Width = 161
+                      Height = 13
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'C'#243'digo Barras'
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitWidth = 73
+                    end
+                    object DBText45: TDBText
+                      Left = 0
+                      Top = 13
+                      Width = 161
+                      Height = 20
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      DataField = 'CodInterno'
+                      DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitLeft = 3
+                      ExplicitTop = 39
+                      ExplicitWidth = 155
+                    end
+                    object Label38: TLabel
+                      Left = 0
+                      Top = 0
+                      Width = 161
+                      Height = 13
+                      Margins.Top = 1
+                      Margins.Bottom = 1
+                      Align = alTop
+                      Caption = 'Cod Interno'
+                      Font.Charset = ANSI_CHARSET
+                      Font.Color = clBlack
+                      Font.Height = -11
+                      Font.Name = 'Segoe UI Semibold'
+                      Font.Style = [fsBold]
+                      ParentFont = False
+                      StyleElements = []
+                      ExplicitWidth = 60
+                    end
+                  end
+                end
+              end
+              object Panel29: TPanel
+                Left = 1
+                Top = 1
+                Width = 1585
+                Height = 457
+                Align = alClient
+                TabOrder = 1
+                object Label7: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 1583
+                  Height = 21
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Contagens de Estoque salvas'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -16
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 210
+                end
+                object DBGRIDHISTORICO: TDBGrid
+                  Left = 1
+                  Top = 22
+                  Width = 1583
+                  Height = 434
+                  Align = alClient
+                  DataSource = DSQRYHISTORICO
+                  Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+                  ParentColor = True
+                  ReadOnly = True
+                  TabOrder = 0
+                  TitleFont.Charset = ANSI_CHARSET
+                  TitleFont.Color = clWindowText
+                  TitleFont.Height = -12
+                  TitleFont.Name = 'Segoe UI Semibold'
+                  TitleFont.Style = [fsBold]
+                  StyleElements = []
+                  OnDrawColumnCell = DBGRIDHISTORICODrawColumnCell
+                end
+              end
+            end
+          end
+          object TabSheet5: TTabSheet
+            Caption = 'Movimento do Estoque'
+            ImageIndex = 5
+            object Panel50: TPanel
+              Left = 0
+              Top = 0
+              Width = 1747
+              Height = 129
+              Align = alTop
+              BevelOuter = bvNone
+              Color = clGradientActiveCaption
+              ParentBackground = False
+              TabOrder = 0
+              StyleElements = []
+              object Panel51: TPanel
                 Left = 0
                 Top = 0
                 Width = 161
-                Height = 128
+                Height = 129
                 Align = alLeft
                 BevelOuter = bvNone
-                TabOrder = 3
-                object DBText3: TDBText
+                TabOrder = 0
+                object DBText51: TDBText
                   AlignWithMargins = True
                   Left = 3
-                  Top = 57
+                  Top = 61
                   Width = 155
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   DataField = 'CodBarra'
-                  DataSource = dsQRYRKVEND
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
                   StyleElements = []
                   ExplicitLeft = 18
                   ExplicitTop = 75
                   ExplicitWidth = 146
                 end
-                object Label13: TLabel
+                object Label64: TLabel
                   AlignWithMargins = True
                   Left = 3
-                  Top = 79
-                  Width = 84
-                  Height = 15
+                  Top = 83
+                  Width = 155
+                  Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'C'#243'd Fornecedor'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
                   StyleElements = []
+                  ExplicitWidth = 97
                 end
-                object DBText1: TDBText
+                object DBText52: TDBText
                   AlignWithMargins = True
                   Left = 3
-                  Top = 96
+                  Top = 102
                   Width = 155
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   DataField = 'Codfornecedor'
-                  DataSource = dsQRYRKVEND
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
                   StyleElements = []
                   ExplicitLeft = 18
                   ExplicitTop = 26
                   ExplicitWidth = 87
                 end
-                object Label11: TLabel
+                object Label65: TLabel
                   AlignWithMargins = True
                   Left = 3
-                  Top = 40
-                  Width = 73
-                  Height = 15
+                  Top = 42
+                  Width = 155
+                  Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'C'#243'digo Barras'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
                   StyleElements = []
+                  ExplicitWidth = 85
                 end
-                object Label24: TLabel
+                object DBText53: TDBText
                   AlignWithMargins = True
                   Left = 3
-                  Top = 1
-                  Width = 63
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'C'#243'd Interno'
-                  StyleElements = []
-                end
-                object DBText65: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
+                  Top = 20
                   Width = 155
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   DataField = 'CodInterno'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 16
-                end
-              end
-              object Panel9: TPanel
-                Left = 161
-                Top = 0
-                Width = 948
-                Height = 128
-                Align = alClient
-                BevelOuter = bvNone
-                TabOrder = 4
-                object DBText2: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
-                  Width = 942
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Produto'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitLeft = 95
-                  ExplicitTop = 26
-                  ExplicitWidth = 415
-                end
-                object Label12: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 43
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Produto'
-                  StyleElements = []
-                end
-                object Label18: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 40
-                  Width = 60
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Fornecedor'
-                  StyleElements = []
-                end
-                object DBText8: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 57
-                  Width = 942
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Fornecedor'
-                  DataSource = dsQRYRKVEND
-                  StyleElements = []
-                  ExplicitLeft = 287
-                  ExplicitTop = 60
-                  ExplicitWidth = 223
-                end
-              end
-            end
-            object Panel10: TPanel
-              Left = 1575
-              Top = 0
-              Width = 180
-              Height = 769
-              Align = alRight
-              TabOrder = 1
-              object Label21: TLabel
-                AlignWithMargins = True
-                Left = 4
-                Top = 658
-                Width = 51
-                Height = 15
-                Align = alBottom
-                Alignment = taCenter
-                Caption = 'Diferen'#231'a'
-                StyleElements = []
-              end
-              object Labeldiferença: TLabel
-                AlignWithMargins = True
-                Left = 4
-                Top = 679
-                Width = 12
-                Height = 30
-                Align = alBottom
-                Alignment = taCenter
-                Caption = '0'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -21
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentFont = False
-                StyleElements = []
-              end
-              object Label23: TLabel
-                AlignWithMargins = True
-                Left = 4
-                Top = 593
-                Width = 62
-                Height = 15
-                Align = alBottom
-                Alignment = taCenter
-                Caption = 'Quantidade'
-                StyleElements = []
-              end
-              object DBTextquantidade: TDBText
-                AlignWithMargins = True
-                Left = 4
-                Top = 557
-                Width = 176
-                Height = 30
-                Align = alBottom
-                Alignment = taCenter
-                AutoSize = True
-                DataField = 'Estoque'
-                DataSource = dsQRYRKVEND
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -21
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentFont = False
-                StyleElements = []
-              end
-              object Label22: TLabel
-                AlignWithMargins = True
-                Left = 4
-                Top = 536
-                Width = 42
-                Height = 15
-                Align = alBottom
-                Alignment = taCenter
-                Caption = 'Estoque'
-                StyleElements = []
-              end
-              object btnconsultprevenda: TButton
-                AlignWithMargins = True
-                Left = 4
-                Top = 480
-                Width = 172
-                Height = 50
-                Align = alBottom
-                Caption = 'Consultar em Pre-Venda'
-                TabOrder = 0
-                OnClick = btnconsultprevendaClick
-              end
-              object btnconfirma: TBitBtn
-                AlignWithMargins = True
-                Left = 4
-                Top = 715
-                Width = 172
-                Height = 50
-                Align = alBottom
-                Caption = 'Confirmar'
-                TabOrder = 1
-                OnClick = btnconfirmaClick
-              end
-              object Editcontagem: TEdit
-                AlignWithMargins = True
-                Left = 4
-                Top = 614
-                Width = 172
-                Height = 38
-                Align = alBottom
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clBlack
-                Font.Height = -21
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentFont = False
-                TabOrder = 2
-                OnChange = EditcontagemChange
-                OnKeyPress = EditcontagemKeyPress
-              end
-            end
-          end
-          object Panel14: TPanel
-            Left = 0
-            Top = 796
-            Width = 1755
-            Height = 56
-            Align = alBottom
-            BevelOuter = bvNone
-            Color = clNavy
-            ParentBackground = False
-            TabOrder = 1
-            StyleElements = []
-            object Pnproduto: TPanel
-              Left = 0
-              Top = 0
-              Width = 1755
-              Height = 56
-              Align = alClient
-              BevelOuter = bvNone
-              Color = clNavy
-              ParentBackground = False
-              TabOrder = 0
-              StyleElements = []
-              object Labelinfor: TLabel
-                AlignWithMargins = True
-                Left = 1703
-                Top = 3
-                Width = 42
-                Height = 25
-                Margins.Right = 10
-                Align = alRight
-                Caption = 'Infor'
-                Color = clNavy
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -19
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentColor = False
-                ParentFont = False
-                StyleElements = []
-                OnClick = LabelinforClick
-              end
-              object Label1: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 69
-                Height = 25
-                Align = alLeft
-                Caption = 'Produto'
-                Color = clWhite
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -19
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentColor = False
-                ParentFont = False
-                StyleElements = []
-                OnClick = Label1Click
-              end
-              object DBTextproduto: TDBText
-                AlignWithMargins = True
-                Left = 78
-                Top = 3
-                Width = 128
-                Height = 25
-                Align = alLeft
-                AutoSize = True
-                Color = clWhite
-                DataField = 'Produto'
-                DataSource = dsQRYRKVEND
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWhite
-                Font.Height = -19
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentColor = False
-                ParentFont = False
-                StyleElements = []
-                OnClick = DBTextprodutoClick
-              end
-            end
-          end
-        end
-      end
-      object TabSheet2: TTabSheet
-        Caption = 'Produtos Conferidos'
-        ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object Panel22: TPanel
-          Left = 0
-          Top = 0
-          Width = 1755
-          Height = 852
-          Align = alClient
-          Caption = 'Panel22'
-          TabOrder = 0
-          object DBCtrlGrid1: TDBCtrlGrid
-            Left = 1
-            Top = 1
-            Width = 1573
-            Height = 780
-            Align = alClient
-            DataSource = DSCDSPRODUTOS
-            PanelHeight = 130
-            PanelWidth = 1556
-            TabOrder = 0
-            RowCount = 6
-            SelectedColor = 16763522
-            StyleElements = []
-            ExplicitHeight = 588
-            object Panel16: TPanel
-              Left = 0
-              Top = 0
-              Width = 155
-              Height = 130
-              Align = alLeft
-              BevelOuter = bvNone
-              TabOrder = 0
-              ExplicitHeight = 98
-              object Label26: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 41
-                Width = 38
-                Height = 15
-                Margins.Top = 0
-                Margins.Bottom = 0
-                Align = alTop
-                Caption = 'C'#243'digo'
-                StyleElements = []
-              end
-              object DBTextcod: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 61
-                Width = 149
-                Height = 20
-                Margins.Top = 0
-                Margins.Bottom = 0
-                Align = alTop
-                DataField = 'Codbarra'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 73
-              end
-              object DBText22: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 101
-                Width = 149
-                Height = 20
-                Margins.Top = 0
-                Margins.Bottom = 0
-                Align = alTop
-                DataField = 'CodFornecedor'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 125
-              end
-              object Label72: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 63
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 0
-                Align = alTop
-                Caption = 'C'#243'd Interno'
-                StyleElements = []
-              end
-              object DBText49: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 21
-                Width = 149
-                Height = 20
-                Margins.Top = 0
-                Margins.Bottom = 0
-                Align = alTop
-                DataField = 'CodInterno'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 23
-              end
-              object Label73: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 81
-                Width = 38
-                Height = 15
-                Margins.Top = 0
-                Margins.Bottom = 0
-                Align = alTop
-                Caption = 'C'#243'digo'
-                StyleElements = []
-              end
-            end
-            object Panel17: TPanel
-              Left = 1456
-              Top = 0
-              Width = 100
-              Height = 130
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 1
-              ExplicitHeight = 98
-              object DBTextdif: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 76
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Marca'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 26
-                ExplicitWidth = 117
-              end
-              object Label27: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 51
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Diferen'#231'a'
-                StyleElements = []
-              end
-              object DBText25: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 24
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Diferenca'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitLeft = 6
-                ExplicitTop = 38
-              end
-              object Label71: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 55
-                Width = 33
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Marca'
-                StyleElements = []
-              end
-            end
-            object Panel18: TPanel
-              Left = 1356
-              Top = 0
-              Width = 100
-              Height = 130
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 2
-              ExplicitHeight = 98
-              object DBTextqtd: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 76
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Grupo'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 26
-                ExplicitWidth = 154
-              end
-              object Label28: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 62
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Quantidade'
-                StyleElements = []
-              end
-              object DBText24: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 24
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Contagem'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitLeft = 6
-                ExplicitTop = 38
-              end
-              object Label69: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 55
-                Width = 33
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Grupo'
-                StyleElements = []
-              end
-            end
-            object Panel19: TPanel
-              Left = 256
-              Top = 56
-              Width = 185
-              Height = 41
-              BevelOuter = bvNone
-              TabOrder = 3
-              object Label29: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 50
-                Height = 17
-                Align = alTop
-                Caption = 'Produto'
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -13
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentFont = False
-              end
-              object DBText11: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 26
-                Width = 179
-                Height = 20
-                Align = alTop
-                DataField = 'Produto'
-                DataSource = DSCDSPRODUTOS
-                Font.Charset = ANSI_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -13
-                Font.Name = 'Segoe UI Semibold'
-                Font.Style = [fsBold]
-                ParentFont = False
-                ExplicitLeft = 8
-                ExplicitTop = 35
-                ExplicitWidth = 759
-              end
-            end
-            object Panel20: TPanel
-              Left = 1256
-              Top = 0
-              Width = 100
-              Height = 130
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 4
-              ExplicitHeight = 98
-              object Label30: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 55
-                Width = 62
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Localiza'#231#227'o'
-                StyleElements = []
-              end
-              object DBTextest: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 76
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Localizacao'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 26
-                ExplicitWidth = 170
-              end
-              object DBText23: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 24
-                Width = 94
-                Height = 25
-                Align = alTop
-                Alignment = taCenter
-                DataField = 'Estoque'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitLeft = 6
-                ExplicitTop = 38
-              end
-              object Label63: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 42
-                Height = 15
-                Align = alTop
-                Alignment = taCenter
-                Caption = 'Estoque'
-                StyleElements = []
-              end
-            end
-            object Panel21: TPanel
-              Left = 155
-              Top = 0
-              Width = 1101
-              Height = 130
-              Align = alClient
-              BevelOuter = bvNone
-              TabOrder = 5
-              ExplicitHeight = 98
-              object Label31: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 55
-                Width = 60
-                Height = 15
-                Align = alTop
-                Caption = 'Fornecedor'
-                StyleElements = []
-              end
-              object DBTextprod: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 24
-                Width = 1095
-                Height = 25
-                Align = alTop
-                DataField = 'Produto'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitTop = 26
-                ExplicitWidth = 613
-              end
-              object DBText26: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 76
-                Width = 1095
-                Height = 25
-                Align = alTop
-                DataField = 'Fornecedor'
-                DataSource = DSCDSPRODUTOS
-                StyleElements = []
-                ExplicitLeft = 0
-                ExplicitTop = 70
-                ExplicitWidth = 848
-              end
-              object Label62: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 3
-                Width = 43
-                Height = 15
-                Align = alTop
-                Caption = 'Produto'
-                StyleElements = []
-              end
-            end
-          end
-          object Panel23: TPanel
-            Left = 1574
-            Top = 1
-            Width = 180
-            Height = 784
-            Align = alRight
-            BevelOuter = bvNone
-            ParentBackground = False
-            TabOrder = 1
-            object btnsalvaprog: TBitBtn
-              AlignWithMargins = True
-              Left = 3
-              Top = 675
-              Width = 174
-              Height = 50
-              Align = alBottom
-              Caption = 'Salvar'
-              TabOrder = 0
-              OnClick = btnsalvaprogClick
-            end
-            object btnatualizahist: TBitBtn
-              AlignWithMargins = True
-              Left = 3
-              Top = 731
-              Width = 174
-              Height = 50
-              Align = alBottom
-              Caption = 'Atualizar'
-              TabOrder = 1
-              OnClick = btnatualizahistClick
-            end
-            object btnlimpalista: TBitBtn
-              AlignWithMargins = True
-              Left = 3
-              Top = 59
-              Width = 174
-              Height = 50
-              Align = alTop
-              Caption = 'Nova Confer'#234'ncia'
-              TabOrder = 2
-              OnClick = btnlimpalistaClick
-            end
-            object btnapagar: TBitBtn
-              AlignWithMargins = True
-              Left = 3
-              Top = 3
-              Width = 174
-              Height = 50
-              Align = alTop
-              Caption = 'Apagar Seleciondo'
-              TabOrder = 3
-              OnClick = btnapagarClick
-            end
-          end
-          object Panel26: TPanel
-            Left = 1
-            Top = 785
-            Width = 1753
-            Height = 66
-            Align = alBottom
-            BevelOuter = bvNone
-            TabOrder = 2
-            object LabelStatusConferencia: TLabel
-              Left = 0
-              Top = 0
-              Width = 6
-              Height = 30
-              Align = alClient
-              Alignment = taCenter
-              Color = clBtnFace
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -21
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-              Transparent = False
-              Layout = tlCenter
-              StyleElements = []
-            end
-          end
-        end
-      end
-      object TabSheet4: TTabSheet
-        Caption = 'Produtos em Aberto'
-        ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object Panel46: TPanel
-          Left = 0
-          Top = 0
-          Width = 1755
-          Height = 852
-          Align = alClient
-          TabOrder = 0
-          object DBCtrlGridprodabertos: TDBCtrlGrid
-            Left = 1
-            Top = 1
-            Width = 1753
-            Height = 388
-            Align = alClient
-            DataSource = DSQRYPRODUTOSABERTOS
-            PanelHeight = 97
-            PanelWidth = 1736
-            TabOrder = 0
-            RowCount = 4
-            SelectedColor = 16763522
-            StyleElements = []
-            ExplicitHeight = 389
-            object Panel33: TPanel
-              Left = 0
-              Top = 0
-              Width = 153
-              Height = 97
-              Align = alLeft
-              BevelOuter = bvNone
-              TabOrder = 0
-              object Label34: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 73
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'C'#243'digo Barras'
-                StyleElements = []
-              end
-              object DBText27: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 18
-                Width = 147
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'CodBarra'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = 6
-                ExplicitTop = 32
-                ExplicitWidth = 187
-              end
-              object Label40: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 40
-                Width = 84
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'C'#243'd Fornecedor'
-                StyleElements = []
-              end
-              object DBText28: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 57
-                Width = 147
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'CodFornecedor'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = 6
-                ExplicitTop = 77
-                ExplicitWidth = 187
-              end
-            end
-            object Panel38: TPanel
-              Left = 153
-              Top = 0
-              Width = 1081
-              Height = 97
-              Align = alClient
-              BevelOuter = bvNone
-              TabOrder = 1
-              object DBText29: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 18
-                Width = 1075
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'Produto'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = 95
-                ExplicitTop = 26
-                ExplicitWidth = 415
-              end
-              object Label41: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 43
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Produto'
-                StyleElements = []
-              end
-              object Label42: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 40
-                Width = 60
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Fornecedor'
-                StyleElements = []
-              end
-              object DBText30: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 57
-                Width = 1075
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'Fornecedor'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = 287
-                ExplicitTop = 60
-                ExplicitWidth = 223
-              end
-            end
-            object Panel39: TPanel
-              Left = 1534
-              Top = 0
-              Width = 202
-              Height = 97
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 2
-              object Label43: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 33
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Grupo'
-                StyleElements = []
-              end
-              object DBText31: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 18
-                Width = 196
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'Grupo'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = -54
-                ExplicitTop = 75
-                ExplicitWidth = 239
-              end
-              object Label44: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 40
-                Width = 33
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Marca'
-                StyleElements = []
-              end
-              object DBText32: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 57
-                Width = 196
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'Marca'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitLeft = -6
-                ExplicitTop = 75
-                ExplicitWidth = 191
-              end
-            end
-            object Panel40: TPanel
-              Left = 1384
-              Top = 0
-              Width = 150
-              Height = 97
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 3
-              object DBText33: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 18
-                Width = 144
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'QtdEstoque'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitTop = 26
-                ExplicitWidth = 140
-              end
-              object Label45: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 42
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Estoque'
-                StyleElements = []
-              end
-              object DBText34: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 57
-                Width = 144
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'QtdReserva'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitTop = 75
-                ExplicitWidth = 140
-              end
-              object Label46: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 40
-                Width = 54
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Reservado'
-                StyleElements = []
-              end
-            end
-            object Panel41: TPanel
-              Left = 1234
-              Top = 0
-              Width = 150
-              Height = 97
-              Align = alRight
-              BevelOuter = bvNone
-              TabOrder = 4
-              object DBText35: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 57
-                Width = 144
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'Localizacao'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitTop = 75
-                ExplicitWidth = 183
-              end
-              object Label47: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 40
-                Width = 62
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'Localiza'#231#227'o'
-                StyleElements = []
-              end
-              object DBText36: TDBText
-                AlignWithMargins = True
-                Left = 3
-                Top = 18
-                Width = 144
-                Height = 20
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                DataField = 'NumPedidos'
-                DataSource = DSQRYPRODUTOSABERTOS
-                StyleElements = []
-                ExplicitTop = 23
-                ExplicitWidth = 183
-              end
-              object Label48: TLabel
-                AlignWithMargins = True
-                Left = 3
-                Top = 1
-                Width = 59
-                Height = 15
-                Margins.Top = 1
-                Margins.Bottom = 1
-                Align = alTop
-                Caption = 'N'#186' Pedidos'
-                StyleElements = []
-              end
-            end
-          end
-          object Panel53: TPanel
-            Left = 1
-            Top = 793
-            Width = 1753
-            Height = 58
-            Align = alBottom
-            TabOrder = 1
-            object btnconsultartodos: TBitBtn
-              AlignWithMargins = True
-              Left = 4
-              Top = 4
-              Width = 152
-              Height = 50
-              Align = alLeft
-              Caption = 'Consultar todos'
-              TabOrder = 0
-              OnClick = btnconsultartodosClick
-            end
-          end
-          object Panel11: TPanel
-            Left = 1
-            Top = 390
-            Width = 1753
-            Height = 403
-            Align = alBottom
-            TabOrder = 2
-            object Label75: TLabel
-              Left = 1
-              Top = 1
-              Width = 58
-              Height = 21
-              Align = alTop
-              Alignment = taCenter
-              Caption = 'Pedidos'
-              Color = clNavy
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -16
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-              Transparent = False
-              StyleElements = []
-            end
-            object DBCtrlGridpedidos: TDBCtrlGrid
-              Left = 1
-              Top = 22
-              Width = 1751
-              Height = 380
-              Align = alClient
-              DataSource = DSQRYPEDIDOS
-              PanelHeight = 95
-              PanelWidth = 1734
-              TabOrder = 0
-              RowCount = 4
-              SelectedColor = 16763522
-              StyleElements = []
-              ExplicitTop = 26
-              ExplicitHeight = 376
-              object Panel42: TPanel
-                Left = 370
-                Top = 0
-                Width = 1064
-                Height = 95
-                Align = alClient
-                BevelOuter = bvNone
-                TabOrder = 0
-                ExplicitHeight = 94
-                object DBText39: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
-                  Width = 1058
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Cliente'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitTop = 80
-                  ExplicitWidth = 298
-                end
-                object Label51: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 36
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Cliente'
-                  StyleElements = []
-                end
-              end
-              object Panel43: TPanel
-                Left = 1584
-                Top = 0
-                Width = 150
-                Height = 95
-                Align = alRight
-                BevelOuter = bvNone
-                TabOrder = 1
-                ExplicitHeight = 94
-                object DBText41: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 20
-                  Width = 144
-                  Height = 17
-                  Align = alTop
-                  DataField = 'Vendedor'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 9
-                  ExplicitWidth = 183
-                end
-                object Label53: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 41
-                  Width = 40
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Usu'#225'rio'
-                  StyleElements = []
-                end
-                object DBText42: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 60
-                  Width = 144
-                  Height = 17
-                  Align = alTop
-                  DataField = 'LkUsuario'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 15
-                  ExplicitWidth = 183
-                end
-                object Label54: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 51
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Vendedor'
-                  StyleElements = []
-                end
-              end
-              object Panel44: TPanel
-                Left = 1434
-                Top = 0
-                Width = 150
-                Height = 95
-                Align = alRight
-                BevelOuter = bvNone
-                TabOrder = 2
-                ExplicitHeight = 94
-                object DBText43: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 20
-                  Width = 144
-                  Height = 17
-                  Align = alTop
-                  DataField = 'QtdItens'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 9
-                  ExplicitWidth = 183
-                end
-                object Label55: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 41
-                  Width = 21
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Obs'
-                  StyleElements = []
-                end
-                object DBText44: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 60
-                  Width = 144
-                  Height = 17
-                  Align = alTop
-                  DataField = 'Km'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 15
-                  ExplicitWidth = 183
-                end
-                object Label56: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 26
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Itens'
-                  StyleElements = []
-                end
-              end
-              object Panel45: TPanel
-                Left = 0
-                Top = 0
-                Width = 185
-                Height = 95
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 3
-                ExplicitHeight = 94
-                object DBText40: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 18
-                  Width = 179
-                  Height = 40
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Situacao'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitTop = 24
-                end
-                object Label52: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 46
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Situa'#231#227'o'
-                  StyleElements = []
-                end
-                object DBText37: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 62
-                  Width = 179
-                  Height = 17
-                  Align = alTop
-                  DataField = 'DataEntrega'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 2
-                  ExplicitTop = 77
-                  ExplicitWidth = 185
-                end
-              end
-              object Panel32: TPanel
-                Left = 185
-                Top = 0
-                Width = 185
-                Height = 95
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 4
-                ExplicitHeight = 94
-                object DBText38: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 20
-                  Width = 179
-                  Height = 40
-                  Align = alTop
-                  DataField = 'Pedido'
-                  DataSource = DSQRYPEDIDOS
-                  StyleElements = []
-                  ExplicitLeft = 0
-                  ExplicitTop = 23
-                  ExplicitWidth = 185
-                end
-                object Label50: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 37
-                  Height = 15
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'Pedido'
-                  StyleElements = []
-                end
-              end
-            end
-          end
-        end
-      end
-      object TabSheet3: TTabSheet
-        Caption = 'Hist'#243'rico de Conf'#234'rencia'
-        ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object Panel37: TPanel
-          Left = 1595
-          Top = 0
-          Width = 160
-          Height = 852
-          Align = alRight
-          BevelOuter = bvNone
-          ParentBackground = False
-          TabOrder = 0
-          object btnRetomarProgresso: TButton
-            AlignWithMargins = True
-            Left = 3
-            Top = 799
-            Width = 154
-            Height = 50
-            Align = alBottom
-            Caption = 'Recarregar'
-            TabOrder = 0
-            OnClick = btnRetomarProgressoClick
-          end
-          object btnapagahistorico: TButton
-            AlignWithMargins = True
-            Left = 3
-            Top = 743
-            Width = 154
-            Height = 50
-            Align = alBottom
-            Caption = 'Apagar'
-            TabOrder = 1
-            OnClick = btnapagahistoricoClick
-          end
-          object btnrelatpositivo: TBitBtn
-            AlignWithMargins = True
-            Left = 3
-            Top = 3
-            Width = 154
-            Height = 50
-            Align = alTop
-            Caption = 'Relat'#243'rio Positivo'
-            TabOrder = 2
-            OnClick = btnrelatpositivoClick
-          end
-          object btnrelatnegativo: TBitBtn
-            AlignWithMargins = True
-            Left = 3
-            Top = 59
-            Width = 154
-            Height = 50
-            Align = alTop
-            Caption = 'Relat'#243'rio Negativo'
-            TabOrder = 3
-            OnClick = btnrelatnegativoClick
-          end
-          object btnrelacorreto: TBitBtn
-            AlignWithMargins = True
-            Left = 3
-            Top = 115
-            Width = 154
-            Height = 50
-            Align = alTop
-            Caption = 'Relat'#243'rio Correto'
-            TabOrder = 4
-            OnClick = btnrelacorretoClick
-          end
-          object btnatualizaestoque: TBitBtn
-            AlignWithMargins = True
-            Left = 3
-            Top = 171
-            Width = 154
-            Height = 50
-            Align = alTop
-            Caption = 'Atualizar Estoque'
-            TabOrder = 5
-            OnClick = btnatualizaestoqueClick
-          end
-          object btnmovimento: TButton
-            AlignWithMargins = True
-            Left = 3
-            Top = 227
-            Width = 154
-            Height = 50
-            Align = alTop
-            Caption = 'Consultar Movimenta'#231#227'o'
-            TabOrder = 6
-            OnClick = btnmovimentoClick
-          end
-        end
-        object Panel12: TPanel
-          Left = 0
-          Top = 0
-          Width = 1595
-          Height = 852
-          Align = alClient
-          TabOrder = 1
-          object Panel13: TPanel
-            Left = 1
-            Top = 488
-            Width = 1593
-            Height = 363
-            Align = alBottom
-            TabOrder = 0
-            object Label9: TLabel
-              Left = 1
-              Top = 1
-              Width = 33
-              Height = 21
-              Align = alTop
-              Alignment = taCenter
-              Caption = 'Lista'
-              Color = clNavy
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -16
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-              Transparent = False
-              StyleElements = []
-            end
-            object DBGridprodcontados: TDBCtrlGrid
-              Left = 1
-              Top = 26
-              Width = 1591
-              Height = 336
-              Align = alClient
-              Color = clBtnFace
-              DataSource = DSQRYPRODUTOSCONTADOS
-              PanelHeight = 112
-              PanelWidth = 1574
-              ParentColor = False
-              TabOrder = 0
-              SelectedColor = 16763522
-              ShowFocus = False
-              StyleElements = []
-              ExplicitTop = -10
-              ExplicitHeight = 340
-              object Panel24: TPanel
-                Left = 161
-                Top = 0
-                Width = 1113
-                Height = 112
-                Align = alClient
-                BevelOuter = bvNone
-                TabOrder = 0
-                ExplicitHeight = 109
-                object Label32: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 55
-                  Width = 60
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Fornecedor'
-                  StyleElements = []
-                end
-                object DBText14: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 1107
-                  Height = 25
-                  Align = alTop
-                  DataField = 'PRODUTO_DESCRICAO'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitTop = 26
-                  ExplicitWidth = 613
-                end
-                object DBText15: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 76
-                  Width = 1107
-                  Height = 25
-                  Align = alTop
-                  DataField = 'FORNECEDOR'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitLeft = 0
-                  ExplicitTop = 70
-                  ExplicitWidth = 848
-                end
-                object Label58: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 43
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Produto'
-                  StyleElements = []
-                end
-              end
-              object Panel25: TPanel
-                Left = 1274
-                Top = 0
-                Width = 100
-                Height = 112
-                Align = alRight
-                BevelOuter = bvNone
-                TabOrder = 1
-                ExplicitHeight = 109
-                object Label33: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 55
-                  Width = 62
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Localiza'#231#227'o'
-                  StyleElements = []
-                end
-                object DBText16: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 76
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'Localizacao'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitTop = 26
-                  ExplicitWidth = 170
-                end
-                object DBText17: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'ESTOQUE_ANTERIOR'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitLeft = 6
-                  ExplicitTop = 38
-                end
-                object Label59: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 42
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Estoque'
-                  StyleElements = []
-                end
-              end
-              object Panel27: TPanel
-                Left = 1374
-                Top = 0
-                Width = 100
-                Height = 112
-                Align = alRight
-                BevelOuter = bvNone
-                TabOrder = 2
-                ExplicitHeight = 109
-                object DBText18: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 76
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'GRUPO'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitTop = 26
-                  ExplicitWidth = 154
-                end
-                object Label35: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 55
-                  Width = 33
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Grupo'
-                  StyleElements = []
-                end
-                object DBText19: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'CONTAGEM_FINAL'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitLeft = 6
-                  ExplicitTop = 38
-                end
-                object Label60: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 55
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Contagem'
-                  StyleElements = []
-                end
-              end
-              object Panel28: TPanel
-                Left = 1474
-                Top = 0
-                Width = 100
-                Height = 112
-                Align = alRight
-                BevelOuter = bvNone
-                TabOrder = 3
-                ExplicitHeight = 109
-                object DBText20: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 76
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'MARCA'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitTop = 26
-                  ExplicitWidth = 117
-                end
-                object Label36: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 55
-                  Width = 33
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Marca'
-                  StyleElements = []
-                end
-                object DBText21: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 94
-                  Height = 25
-                  Align = alTop
-                  Alignment = taCenter
-                  DataField = 'DIFERENCA'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  StyleElements = []
-                  ExplicitLeft = 6
-                  ExplicitTop = 38
-                end
-                object Label61: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 51
-                  Height = 15
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Diferen'#231'a'
-                  StyleElements = []
-                end
-              end
-              object Panel15: TPanel
-                Left = 0
-                Top = 0
-                Width = 161
-                Height = 112
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 4
-                ExplicitHeight = 109
-                object DBText12: TDBText
-                  Left = 0
-                  Top = 46
-                  Width = 161
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'CodBarra'
-                  DataSource = DSQRYPRODUTOSCONTADOS
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clBlack
-                  Font.Height = -11
+                  Font.Height = -13
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
                   StyleElements = []
-                  ExplicitLeft = 18
-                  ExplicitTop = 75
-                  ExplicitWidth = 146
-                end
-                object Label25: TLabel
-                  Left = 0
-                  Top = 66
-                  Width = 82
-                  Height = 13
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'C'#243'd Fornecedor'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -11
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  StyleElements = []
-                end
-                object DBText13: TDBText
-                  Left = 0
-                  Top = 79
-                  Width = 161
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'Codfornecedor'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -11
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  StyleElements = []
-                  ExplicitTop = 90
-                  ExplicitWidth = 155
-                end
-                object Label37: TLabel
-                  Left = 0
-                  Top = 33
-                  Width = 73
-                  Height = 13
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  Caption = 'C'#243'digo Barras'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -11
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  StyleElements = []
-                end
-                object DBText45: TDBText
-                  Left = 0
-                  Top = 13
-                  Width = 161
-                  Height = 20
-                  Margins.Top = 1
-                  Margins.Bottom = 1
-                  Align = alTop
-                  DataField = 'CodInterno'
-                  DataSource = DSQRYPRODUTOSCONTADOS
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clBlack
-                  Font.Height = -11
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  StyleElements = []
-                  ExplicitLeft = 3
                   ExplicitTop = 39
-                  ExplicitWidth = 155
                 end
-                object Label38: TLabel
-                  Left = 0
-                  Top = 0
-                  Width = 60
-                  Height = 13
+                object Label74: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 1
+                  Width = 155
+                  Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'Cod Interno'
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clBlack
-                  Font.Height = -11
+                  Font.Height = -13
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
                   StyleElements = []
+                  ExplicitWidth = 73
+                end
+              end
+              object Panel52: TPanel
+                Left = 161
+                Top = 0
+                Width = 1238
+                Height = 129
+                Align = alClient
+                BevelOuter = bvNone
+                TabOrder = 1
+                object DBText54: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 20
+                  Width = 1232
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'PRODUTO_DESCRICAO'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 95
+                  ExplicitTop = 26
+                  ExplicitWidth = 415
+                end
+                object Label66: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 1
+                  Width = 1232
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Produto'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 50
+                end
+                object Label67: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 42
+                  Width = 1232
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Fornecedor'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 69
+                end
+                object DBText55: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 61
+                  Width = 1232
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'Fornecedor'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 287
+                  ExplicitTop = 60
+                  ExplicitWidth = 223
+                end
+              end
+              object Panel53: TPanel
+                Left = 1545
+                Top = 0
+                Width = 202
+                Height = 129
+                Align = alRight
+                BevelOuter = bvNone
+                TabOrder = 2
+                object Label68: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 83
+                  Width = 196
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Grupo'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 38
+                end
+                object DBText56: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 102
+                  Width = 196
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'Grupo'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 6
+                  ExplicitTop = 90
+                end
+                object DBText46: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 20
+                  Width = 196
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'Localizacao'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 19
+                  ExplicitTop = 0
+                end
+                object Label39: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 1
+                  Width = 196
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Localiza'#231#227'o'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 67
+                end
+                object Label49: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 42
+                  Width = 196
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Marca'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 37
+                end
+                object DBText47: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 61
+                  Width = 196
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'Marca'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 6
+                end
+              end
+              object Panel54: TPanel
+                Left = 1399
+                Top = 0
+                Width = 146
+                Height = 129
+                Align = alRight
+                BevelOuter = bvNone
+                TabOrder = 3
+                object DBText57: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 61
+                  Width = 140
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'CONTAGEM_FINAL'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitTop = 26
+                end
+                object Label70: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 42
+                  Width = 140
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Estoque Atual'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 85
+                end
+                object Label57: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 1
+                  Width = 140
+                  Height = 17
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  Caption = 'Estoque Anterior'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitWidth = 103
+                end
+                object DBText48: TDBText
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 20
+                  Width = 140
+                  Height = 20
+                  Margins.Top = 1
+                  Margins.Bottom = 1
+                  Align = alTop
+                  DataField = 'ESTOQUE_ANTERIOR'
+                  DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clBlack
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  StyleElements = []
+                  ExplicitLeft = 6
+                  ExplicitTop = 24
                 end
               end
             end
-          end
-          object Panel29: TPanel
-            Left = 1
-            Top = 1
-            Width = 1593
-            Height = 487
-            Align = alClient
-            TabOrder = 1
-            ExplicitHeight = 282
-            object Label7: TLabel
-              Left = 1
-              Top = 1
-              Width = 210
-              Height = 21
-              Align = alTop
-              Alignment = taCenter
-              Caption = 'Contagens de Estoque salvas'
-              Color = clNavy
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWhite
-              Font.Height = -16
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentColor = False
-              ParentFont = False
-              Transparent = False
-              StyleElements = []
-            end
-            object DBGRIDHISTORICO: TDBGrid
-              Left = 1
-              Top = 26
-              Width = 1591
-              Height = 460
+            object DBGridmovestoque: TDBGrid
+              Left = 0
+              Top = 129
+              Width = 1747
+              Height = 693
               Align = alClient
-              DataSource = DSQRYHISTORICO
-              Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-              ParentColor = True
-              ReadOnly = True
-              TabOrder = 0
+              DataSource = DataModule1.DSqryTabest1mov
+              TabOrder = 1
               TitleFont.Charset = ANSI_CHARSET
               TitleFont.Color = clWindowText
               TitleFont.Height = -12
               TitleFont.Name = 'Segoe UI Semibold'
               TitleFont.Style = [fsBold]
-              StyleElements = []
-              OnDrawColumnCell = DBGRIDHISTORICODrawColumnCell
             end
           end
         end
       end
-      object TabSheet5: TTabSheet
-        Caption = 'Movimento do Estoque'
-        ImageIndex = 5
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
-        object Panel54: TPanel
-          Left = 0
-          Top = 0
-          Width = 1755
-          Height = 129
-          Align = alTop
-          BevelOuter = bvNone
-          Color = clGradientActiveCaption
-          ParentBackground = False
-          TabOrder = 0
-          StyleElements = []
-          object Panel55: TPanel
-            Left = 0
-            Top = 0
-            Width = 161
-            Height = 129
-            Align = alLeft
-            BevelOuter = bvNone
-            TabOrder = 0
-            object DBText55: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 61
-              Width = 155
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'CodBarra'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 18
-              ExplicitTop = 75
-              ExplicitWidth = 146
-            end
-            object Label64: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 83
-              Width = 97
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'C'#243'd Fornecedor'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText56: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 102
-              Width = 155
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'Codfornecedor'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 18
-              ExplicitTop = 26
-              ExplicitWidth = 87
-            end
-            object Label65: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 42
-              Width = 85
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'C'#243'digo Barras'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText66: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 20
-              Width = 155
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'CodInterno'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitTop = 39
-            end
-            object Label74: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 1
-              Width = 73
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Cod Interno'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-          end
-          object Panel56: TPanel
-            Left = 161
-            Top = 0
-            Width = 1246
-            Height = 129
-            Align = alClient
-            BevelOuter = bvNone
-            TabOrder = 1
-            object DBText57: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 20
-              Width = 1240
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'PRODUTO_DESCRICAO'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 95
-              ExplicitTop = 26
-              ExplicitWidth = 415
-            end
-            object Label66: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 1
-              Width = 50
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Produto'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object Label67: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 42
-              Width = 69
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Fornecedor'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText58: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 61
-              Width = 1240
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'Fornecedor'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 287
-              ExplicitTop = 60
-              ExplicitWidth = 223
-            end
-          end
-          object Panel57: TPanel
-            Left = 1553
-            Top = 0
-            Width = 202
-            Height = 129
-            Align = alRight
-            BevelOuter = bvNone
-            TabOrder = 2
-            object Label68: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 83
-              Width = 38
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Grupo'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText59: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 102
-              Width = 196
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'Grupo'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 6
-              ExplicitTop = 90
-            end
-            object DBText46: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 20
-              Width = 196
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'Localizacao'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 19
-              ExplicitTop = 0
-            end
-            object Label39: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 1
-              Width = 67
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Localiza'#231#227'o'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object Label49: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 42
-              Width = 37
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Marca'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText47: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 61
-              Width = 196
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'Marca'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 6
-            end
-          end
-          object Panel58: TPanel
-            Left = 1407
-            Top = 0
-            Width = 146
-            Height = 129
-            Align = alRight
-            BevelOuter = bvNone
-            TabOrder = 3
-            object DBText61: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 61
-              Width = 140
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'CONTAGEM_FINAL'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitTop = 26
-            end
-            object Label70: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 42
-              Width = 85
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Estoque Atual'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object Label57: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 1
-              Width = 103
-              Height = 17
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              Caption = 'Estoque Anterior'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-            end
-            object DBText48: TDBText
-              AlignWithMargins = True
-              Left = 3
-              Top = 20
-              Width = 140
-              Height = 20
-              Margins.Top = 1
-              Margins.Bottom = 1
-              Align = alTop
-              DataField = 'ESTOQUE_ANTERIOR'
-              DataSource = DSQRYPRODUTOSCONTADOS
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
-              Font.Height = -13
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              StyleElements = []
-              ExplicitLeft = 6
-              ExplicitTop = 24
-            end
-          end
-        end
-        object DBGridmovestoque: TDBGrid
-          Left = 0
-          Top = 129
-          Width = 1755
-          Height = 723
-          Align = alClient
-          DataSource = DSqryTabest1mov
-          TabOrder = 1
-          TitleFont.Charset = ANSI_CHARSET
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -12
-          TitleFont.Name = 'Segoe UI Semibold'
-          TitleFont.Style = [fsBold]
-        end
+      object TabSheet8: TTabSheet
+        Caption = 'Cadastros'
+        ImageIndex = 1
       end
-      object TabSheet6: TTabSheet
+      object TabSheet9: TTabSheet
         Caption = 'Altera'#231#227'o de Pre'#231'os'
-        ImageIndex = 5
-        object Panel30: TPanel
+        ImageIndex = 2
+        object Label76: TLabel
           Left = 0
           Top = 0
           Width = 1755
-          Height = 576
-          Align = alClient
-          TabOrder = 0
-          object Label76: TLabel
-            Left = 1
-            Top = 1
-            Width = 1753
-            Height = 21
-            Align = alTop
-            Alignment = taCenter
-            Caption = 'Produtos'
-            Color = clNavy
-            Font.Charset = ANSI_CHARSET
-            Font.Color = clWhite
-            Font.Height = -16
-            Font.Name = 'Segoe UI Semibold'
-            Font.Style = [fsBold]
-            ParentColor = False
-            ParentFont = False
-            Transparent = False
-            StyleElements = []
-            ExplicitWidth = 67
-          end
-          object DBGRIDPRODUTOSBASE: TDBGrid
-            Left = 1
-            Top = 22
-            Width = 1753
-            Height = 553
-            Align = alClient
-            DataSource = DSQRYPRODUTOSBASE
-            TabOrder = 0
-            TitleFont.Charset = ANSI_CHARSET
-            TitleFont.Color = clWindowText
-            TitleFont.Height = -12
-            TitleFont.Name = 'Segoe UI Semibold'
-            TitleFont.Style = [fsBold]
-          end
+          Height = 21
+          Align = alTop
+          Alignment = taCenter
+          Caption = 'Produtos'
+          Color = clNavy
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          StyleElements = []
+          ExplicitWidth = 67
         end
         object Panel31: TPanel
           Left = 0
@@ -8451,7 +8476,7 @@
           Width = 1755
           Height = 276
           Align = alBottom
-          TabOrder = 1
+          TabOrder = 0
           object Label77: TLabel
             Left = 1
             Top = 1
@@ -8761,7 +8786,7 @@
             Height = 253
             Align = alLeft
             TabOrder = 2
-            object BitBtn5: TBitBtn
+            object BitBtn1: TBitBtn
               AlignWithMargins = True
               Left = 4
               Top = 84
@@ -8895,7 +8920,7 @@
               ParentFont = False
               TabOrder = 0
             end
-            object BitBtn6: TBitBtn
+            object BitBtn2: TBitBtn
               AlignWithMargins = True
               Left = 4
               Top = 11
@@ -9314,811 +9339,27 @@
             end
           end
         end
-      end
-    end
-  end
-  object QRYGRUPOS: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT Controle, Setor FROM tabest8 ORDER BY Setor;')
-    Left = 929
-    Top = 73
-  end
-  object DBPRODUTOS: TfrxDBDataset
-    UserName = 'cdsprodutos'
-    CloseDataSource = False
-    FieldAliases.Strings = (
-      'ID_ITEM=ID_ITEM'
-      'NUMRELATORIO=NUMRELATORIO'
-      'CODINTERNO=CodInterno'
-      'PRODUTO_DESCRICAO=PRODUTO_DESCRICAO'
-      'GRUPO=Grupo'
-      'MARCA=Marca'
-      'FORNECEDOR=Fornecedor'
-      'CODFORNECEDOR=CodFornecedor'
-      'CODBARRA=Codbarra'
-      'QTD_VENDIDA=QTD_VENDIDA'
-      'LOCALIZACAO=Localizacao'
-      'CUSTO_TOTAL=CUSTO_TOTAL'
-      'ESTOQUE_ANTERIOR=ESTOQUE_ANTERIOR'
-      'CONTAGEM_FINAL=CONTAGEM_FINAL'
-      'DIFERENCA=Diferenca'
-      'PRECO_CUSTO=PRECO_CUSTO'
-      'VALOR_DIFERENCA=VALOR_DIFERENCA')
-    DataSet = QRYPRODUTOSCONTADOS
-    BCDToCurrency = False
-    Left = 992
-    Top = 144
-  end
-  object FRXRAKVEND: TfrxReport
-    Version = '6.4.13'
-    DotMatrixReport = False
-    IniFile = '\Software\Fast Reports'
-    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
-    PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Padr'#227'o'
-    PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 45909.508089456000000000
-    ReportOptions.LastChange = 45972.832707534720000000
-    ScriptLanguage = 'PascalScript'
-    ScriptText.Strings = (
-      'begin'
-      ''
-      'end.')
-    Left = 960
-    Top = 240
-    Datasets = <
-      item
-        DataSet = frxDBCAB
-        DataSetName = 'CAB'
-      end
-      item
-        DataSet = DBPRODUTOS
-        DataSetName = 'cdsprodutos'
-      end
-      item
-        DataSet = DBTOTAIS
-        DataSetName = 'CDSTOTAIS'
-      end>
-    Variables = <
-      item
-        Name = ' valortotal'
-        Value = Null
-      end
-      item
-        Name = 'ValorTotalRelatorio'
-        Value = Null
-      end>
-    Style = <>
-    object Data: TfrxDataPage
-      Height = 1000.000000000000000000
-      Width = 1000.000000000000000000
-    end
-    object Page1: TfrxReportPage
-      PaperWidth = 210.000000000000000000
-      PaperHeight = 297.000000000000000000
-      PaperSize = 9
-      LeftMargin = 10.000000000000000000
-      RightMargin = 10.000000000000000000
-      TopMargin = 10.000000000000000000
-      BottomMargin = 10.000000000000000000
-      Frame.Typ = []
-      MirrorMode = []
-      HGuides.Strings = (
-        '153,50')
-      VGuides.Strings = (
-        '102,04731'
-        '113,3859')
-      object DetailData1: TfrxDetailData
-        FillType = ftBrush
-        Frame.Typ = []
-        Height = 161.059060000000000000
-        Top = 170.078850000000000000
-        Width = 718.110700000000000000
-        DataSet = DBPRODUTOS
-        DataSetName = 'cdsprodutos'
-        RowCount = 0
-        object frxDBDataset1Produto: TfrxMemoView
-          IndexTag = 1
-          Align = baWidth
-          AllowVectorExport = True
-          Left = 113.385900000000000000
-          Top = 20.358380000000000000
-          Width = 604.724800000000000000
-          Height = 18.897635350000000000
-          DataField = 'PRODUTO_DESCRICAO'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."PRODUTO_DESCRICAO"]')
-          ParentFont = False
-        end
-        object frxDBDataset1CodInterno: TfrxMemoView
-          IndexTag = 1
-          Align = baLeft
-          AllowVectorExport = True
-          Top = 20.358380000000000000
-          Width = 113.385900000000000000
-          Height = 17.007874020000000000
-          DataField = 'Codbarra'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."Codbarra"]')
-          ParentFont = False
-        end
-        object frxDBDataset1QuantidadeVendida: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 359.055350000000000000
-          Top = 46.815090000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          DataField = 'QTD_VENDIDA'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[cdsprodutos."QTD_VENDIDA"]')
-          ParentFont = False
-        end
-        object frxDBDataset1Estoque: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 449.764070000000000000
-          Top = 46.815090000000000000
-          Width = 86.929190000000000000
-          Height = 18.897637800000000000
-          DataField = 'ESTOQUE_ANTERIOR'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[cdsprodutos."ESTOQUE_ANTERIOR"]')
-          ParentFont = False
-        end
-        object Memo12: TfrxMemoView
-          Align = baLeft
-          AllowVectorExport = True
-          Top = 84.610390000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Grupo:')
-          ParentFont = False
-        end
-        object frxDBDataset1Grupo: TfrxMemoView
-          IndexTag = 1
-          Align = baLeft
-          AllowVectorExport = True
-          Left = 45.354360000000000000
-          Top = 84.610390000000000000
-          Width = 264.567100000000000000
-          Height = 18.897650000000000000
-          DataField = 'Grupo'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."Grupo"]')
-          ParentFont = False
-        end
-        object Memo13: TfrxMemoView
-          Align = baLeft
-          AllowVectorExport = True
-          Top = 103.508040000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Marca:')
-          ParentFont = False
-        end
-        object frxDBDataset1Marca: TfrxMemoView
-          IndexTag = 1
-          Align = baLeft
-          AllowVectorExport = True
-          Left = 45.354360000000000000
-          Top = 103.508040000000000000
-          Width = 264.567100000000000000
-          Height = 18.897650000000000000
-          DataField = 'Marca'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."Marca"]')
-          ParentFont = False
-        end
-        object Memo14: TfrxMemoView
-          AllowVectorExport = True
-          Left = 309.921460000000000000
-          Top = 129.964750000000000000
-          Width = 71.811070000000000000
-          Height = 15.118120000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Fornecedor:')
-          ParentFont = False
-        end
-        object frxDBDataset1Fornecedor: TfrxMemoView
-          IndexTag = 1
-          Align = baWidth
-          AllowVectorExport = True
-          Left = 381.732530000000000000
-          Top = 129.964750000000000000
-          Width = 336.378170000000000000
-          Height = 15.118120000000000000
-          DataField = 'Fornecedor'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."Fornecedor"]')
-          ParentFont = False
-        end
-        object cdsprodutosContagem: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 536.693260000000000000
-          Top = 46.815090000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          DataField = 'CONTAGEM_FINAL'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[cdsprodutos."CONTAGEM_FINAL"]')
-          ParentFont = False
-        end
-        object Memo11: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 627.401980000000000000
-          Top = 46.815090000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          DataField = 'Diferenca'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            '[cdsprodutos."Diferenca"]')
-          ParentFont = False
-        end
-        object Memo16: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Top = 54.374150000000000000
-          Width = 113.385900000000000000
-          Height = 18.897635350000000000
-          DataField = 'CodFornecedor'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."CodFornecedor"]')
-          ParentFont = False
-        end
-        object Memo17: TfrxMemoView
-          AllowVectorExport = True
-          Top = 126.185220000000000000
-          Width = 71.811070000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Localiza'#231#227'o:')
-          ParentFont = False
-        end
-        object cdsprodutosLocalizacao: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 71.811070000000000000
-          Top = 126.185220000000000000
-          Width = 151.181200000000000000
-          Height = 18.897650000000000000
-          DataField = 'Localizacao'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."Localizacao"]')
-          ParentFont = False
-        end
-        object cdsprodutosprecocusto: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 309.921547870000000000
-          Top = 103.508040000000000000
-          Width = 136.062992130000000000
-          Height = 18.897637800000000000
-          DataField = 'PRECO_CUSTO'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          DisplayFormat.FormatStr = '%2.2m'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."PRECO_CUSTO"]')
-          ParentFont = False
-        end
-        object cdsprodutoscustototal: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 445.984540000000000000
-          Top = 103.507996060000000000
-          Width = 136.063080000000000000
-          Height = 18.897637800000000000
-          DataField = 'CUSTO_TOTAL'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          DisplayFormat.FormatStr = '%2.2m'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."CUSTO_TOTAL"]')
-          ParentFont = False
-        end
-        object cdsprodutosValorDiferenca: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 582.047620000000000000
-          Top = 103.507996060000000000
-          Width = 136.063080000000000000
-          Height = 18.897637800000000000
-          DataField = 'VALOR_DIFERENCA'
-          DataSet = DBPRODUTOS
-          DataSetName = 'cdsprodutos'
-          DisplayFormat.FormatStr = '%2.2m'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[cdsprodutos."VALOR_DIFERENCA"]')
-          ParentFont = False
-        end
-        object Line1: TfrxLineView
-          Align = baWidth
-          AllowVectorExport = True
-          Top = 153.500000000000000000
-          Width = 718.110700000000000000
-          Color = clBlack
-          Frame.Typ = []
-          Diagonal = True
-        end
-        object Memo19: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 309.921460000000000000
-          Top = 84.610390000000000000
-          Width = 136.063080000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Pre'#231'o Custo:')
-          ParentFont = False
-        end
-        object Memo20: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 445.984540000000000000
-          Top = 84.610390000000000000
-          Width = 136.063080000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Total Custo:')
-          ParentFont = False
-        end
-        object Memo21: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 582.047620000000000000
-          Top = 84.610390000000000000
-          Width = 136.063080000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Valor Diferen'#231'a:')
-          ParentFont = False
-        end
-        object Memo5: TfrxMemoView
-          AllowVectorExport = True
-          Width = 75.590600000000000000
-          Height = 17.007874020000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'C'#243'digo Barras')
-          ParentFont = False
-        end
-        object Memo15: TfrxMemoView
-          AllowVectorExport = True
-          Top = 37.795300000000000000
-          Width = 113.385900000000000000
-          Height = 15.118107800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'C'#243'd Fornecedor')
-          ParentFont = False
-        end
-        object Memo2: TfrxMemoView
-          AllowVectorExport = True
-          Left = 113.385900000000000000
-          Top = 2.318800000000000000
-          Width = 71.811070000000000000
-          Height = 15.118107800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Produto')
-          ParentFont = False
-        end
-        object Memo3: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 359.055350000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Qtd. Vendida')
-          ParentFont = False
-        end
-        object Memo8: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 449.764070000000000000
-          Width = 86.929190000000000000
-          Height = 18.897637800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Estoque atual')
-          ParentFont = False
-        end
-        object Memo9: TfrxMemoView
-          Align = baRight
-          AllowVectorExport = True
-          Left = 536.693260000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Conferido')
-          ParentFont = False
-        end
-        object Memo10: TfrxMemoView
-          AllowVectorExport = True
-          Left = 627.401980000000000000
-          Width = 90.708720000000000000
-          Height = 18.897637800000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Diferen'#231'a')
-          ParentFont = False
-        end
-      end
-      object MasterData1: TfrxMasterData
-        FillType = ftBrush
-        Frame.Typ = []
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -21
-        Font.Name = 'Segoe UI Semibold'
-        Font.Style = [fsBold]
-        Height = 127.043290000000000000
-        ParentFont = False
-        Top = 18.897650000000000000
-        Width = 718.110700000000000000
-        DataSet = DBPRODUTOS
-        DataSetName = 'cdsprodutos'
-        RowCount = 0
-        object Line2: TfrxLineView
-          Align = baWidth
-          AllowVectorExport = True
-          Top = 119.484230000000000000
-          Width = 718.110700000000000000
-          Color = clBlack
-          Frame.Typ = []
-          Diagonal = True
-        end
-        object Memo6: TfrxMemoView
-          Align = baWidth
-          AllowVectorExport = True
-          Width = 718.110700000000000000
-          Height = 34.015770000000000000
-          AllowExpressions = False
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -21
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clNavy
-          HAlign = haCenter
-          Memo.UTF8W = (
-            'Contagem de Estoque')
-          ParentFont = False
-        end
-        object frxDBDataset1Periodo: TfrxMemoView
-          IndexTag = 1
-          Align = baWidth
-          AllowVectorExport = True
-          Top = 34.015770000000000000
-          Width = 718.110700000000000000
-          Height = 30.236240000000000000
-          DataSet = frxDBCAB
-          DataSetName = 'CAB'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Fill.BackColor = clScrollBar
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Periodo: [CAB."PERIODO_INICIO"] a [CAB."PERIODO_FIM"]'
-            '')
-          ParentFont = False
-        end
-        object Memo18: TfrxMemoView
-          Align = baLeft
-          AllowVectorExport = True
-          Top = 96.807050000000000000
-          Width = 75.590600000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Estoquista:')
-          ParentFont = False
-        end
-        object Memo22: TfrxMemoView
-          AllowVectorExport = True
-          Top = 64.252010000000000000
-          Width = 64.252010000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Relatorio:')
-          ParentFont = False
-        end
-        object CDSTOTAISNUMRELATORIO: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 64.252010000000000000
-          Top = 64.252010000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'NUMRELATORIO'
-          DataSet = frxDBCAB
-          DataSetName = 'CAB'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[CAB."NUMRELATORIO"]')
-          ParentFont = False
-        end
-      end
-      object ReportSummary1: TfrxReportSummary
-        FillType = ftBrush
-        Frame.Typ = []
-        Height = 64.252010000000000000
-        Top = 393.071120000000000000
-        Width = 718.110700000000000000
-        object CDSTOTAISTOTALCUSTO: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 340.157700000000000000
-          Width = 377.953000000000000000
-          Height = 26.456710000000000000
-          AutoWidth = True
-          DataSet = DBTOTAIS
-          DataSetName = 'CDSTOTAIS'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Total Custo: [CDSTOTAIS."TOTALCUSTO"]')
-          ParentFont = False
-        end
-        object CDSTOTAISTOTALDIFERENCA: TfrxMemoView
-          IndexTag = 1
-          Align = baRight
-          AllowVectorExport = True
-          Left = 340.157700000000000000
-          Top = 34.015770000000000000
-          Width = 377.953000000000000000
-          Height = 22.677180000000000000
-          AutoWidth = True
-          DataSet = DBTOTAIS
-          DataSetName = 'CDSTOTAIS'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -16
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Total Diferen'#231'a: [CDSTOTAIS."TOTALDIFERENCA"]')
-          ParentFont = False
+        object DBGRIDPRODUTOSBASE: TDBGrid
+          Left = 0
+          Top = 21
+          Width = 1755
+          Height = 555
+          Align = alClient
+          DataSource = DataModule1.DSQRYPRODUTOSBASE
+          TabOrder = 1
+          TitleFont.Charset = ANSI_CHARSET
+          TitleFont.Color = clWindowText
+          TitleFont.Height = -12
+          TitleFont.Name = 'Segoe UI Semibold'
+          TitleFont.Style = [fsBold]
         end
       end
     end
+  end
+  object dsQRYRKVEND: TDataSource
+    DataSet = QRYRKVEND
+    Left = 25
+    Top = 463
   end
   object QRYRKVEND: TUniQuery
     Connection = DataModule1.ConDados
@@ -10213,8 +9454,8 @@
       '  -- 3'#186' N'#237'vel: Crit'#233'rio secund'#225'rio (Quantidade Vendida)'
       '  SUM(I.QtdReal) DESC')
     AfterScroll = QRYRKVENDAfterScroll
-    Left = 976
-    Top = 80
+    Left = 24
+    Top = 408
     ParamData = <
       item
         DataType = ftUnknown
@@ -10227,139 +9468,52 @@
         Value = nil
       end>
   end
-  object QRYMARCA: TUniQuery
+  object QRYPRODUTOSABERTOS: TUniQuery
     Connection = DataModule1.ConDados
     SQL.Strings = (
-      'SELECT DISTINCT'
-      '    FABRICANTE'
-      'FROM'
-      '    tabest1'
-      'WHERE'
-      '    FABRICANTE IS NOT NULL'
-      '    AND FABRICANTE <> '#39#39
-      'ORDER BY'
-      '    FABRICANTE;')
-    Left = 713
-    Top = 257
+      'SELECT '
+      '    B.LkProduto AS LkProduto, '
+      '    P.CodInterno, '
+      '    P.Produto, '
+      '    P.CodBarra, '
+      '    P.CodFornecedor,'
+      '    P.Moeda AS Localizacao, '
+      '    G.Setor AS Grupo, '
+      '    P.Fabricante AS Marca, '
+      '    F.Empresa AS Fornecedor, '
+      '    P.Quantidade AS QtdEstoque, '
+      '    CAST(SUM(B.Qtdreal) AS NUMERIC(12, 2)) AS QtdReserva, '
+      '    COUNT(DISTINCT A.Pedido) AS NumPedidos '
+      'FROM TabEst3B B WITH (NOLOCK) '
+      'INNER JOIN TabEst3A A WITH (NOLOCK) ON A.Pedido = B.PEDIDO '
+      'INNER JOIN TABEST1 P WITH (NOLOCK) ON P.Controle = B.LkProduto '
+      'LEFT JOIN TabEst8 G WITH (NOLOCK) ON P.LkSetor = G.Controle '
+      'LEFT JOIN TabFor F WITH (NOLOCK) ON P.LkFornec = F.Controle '
+      'WHERE A.Cancelada <> 1 '
+      '  AND A.VENDA <> 1 '
+      '  AND A.STATUS ='#39'P'#39' '
+      'GROUP BY '
+      '    B.LkProduto, '
+      '    P.CodInterno, '
+      '    P.Produto, '
+      '    P.Quantidade, '
+      '    P.CodFornecedor, '
+      '    P.Moeda, '
+      '    G.Setor, '
+      '    P.Fabricante, '
+      '    F.Empresa, '
+      '    P.CodBarra '
+      'ORDER BY '
+      '    P.Produto')
+    AfterClose = QRYPRODUTOSABERTOSAfterClose
+    AfterScroll = QRYPRODUTOSABERTOSAfterScroll
+    Left = 29
+    Top = 520
   end
-  object QRYFORNECEDOR: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT'
-      '    Controle,'
-      '    Empresa'
-      'FROM'
-      '    tabfor'
-      'ORDER BY'
-      '    Empresa;')
-    Left = 585
-    Top = 201
-  end
-  object dsQRYRKVEND: TDataSource
-    DataSet = QRYRKVEND
-    Left = 241
-    Top = 183
-  end
-  object CDSPRODUTOS: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    OnCalcFields = CDSPRODUTOSCalcFields
-    Left = 425
-    Top = 175
-    object CDSPRODUTOSCodInterno: TStringField
-      FieldName = 'CodInterno'
-    end
-    object CDSPRODUTOSProduto: TStringField
-      FieldName = 'Produto'
-      Size = 255
-    end
-    object CDSPRODUTOSGrupo: TStringField
-      FieldName = 'Grupo'
-      Size = 50
-    end
-    object CDSPRODUTOSMarca: TStringField
-      FieldName = 'Marca'
-      Size = 50
-    end
-    object CDSPRODUTOSFornecedor: TStringField
-      FieldName = 'Fornecedor'
-      Size = 50
-    end
-    object CDSPRODUTOSPeriodo: TStringField
-      FieldName = 'Periodo'
-      Size = 80
-    end
-    object CDSPRODUTOSLocalizacao: TStringField
-      FieldName = 'Localizacao'
-      Size = 50
-    end
-    object CDSPRODUTOSprecocusto: TCurrencyField
-      FieldName = 'precocusto'
-    end
-    object CDSPRODUTOScustototal: TCurrencyField
-      FieldName = 'custototal'
-    end
-    object CDSPRODUTOSCodFornecedor: TStringField
-      FieldName = 'CodFornecedor'
-      Size = 50
-    end
-    object CDSPRODUTOSValorDiferenca: TCurrencyField
-      FieldKind = fkCalculated
-      FieldName = 'ValorDiferenca'
-      Calculated = True
-    end
-    object CDSPRODUTOSEstoque: TFloatField
-      FieldName = 'Estoque'
-    end
-    object CDSPRODUTOSCodbarra: TStringField
-      FieldName = 'Codbarra'
-      Size = 30
-    end
-    object CDSPRODUTOSQuantidadeVendida: TFloatField
-      FieldName = 'QuantidadeVendida'
-    end
-    object CDSPRODUTOSContagem: TFloatField
-      FieldName = 'Contagem'
-    end
-    object CDSPRODUTOSDiferenca: TFloatField
-      FieldName = 'Diferenca'
-    end
-    object CDSPRODUTOSID_ORDEM: TIntegerField
-      FieldName = 'ID_ORDEM'
-    end
-  end
-  object DSCDSPRODUTOS: TDataSource
-    DataSet = CDSPRODUTOS
-    Left = 57
-    Top = 375
-  end
-  object CDSTOTAIS: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 816
-    Top = 246
-    object CDSTOTAISTOTALCUSTO: TCurrencyField
-      FieldName = 'TOTALCUSTO'
-    end
-    object CDSTOTAISTOTALDIFERENCA: TCurrencyField
-      FieldName = 'TOTALDIFERENCA'
-    end
-  end
-  object DSCDSTOTAIS: TDataSource
-    DataSet = CDSTOTAIS
-    Left = 513
-    Top = 160
-  end
-  object DBTOTAIS: TfrxDBDataset
-    UserName = 'CDSTOTAIS'
-    CloseDataSource = False
-    FieldAliases.Strings = (
-      'TOTALCUSTO=TOTALCUSTO'
-      'TOTALDIFERENCA=TOTALDIFERENCA')
-    DataSet = CDSTOTAIS
-    BCDToCurrency = False
-    Left = 704
-    Top = 184
+  object DSQRYPRODUTOSABERTOS: TDataSource
+    DataSet = QRYPRODUTOSABERTOS
+    Left = 37
+    Top = 584
   end
   object QRYHISTORICO: TUniQuery
     Connection = DataModule1.ConDados
@@ -10370,8 +9524,8 @@
       'ORDER BY'
       '  DATA_AJUSTE DESC;')
     AfterScroll = QRYHISTORICOAfterScroll
-    Left = 853
-    Top = 112
+    Left = 29
+    Top = 656
     object QRYHISTORICONUMRELATORIO: TIntegerField
       FieldName = 'NUMRELATORIO'
       ReadOnly = True
@@ -10421,318 +9575,7 @@
   end
   object DSQRYHISTORICO: TDataSource
     DataSet = QRYHISTORICO
-    Left = 445
-    Top = 104
-  end
-  object QRYITENSHIST: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT'
-      '  ID_ITEM,'
-      '  NUMRELATORIO,'
-      '  CODINTERNO,'
-      '  PRODUTO_DESCRICAO,'
-      '  ESTOQUE_ANTERIOR,'
-      '  CONTAGEM_FINAL,'
-      '  DIFERENCA,'
-      '  PRECO_CUSTO,'
-      '  VALOR_DIFERENCA,'
-      '  GRUPO,'
-      '  MARCA,'
-      '  FORNECEDOR,'
-      '  CODFORNECEDOR,       -- '#9989' Campo adicionado'
-      '  CODBARRA,'
-      '  CUSTO_TOTAL,'
-      '  QTD_VENDIDA,'
-      '  LOCALIZACAO'
-      'FROM'
-      '  TAB_HIS_AJUSTE_ITENS'
-      'WHERE'
-      '  NUMRELATORIO = :NumRelatorio'
-      'ORDER BY'
-      '  GRUPO, MARCA, PRODUTO_DESCRICAO;')
-    Left = 309
-    Top = 239
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'NumRelatorio'
-        Value = Null
-      end>
-  end
-  object DSQRYITENSHIST: TDataSource
-    DataSet = QRYITENSHIST
-    Left = 397
-    Top = 239
-  end
-  object QRYPRODUTOSABERTOS: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT '
-      '    B.LkProduto AS LkProduto, '
-      '    P.CodInterno, '
-      '    P.Produto, '
-      '    P.CodBarra, '
-      '    P.CodFornecedor,'
-      '    P.Moeda AS Localizacao, '
-      '    G.Setor AS Grupo, '
-      '    P.Fabricante AS Marca, '
-      '    F.Empresa AS Fornecedor, '
-      '    P.Quantidade AS QtdEstoque, '
-      '    CAST(SUM(B.Qtdreal) AS NUMERIC(12, 2)) AS QtdReserva, '
-      '    COUNT(DISTINCT A.Pedido) AS NumPedidos '
-      'FROM TabEst3B B WITH (NOLOCK) '
-      'INNER JOIN TabEst3A A WITH (NOLOCK) ON A.Pedido = B.PEDIDO '
-      'INNER JOIN TABEST1 P WITH (NOLOCK) ON P.Controle = B.LkProduto '
-      'LEFT JOIN TabEst8 G WITH (NOLOCK) ON P.LkSetor = G.Controle '
-      'LEFT JOIN TabFor F WITH (NOLOCK) ON P.LkFornec = F.Controle '
-      'WHERE A.Cancelada <> 1 '
-      '  AND A.VENDA <> 1 '
-      '  AND A.STATUS ='#39'P'#39' '
-      'GROUP BY '
-      '    B.LkProduto, '
-      '    P.CodInterno, '
-      '    P.Produto, '
-      '    P.Quantidade, '
-      '    P.CodFornecedor, '
-      '    P.Moeda, '
-      '    G.Setor, '
-      '    P.Fabricante, '
-      '    F.Empresa, '
-      '    P.CodBarra '
-      'ORDER BY '
-      '    P.Produto')
-    AfterClose = QRYPRODUTOSABERTOSAfterClose
-    AfterScroll = QRYPRODUTOSABERTOSAfterScroll
-    Left = 53
-    Top = 448
-  end
-  object QRYPEDIDOS: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT '
-      '    A.*, '
-      '    B.Qtdreal AS QuantidadeItem,'
-      '    CASE '
-      '        WHEN A.STATUS = '#39'P'#39' THEN '#39'PR'#201'-VENDA'#39' '
-      '        WHEN A.STATUS = '#39'O'#39' THEN '#39'OR'#199'AMENTO'#39' '
-      '        ELSE '#39'OUTROS'#39' '
-      '    END AS Situacao'
-      'FROM '
-      '    TabEst3A A WITH (NOLOCK)'
-      'INNER JOIN '
-      '    TabEst3B B WITH (NOLOCK) ON A.Pedido = B.PEDIDO'
-      'WHERE '
-      '    A.Data >= :DataInicio AND A.Data <= :DataFim '
-      '    AND A.Cancelada <> 1 '
-      '    AND A.VENDA <> 1 '
-      '    AND A.STATUS ='#39'P'#39' '
-      
-        '    AND B.codinterno = :LkProduto -- CHAVE MESTRE: ID do produto' +
-        ' selecionado em QRYPRODUTOSABERTOS'
-      'ORDER BY '
-      '    A.Pedido DESC')
-    Left = 733
-    Top = 88
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'DataInicio'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'DataFim'
-        Value = nil
-      end
-      item
-        DataType = ftUnknown
-        Name = 'LkProduto'
-        Value = nil
-      end>
-  end
-  object DSQRYPRODUTOSABERTOS: TDataSource
-    DataSet = QRYPRODUTOSABERTOS
-    Left = 509
-    Top = 72
-  end
-  object DSQRYPEDIDOS: TDataSource
-    DataSet = QRYPEDIDOS
-    Left = 365
-    Top = 128
-  end
-  object QRYUPDATETABEST1: TUniQuery
-    Connection = DataModule1.ConDados
-    Left = 173
-    Top = 259
-  end
-  object QRYUPDATETABESTMOV: TUniQuery
-    Connection = DataModule1.ConDados
-    Left = 885
-    Top = 163
-  end
-  object qryTabest1mov: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT'
-      '    Data,'
-      '    LkOperacao,'
-      '    LkUsuario,'
-      '    -- Campos de Saldo/Quantidade com aliases claros'
-      
-        '    Quantidade AS [Qtd. Movimentada], -- Volume de entrada/sa'#237'da' +
-        ' (a diferen'#231'a)'
-      '    SaldoAnterior AS [Estoque Anterior],'
-      '    Saldo AS [Estoque Atualizado],'
-      '    '
-      '    -- Outras colunas'
-      '    LkItem,'
-      '    CodInterno,'
-      '    Terminal,'
-      '    Hora,pedido '
-      '    -- Adicione aqui quaisquer outras colunas necess'#225'rias'
-      'FROM'
-      '    TabEst1Mov '
-      'WHERE'
-      '    CodInterno = :sCodInterno '
-      'ORDER BY'
-      '    Data DESC')
-    ReadOnly = True
-    Left = 782
-    Top = 91
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'sCodInterno'
-        Value = nil
-      end>
-  end
-  object DSqryTabest1mov: TDataSource
-    DataSet = qryTabest1mov
-    Left = 320
-    Top = 168
-  end
-  object QryBuscaLkItem: TUniQuery
-    Connection = DataModule1.ConDados
-    Left = 501
-    Top = 224
-  end
-  object QRYPRODUTOSCONTADOS: TUniQuery
-    Connection = DataModule1.ConDados
-    SQL.Strings = (
-      'SELECT *'
-      'FROM'
-      '    TAB_HIS_AJUSTE_ITENS'
-      'WHERE'
-      '    NUMRELATORIO = :pNUMRELATORIO -- <--- Par'#226'metro de filtro'
-      'ORDER BY'
-      '    CODINTERNO')
-    Left = 629
-    Top = 106
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'pNUMRELATORIO'
-        Value = Null
-      end>
-    object QRYPRODUTOSCONTADOSID_ITEM: TIntegerField
-      FieldName = 'ID_ITEM'
-      ReadOnly = True
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSNUMRELATORIO: TIntegerField
-      FieldName = 'NUMRELATORIO'
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSCODINTERNO: TStringField
-      FieldName = 'CODINTERNO'
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSPRODUTO_DESCRICAO: TStringField
-      FieldName = 'PRODUTO_DESCRICAO'
-      Size = 100
-    end
-    object QRYPRODUTOSCONTADOSGRUPO: TStringField
-      FieldName = 'GRUPO'
-      Size = 50
-    end
-    object QRYPRODUTOSCONTADOSMARCA: TStringField
-      FieldName = 'MARCA'
-      Size = 50
-    end
-    object QRYPRODUTOSCONTADOSFORNECEDOR: TStringField
-      FieldName = 'FORNECEDOR'
-      Size = 100
-    end
-    object QRYPRODUTOSCONTADOSCODFORNECEDOR: TStringField
-      FieldName = 'CODFORNECEDOR'
-    end
-    object QRYPRODUTOSCONTADOSCODBARRA: TStringField
-      FieldName = 'CODBARRA'
-    end
-    object QRYPRODUTOSCONTADOSQTD_VENDIDA: TFloatField
-      FieldName = 'QTD_VENDIDA'
-    end
-    object QRYPRODUTOSCONTADOSLOCALIZACAO: TStringField
-      FieldName = 'LOCALIZACAO'
-      Size = 50
-    end
-    object QRYPRODUTOSCONTADOSCUSTO_TOTAL: TCurrencyField
-      FieldName = 'CUSTO_TOTAL'
-    end
-    object QRYPRODUTOSCONTADOSESTOQUE_ANTERIOR: TFloatField
-      FieldName = 'ESTOQUE_ANTERIOR'
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSCONTAGEM_FINAL: TFloatField
-      FieldName = 'CONTAGEM_FINAL'
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSDIFERENCA: TFloatField
-      FieldName = 'DIFERENCA'
-      Required = True
-    end
-    object QRYPRODUTOSCONTADOSPRECO_CUSTO: TCurrencyField
-      FieldName = 'PRECO_CUSTO'
-    end
-    object QRYPRODUTOSCONTADOSVALOR_DIFERENCA: TCurrencyField
-      FieldName = 'VALOR_DIFERENCA'
-    end
-  end
-  object DSQRYPRODUTOSCONTADOS: TDataSource
-    DataSet = QRYPRODUTOSCONTADOS
-    Left = 589
-    Top = 266
-  end
-  object frxDBCAB: TfrxDBDataset
-    UserName = 'CAB'
-    CloseDataSource = False
-    FieldAliases.Strings = (
-      'NUMRELATORIO=NUMRELATORIO'
-      'DATA_AJUSTE=DATA_AJUSTE'
-      'USUARIO=USUARIO'
-      'LKUSUARIO=LKUSUARIO'
-      'TOTAL_CUSTO_DIF=TOTAL_CUSTO_DIF'
-      'PERIODO_INICIO=PERIODO_INICIO'
-      'PERIODO_FIM=PERIODO_FIM'
-      'GRUPO_FILTRO=GRUPO_FILTRO'
-      'MARCA_FILTRO=MARCA_FILTRO'
-      'FORNECEDOR_FILTRO=FORNECEDOR_FILTRO'
-      'LOCALIZACAO_FILTRO=LOCALIZACAO_FILTRO'
-      'STATUS=STATUS')
-    DataSet = QRYHISTORICO
-    BCDToCurrency = False
-    Left = 792
-    Top = 192
-  end
-  object QRYPRODUTOSBASE: TUniQuery
-    Connection = DataModule1.ConDados
-    Left = 224
-    Top = 386
-  end
-  object DSQRYPRODUTOSBASE: TDataSource
-    DataSet = QRYPRODUTOSBASE
-    Left = 349
-    Top = 394
+    Left = 29
+    Top = 720
   end
 end

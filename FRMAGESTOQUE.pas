@@ -32,39 +32,16 @@ type
     dtinicio: TDateTimePicker;
     Label10: TLabel;
     Label8: TLabel;
-    QRYGRUPOS: TUniQuery;
-    DBPRODUTOS: TfrxDBDataset;
-    FRXRAKVEND: TfrxReport;
-    QRYRKVEND: TUniQuery;
-    QRYMARCA: TUniQuery;
-    QRYFORNECEDOR: TUniQuery;
     btnconsultar: TBitBtn;
-    dsQRYRKVEND: TDataSource;
     Editlocal: TEdit;
     Label5: TLabel;
-    CDSPRODUTOS: TClientDataSet;
-    DSCDSPRODUTOS: TDataSource;
-    CDSPRODUTOSCodInterno: TStringField;
-    CDSPRODUTOSProduto: TStringField;
-    CDSPRODUTOSGrupo: TStringField;
-    CDSPRODUTOSMarca: TStringField;
-    CDSPRODUTOSFornecedor: TStringField;
-    CDSPRODUTOSPeriodo: TStringField;
-    CDSPRODUTOSLocalizacao: TStringField;
-    CDSPRODUTOSprecocusto: TCurrencyField;
-    CDSPRODUTOScustototal: TCurrencyField;
-    CDSPRODUTOSCodFornecedor: TStringField;
-    CDSPRODUTOSValorDiferenca: TCurrencyField;
-    CDSTOTAIS: TClientDataSet;
-    CDSTOTAISTOTALCUSTO: TCurrencyField;
-    CDSTOTAISTOTALDIFERENCA: TCurrencyField;
-    DSCDSTOTAIS: TDataSource;
-    DBTOTAIS: TfrxDBDataset;
-    CDSPRODUTOSEstoque: TFloatField;
+    PageControl2: TPageControl;
+    TabSheet7: TTabSheet;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     Panel3: TPanel;
     Panel4: TPanel;
+    Labelitensvendidos: TLabel;
     dbgridprodutos: TDBCtrlGrid;
     Panel5: TPanel;
     DBText9: TDBText;
@@ -86,65 +63,68 @@ type
     Label13: TLabel;
     DBText1: TDBText;
     Label11: TLabel;
+    Label24: TLabel;
+    DBText50: TDBText;
     Panel9: TPanel;
     DBText2: TDBText;
     Label12: TLabel;
     Label18: TLabel;
     DBText8: TDBText;
+    Panel10: TPanel;
+    Label21: TLabel;
+    Labeldiferença: TLabel;
+    Label23: TLabel;
+    DBTextquantidade: TDBText;
+    Label22: TLabel;
+    btnconsultprevenda: TButton;
+    btnconfirma: TBitBtn;
+    Editcontagem: TEdit;
     Panel14: TPanel;
     Pnproduto: TPanel;
+    Labelinfor: TLabel;
+    Label1: TLabel;
+    DBTextproduto: TDBText;
     TabSheet2: TTabSheet;
     Panel22: TPanel;
     DBCtrlGrid1: TDBCtrlGrid;
     Panel16: TPanel;
     Label26: TLabel;
     DBTextcod: TDBText;
+    DBText22: TDBText;
+    Label72: TLabel;
+    DBText49: TDBText;
+    Label73: TLabel;
     Panel17: TPanel;
     DBTextdif: TDBText;
     Label27: TLabel;
+    DBText25: TDBText;
+    Label71: TLabel;
     Panel18: TPanel;
     DBTextqtd: TDBText;
     Label28: TLabel;
+    DBText24: TDBText;
+    Label69: TLabel;
     Panel19: TPanel;
     Label29: TLabel;
     DBText11: TDBText;
     Panel20: TPanel;
     Label30: TLabel;
     DBTextest: TDBText;
+    DBText23: TDBText;
+    Label63: TLabel;
     Panel21: TPanel;
     Label31: TLabel;
     DBTextprod: TDBText;
+    DBText26: TDBText;
+    Label62: TLabel;
     Panel23: TPanel;
     btnsalvaprog: TBitBtn;
-    CDSPRODUTOSCodbarra: TStringField;
-    TabSheet3: TTabSheet;
-    QRYHISTORICO: TUniQuery;
-    DSQRYHISTORICO: TDataSource;
-    QRYITENSHIST: TUniQuery;
-    DSQRYITENSHIST: TDataSource;
-    Panel37: TPanel;
-    btnRetomarProgresso: TButton;
     btnatualizahist: TBitBtn;
-    Panel26: TPanel;
-    DBText22: TDBText;
-    btnapagahistorico: TButton;
-    Labelitensvendidos: TLabel;
-    CDSPRODUTOSQuantidadeVendida: TFloatField;
-    CDSPRODUTOSContagem: TFloatField;
-    CDSPRODUTOSDiferenca: TFloatField;
-    CDSPRODUTOSID_ORDEM: TIntegerField;
-    DBText23: TDBText;
-    DBText24: TDBText;
-    DBText25: TDBText;
-    DBText26: TDBText;
-    LabelStatusConferencia: TLabel;
     btnlimpalista: TBitBtn;
     btnapagar: TBitBtn;
+    Panel26: TPanel;
+    LabelStatusConferencia: TLabel;
     TabSheet4: TTabSheet;
-    QRYPRODUTOSABERTOS: TUniQuery;
-    QRYPEDIDOS: TUniQuery;
-    DSQRYPRODUTOSABERTOS: TDataSource;
-    DSQRYPEDIDOS: TDataSource;
     Panel46: TPanel;
     DBCtrlGridprodabertos: TDBCtrlGrid;
     Panel33: TPanel;
@@ -172,49 +152,10 @@ type
     Label47: TLabel;
     DBText36: TDBText;
     Label48: TLabel;
-    Panel53: TPanel;
+    Panel49: TPanel;
     btnconsultartodos: TBitBtn;
-    TabSheet5: TTabSheet;
-    Panel54: TPanel;
-    DBGridmovestoque: TDBGrid;
-    Panel55: TPanel;
-    DBText55: TDBText;
-    Label64: TLabel;
-    DBText56: TDBText;
-    Label65: TLabel;
-    Panel56: TPanel;
-    DBText57: TDBText;
-    Label66: TLabel;
-    Label67: TLabel;
-    DBText58: TDBText;
-    Panel57: TPanel;
-    Label68: TLabel;
-    DBText59: TDBText;
-    Panel58: TPanel;
-    DBText61: TDBText;
-    Label70: TLabel;
-    QRYUPDATETABEST1: TUniQuery;
-    QRYUPDATETABESTMOV: TUniQuery;
-    Labelinfor: TLabel;
-    Label1: TLabel;
-    DBTextproduto: TDBText;
-    Panel10: TPanel;
-    btnconsultprevenda: TButton;
-    btnconfirma: TBitBtn;
-    Label21: TLabel;
-    Labeldiferença: TLabel;
-    Editcontagem: TEdit;
-    Label23: TLabel;
-    DBTextquantidade: TDBText;
-    Label22: TLabel;
-    Label24: TLabel;
-    DBText65: TDBText;
-    DBText66: TDBText;
-    Label74: TLabel;
-    qryTabest1mov: TUniQuery;
-    DSqryTabest1mov: TDataSource;
-    QryBuscaLkItem: TUniQuery;
     Panel11: TPanel;
+    Label75: TLabel;
     DBCtrlGridpedidos: TDBCtrlGrid;
     Panel42: TPanel;
     DBText39: TDBText;
@@ -236,67 +177,39 @@ type
     Panel32: TPanel;
     DBText38: TDBText;
     Label50: TLabel;
-    Label75: TLabel;
+    TabSheet3: TTabSheet;
+    Panel37: TPanel;
+    btnRetomarProgresso: TButton;
+    btnapagahistorico: TButton;
     btnrelatpositivo: TBitBtn;
     btnrelatnegativo: TBitBtn;
     btnrelacorreto: TBitBtn;
-    QRYHISTORICONUMRELATORIO: TIntegerField;
-    QRYHISTORICODATA_AJUSTE: TDateTimeField;
-    QRYHISTORICOUSUARIO: TStringField;
-    QRYHISTORICOLKUSUARIO: TIntegerField;
-    QRYHISTORICOTOTAL_CUSTO_DIF: TCurrencyField;
-    QRYHISTORICOPERIODO_INICIO: TDateField;
-    QRYHISTORICOPERIODO_FIM: TDateField;
-    QRYHISTORICOGRUPO_FILTRO: TStringField;
-    QRYHISTORICOMARCA_FILTRO: TStringField;
-    QRYHISTORICOFORNECEDOR_FILTRO: TStringField;
-    QRYHISTORICOLOCALIZACAO_FILTRO: TStringField;
-    QRYHISTORICOSTATUS: TBooleanField;
-    QRYPRODUTOSCONTADOS: TUniQuery;
-    DSQRYPRODUTOSCONTADOS: TDataSource;
     btnatualizaestoque: TBitBtn;
-    QRYPRODUTOSCONTADOSID_ITEM: TIntegerField;
-    QRYPRODUTOSCONTADOSNUMRELATORIO: TIntegerField;
-    QRYPRODUTOSCONTADOSCODINTERNO: TStringField;
-    QRYPRODUTOSCONTADOSPRODUTO_DESCRICAO: TStringField;
-    QRYPRODUTOSCONTADOSGRUPO: TStringField;
-    QRYPRODUTOSCONTADOSMARCA: TStringField;
-    QRYPRODUTOSCONTADOSFORNECEDOR: TStringField;
-    QRYPRODUTOSCONTADOSCODFORNECEDOR: TStringField;
-    QRYPRODUTOSCONTADOSCODBARRA: TStringField;
-    QRYPRODUTOSCONTADOSQTD_VENDIDA: TFloatField;
-    QRYPRODUTOSCONTADOSLOCALIZACAO: TStringField;
-    QRYPRODUTOSCONTADOSCUSTO_TOTAL: TCurrencyField;
-    QRYPRODUTOSCONTADOSESTOQUE_ANTERIOR: TFloatField;
-    QRYPRODUTOSCONTADOSCONTAGEM_FINAL: TFloatField;
-    QRYPRODUTOSCONTADOSDIFERENCA: TFloatField;
-    QRYPRODUTOSCONTADOSPRECO_CUSTO: TCurrencyField;
-    QRYPRODUTOSCONTADOSVALOR_DIFERENCA: TCurrencyField;
-    frxDBCAB: TfrxDBDataset;
     btnmovimento: TButton;
     Panel12: TPanel;
     Panel13: TPanel;
+    Label9: TLabel;
     DBGridprodcontados: TDBCtrlGrid;
     Panel24: TPanel;
     Label32: TLabel;
     DBText14: TDBText;
     DBText15: TDBText;
+    Label58: TLabel;
     Panel25: TPanel;
     Label33: TLabel;
     DBText16: TDBText;
     DBText17: TDBText;
+    Label59: TLabel;
     Panel27: TPanel;
     DBText18: TDBText;
     Label35: TLabel;
     DBText19: TDBText;
+    Label60: TLabel;
     Panel28: TPanel;
     DBText20: TDBText;
     Label36: TLabel;
     DBText21: TDBText;
-    Panel29: TPanel;
-    DBGRIDHISTORICO: TDBGrid;
-    Label7: TLabel;
-    Label9: TLabel;
+    Label61: TLabel;
     Panel15: TPanel;
     DBText12: TDBText;
     Label25: TLabel;
@@ -304,52 +217,62 @@ type
     Label37: TLabel;
     DBText45: TDBText;
     Label38: TLabel;
+    Panel29: TPanel;
+    Label7: TLabel;
+    DBGRIDHISTORICO: TDBGrid;
+    TabSheet5: TTabSheet;
+    Panel50: TPanel;
+    Panel51: TPanel;
+    DBText51: TDBText;
+    Label64: TLabel;
+    DBText52: TDBText;
+    Label65: TLabel;
+    DBText53: TDBText;
+    Label74: TLabel;
+    Panel52: TPanel;
+    DBText54: TDBText;
+    Label66: TLabel;
+    Label67: TLabel;
+    DBText55: TDBText;
+    Panel53: TPanel;
+    Label68: TLabel;
+    DBText56: TDBText;
     DBText46: TDBText;
     Label39: TLabel;
     Label49: TLabel;
     DBText47: TDBText;
+    Panel54: TPanel;
+    DBText57: TDBText;
+    Label70: TLabel;
     Label57: TLabel;
     DBText48: TDBText;
-    Label58: TLabel;
-    Label59: TLabel;
-    Label60: TLabel;
-    Label61: TLabel;
-    Label62: TLabel;
-    Label63: TLabel;
-    Label69: TLabel;
-    Label71: TLabel;
-    Label72: TLabel;
-    DBText49: TDBText;
-    Label73: TLabel;
-    TabSheet6: TTabSheet;
-    Panel30: TPanel;
-    Panel31: TPanel;
+    DBGridmovestoque: TDBGrid;
+    TabSheet8: TTabSheet;
+    TabSheet9: TTabSheet;
     Label76: TLabel;
+    Panel31: TPanel;
     Label77: TLabel;
-    DBGRIDPRODUTOSBASE: TDBGrid;
-    QRYPRODUTOSBASE: TUniQuery;
-    DSQRYPRODUTOSBASE: TDataSource;
     Panel34: TPanel;
-    Panel35: TPanel;
-    Panel36: TPanel;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
-    Label78: TLabel;
-    CEPERCENTUALATACADO4: TCurrencyEdit;
-    CEPERCENTUALATACADO3: TCurrencyEdit;
-    Label79: TLabel;
-    CEPERCENTUALATACADO2: TCurrencyEdit;
-    Label80: TLabel;
-    CEPERCENTUALATACADO1: TCurrencyEdit;
-    Label81: TLabel;
-    CEPRECOATACADO4: TCurrencyEdit;
-    CEPRECOATACADO3: TCurrencyEdit;
-    CEPRECOATACADO2: TCurrencyEdit;
-    CEPRECOATACADO1: TCurrencyEdit;
     Label82: TLabel;
     Label83: TLabel;
     Label84: TLabel;
     Label85: TLabel;
+    CEPRECOATACADO4: TCurrencyEdit;
+    CEPRECOATACADO3: TCurrencyEdit;
+    CEPRECOATACADO2: TCurrencyEdit;
+    CEPRECOATACADO1: TCurrencyEdit;
+    Panel35: TPanel;
+    Label78: TLabel;
+    Label79: TLabel;
+    Label80: TLabel;
+    Label81: TLabel;
+    CEPERCENTUALATACADO4: TCurrencyEdit;
+    CEPERCENTUALATACADO3: TCurrencyEdit;
+    CEPERCENTUALATACADO2: TCurrencyEdit;
+    CEPERCENTUALATACADO1: TCurrencyEdit;
+    Panel36: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
     Panel47: TPanel;
     Label86: TLabel;
     Label87: TLabel;
@@ -368,6 +291,25 @@ type
     CEPRECOVAREJO3: TCurrencyEdit;
     CEPRECOVAREJO2: TCurrencyEdit;
     CEPRECOVAREJO1: TCurrencyEdit;
+    DBGRIDPRODUTOSBASE: TDBGrid;
+    dsQRYRKVEND: TDataSource;
+    QRYRKVEND: TUniQuery;
+    QRYPRODUTOSABERTOS: TUniQuery;
+    DSQRYPRODUTOSABERTOS: TDataSource;
+    QRYHISTORICO: TUniQuery;
+    QRYHISTORICONUMRELATORIO: TIntegerField;
+    QRYHISTORICODATA_AJUSTE: TDateTimeField;
+    QRYHISTORICOUSUARIO: TStringField;
+    QRYHISTORICOLKUSUARIO: TIntegerField;
+    QRYHISTORICOTOTAL_CUSTO_DIF: TCurrencyField;
+    QRYHISTORICOPERIODO_INICIO: TDateField;
+    QRYHISTORICOPERIODO_FIM: TDateField;
+    QRYHISTORICOGRUPO_FILTRO: TStringField;
+    QRYHISTORICOMARCA_FILTRO: TStringField;
+    QRYHISTORICOFORNECEDOR_FILTRO: TStringField;
+    QRYHISTORICOLOCALIZACAO_FILTRO: TStringField;
+    QRYHISTORICOSTATUS: TBooleanField;
+    DSQRYHISTORICO: TDataSource;
    
     procedure CarregarGrupos;
     procedure CarregarMarcas;
@@ -394,7 +336,7 @@ type
  
     procedure btnupClick(Sender: TObject);
     procedure BtndownClick(Sender: TObject);
-    procedure QRYRKVENDAfterScroll(DataSet: TDataSet);
+
     procedure TeclaClick(Sender: TObject);
 
     procedure btnprodconfClick(Sender: TObject);
@@ -442,10 +384,12 @@ type
      procedure Estoque_RegistrarMovimento(sCodInterno: string; fDiferenca: Extended; fEstoqueAnterior: Extended; fNovaQuantidade: Extended; iLkUsuario: Integer; iLkItem: Integer);
     procedure DBGRIDHISTORICODrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure QRYHISTORICOAfterScroll(DataSet: TDataSet);
+
     procedure btnmovimentoClick(Sender: TObject);
     procedure CarregarListaBaseProdutos;
     procedure BitBtn3Click(Sender: TObject);
+    procedure QRYRKVENDAfterScroll(DataSet: TDataSet);
+    procedure QRYHISTORICOAfterScroll(DataSet: TDataSet);
   
 
 
@@ -507,7 +451,7 @@ begin
       CodInterno := QRYRKVEND.FieldByName('CodInterno').AsString;
 
       // 3. Tenta localizar no CDSPRODUTOS (itens já conferidos)
-      if not CDSPRODUTOS.Locate('CodInterno', CodInterno, [loCaseInsensitive]) then
+      if not datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInterno, [loCaseInsensitive]) then
       begin
         // Se encontrou um produto que NÃO está no CDSPRODUTOS
         Result := False; // Conferência Incompleta
@@ -534,7 +478,7 @@ var
 begin
   // 1. Determina o estado da conferência
   ConferenciaCompleta := VerificarConferenciaCompleta;
-  ConferenciaIniciada := not CDSPRODUTOS.IsEmpty;
+  ConferenciaIniciada := not datamodule1.CDSPRODUTOS.IsEmpty;
 
   // 2. Desabilita todos os botões de relatório por padrão
   btnrelacorreto.Enabled := False;
@@ -597,7 +541,7 @@ end;
 procedure Tfrmmenu.btnlimpalistaClick(Sender: TObject);
 begin
   // 1. Confirmação do Usuário
-  if not CDSPRODUTOS.IsEmpty then
+  if not datamodule1.CDSPRODUTOS.IsEmpty then
   begin
     if MessageDlg('Tem certeza que deseja LIMPAR a lista de contagem e a lista de produtos (se estiver aberta)? Todos os itens não salvos serão perdidos!',
                   mtConfirmation, [mbYes, mbNo], 0) = mrNo then
@@ -611,7 +555,7 @@ begin
 
   try
     // 2. Limpa o ClientDataSet (Esvazia a lista de produtos em contagem)
-    CDSPRODUTOS.EmptyDataSet;
+    datamodule1.CDSPRODUTOS.EmptyDataSet;
 
     // 3. Limpa a consulta de produtos (QRYRKVEND)
     if QRYRKVEND.Active then
@@ -734,8 +678,8 @@ begin
     else if PageControl1.ActivePage = TabSheet2 then
     begin
       // A lógica original de focar no TabSheet2 também garantia a abertura do CDS
-      if not CDSPRODUTOS.Active then
-        CDSPRODUTOS.Open;
+      if not datamodule1.CDSPRODUTOS.Active then
+        datamodule1.CDSPRODUTOS.Open;
       if Assigned(DBCtrlGrid1) then
         DBCtrlGrid1.SetFocus;
     end
@@ -749,11 +693,11 @@ end;
 procedure Tfrmmenu.btnqrypedidodownClick(Sender: TObject);
 begin
   // Move para o próximo registro na Query Detalhe (Pedidos de Reserva)
-  if QRYPEDIDOS.Active then
+  if datamodule1.QRYPEDIDOS.Active then
   begin
-    if not QRYPEDIDOS.Eof then
+    if not datamodule1.QRYPEDIDOS.Eof then
     begin
-      QRYPEDIDOS.Next; // Move para o próximo registro
+      datamodule1.QRYPEDIDOS.Next; // Move para o próximo registro
     end
     // else { Opcional: ShowMessage('Você já está no último pedido.'); }
   end;
@@ -764,11 +708,11 @@ end;
 procedure Tfrmmenu.btnqrypedidoupClick(Sender: TObject);
 begin
   // Move para o registro anterior na Query Detalhe (Pedidos de Reserva)
-  if QRYPEDIDOS.Active then
+  if datamodule1.QRYPEDIDOS.Active then
   begin
-    if not QRYPEDIDOS.Bof then
+    if not datamodule1.QRYPEDIDOS.Bof then
     begin
-      QRYPEDIDOS.Prior; // Move para o registro anterior
+      datamodule1.QRYPEDIDOS.Prior; // Move para o registro anterior
     end
     // else { Opcional: ShowMessage('Você já está no primeiro pedido.'); }
   end;
@@ -905,7 +849,7 @@ end;
 procedure Tfrmmenu.btnapagarClick(Sender: TObject);
 begin
   // 1. Verifica se o ClientDataSet está aberto e possui registros
-  if not CDSPRODUTOS.Active or CDSPRODUTOS.IsEmpty then
+  if not datamodule1.CDSPRODUTOS.Active or datamodule1.CDSPRODUTOS.IsEmpty then
   begin
     ShowMessage('Não há registros de contagem para excluir no momento.');
     Exit;
@@ -914,12 +858,12 @@ begin
   // 2. Confirmação do Usuário
   // Pega o nome do produto selecionado para exibir na mensagem de confirmação
   if MessageDlg('Tem certeza que deseja APAGAR o registro de contagem do produto: ' +
-                 CDSPRODUTOS.FieldByName('Produto').AsString + '?',
+                 datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString + '?',
                  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     try
       // 3. Exclui o registro atual (o que está selecionado no DBCtrlGrid1)
-      CDSPRODUTOS.Delete;
+      datamodule1.CDSPRODUTOS.Delete;
 
       ShowMessage('Registro de contagem excluído com sucesso.');
 
@@ -967,7 +911,7 @@ begin
     Exit;
   end;
 
-  if not CDSPRODUTOS.Active or CDSPRODUTOS.IsEmpty then
+  if not datamodule1.CDSPRODUTOS.Active or datamodule1.CDSPRODUTOS.IsEmpty then
   begin
     ShowMessage('A lista de contagem está vazia. Não há o que atualizar.');
     Exit;
@@ -997,16 +941,16 @@ begin
     LocalizacaoFiltro := 'TODOS';
 
   DataModule1.ConDados.StartTransaction;
-  CDSPRODUTOS.DisableControls;
+  datamodule1.CDSPRODUTOS.DisableControls;
 
   try
     // 3. Calcula o novo total da diferença
     TotalCustoDiferenca := 0;
-    CDSPRODUTOS.First;
-    while not CDSPRODUTOS.Eof do
+    datamodule1.CDSPRODUTOS.First;
+    while not datamodule1.CDSPRODUTOS.Eof do
     begin
-      TotalCustoDiferenca := TotalCustoDiferenca + CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
-      CDSPRODUTOS.Next;
+      TotalCustoDiferenca := TotalCustoDiferenca + datamodule1.CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
+      datamodule1.CDSPRODUTOS.Next;
     end;
 
     // 4. ATUALIZA O CABEÇALHO EXISTENTE
@@ -1057,24 +1001,24 @@ begin
     end;
 
     // 6. Loop de produtos para REINSERIR os ITENS ATUALIZADOS
-    CDSPRODUTOS.First;
+    datamodule1.CDSPRODUTOS.First;
     ContadorAjustes := 0;
-    while not CDSPRODUTOS.Eof do
+    while not datamodule1.CDSPRODUTOS.Eof do
     begin
       // COPIA DOS DADOS
-      CodProdutoAtual := CDSPRODUTOS.FieldByName('CodInterno').AsString;
-      ProdutoDescricaoAtual := CDSPRODUTOS.FieldByName('Produto').AsString;
-      EstoqueAnterior := CDSPRODUTOS.FieldByName('Estoque').AsFloat;
-      ContagemAtual := CDSPRODUTOS.FieldByName('Contagem').AsFloat;
-      DiferencaAtual := CDSPRODUTOS.FieldByName('Diferenca').AsFloat;
-      ValorDiferencaAtual := CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
-      CustoTotalEstoque := CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency;
-      QtdVendida := CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat;
-      LocalizacaoAtual := CDSPRODUTOS.FieldByName('Localizacao').AsString;
-      CodFornecedorAtual := CDSPRODUTOS.FieldByName('CodFornecedor').AsString;
+      CodProdutoAtual := datamodule1.CDSPRODUTOS.FieldByName('CodInterno').AsString;
+      ProdutoDescricaoAtual := datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString;
+      EstoqueAnterior := datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat;
+      ContagemAtual := datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat;
+      DiferencaAtual := datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat;
+      ValorDiferencaAtual := datamodule1.CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
+      CustoTotalEstoque := datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency;
+      QtdVendida := datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat;
+      LocalizacaoAtual := datamodule1.CDSPRODUTOS.FieldByName('Localizacao').AsString;
+      CodFornecedorAtual := datamodule1.CDSPRODUTOS.FieldByName('CodFornecedor').AsString;
 
-      if CDSPRODUTOS.FindField('CodBarra') <> nil then
-        CodBarraAtual := CDSPRODUTOS.FieldByName('CodBarra').AsString
+      if datamodule1.CDSPRODUTOS.FindField('CodBarra') <> nil then
+        CodBarraAtual := datamodule1.CDSPRODUTOS.FieldByName('CodBarra').AsString
       else
         CodBarraAtual := '';
 
@@ -1097,11 +1041,11 @@ begin
           ParamByName('EstAnterior').AsFloat := EstoqueAnterior;
           ParamByName('Contagem').AsFloat := ContagemAtual;
           ParamByName('Diferenca').AsFloat := DiferencaAtual;
-          ParamByName('PrecoCusto').AsCurrency := CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency;
+          ParamByName('PrecoCusto').AsCurrency := datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency;
           ParamByName('ValorDiferenca').AsCurrency := ValorDiferencaAtual;
-          ParamByName('Grupo').AsString := CDSPRODUTOS.FieldByName('Grupo').AsString;
-          ParamByName('Marca').AsString := CDSPRODUTOS.FieldByName('Marca').AsString;
-          ParamByName('Fornecedor').AsString := CDSPRODUTOS.FieldByName('Fornecedor').AsString;
+          ParamByName('Grupo').AsString := datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString;
+          ParamByName('Marca').AsString := datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString;
+          ParamByName('Fornecedor').AsString := datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString;
           ParamByName('CodFornecedor').AsString := CodFornecedorAtual;
           ParamByName('CodBarra').AsString := CodBarraAtual;
           ParamByName('CustoTotal').AsCurrency := CustoTotalEstoque;
@@ -1119,7 +1063,7 @@ begin
         end;
       end;
 
-      CDSPRODUTOS.Next;
+      datamodule1.CDSPRODUTOS.Next;
     end;
 
     DataModule1.ConDados.Commit;
@@ -1133,7 +1077,7 @@ begin
     end;
   end;
 
-  CDSPRODUTOS.EnableControls;
+  datamodule1.CDSPRODUTOS.EnableControls;
   CarregarHistorico;
 end;
 
@@ -1152,8 +1096,8 @@ var
   Operacao: String; // Para informar se foi Inserção ou Edição
 begin
   // 1. Validação de Dados de Entrada
-  if not CDSPRODUTOS.Active then
-    CDSPRODUTOS.Open;
+  if not datamodule1.CDSPRODUTOS.Active then
+    datamodule1.CDSPRODUTOS.Open;
 
   if QRYRKVEND.IsEmpty then
   begin
@@ -1184,28 +1128,28 @@ begin
   PeriodoStr := FormatDateTime('dd/mm/yyyy', dtinicio.Date) + ' a ' + FormatDateTime('dd/mm/yyyy', dtfim.Date);
 
   // 3. Tenta Localizar o registro no CDSPRODUTOS pelo CodInterno
-  if CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, []) then
+  if datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, []) then
   begin
     // =========================================================
     // REGISTRO ENCONTRADO: Entra em Edição (Atualiza a Contagem)
     // =========================================================
     Operacao := 'Atualizado';
-    CDSPRODUTOS.Edit;
+    datamodule1.CDSPRODUTOS.Edit;
 
     // 4A. Atualiza Campos Dinâmicos (Estoque, Vendas, Custos e Info)
-    CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
-    CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
+    datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
+    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
 
     // ... [Atualização dos campos de string e currency] ...
-    CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
-    CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
+    datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
+    datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
 
-    CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
-    CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
-    CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
-    CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
-    CDSPRODUTOS.FieldByName('Localizacao').AsString := QRYRKVEND.FieldByName('Localizacao').AsString;
-    CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
+    datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Localizacao').AsString := QRYRKVEND.FieldByName('Localizacao').AsString;
+   datamodule1.CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
 
   end
   else
@@ -1214,41 +1158,41 @@ begin
     // REGISTRO NÃO ENCONTRADO: Entra em Inserção (Cria Novo)
     // =========================================================
     Operacao := 'Inserido';
-    CDSPRODUTOS.Append;
+    datamodule1.CDSPRODUTOS.Append;
 
     // 4B. Cópia Completa dos Campos
 
     // ATRIBUIÇÃO DO CAMPO DE ORDENAÇÃO
-    CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := CDSPRODUTOS.RecordCount + 1; // Incrementa o contador para a ordem de inserção
+    datamodule1.CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := datamodule1.CDSPRODUTOS.RecordCount + 1; // Incrementa o contador para a ordem de inserção
 
-    CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
-    CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
+    datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
+    datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
 
-    CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
-    CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
+    datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
+    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
 
     // Campos de String (Chaves e Descrições)
-    CDSPRODUTOS.FieldByName('CodInterno').AsString := CodInternoAtual;
-    CDSPRODUTOS.FieldByName('CodFornecedor').AsString := QRYRKVEND.FieldByName('CodFornecedor').AsString;
-    CDSPRODUTOS.FieldByName('CodBarra').AsString := QRYRKVEND.FieldByName('Codbarra').AsString;
-    CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
-    CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
-    CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
-    CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
-    CDSPRODUTOS.FieldByName('Localizacao').AsString := QRYRKVEND.FieldByName('Localizacao').AsString;
-    CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
+    datamodule1.CDSPRODUTOS.FieldByName('CodInterno').AsString := CodInternoAtual;
+    datamodule1.CDSPRODUTOS.FieldByName('CodFornecedor').AsString := QRYRKVEND.FieldByName('CodFornecedor').AsString;
+   datamodule1.CDSPRODUTOS.FieldByName('CodBarra').AsString := QRYRKVEND.FieldByName('Codbarra').AsString;
+   datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Localizacao').AsString := QRYRKVEND.FieldByName('Localizacao').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
   end;
 
   try
     // 5. Salva os Campos de Inventário (Comum para Edição e Inserção)
     // MUDANÇA: Atribuição usando AsFloat
-    CDSPRODUTOS.FieldByName('Contagem').AsFloat := Contagem;
+    datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat := Contagem;
 
     // MUDANÇA: Cálculo da Diferença usando AsFloat
-    CDSPRODUTOS.FieldByName('Diferenca').AsFloat := Contagem - EstoqueAtual;
+    datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat := Contagem - EstoqueAtual;
 
     // 6. Finaliza a Operação
-    CDSPRODUTOS.Post;
+    datamodule1.CDSPRODUTOS.Post;
 
     // ATUALIZA CONTAGEM DE PRODUTOS
     AtualizarBotoesRelatorio;
@@ -1257,7 +1201,7 @@ begin
 
   except
     // 7. Em caso de erro, cancela a operação
-    CDSPRODUTOS.Cancel;
+    datamodule1.CDSPRODUTOS.Cancel;
     raise;
 
   end;
@@ -1268,7 +1212,7 @@ begin
   Labeldiferença.Caption := '';
 
 
-  if Assigned(CDSTOTAIS) then
+  if Assigned(datamodule1.CDSTOTAIS) then
       CalcularETotalizar;
 
   Editcontagem.SetFocus;
@@ -1306,14 +1250,14 @@ begin
   if PageControl1.ActivePage = TabSheet1 then
   begin
     if QRYRKVEND.Active and not QRYRKVEND.Eof then
-      QRYRKVEND.Next;
+    QRYRKVEND.Next;
   end
 
   // --- ABA 2: PRODUTOS CONFERIDOS (CDSPRODUTOS) ---
   else if PageControl1.ActivePage = TabSheet2 then
   begin
-    if CDSPRODUTOS.Active and not CDSPRODUTOS.Eof then
-      CDSPRODUTOS.Next;
+    if datamodule1.CDSPRODUTOS.Active and not datamodule1.CDSPRODUTOS.Eof then
+      datamodule1.CDSPRODUTOS.Next;
   end
 
   // --- ABA 3: HISTÓRICO (QRYHISTORICO) ---
@@ -1335,8 +1279,8 @@ begin
   else if PageControl1.ActivePage = TabSheet4 then // <-- NOVO BLOCO PARA ABA 5
   begin
     // Navegação na Query Detalhe de Pedidos
-    if QRYPEDIDOS.Active and not QRYPEDIDOS.Eof then
-      QRYPEDIDOS.Next;
+    if datamodule1.QRYPEDIDOS.Active and not datamodule1.QRYPEDIDOS.Eof then
+      datamodule1.QRYPEDIDOS.Next;
   end;
 
 
@@ -1356,36 +1300,36 @@ begin
     Exit;
   end;
 
-  if not QRYPRODUTOSCONTADOS.Active then
+  if not datamodule1.QRYPRODUTOSCONTADOS.Active then
     QRYHISTORICOAfterScroll(QRYHISTORICO);
 
-  if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+  if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
   begin
     ShowMessage('O relatório de histórico selecionado não possui produtos conferidos.');
     Exit;
   end;
 
-  if DBPRODUTOS.DataSet <> QRYPRODUTOSCONTADOS then
-    DBPRODUTOS.DataSet := QRYPRODUTOSCONTADOS;
+  if datamodule1.DBPRODUTOS.DataSet <> datamodule1.QRYPRODUTOSCONTADOS then
+    datamodule1.DBPRODUTOS.DataSet := datamodule1.QRYPRODUTOSCONTADOS;
 
   try
-    QRYPRODUTOSCONTADOS.DisableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.DisableControls;
 
-    QRYPRODUTOSCONTADOS.Filter := FILTRO_VALOR_POSITIVO;
-    QRYPRODUTOSCONTADOS.Filtered := True;
+    datamodule1.QRYPRODUTOSCONTADOS.Filter := FILTRO_VALOR_POSITIVO;
+   datamodule1. QRYPRODUTOSCONTADOS.Filtered := True;
 
-    if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+    if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
     begin
       ShowMessage('Não foram encontrados registros com Diferença positiva (sobras) neste relatório.');
       Exit;
     end;
 
-    FRXRAKVEND.ShowReport;
+    datamodule1.FRXrelatorio.ShowReport;
 
   finally
-    QRYPRODUTOSCONTADOS.Filtered := False;
-    QRYPRODUTOSCONTADOS.Filter := '';
-    QRYPRODUTOSCONTADOS.EnableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.Filtered := False;
+    datamodule1.QRYPRODUTOSCONTADOS.Filter := '';
+    datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
   end;
 end;
 
@@ -1400,36 +1344,36 @@ begin
     Exit;
   end;
 
-  if not QRYPRODUTOSCONTADOS.Active then
+  if not datamodule1.QRYPRODUTOSCONTADOS.Active then
     QRYHISTORICOAfterScroll(QRYHISTORICO);
 
-  if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+  if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
   begin
     ShowMessage('O relatório de histórico selecionado não possui produtos conferidos.');
     Exit;
   end;
 
-  if DBPRODUTOS.DataSet <> QRYPRODUTOSCONTADOS then
-    DBPRODUTOS.DataSet := QRYPRODUTOSCONTADOS;
+  if datamodule1.DBPRODUTOS.DataSet <> datamodule1.QRYPRODUTOSCONTADOS then
+    datamodule1.DBPRODUTOS.DataSet := datamodule1.QRYPRODUTOSCONTADOS;
 
   try
-    QRYPRODUTOSCONTADOS.DisableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.DisableControls;
 
-    QRYPRODUTOSCONTADOS.Filter := FILTRO_VALOR_NEGATIVO;
-    QRYPRODUTOSCONTADOS.Filtered := True;
+    datamodule1.QRYPRODUTOSCONTADOS.Filter := FILTRO_VALOR_NEGATIVO;
+    datamodule1.QRYPRODUTOSCONTADOS.Filtered := True;
 
-    if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+    if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
     begin
       ShowMessage('Não foram encontrados registros com Diferença negativa (faltas) neste relatório.');
       Exit;
     end;
 
-    FRXRAKVEND.ShowReport;
+    datamodule1.FRXrelatorio.ShowReport;
 
   finally
-    QRYPRODUTOSCONTADOS.Filtered := False;
-    QRYPRODUTOSCONTADOS.Filter := '';
-    QRYPRODUTOSCONTADOS.EnableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.Filtered := False;
+    datamodule1.QRYPRODUTOSCONTADOS.Filter := '';
+    datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
   end;
 end;
 
@@ -1444,36 +1388,36 @@ begin
     Exit;
   end;
 
-  if not QRYPRODUTOSCONTADOS.Active then
+  if not datamodule1.QRYPRODUTOSCONTADOS.Active then
     QRYHISTORICOAfterScroll(QRYHISTORICO);
 
-  if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+  if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
   begin
     ShowMessage('O relatório de histórico selecionado não possui produtos conferidos.');
     Exit;
   end;
 
-  if DBPRODUTOS.DataSet <> QRYPRODUTOSCONTADOS then
-    DBPRODUTOS.DataSet := QRYPRODUTOSCONTADOS;
+  if datamodule1.DBPRODUTOS.DataSet <> datamodule1.QRYPRODUTOSCONTADOS then
+    datamodule1.DBPRODUTOS.DataSet := datamodule1.QRYPRODUTOSCONTADOS;
 
   try
-    QRYPRODUTOSCONTADOS.DisableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.DisableControls;
 
-    QRYPRODUTOSCONTADOS.Filter := FILTRO_DIFERENCA_ZERO;
-    QRYPRODUTOSCONTADOS.Filtered := True;
+    datamodule1.QRYPRODUTOSCONTADOS.Filter := FILTRO_DIFERENCA_ZERO;
+    datamodule1.QRYPRODUTOSCONTADOS.Filtered := True;
 
-    if QRYPRODUTOSCONTADOS.RecordCount = 0 then
+    if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
     begin
       ShowMessage('Não foram encontrados registros conferidos sem diferença para gerar o relatório.');
       Exit;
     end;
 
-    FRXRAKVEND.ShowReport;
+    datamodule1.FRXrelatorio.ShowReport;
 
   finally
-    QRYPRODUTOSCONTADOS.Filtered := False;
-    QRYPRODUTOSCONTADOS.Filter := '';
-    QRYPRODUTOSCONTADOS.EnableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.Filtered := False;
+   datamodule1. QRYPRODUTOSCONTADOS.Filter := '';
+    datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
   end;
 end;
 
@@ -1518,7 +1462,7 @@ begin
   if MessageDlg(Format('Deseja retomar o progresso No. %d? Isso apagará qualquer contagem não salva.', [NumRelatorioSelecionado]),
                  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
-    CDSPRODUTOS.EmptyDataSet;
+    datamodule1.CDSPRODUTOS.EmptyDataSet;
 
     // Novo fluxo com procedures separadas
     AplicarPeriodoEExecutarRelatorio(NumRelatorioSelecionado);
@@ -1550,8 +1494,8 @@ begin
   // --- ABA 2: PRODUTOS CONFERIDOS (CDSPRODUTOS) ---
   else if PageControl1.ActivePage = TabSheet2 then
   begin
-    if CDSPRODUTOS.Active and not CDSPRODUTOS.Bof then
-      CDSPRODUTOS.Prior;
+    if datamodule1.CDSPRODUTOS.Active and not datamodule1.CDSPRODUTOS.Bof then
+      datamodule1.CDSPRODUTOS.Prior;
   end
 
   // --- ABA 3: HISTÓRICO (QRYHISTORICO) ---
@@ -1573,8 +1517,8 @@ begin
   else if PageControl1.ActivePage = TabSheet4 then // <-- NOVO BLOCO PARA ABA 5
   begin
     // Navegação na Query Detalhe de Pedidos
-    if QRYPEDIDOS.Active and not QRYPEDIDOS.Bof then
-      QRYPEDIDOS.Prior;
+    if datamodule1.QRYPEDIDOS.Active and not datamodule1.QRYPEDIDOS.Bof then
+      datamodule1.QRYPEDIDOS.Prior;
   end;
   
 end;
@@ -1595,7 +1539,7 @@ var
   bConferenciaCompleta: Boolean;
 begin
   // 1. Validação e Confirmação
-  if not CDSPRODUTOS.Active or CDSPRODUTOS.IsEmpty then
+  if not datamodule1.CDSPRODUTOS.Active or datamodule1.CDSPRODUTOS.IsEmpty then
   begin
     ShowMessage('A lista de contagem está vazia. Nada será salvo.');
     Exit;
@@ -1625,16 +1569,16 @@ begin
     LocalizacaoFiltro := 'TODOS';
 
   DataModule1.ConDados.StartTransaction;
-  CDSPRODUTOS.DisableControls;
+  datamodule1.CDSPRODUTOS.DisableControls;
 
   try
     // 3. Calcula o total da diferença para o cabeçalho
     TotalCustoDiferenca := 0;
-    CDSPRODUTOS.First;
-    while not CDSPRODUTOS.Eof do
+    datamodule1.CDSPRODUTOS.First;
+    while not datamodule1.CDSPRODUTOS.Eof do
     begin
-      TotalCustoDiferenca := TotalCustoDiferenca + CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
-      CDSPRODUTOS.Next;
+      TotalCustoDiferenca := TotalCustoDiferenca + datamodule1.CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
+      datamodule1.CDSPRODUTOS.Next;
     end;
 
     // 4. Insere cabeçalho (Registro de Progresso) e captura NUMRELATORIO
@@ -1676,24 +1620,24 @@ begin
     end;
 
     // 5. Loop de produtos para salvar os ITENS
-    CDSPRODUTOS.First;
+    datamodule1.CDSPRODUTOS.First;
     ContadorAjustes := 0;
-    while not CDSPRODUTOS.Eof do
+    while not datamodule1.CDSPRODUTOS.Eof do
     begin
       // COPIA OS DADOS DO CLIENTDATASET PARA AS VARIÁVEIS
-      CodProdutoAtual := CDSPRODUTOS.FieldByName('CodInterno').AsString;
-      ProdutoDescricaoAtual := CDSPRODUTOS.FieldByName('Produto').AsString;
-      EstoqueAnterior := CDSPRODUTOS.FieldByName('Estoque').AsFloat;
-      ContagemAtual := CDSPRODUTOS.FieldByName('Contagem').AsFloat;
-      DiferencaAtual := CDSPRODUTOS.FieldByName('Diferenca').AsFloat;
-      ValorDiferencaAtual := CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
-      CustoTotalEstoque := CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency;
-      QtdVendida := CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat;
-      LocalizacaoAtual := CDSPRODUTOS.FieldByName('Localizacao').AsString;
-      CodFornecedorAtual := CDSPRODUTOS.FieldByName('CodFornecedor').AsString;
+      CodProdutoAtual := datamodule1.CDSPRODUTOS.FieldByName('CodInterno').AsString;
+      ProdutoDescricaoAtual := datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString;
+      EstoqueAnterior := datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat;
+      ContagemAtual := datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat;
+      DiferencaAtual := datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat;
+      ValorDiferencaAtual := datamodule1.CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency;
+      CustoTotalEstoque := datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency;
+      QtdVendida := datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat;
+      LocalizacaoAtual := datamodule1.CDSPRODUTOS.FieldByName('Localizacao').AsString;
+      CodFornecedorAtual := datamodule1.CDSPRODUTOS.FieldByName('CodFornecedor').AsString;
 
-      if CDSPRODUTOS.FindField('CodBarra') <> nil then
-        CodBarraAtual := CDSPRODUTOS.FieldByName('CodBarra').AsString
+      if datamodule1.CDSPRODUTOS.FindField('CodBarra') <> nil then
+        CodBarraAtual := datamodule1.CDSPRODUTOS.FieldByName('CodBarra').AsString
       else
         CodBarraAtual := '';
 
@@ -1716,11 +1660,11 @@ begin
           ParamByName('EstAnterior').AsFloat := EstoqueAnterior;
           ParamByName('Contagem').AsFloat := ContagemAtual;
           ParamByName('Diferenca').AsFloat := DiferencaAtual;
-          ParamByName('PrecoCusto').AsCurrency := CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency;
+          ParamByName('PrecoCusto').AsCurrency := datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency;
           ParamByName('ValorDiferenca').AsCurrency := ValorDiferencaAtual;
-          ParamByName('Grupo').AsString := CDSPRODUTOS.FieldByName('Grupo').AsString;
-          ParamByName('Marca').AsString := CDSPRODUTOS.FieldByName('Marca').AsString;
-          ParamByName('Fornecedor').AsString := CDSPRODUTOS.FieldByName('Fornecedor').AsString;
+          ParamByName('Grupo').AsString := datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString;
+          ParamByName('Marca').AsString := datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString;
+          ParamByName('Fornecedor').AsString := datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString;
           ParamByName('CodFornecedor').AsString := CodFornecedorAtual;
           ParamByName('CodBarra').AsString := CodBarraAtual;
           ParamByName('CustoTotal').AsCurrency := CustoTotalEstoque;
@@ -1738,7 +1682,7 @@ begin
         end;
       end;
 
-      CDSPRODUTOS.Next;
+      datamodule1.CDSPRODUTOS.Next;
     end;
 
     DataModule1.ConDados.Commit;
@@ -1754,12 +1698,12 @@ begin
   FNumRelatorioAtual := NovoNumRelatorio;
   dtinicio.DateTime:=now;
   dtfim.DateTime:=now;
-  CDSPRODUTOS.EmptyDataSet;
+  datamodule1.CDSPRODUTOS.EmptyDataSet;
   CarregarHistorico;
   AtualizarBotoesRelatorio;
 
   relatoriomanual;
-  CDSPRODUTOS.EnableControls;
+  datamodule1.CDSPRODUTOS.EnableControls;
 end;
 
 
@@ -1782,8 +1726,8 @@ end;
 procedure Tfrmmenu.CarregarGrupos;
 begin
   // Garante que a conexão do componente QRYGRUPOS está ativa
-  if not qrygrupos.Connection.Connected then
-    qrygrupos.Connection.Connected := True;
+  if not datamodule1.qrygrupos.Connection.Connected then
+    datamodule1.qrygrupos.Connection.Connected := True;
 
   // Limpa o ComboBox
   cmbgrupo.Items.Clear;
@@ -1792,18 +1736,18 @@ begin
   cmbgrupo.Items.AddObject('Todos', TObject(0));
 
   // Abre a query para carregar os dados
-  qrygrupos.Open;
+  datamodule1.qrygrupos.Open;
   try
     // Popula o ComboBox com os dados
-    while not qrygrupos.Eof do
+    while not datamodule1.qrygrupos.Eof do
     begin
       // Adiciona o nome do setor (texto visível) e guarda o controle (objeto)
-      cmbgrupo.Items.AddObject(qrygrupos.FieldByName('Setor').AsString, TObject(qrygrupos.FieldByName('Controle').AsInteger));
-      qrygrupos.Next;
+      cmbgrupo.Items.AddObject(datamodule1.qrygrupos.FieldByName('Setor').AsString, TObject(datamodule1.qrygrupos.FieldByName('Controle').AsInteger));
+      datamodule1.qrygrupos.Next;
     end;
   finally
     // Fecha a query para liberar recursos
-    qrygrupos.Close;
+    datamodule1.qrygrupos.Close;
   end;
 
   // Seleciona a primeira opção ("Todos") por padrão
@@ -1816,8 +1760,8 @@ var
   Marca: string;
 begin
   // Garante que a conexão do componente QRYMARCA está ativa
-  if not qrymarca.Connection.Connected then
-    qrymarca.Connection.Connected := True;
+  if not datamodule1.qrymarca.Connection.Connected then
+    datamodule1.qrymarca.Connection.Connected := True;
 
   // Limpa o ComboBox
   cmbmarca.Items.Clear;
@@ -1829,19 +1773,19 @@ begin
   // A propriedade 'Sql.Text' do seu QRYMARCA deve ser configurada da seguinte forma:
   // 'SELECT DISTINCT FABRICANTE FROM tabest1 WHERE FABRICANTE IS NOT NULL AND FABRICANTE <> '' ORDER BY FABRICANTE'
   // Abre a query para carregar os dados
-  qrymarca.Open;
+  datamodule1.qrymarca.Open;
   try
     // Popula o ComboBox com os dados
-    while not qrymarca.Eof do
+    while not datamodule1.qrymarca.Eof do
     begin
-      Marca := qrymarca.FieldByName('FABRICANTE').AsString;
+      Marca := datamodule1.qrymarca.FieldByName('FABRICANTE').AsString;
       // Adiciona a marca (texto visível) e guarda a mesma string como objeto
       cmbmarca.Items.AddObject(Marca, TObject(Marca));
-      qrymarca.Next;
+      datamodule1.qrymarca.Next;
     end;
   finally
     // Fecha a query para liberar recursos
-    qrymarca.Close;
+    datamodule1.qrymarca.Close;
   end;
 
   // Seleciona a primeira opção ("Todos") por padrão
@@ -1977,8 +1921,8 @@ end;
 procedure Tfrmmenu.CarregarFornecedores;
 begin
   // Garante que a conexão do componente QRYFORNECEDOR está ativa
-  if not qryfornecedor.Connection.Connected then
-    qryfornecedor.Connection.Connected := True;
+  if not datamodule1.qryfornecedor.Connection.Connected then
+    datamodule1.qryfornecedor.Connection.Connected := True;
 
   // Limpa o ComboBox
   cmbfornecedor.Items.Clear;
@@ -1990,18 +1934,18 @@ begin
   // A propriedade 'Sql.Text' do seu QRYFORNECEDOR deve ser configurada da seguinte forma:
   // 'SELECT Controle, Empresa FROM tabfor ORDER BY Empresa'
   // Abre a query para carregar os dados
-  qryfornecedor.Open;
+  datamodule1.qryfornecedor.Open;
   try
     // Popula o ComboBox com os dados
-    while not qryfornecedor.Eof do
+    while not datamodule1.qryfornecedor.Eof do
     begin
       // Adiciona o nome da empresa (texto visível) e guarda o controle (objeto)
-      cmbfornecedor.Items.AddObject(qryfornecedor.FieldByName('Empresa').AsString, TObject(qryfornecedor.FieldByName('Controle').AsInteger));
-      qryfornecedor.Next;
+      cmbfornecedor.Items.AddObject(datamodule1.qryfornecedor.FieldByName('Empresa').AsString, TObject(datamodule1.qryfornecedor.FieldByName('Controle').AsInteger));
+      datamodule1.qryfornecedor.Next;
     end;
   finally
     // Fecha a query para liberar recursos
-    qryfornecedor.Close;
+    datamodule1.qryfornecedor.Close;
   end;
 
   // Seleciona a primeira opção ("Todos") por padrão
@@ -2059,6 +2003,12 @@ end;
 
 
 
+
+
+
+
+
+
 procedure Tfrmmenu.QRYHISTORICOAfterScroll(DataSet: TDataSet);
 var
   iNumRelatorio: Integer;
@@ -2074,35 +2024,33 @@ begin
     bStatusCompleto := QRYHISTORICO.FieldByName('STATUS').AsBoolean;
 
     // 3. Fecha a query de detalhe para redefinição.
-    QRYPRODUTOSCONTADOS.Close;
+    datamodule1.QRYPRODUTOSCONTADOS.Close;
 
     // 4. Atribui o valor capturado ao parâmetro da query de detalhe.
-    QRYPRODUTOSCONTADOS.ParamByName('pNUMRELATORIO').AsInteger := iNumRelatorio;
+    datamodule1.QRYPRODUTOSCONTADOS.ParamByName('pNUMRELATORIO').AsInteger := iNumRelatorio;
 
     // 5. Abre a query de detalhe, que agora está filtrada.
-    QRYPRODUTOSCONTADOS.Open;
+   datamodule1. QRYPRODUTOSCONTADOS.Open;
 
     // Chama o cálculo para atualizar CDSTOTAIS (mantido conforme a última alteração)
-    CalcularETotalizar;
+    frmmenu.CalcularETotalizar;
 
     // 6. NOVO: Habilita ou desabilita o botão de ajuste de estoque
     // O botão só será Enabled se o STATUS for TRUE (Completo)
-    btnatualizaestoque.Enabled := bStatusCompleto;
-    btnapagahistorico.Enabled := not bStatusCompleto;
+    frmmenu.btnatualizaestoque.Enabled := bStatusCompleto;
+    frmmenu.btnapagahistorico.Enabled := not bStatusCompleto;
 
   end
   else
   begin
     // Se o DataSet mestre estiver vazio, fecha a query de detalhe.
-    QRYPRODUTOSCONTADOS.Close;
+    datamodule1.QRYPRODUTOSCONTADOS.Close;
 
     // Desabilita o botão quando não há histórico selecionado
-    btnatualizaestoque.Enabled := False;
+   frmmenu.btnatualizaestoque.Enabled := False;
 
   end;
 end;
-
-
 
 
 
@@ -2110,8 +2058,8 @@ procedure Tfrmmenu.QRYPRODUTOSABERTOSAfterClose(DataSet: TDataSet);
 begin
   // Esta procedure garante que, se a Query Mestra fechar (por filtro, limpeza, etc.),
   // a Query Detalhe seja forçada a fechar, limpando o DBCtrlGridpedidos.
-  if QRYPEDIDOS.Active then
-    QRYPEDIDOS.Close;
+  if datamodule1.QRYPEDIDOS.Active then
+    datamodule1.QRYPEDIDOS.Close;
 end;
 
 procedure Tfrmmenu.QRYPRODUTOSABERTOSAfterScroll(DataSet: TDataSet);
@@ -2124,10 +2072,10 @@ begin
     LkProduto := DataSet.FieldByName('LkProduto').AsInteger;
 
     // 2. Fecha a query de detalhe
-    QRYPEDIDOS.Close;
+    datamodule1.QRYPEDIDOS.Close;
 
     // 3. Define a SQL (Garante que está configurada corretamente)
-    QRYPEDIDOS.SQL.Text :=
+    datamodule1.QRYPEDIDOS.SQL.Text :=
       'SELECT ' +
       '    A.*, ' + // Traz todas as colunas de TabEst3A
       '    B.Qtdreal AS QuantidadeItem, ' + // Quantidade do item no pedido
@@ -2146,23 +2094,43 @@ begin
       'ORDER BY A.Pedido DESC';
 
     // 4. Aplica os parâmetros
-    QRYPEDIDOS.ParamByName('DataInicio').AsDateTime := dtinicio.Date;
-    QRYPEDIDOS.ParamByName('DataFim').AsDateTime := dtfim.Date;
-    QRYPEDIDOS.ParamByName('LkProduto').AsInteger := LkProduto; // Parâmetro Mestre
+    datamodule1.QRYPEDIDOS.ParamByName('DataInicio').AsDateTime := dtinicio.Date;
+    datamodule1.QRYPEDIDOS.ParamByName('DataFim').AsDateTime := dtfim.Date;
+    datamodule1.QRYPEDIDOS.ParamByName('LkProduto').AsInteger := LkProduto; // Parâmetro Mestre
 
     // 5. Abre a consulta Detalhe
-    QRYPEDIDOS.Open;
+    datamodule1.QRYPEDIDOS.Open;
 
     // 6. Liga a fonte de dados detalhe (se já não estiver no FormShow)
-    DSQRYPEDIDOS.DataSet := QRYPEDIDOS;
-    DBCtrlGridpedidos.DataSource := DSQRYPEDIDOS;
+    datamodule1.DSQRYPEDIDOS.DataSet := datamodule1.QRYPEDIDOS;
+  DBCtrlGridpedidos.DataSource := datamodule1.DSQRYPEDIDOS;
   end
   else
   begin
     // Se a mestra estiver vazia ou inativa, garante que a detalhe está fechada
-    QRYPEDIDOS.Close;
+    datamodule1.QRYPEDIDOS.Close;
   end;
 end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2179,26 +2147,26 @@ var
   CodInterno: string;
 begin
   // 1. Verificação de componentes e abas
-  if not Assigned(Pnproduto) or not Assigned(Labelinfor) then Exit;
-  if PageControl1.ActivePage <> TabSheet1 then Exit;
+  if not Assigned(frmmenu.Pnproduto) or not Assigned(frmmenu.Labelinfor) then Exit;
+  if frmmenu.PageControl1.ActivePage <> frmmenu.TabSheet1 then Exit;
   if not DataSet.Active or DataSet.IsEmpty then Exit;
 
   // Garante que o painel e a label estão visíveis
-  Pnproduto.Visible := True;
-  Labelinfor.Visible := True;
+  frmmenu.Pnproduto.Visible := True;
+  frmmenu.Labelinfor.Visible := True;
 
   CodInterno := DataSet.FieldByName('CodInterno').AsString;
 
   // =====================================================================
   // LÓGICA LEVE: VERIFICAÇÃO APENAS NO CDSPRODUTOS
   // =====================================================================
-  if CDSPRODUTOS.Active and CDSPRODUTOS.Locate('CodInterno', CodInterno, [loCaseInsensitive]) then
+  if datamodule1.CDSPRODUTOS.Active and datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInterno, [loCaseInsensitive]) then
   begin
     // ESTADO 1: CONFERIDO (OK)
     Pnproduto.Color := clGreen;
     Labelinfor.Caption := 'CONFERIDO!';
     Labelinfor.Color := clGreen;
-    Labelinfor.Font.Color := clwhite; // Texto Preto para fundo Verde
+   Labelinfor.Font.Color := clwhite; // Texto Preto para fundo Verde
   end
   else
   begin
@@ -2211,23 +2179,6 @@ begin
 
   // A cor clMaroon, o alerta de reserva e o Locate em QRYPRODUTOSABERTOS foram removidos daqui.
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 procedure Tfrmmenu.RelatorioManual;
@@ -2308,7 +2259,7 @@ begin
     QRYRKVEND.ParamByName('DataFim').AsDateTime := dtfim.Date;
 
     if cmbgrupo.ItemIndex > 0 then
-      QRYRKVEND.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
+     QRYRKVEND.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
 
     if cmbfornecedor.ItemIndex > 0 then
       QRYRKVEND.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
@@ -2347,12 +2298,12 @@ var
   IndexDef: TIndexDef;
 begin
   // 1. Limpeza da estrutura anterior
-  CDSPRODUTOS.Close;
-  CDSPRODUTOS.FieldDefs.Clear;
-  CDSPRODUTOS.IndexDefs.Clear;
+  datamodule1.CDSPRODUTOS.Close;
+  datamodule1.CDSPRODUTOS.FieldDefs.Clear;
+  datamodule1.CDSPRODUTOS.IndexDefs.Clear;
 
   // 2. Definição dos campos
-  with CDSPRODUTOS.FieldDefs do
+  with datamodule1.CDSPRODUTOS.FieldDefs do
   begin
     Add('CodInterno', ftString, 20, False);
     Add('CodFornecedor', ftString, 30, False);
@@ -2381,27 +2332,27 @@ begin
   end;
 
   // 3. Criação do DataSet
-  CDSPRODUTOS.CreateDataSet;
+  datamodule1.CDSPRODUTOS.CreateDataSet;
 
   // 4. Criação dos índices
 
   // Índice primário para buscas rápidas (Locate)
-  IndexDef := CDSPRODUTOS.IndexDefs.AddIndexDef;
+  IndexDef := datamodule1.CDSPRODUTOS.IndexDefs.AddIndexDef;
   IndexDef.Name := 'IdxCodInterno';
   IndexDef.Fields := 'CodInterno';
   IndexDef.Options := [ixPrimary];
 
   // NOVO ÍNDICE: Para ordenar pelo ID_ORDEM (ordem de inserção na tela "Produtos Conferidos")
-  IndexDef := CDSPRODUTOS.IndexDefs.AddIndexDef;
+  IndexDef := datamodule1.CDSPRODUTOS.IndexDefs.AddIndexDef;
   IndexDef.Name := 'IdxOrdem';
   IndexDef.Fields := 'ID_ORDEM';
   IndexDef.Options := [];
 
   // 5. Ativa o índice de ORDEM para a visualização no DBCtrlGrid
-  CDSPRODUTOS.IndexName := 'IdxOrdem';
+ datamodule1. CDSPRODUTOS.IndexName := 'IdxOrdem';
 
   // 6. Ativação dos agregados
-  CDSPRODUTOS.AggregatesActive := True;
+  datamodule1.CDSPRODUTOS.AggregatesActive := True;
 end;
 
 
@@ -2627,45 +2578,45 @@ begin
       end;
 
       // 2. Limpa e prepara o ClientDataSet
-      CDSPRODUTOS.Close;
-      CDSPRODUTOS.CreateDataSet; // Recria a estrutura para garantir que ID_ORDEM exista
+      datamodule1.CDSPRODUTOS.Close;
+      datamodule1.CDSPRODUTOS.CreateDataSet; // Recria a estrutura para garantir que ID_ORDEM exista
 
       First;
       while not Eof do
       begin
         Inc(ContadorOrdem); // Incrementa o contador
 
-        CDSPRODUTOS.Append;
+        datamodule1.CDSPRODUTOS.Append;
 
         // REGRA DE INTEGRIDADE: Preenche o campo de ordem
-        CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := ContadorOrdem;
+        datamodule1.CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := ContadorOrdem;
 
         // Copia campo por campo do histórico para o ClientDataSet
-        CDSPRODUTOS.FieldByName('CodInterno').AsString       := FieldByName('CODINTERNO').AsString;
-        CDSPRODUTOS.FieldByName('Produto').AsString          := FieldByName('PRODUTO_DESCRICAO').AsString;
-        CDSPRODUTOS.FieldByName('Grupo').AsString            := FieldByName('GRUPO').AsString;
-        CDSPRODUTOS.FieldByName('Marca').AsString            := FieldByName('MARCA').AsString;
-        CDSPRODUTOS.FieldByName('Fornecedor').AsString       := FieldByName('FORNECEDOR').AsString;
-        CDSPRODUTOS.FieldByName('CodFornecedor').AsString    := FieldByName('CODFORNECEDOR').AsString;
-        CDSPRODUTOS.FieldByName('CodBarra').AsString         := FieldByName('CODBARRA').AsString;
-        CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := FieldByName('QTD_VENDIDA').AsFloat;
-        CDSPRODUTOS.FieldByName('Localizacao').AsString      := FieldByName('LOCALIZACAO').AsString;
-        CDSPRODUTOS.FieldByName('Estoque').AsFloat           := FieldByName('ESTOQUE_ANTERIOR').AsFloat;
-        CDSPRODUTOS.FieldByName('Contagem').AsFloat          := FieldByName('CONTAGEM_FINAL').AsFloat;
-        CDSPRODUTOS.FieldByName('Diferenca').AsFloat         := FieldByName('DIFERENCA').AsFloat;
-        CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency     := FieldByName('PRECO_CUSTO').AsCurrency;
-        CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency := FieldByName('VALOR_DIFERENCA').AsCurrency;
-        CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency     := FieldByName('CUSTO_TOTAL').AsCurrency;
+        datamodule1.CDSPRODUTOS.FieldByName('CodInterno').AsString       := FieldByName('CODINTERNO').AsString;
+        datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString          := FieldByName('PRODUTO_DESCRICAO').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('Grupo').AsString            := FieldByName('GRUPO').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('Marca').AsString            := FieldByName('MARCA').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('Fornecedor').AsString       := FieldByName('FORNECEDOR').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('CodFornecedor').AsString    := FieldByName('CODFORNECEDOR').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('CodBarra').AsString         := FieldByName('CODBARRA').AsString;
+       datamodule1. CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := FieldByName('QTD_VENDIDA').AsFloat;
+       datamodule1. CDSPRODUTOS.FieldByName('Localizacao').AsString      := FieldByName('LOCALIZACAO').AsString;
+        datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat           := FieldByName('ESTOQUE_ANTERIOR').AsFloat;
+        datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat          := FieldByName('CONTAGEM_FINAL').AsFloat;
+        datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat         := FieldByName('DIFERENCA').AsFloat;
+        datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency     := FieldByName('PRECO_CUSTO').AsCurrency;
+        datamodule1.CDSPRODUTOS.FieldByName('ValorDiferenca').AsCurrency := FieldByName('VALOR_DIFERENCA').AsCurrency;
+        datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency     := FieldByName('CUSTO_TOTAL').AsCurrency;
 
         // Preenche o campo de período com base nas datas da tela (ou carregadas do cabeçalho)
-        CDSPRODUTOS.FieldByName('Periodo').AsString :=
+        datamodule1.CDSPRODUTOS.FieldByName('Periodo').AsString :=
           FormatDateTime('dd/mm/yyyy', dtinicio.Date) + ' a ' + FormatDateTime('dd/mm/yyyy', dtfim.Date);
 
-        CDSPRODUTOS.Post;
+        datamodule1.CDSPRODUTOS.Post;
         Next;
       end;
 
-      CDSPRODUTOS.First;
+      datamodule1.CDSPRODUTOS.First;
       FNumRelatorioAtual := NumRelatorio;
 
       // 3. Atualiza botões de progresso
@@ -2779,16 +2730,16 @@ begin
   // A lógica de navegação deve vir após essa carga.
 
   // 6. LÓGICA DE NAVEGAÇÃO: Move o cursor para o primeiro registro não contado
-  CDSPRODUTOS.First;
-  while not CDSPRODUTOS.Eof do
+  datamodule1.CDSPRODUTOS.First;
+  while not datamodule1.CDSPRODUTOS.Eof do
   begin
     // O campo 'Contagem' é o marcador. Se for 0.00, o item não foi contado no progresso atual.
-    if CDSPRODUTOS.FieldByName('Contagem').AsFloat = 0.00 then
+    if datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat = 0.00 then
     begin
       // Cursor posicionado no primeiro item não contado
       Break;
     end;
-    CDSPRODUTOS.Next;
+    datamodule1.CDSPRODUTOS.Next;
   end;
 
   // Se o laço terminar, todos os produtos foram contados,
@@ -2808,8 +2759,8 @@ begin
     TotalItensConsulta := 0;
 
   // 2. Total de itens conferidos (CDSPRODUTOS)
-  if CDSPRODUTOS.Active then
-    ItensConferidos := CDSPRODUTOS.RecordCount
+  if datamodule1.CDSPRODUTOS.Active then
+    ItensConferidos := datamodule1.CDSPRODUTOS.RecordCount
   else
     ItensConferidos := 0;
 
@@ -2868,8 +2819,8 @@ begin
     Exit;
   end;
 
-  if not CDSPRODUTOS.Active then
-    CDSPRODUTOS.Open;
+  if not datamodule1.CDSPRODUTOS.Active then
+    datamodule1.CDSPRODUTOS.Open;
 
   // 2. Tenta localizar o primeiro item não conferido, começando do primeiro registro
   QRYRKVEND.First;
@@ -2880,14 +2831,14 @@ begin
     CodInternoAtual := QRYRKVEND.FieldByName('CodInterno').AsString;
 
     // Tenta localizar o CodInterno do item da QRYRKVEND no CDSPRODUTOS
-    if not CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, [loCaseInsensitive]) then
+    if not datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, [loCaseInsensitive]) then
     begin
       // Se não encontrou no CDSPRODUTOS, este é o primeiro item NÃO conferido.
       Achou := True;
       Break; // Sai do loop, o QRYRKVEND já está posicionado.
     end;
 
-    QRYRKVEND.Next;
+  QRYRKVEND.Next;
   end;
 
   // 3. Feedback ao usuário
@@ -2921,7 +2872,7 @@ begin
     QRYPRODUTOSABERTOS.Close;
 
     // SQL ATUALIZADO: Inclui CodBarra
-    QRYPRODUTOSABERTOS.SQL.Text :=
+   QRYPRODUTOSABERTOS.SQL.Text :=
       'SELECT ' +
       '    B.LkProduto AS LkProduto, ' +
       '    P.CodInterno, ' +
@@ -3055,7 +3006,7 @@ begin
     end;
 
     // 3. Define o SQL.Text com JOINs e ALIASES para clareza
-    with qryTabest1mov do
+    with datamodule1.qryTabest1mov do
     begin
       Close;
 
@@ -3108,7 +3059,7 @@ var
   sCodInterno: string;
 begin
   // 1. Validação de seleção na lista de histórico de contagem
-  if not (QRYPRODUTOSCONTADOS.Active and not QRYPRODUTOSCONTADOS.IsEmpty) then
+  if not (datamodule1.QRYPRODUTOSCONTADOS.Active and not datamodule1.QRYPRODUTOSCONTADOS.IsEmpty) then
   begin
     ShowMessage('Selecione um produto no Histórico de Conferência (Produtos Contados) para consultar a movimentação.');
     Exit;
@@ -3116,7 +3067,7 @@ begin
 
   try
     // 2. Captura o CodInterno do produto selecionado do histórico
-    sCodInterno := QRYPRODUTOSCONTADOS.FieldByName('CODINTERNO').AsString;
+    sCodInterno := datamodule1.QRYPRODUTOSCONTADOS.FieldByName('CODINTERNO').AsString;
 
     if sCodInterno = '' then
     begin
@@ -3125,7 +3076,7 @@ begin
     end;
 
     // 3. Define e executa o SQL para consultar a TabEst1Mov
-    with qryTabest1mov do
+    with datamodule1.qryTabest1mov do
     begin
       Close;
 
@@ -3216,9 +3167,9 @@ begin
 
   // 3. Carrega os pedidos vinculados ao LkProduto
   try
-    QRYPEDIDOS.Close;
+    datamodule1.QRYPEDIDOS.Close;
 
-    QRYPEDIDOS.SQL.Text :=
+   datamodule1. QRYPEDIDOS.SQL.Text :=
       'SELECT ' +
       '    A.*, ' +
       '    B.Qtdreal AS QuantidadeItem, ' +
@@ -3235,12 +3186,12 @@ begin
       '  AND B.LkProduto = :LkProduto ' +
       'ORDER BY A.Pedido DESC';
 
-    QRYPEDIDOS.ParamByName('LkProduto').AsInteger := DataModule1.QRYSEQ.FieldByName('Controle').AsInteger;
+    datamodule1.QRYPEDIDOS.ParamByName('LkProduto').AsInteger := DataModule1.QRYSEQ.FieldByName('Controle').AsInteger;
 
-    QRYPEDIDOS.Open;
+    datamodule1.QRYPEDIDOS.Open;
 
-    DSQRYPEDIDOS.DataSet := QRYPEDIDOS;
-    DBCtrlGridpedidos.DataSource := DSQRYPEDIDOS;
+   datamodule1. DSQRYPEDIDOS.DataSet := datamodule1.QRYPEDIDOS;
+    DBCtrlGridpedidos.DataSource := datamodule1.DSQRYPEDIDOS;
 
   except
     on E: Exception do
@@ -3254,14 +3205,14 @@ end;
  procedure Tfrmmenu.Estoque_AjustarSaldo(sCodInterno: string; fNovaQuantidade: Extended; iLkUsuario: Integer);
 // Responsável por atualizar a quantidade na TABEST1
 begin
-    QRYUPDATETABEST1.SQL.Text :=
+    datamodule1.QRYUPDATETABEST1.SQL.Text :=
         'UPDATE TabEst1 SET Quantidade = :NovaQtd, DtAlteracao = GETDATE(), LkUsuario = :LkUser ' +
         'WHERE CodInterno = :CodInt';
 
-    QRYUPDATETABEST1.ParamByName('NovaQtd').AsFloat := fNovaQuantidade;
-    QRYUPDATETABEST1.ParamByName('CodInt').AsString := sCodInterno;
-    QRYUPDATETABEST1.ParamByName('LkUser').AsInteger := iLkUsuario;
-    QRYUPDATETABEST1.Execute;
+    datamodule1.QRYUPDATETABEST1.ParamByName('NovaQtd').AsFloat := fNovaQuantidade;
+    datamodule1.QRYUPDATETABEST1.ParamByName('CodInt').AsString := sCodInterno;
+    datamodule1.QRYUPDATETABEST1.ParamByName('LkUser').AsInteger := iLkUsuario;
+    datamodule1.QRYUPDATETABEST1.Execute;
 end;
 
 
@@ -3306,24 +3257,24 @@ begin
   // =========================================================
   // 3. EXECUÇÃO DO INSERT
   // =========================================================
-  QRYUPDATETABESTMOV.SQL.Text :=
+  datamodule1.QRYUPDATETABESTMOV.SQL.Text :=
     'INSERT INTO TabEst1Mov ' +
     ' (Data, CodInterno, Quantidade, SaldoAnterior, Saldo, LkOperacao, LkUsuario, LkItem, LkTipo, Terminal) ' +
     'VALUES (GETDATE(), :CodInt, :QtdMov, :SaldoAnt, :SaldoAtual, :LkOp, :LkUser, :LkItem, :LkTipo, :Terminal)';
 
-  QRYUPDATETABESTMOV.ParamByName('CodInt').AsString := sCodInterno;
-  QRYUPDATETABESTMOV.ParamByName('QtdMov').AsFloat := fDiferenca;
-  QRYUPDATETABESTMOV.ParamByName('SaldoAnt').AsFloat := fEstoqueAnterior;
-  QRYUPDATETABESTMOV.ParamByName('SaldoAtual').AsFloat := fNovaQuantidade;
-  QRYUPDATETABESTMOV.ParamByName('LkOp').AsInteger := iLkOperacao;
-  QRYUPDATETABESTMOV.ParamByName('LkUser').AsInteger := iLkUsuario;
-  QRYUPDATETABESTMOV.ParamByName('LkItem').AsInteger := iLkItem;
-  QRYUPDATETABESTMOV.ParamByName('LkTipo').AsInteger := iLkTipo;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('CodInt').AsString := sCodInterno;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('QtdMov').AsFloat := fDiferenca;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('SaldoAnt').AsFloat := fEstoqueAnterior;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('SaldoAtual').AsFloat := fNovaQuantidade;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('LkOp').AsInteger := iLkOperacao;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('LkUser').AsInteger := iLkUsuario;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('LkItem').AsInteger := iLkItem;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('LkTipo').AsInteger := iLkTipo;
 
   // ATRIBUIÇÃO CORRETA DO TERMINAL
-  QRYUPDATETABESTMOV.ParamByName('Terminal').AsString := sTerminal;
+  datamodule1.QRYUPDATETABESTMOV.ParamByName('Terminal').AsString := sTerminal;
 
-  QRYUPDATETABESTMOV.Execute;
+  datamodule1.QRYUPDATETABESTMOV.Execute;
 end;
 
 
@@ -3342,7 +3293,7 @@ begin
   // --- VALIDAÇÃO E PREPARAÇÃO (Alterado para QRYPRODUTOSCONTADOS) ---
 
   // Agora, valida se a lista de itens do HISTÓRICO está ativa
-  if not QRYPRODUTOSCONTADOS.Active or QRYPRODUTOSCONTADOS.IsEmpty then
+  if not datamodule1.QRYPRODUTOSCONTADOS.Active or datamodule1.QRYPRODUTOSCONTADOS.IsEmpty then
   begin
     ShowMessage('A lista de produtos conferidos do histórico está vazia. Nada será ajustado.');
     Exit;
@@ -3363,8 +3314,8 @@ begin
   end;
 
   // 2. Conecta as Queries ao DataModule (Garante que a transação utiliza a mesma conexão)
-  QRYUPDATETABEST1.Connection := DataModule1.ConDados;
-  QRYUPDATETABESTMOV.Connection := DataModule1.ConDados;
+  datamodule1.QRYUPDATETABEST1.Connection := DataModule1.ConDados;
+  datamodule1.QRYUPDATETABESTMOV.Connection := DataModule1.ConDados;
 
   // 3. Cria Query temporária para buscar o LkItem (Controle)
   QryBuscaLkItem := TUniQuery.Create(nil);
@@ -3373,19 +3324,19 @@ begin
   DataModule1.ConDados.StartTransaction; // <<< INÍCIO DA TRANSAÇÃO
 
   // Salva a posição do cursor antes de iterar
-  BM := QRYPRODUTOSCONTADOS.GetBookmark;
+  BM := datamodule1.QRYPRODUTOSCONTADOS.GetBookmark;
 
   try
-    QRYPRODUTOSCONTADOS.DisableControls;
-    QRYPRODUTOSCONTADOS.First;
+    datamodule1.QRYPRODUTOSCONTADOS.DisableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.First;
 
     // Altera a iteração para a QRYPRODUTOSCONTADOS
-    while not QRYPRODUTOSCONTADOS.Eof do
+    while not datamodule1.QRYPRODUTOSCONTADOS.Eof do
     begin
       // --- MAPEAMENTO DOS CAMPOS DA TAB_HIS_AJUSTE_ITENS ---
-      sCodInterno := QRYPRODUTOSCONTADOS.FieldByName('CODINTERNO').AsString;
-      fNovaQuantidade := QRYPRODUTOSCONTADOS.FieldByName('CONTAGEM_FINAL').AsFloat; // Novo campo
-      fEstoqueAnterior := QRYPRODUTOSCONTADOS.FieldByName('ESTOQUE_ANTERIOR').AsFloat; // Novo campo
+      sCodInterno := datamodule1.QRYPRODUTOSCONTADOS.FieldByName('CODINTERNO').AsString;
+      fNovaQuantidade := datamodule1.QRYPRODUTOSCONTADOS.FieldByName('CONTAGEM_FINAL').AsFloat; // Novo campo
+      fEstoqueAnterior := datamodule1.QRYPRODUTOSCONTADOS.FieldByName('ESTOQUE_ANTERIOR').AsFloat; // Novo campo
       fDiferenca := fNovaQuantidade - fEstoqueAnterior;
       // ---------------------------------------------------
 
@@ -3410,7 +3361,7 @@ begin
         Estoque_RegistrarMovimento(sCodInterno, fDiferenca, fEstoqueAnterior, fNovaQuantidade, iLkUsuario, iLkItem);
       end;
 
-      QRYPRODUTOSCONTADOS.Next; // Move para o próximo registro do histórico
+      datamodule1.QRYPRODUTOSCONTADOS.Next; // Move para o próximo registro do histórico
     end; // Fim while
 
     DataModule1.ConDados.Commit; // SUCESSO
@@ -3430,9 +3381,9 @@ begin
 
   // Restaura a posição e libera recursos
   if Assigned(BM) then
-    QRYPRODUTOSCONTADOS.GotoBookmark(BM);
-  QRYPRODUTOSCONTADOS.FreeBookmark(BM);
-  QRYPRODUTOSCONTADOS.EnableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.GotoBookmark(BM);
+  datamodule1.QRYPRODUTOSCONTADOS.FreeBookmark(BM);
+  datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
 
 
   // 4. Libera o recurso temporário
@@ -3452,63 +3403,63 @@ var
   BM: TBookmark; // Para salvar a posição da QRYPRODUTOSCONTADOS
 begin
   // 1. Garante que a Query de Produtos Contados está ativa e tem dados
-  if not QRYPRODUTOSCONTADOS.Active or QRYPRODUTOSCONTADOS.IsEmpty then
+  if not datamodule1.QRYPRODUTOSCONTADOS.Active or datamodule1.QRYPRODUTOSCONTADOS.IsEmpty then
     Exit; // Sai se não houver dados para somar
 
   // 2. Verifica/Cria a estrutura do CDSTOTAIS
-  if CDSTOTAIS.FieldDefs.Count = 0 then
+  if datamodule1.CDSTOTAIS.FieldDefs.Count = 0 then
   begin
     // Se a estrutura não existe (apenas na primeira chamada), crie-a
-    CDSTOTAIS.Close;
-    with CDSTOTAIS.FieldDefs.AddFieldDef do
+    datamodule1.CDSTOTAIS.Close;
+    with datamodule1.CDSTOTAIS.FieldDefs.AddFieldDef do
       begin Name := 'TOTALCUSTO'; DataType := ftCurrency; end;
-    with CDSTOTAIS.FieldDefs.AddFieldDef do
+    with datamodule1.CDSTOTAIS.FieldDefs.AddFieldDef do
       begin Name := 'TOTALDIFERENCA'; DataType := ftCurrency; end;
-    CDSTOTAIS.CreateDataSet;
+    datamodule1.CDSTOTAIS.CreateDataSet;
   end;
 
   // 3. Limpa o registro existente no CDSTOTAIS
-  if CDSTOTAIS.Active then
-    CDSTOTAIS.EmptyDataSet // Limpa o conteúdo (um único registro)
+  if datamodule1.CDSTOTAIS.Active then
+    datamodule1.CDSTOTAIS.EmptyDataSet // Limpa o conteúdo (um único registro)
   else
-    CDSTOTAIS.Open;
+    datamodule1.CDSTOTAIS.Open;
 
   // 4. Salva a posição da QRYPRODUTOSCONTADOS e inicializa totais
-  BM := QRYPRODUTOSCONTADOS.GetBookmark;
+  BM := datamodule1.QRYPRODUTOSCONTADOS.GetBookmark;
   TotalCusto := 0;
   TotalDiferenca := 0;
 
   try
-    QRYPRODUTOSCONTADOS.DisableControls; // Melhora a performance visual
-    QRYPRODUTOSCONTADOS.First;
+    datamodule1.QRYPRODUTOSCONTADOS.DisableControls; // Melhora a performance visual
+    datamodule1.QRYPRODUTOSCONTADOS.First;
 
     // 5. Calcula os Totais Percorrendo a QRYPRODUTOSCONTADOS (O NOVO DATASET)
-    while not QRYPRODUTOSCONTADOS.Eof do
+    while not datamodule1.QRYPRODUTOSCONTADOS.Eof do
     begin
       // Soma o custo total de estoque de cada produto (CUSTO_TOTAL)
-      TotalCusto := TotalCusto + QRYPRODUTOSCONTADOS.FieldByName('CUSTO_TOTAL').AsCurrency;
+      TotalCusto := TotalCusto + datamodule1.QRYPRODUTOSCONTADOS.FieldByName('CUSTO_TOTAL').AsCurrency;
 
       // Soma o valor da diferença de cada produto (VALOR_DIFERENCA)
-      TotalDiferenca := TotalDiferenca + QRYPRODUTOSCONTADOS.FieldByName('VALOR_DIFERENCA').AsCurrency;
+      TotalDiferenca := TotalDiferenca + datamodule1.QRYPRODUTOSCONTADOS.FieldByName('VALOR_DIFERENCA').AsCurrency;
 
-      QRYPRODUTOSCONTADOS.Next;
+      datamodule1.QRYPRODUTOSCONTADOS.Next;
     end;
   finally
     // 6. Restaura a posição da QRYPRODUTOSCONTADOS (boas práticas)
     if Assigned(BM) then
-      QRYPRODUTOSCONTADOS.GotoBookmark(BM);
+      datamodule1.QRYPRODUTOSCONTADOS.GotoBookmark(BM);
 
-    QRYPRODUTOSCONTADOS.FreeBookmark(BM);
-    QRYPRODUTOSCONTADOS.EnableControls;
+    datamodule1.QRYPRODUTOSCONTADOS.FreeBookmark(BM);
+    datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
   end;
 
   // 7. Salva o Resultado no CDSTOTAIS
-  CDSTOTAIS.Append;
-  CDSTOTAIS.FieldByName('TOTALCUSTO').AsCurrency := TotalCusto;
-  CDSTOTAIS.FieldByName('TOTALDIFERENCA').AsCurrency := TotalDiferenca;
-  CDSTOTAIS.Post;
+  datamodule1.CDSTOTAIS.Append;
+  datamodule1.CDSTOTAIS.FieldByName('TOTALCUSTO').AsCurrency := TotalCusto;
+ datamodule1. CDSTOTAIS.FieldByName('TOTALDIFERENCA').AsCurrency := TotalDiferenca;
+  datamodule1.CDSTOTAIS.Post;
 
-  // Não é necessário reposicionar a QRYPRODUTOSCONTADOS, pois a posição foi restaurada (passo 6).
+
 end;
 
 
@@ -3518,7 +3469,7 @@ var
   SQLText: TStringList;
 begin
   // 1. Validação dos componentes (mantida para segurança)
-  if not Assigned(QRYPRODUTOSBASE) or not Assigned(DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
+  if not Assigned(datamodule1.QRYPRODUTOSBASE) or not Assigned(datamodule1.DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
   begin
     ShowMessage('Erro: Os componentes QRYPRODUTOSBASE, DSQRYPRODUTOSBASE ou DBGRIDPRODUTOSBASE não foram criados ou atribuídos.');
     Exit;
@@ -3587,28 +3538,28 @@ begin
     // =========================================================
     // EXECUÇÃO NO QRYPRODUTOSBASE E LIGAÇÃO DO GRID (Mantida)
     // =========================================================
-    QRYPRODUTOSBASE.Close;
-    QRYPRODUTOSBASE.Params.Clear;
-    QRYPRODUTOSBASE.SQL.Text := SQLText.Text;
-    QRYPRODUTOSBASE.Connection := DataModule1.ConDados;
+    datamodule1.QRYPRODUTOSBASE.Close;
+    datamodule1.QRYPRODUTOSBASE.Params.Clear;
+    datamodule1.QRYPRODUTOSBASE.SQL.Text := SQLText.Text;
+    datamodule1.QRYPRODUTOSBASE.Connection := DataModule1.ConDados;
 
     if cmbgrupo.ItemIndex > 0 then
-      QRYPRODUTOSBASE.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
+      datamodule1.QRYPRODUTOSBASE.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
 
     if cmbfornecedor.ItemIndex > 0 then
-      QRYPRODUTOSBASE.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
+      datamodule1.QRYPRODUTOSBASE.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
 
     if cmbmarca.ItemIndex > 0 then
-      QRYPRODUTOSBASE.ParamByName('Marca').AsString := cmbmarca.Items[cmbmarca.ItemIndex];
+      datamodule1.QRYPRODUTOSBASE.ParamByName('Marca').AsString := cmbmarca.Items[cmbmarca.ItemIndex];
 
     if Trim(Editlocal.Text) <> '' then
-      QRYPRODUTOSBASE.ParamByName('Localizacao').AsString := Trim(Editlocal.Text);
+      datamodule1.QRYPRODUTOSBASE.ParamByName('Localizacao').AsString := Trim(Editlocal.Text);
 
     try
-      QRYPRODUTOSBASE.Open;
+      datamodule1.QRYPRODUTOSBASE.Open;
 
-      DSQRYPRODUTOSBASE.DataSet := QRYPRODUTOSBASE;
-      DBGRIDPRODUTOSBASE.DataSource := DSQRYPRODUTOSBASE;
+      datamodule1.DSQRYPRODUTOSBASE.DataSet := datamodule1.QRYPRODUTOSBASE;
+      DBGRIDPRODUTOSBASE.DataSource := datamodule1.DSQRYPRODUTOSBASE;
 
 
     except
