@@ -4,7 +4,7 @@
   BorderIcons = [biSystemMenu, biMinimize, biMaximize, biHelp]
   Caption = 'AG Estoque'
   ClientHeight = 882
-  ClientWidth = 1435
+  ClientWidth = 1495
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -5346,12 +5346,12 @@
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1435
+    Width = 1495
     Height = 882
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitWidth = 1924
+    ExplicitWidth = 1435
     object Panel2: TPanel
       Left = 0
       Top = 0
@@ -5634,50 +5634,50 @@
     object PageControl2: TPageControl
       Left = 161
       Top = 0
-      Width = 1274
+      Width = 1334
       Height = 882
       ActivePage = TabSheet8
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 1763
+      ExplicitWidth = 1274
       object TabSheet7: TTabSheet
         Caption = 'Conf'#234'rencia de Estoque'
-        ExplicitWidth = 1755
+        ExplicitWidth = 1266
         object PageControl1: TPageControl
           Left = 0
           Top = 0
-          Width = 1266
+          Width = 1326
           Height = 852
           ActivePage = TabSheet2
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1755
+          ExplicitWidth = 1266
           object TabSheet1: TTabSheet
             Caption = 'Produtos Vendidos'
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Panel3: TPanel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 822
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 0
-              ExplicitWidth = 1747
+              ExplicitWidth = 1258
               object Panel4: TPanel
                 Left = 0
                 Top = 0
-                Width = 1258
+                Width = 1318
                 Height = 766
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 0
-                ExplicitWidth = 1747
+                ExplicitWidth = 1258
                 object Labelitensvendidos: TLabel
                   AlignWithMargins = True
                   Left = 3
                   Top = 742
-                  Width = 1252
+                  Width = 1312
                   Height = 21
                   Align = alBottom
                   Font.Charset = ANSI_CHARSET
@@ -5692,29 +5692,27 @@
                 object dbgridprodutos: TDBCtrlGrid
                   Left = 0
                   Top = 0
-                  Width = 1078
+                  Width = 1138
                   Height = 739
                   Align = alClient
                   DataSource = dsQRYRKVEND
                   PanelHeight = 123
-                  PanelWidth = 1061
+                  PanelWidth = 1121
                   TabOrder = 0
                   RowCount = 6
                   SelectedColor = 16763522
                   Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoParentPassthrough]
                   StyleElements = []
-                  ExplicitLeft = -2
-                  ExplicitTop = -3
-                  ExplicitWidth = 1567
+                  ExplicitWidth = 1078
                   object Panel5: TPanel
-                    Left = 960
+                    Left = 1020
                     Top = 0
                     Width = 101
                     Height = 123
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 0
-                    ExplicitLeft = 1449
+                    ExplicitLeft = 960
                     object DBText9: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -5773,14 +5771,14 @@
                     end
                   end
                   object Panel6: TPanel
-                    Left = 814
+                    Left = 874
                     Top = 0
                     Width = 146
                     Height = 123
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 1
-                    ExplicitLeft = 1303
+                    ExplicitLeft = 814
                     object DBText4: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -5837,14 +5835,14 @@
                     end
                   end
                   object Panel7: TPanel
-                    Left = 612
+                    Left = 672
                     Top = 0
                     Width = 202
                     Height = 123
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 2
-                    ExplicitLeft = 1101
+                    ExplicitLeft = 612
                     object Label16: TLabel
                       AlignWithMargins = True
                       Left = 3
@@ -6002,17 +6000,17 @@
                   object Panel9: TPanel
                     Left = 161
                     Top = 0
-                    Width = 451
+                    Width = 511
                     Height = 123
                     Align = alClient
                     BevelOuter = bvNone
                     TabOrder = 4
-                    ExplicitWidth = 940
+                    ExplicitWidth = 451
                     object DBText2: TDBText
                       AlignWithMargins = True
                       Left = 3
                       Top = 18
-                      Width = 445
+                      Width = 505
                       Height = 20
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -6028,7 +6026,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 1
-                      Width = 445
+                      Width = 505
                       Height = 15
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -6041,7 +6039,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 40
-                      Width = 445
+                      Width = 505
                       Height = 15
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -6054,7 +6052,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 57
-                      Width = 445
+                      Width = 505
                       Height = 20
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -6069,13 +6067,13 @@
                   end
                 end
                 object Panel10: TPanel
-                  Left = 1078
+                  Left = 1138
                   Top = 0
                   Width = 180
                   Height = 739
                   Align = alRight
                   TabOrder = 1
-                  ExplicitLeft = 1567
+                  ExplicitLeft = 1078
                   object Label21: TLabel
                     AlignWithMargins = True
                     Left = 4
@@ -6193,7 +6191,7 @@
               object Panel14: TPanel
                 Left = 0
                 Top = 766
-                Width = 1258
+                Width = 1318
                 Height = 56
                 Align = alBottom
                 BevelOuter = bvNone
@@ -6201,11 +6199,11 @@
                 ParentBackground = False
                 TabOrder = 1
                 StyleElements = []
-                ExplicitWidth = 1747
+                ExplicitWidth = 1258
                 object Pnproduto: TPanel
                   Left = 0
                   Top = 0
-                  Width = 1258
+                  Width = 1318
                   Height = 56
                   Align = alClient
                   BevelOuter = bvNone
@@ -6213,10 +6211,10 @@
                   ParentBackground = False
                   TabOrder = 0
                   StyleElements = []
-                  ExplicitWidth = 1747
+                  ExplicitWidth = 1258
                   object Labelinfor: TLabel
                     AlignWithMargins = True
-                    Left = 1206
+                    Left = 1266
                     Top = 3
                     Width = 42
                     Height = 50
@@ -6233,7 +6231,7 @@
                     ParentFont = False
                     StyleElements = []
                     OnClick = LabelinforClick
-                    ExplicitLeft = 1695
+                    ExplicitLeft = 1206
                     ExplicitHeight = 25
                   end
                   object Label1: TLabel
@@ -6285,30 +6283,30 @@
           object TabSheet2: TTabSheet
             Caption = 'Produtos Conferidos'
             ImageIndex = 1
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Panel22: TPanel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 822
               Align = alClient
               Caption = 'Panel22'
               TabOrder = 0
-              ExplicitWidth = 1747
+              ExplicitWidth = 1258
               object DBCtrlGrid1: TDBCtrlGrid
                 Left = 1
                 Top = 1
-                Width = 1076
+                Width = 1136
                 Height = 754
                 Align = alClient
                 DataSource = DataModule1.DSCDSPRODUTOS
                 PanelHeight = 125
-                PanelWidth = 1059
+                PanelWidth = 1119
                 TabOrder = 0
                 RowCount = 6
                 SelectedColor = 16763522
                 StyleElements = []
-                ExplicitWidth = 1565
+                ExplicitWidth = 1076
                 object Panel16: TPanel
                   Left = 0
                   Top = 0
@@ -6400,14 +6398,14 @@
                   end
                 end
                 object Panel17: TPanel
-                  Left = 959
+                  Left = 1019
                   Top = 0
                   Width = 100
                   Height = 125
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 1
-                  ExplicitLeft = 1448
+                  ExplicitLeft = 959
                   object DBTextdif: TDBText
                     AlignWithMargins = True
                     Left = 3
@@ -6462,14 +6460,14 @@
                   end
                 end
                 object Panel18: TPanel
-                  Left = 859
+                  Left = 919
                   Top = 0
                   Width = 100
                   Height = 125
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 2
-                  ExplicitLeft = 1348
+                  ExplicitLeft = 859
                   object DBTextqtd: TDBText
                     AlignWithMargins = True
                     Left = 3
@@ -6567,14 +6565,14 @@
                   end
                 end
                 object Panel20: TPanel
-                  Left = 759
+                  Left = 819
                   Top = 0
                   Width = 100
                   Height = 125
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 4
-                  ExplicitLeft = 1248
+                  ExplicitLeft = 759
                   object Label30: TLabel
                     AlignWithMargins = True
                     Left = 3
@@ -6631,17 +6629,17 @@
                 object Panel21: TPanel
                   Left = 155
                   Top = 0
-                  Width = 604
+                  Width = 664
                   Height = 125
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 5
-                  ExplicitWidth = 1093
+                  ExplicitWidth = 604
                   object Label31: TLabel
                     AlignWithMargins = True
                     Left = 3
                     Top = 55
-                    Width = 598
+                    Width = 658
                     Height = 15
                     Align = alTop
                     Caption = 'Fornecedor'
@@ -6652,7 +6650,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 24
-                    Width = 598
+                    Width = 658
                     Height = 25
                     Align = alTop
                     DataField = 'Produto'
@@ -6665,7 +6663,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 76
-                    Width = 598
+                    Width = 658
                     Height = 25
                     Align = alTop
                     DataField = 'Fornecedor'
@@ -6679,7 +6677,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 3
-                    Width = 598
+                    Width = 658
                     Height = 15
                     Align = alTop
                     Caption = 'Produto'
@@ -6689,7 +6687,7 @@
                 end
               end
               object Panel23: TPanel
-                Left = 1077
+                Left = 1137
                 Top = 1
                 Width = 180
                 Height = 754
@@ -6697,7 +6695,7 @@
                 BevelOuter = bvNone
                 ParentBackground = False
                 TabOrder = 1
-                ExplicitLeft = 1566
+                ExplicitLeft = 1077
                 object btnsalvaprog: TBitBtn
                   AlignWithMargins = True
                   Left = 3
@@ -6746,16 +6744,16 @@
               object Panel26: TPanel
                 Left = 1
                 Top = 755
-                Width = 1256
+                Width = 1316
                 Height = 66
                 Align = alBottom
                 BevelOuter = bvNone
                 TabOrder = 2
-                ExplicitWidth = 1745
+                ExplicitWidth = 1256
                 object LabelStatusConferencia: TLabel
                   Left = 0
                   Top = 0
-                  Width = 1256
+                  Width = 1316
                   Height = 66
                   Align = alClient
                   Alignment = taCenter
@@ -6779,29 +6777,29 @@
           object TabSheet4: TTabSheet
             Caption = 'Produtos em Aberto'
             ImageIndex = 3
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Panel46: TPanel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 822
               Align = alClient
               TabOrder = 0
-              ExplicitWidth = 1747
+              ExplicitWidth = 1258
               object DBCtrlGridprodabertos: TDBCtrlGrid
                 Left = 1
                 Top = 1
-                Width = 1256
+                Width = 1316
                 Height = 359
                 Align = alClient
                 DataSource = DSQRYPRODUTOSABERTOS
                 PanelHeight = 89
-                PanelWidth = 1239
+                PanelWidth = 1299
                 TabOrder = 0
                 RowCount = 4
                 SelectedColor = 16763522
                 StyleElements = []
-                ExplicitWidth = 1745
+                ExplicitWidth = 1256
                 object Panel33: TPanel
                   Left = 0
                   Top = 0
@@ -6872,17 +6870,17 @@
                 object Panel38: TPanel
                   Left = 153
                   Top = 0
-                  Width = 584
+                  Width = 644
                   Height = 89
                   Align = alClient
                   BevelOuter = bvNone
                   TabOrder = 1
-                  ExplicitWidth = 1073
+                  ExplicitWidth = 584
                   object DBText29: TDBText
                     AlignWithMargins = True
                     Left = 3
                     Top = 18
-                    Width = 578
+                    Width = 638
                     Height = 20
                     Margins.Top = 1
                     Margins.Bottom = 1
@@ -6898,7 +6896,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 1
-                    Width = 578
+                    Width = 638
                     Height = 15
                     Margins.Top = 1
                     Margins.Bottom = 1
@@ -6911,7 +6909,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 40
-                    Width = 578
+                    Width = 638
                     Height = 15
                     Margins.Top = 1
                     Margins.Bottom = 1
@@ -6924,7 +6922,7 @@
                     AlignWithMargins = True
                     Left = 3
                     Top = 57
-                    Width = 578
+                    Width = 638
                     Height = 20
                     Margins.Top = 1
                     Margins.Bottom = 1
@@ -6938,14 +6936,14 @@
                   end
                 end
                 object Panel39: TPanel
-                  Left = 1037
+                  Left = 1097
                   Top = 0
                   Width = 202
                   Height = 89
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 2
-                  ExplicitLeft = 1526
+                  ExplicitLeft = 1037
                   object Label43: TLabel
                     AlignWithMargins = True
                     Left = 3
@@ -7006,14 +7004,14 @@
                   end
                 end
                 object Panel40: TPanel
-                  Left = 887
+                  Left = 947
                   Top = 0
                   Width = 150
                   Height = 89
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 3
-                  ExplicitLeft = 1376
+                  ExplicitLeft = 887
                   object DBText33: TDBText
                     AlignWithMargins = True
                     Left = 3
@@ -7072,14 +7070,14 @@
                   end
                 end
                 object Panel41: TPanel
-                  Left = 737
+                  Left = 797
                   Top = 0
                   Width = 150
                   Height = 89
                   Align = alRight
                   BevelOuter = bvNone
                   TabOrder = 4
-                  ExplicitLeft = 1226
+                  ExplicitLeft = 737
                   object DBText35: TDBText
                     AlignWithMargins = True
                     Left = 3
@@ -7141,11 +7139,11 @@
               object Panel49: TPanel
                 Left = 1
                 Top = 763
-                Width = 1256
+                Width = 1316
                 Height = 58
                 Align = alBottom
                 TabOrder = 1
-                ExplicitWidth = 1745
+                ExplicitWidth = 1256
                 object btnconsultartodos: TBitBtn
                   AlignWithMargins = True
                   Left = 4
@@ -7161,15 +7159,15 @@
               object Panel11: TPanel
                 Left = 1
                 Top = 360
-                Width = 1256
+                Width = 1316
                 Height = 403
                 Align = alBottom
                 TabOrder = 2
-                ExplicitWidth = 1745
+                ExplicitWidth = 1256
                 object Label75: TLabel
                   Left = 1
                   Top = 1
-                  Width = 1254
+                  Width = 1314
                   Height = 21
                   Align = alTop
                   Alignment = taCenter
@@ -7189,31 +7187,31 @@
                 object DBCtrlGridpedidos: TDBCtrlGrid
                   Left = 1
                   Top = 22
-                  Width = 1254
+                  Width = 1314
                   Height = 380
                   Align = alClient
                   DataSource = DataModule1.DSQRYPEDIDOS
                   PanelHeight = 95
-                  PanelWidth = 1237
+                  PanelWidth = 1297
                   TabOrder = 0
                   RowCount = 4
                   SelectedColor = 16763522
                   StyleElements = []
-                  ExplicitWidth = 1743
+                  ExplicitWidth = 1254
                   object Panel42: TPanel
                     Left = 370
                     Top = 0
-                    Width = 567
+                    Width = 627
                     Height = 95
                     Align = alClient
                     BevelOuter = bvNone
                     TabOrder = 0
-                    ExplicitWidth = 1056
+                    ExplicitWidth = 567
                     object DBText39: TDBText
                       AlignWithMargins = True
                       Left = 3
                       Top = 18
-                      Width = 561
+                      Width = 621
                       Height = 20
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -7228,7 +7226,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 1
-                      Width = 561
+                      Width = 621
                       Height = 15
                       Margins.Top = 1
                       Margins.Bottom = 1
@@ -7239,14 +7237,14 @@
                     end
                   end
                   object Panel43: TPanel
-                    Left = 1087
+                    Left = 1147
                     Top = 0
                     Width = 150
                     Height = 95
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 1
-                    ExplicitLeft = 1576
+                    ExplicitLeft = 1087
                     object DBText41: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -7303,14 +7301,14 @@
                     end
                   end
                   object Panel44: TPanel
-                    Left = 937
+                    Left = 997
                     Top = 0
                     Width = 150
                     Height = 95
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 2
-                    ExplicitLeft = 1426
+                    ExplicitLeft = 937
                     object DBText43: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -7459,9 +7457,9 @@
           object TabSheet3: TTabSheet
             Caption = 'Hist'#243'rico de Conf'#234'rencia'
             ImageIndex = 2
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Panel37: TPanel
-              Left = 1098
+              Left = 1158
               Top = 0
               Width = 160
               Height = 822
@@ -7469,7 +7467,7 @@
               BevelOuter = bvNone
               ParentBackground = False
               TabOrder = 0
-              ExplicitLeft = 1587
+              ExplicitLeft = 1098
               object btnRetomarProgresso: TButton
                 AlignWithMargins = True
                 Left = 3
@@ -7551,23 +7549,23 @@
             object Panel12: TPanel
               Left = 0
               Top = 0
-              Width = 1098
+              Width = 1158
               Height = 822
               Align = alClient
               TabOrder = 1
-              ExplicitWidth = 1587
+              ExplicitWidth = 1098
               object Panel13: TPanel
                 Left = 1
                 Top = 458
-                Width = 1096
+                Width = 1156
                 Height = 363
                 Align = alBottom
                 TabOrder = 0
-                ExplicitWidth = 1585
+                ExplicitWidth = 1096
                 object Label9: TLabel
                   Left = 1
                   Top = 1
-                  Width = 1094
+                  Width = 1154
                   Height = 21
                   Align = alTop
                   Alignment = taCenter
@@ -7587,33 +7585,33 @@
                 object DBGridprodcontados: TDBCtrlGrid
                   Left = 1
                   Top = 22
-                  Width = 1094
+                  Width = 1154
                   Height = 340
                   Align = alClient
                   Color = clBtnFace
                   DataSource = DataModule1.DSQRYPRODUTOSCONTADOS
                   PanelHeight = 113
-                  PanelWidth = 1077
+                  PanelWidth = 1137
                   ParentColor = False
                   TabOrder = 0
                   SelectedColor = 16763522
                   ShowFocus = False
                   StyleElements = []
-                  ExplicitWidth = 1583
+                  ExplicitWidth = 1094
                   object Panel24: TPanel
                     Left = 161
                     Top = 0
-                    Width = 616
+                    Width = 676
                     Height = 113
                     Align = alClient
                     BevelOuter = bvNone
                     TabOrder = 0
-                    ExplicitWidth = 1105
+                    ExplicitWidth = 616
                     object Label32: TLabel
                       AlignWithMargins = True
                       Left = 3
                       Top = 55
-                      Width = 610
+                      Width = 670
                       Height = 15
                       Align = alTop
                       Caption = 'Fornecedor'
@@ -7624,7 +7622,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 24
-                      Width = 610
+                      Width = 670
                       Height = 25
                       Align = alTop
                       DataField = 'PRODUTO_DESCRICAO'
@@ -7637,7 +7635,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 76
-                      Width = 610
+                      Width = 670
                       Height = 25
                       Align = alTop
                       DataField = 'FORNECEDOR'
@@ -7651,7 +7649,7 @@
                       AlignWithMargins = True
                       Left = 3
                       Top = 3
-                      Width = 610
+                      Width = 670
                       Height = 15
                       Align = alTop
                       Caption = 'Produto'
@@ -7660,14 +7658,14 @@
                     end
                   end
                   object Panel25: TPanel
-                    Left = 777
+                    Left = 837
                     Top = 0
                     Width = 100
                     Height = 113
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 1
-                    ExplicitLeft = 1266
+                    ExplicitLeft = 777
                     object Label33: TLabel
                       AlignWithMargins = True
                       Left = 3
@@ -7722,14 +7720,14 @@
                     end
                   end
                   object Panel27: TPanel
-                    Left = 877
+                    Left = 937
                     Top = 0
                     Width = 100
                     Height = 113
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 2
-                    ExplicitLeft = 1366
+                    ExplicitLeft = 877
                     object DBText18: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -7784,14 +7782,14 @@
                     end
                   end
                   object Panel28: TPanel
-                    Left = 977
+                    Left = 1037
                     Top = 0
                     Width = 100
                     Height = 113
                     Align = alRight
                     BevelOuter = bvNone
                     TabOrder = 3
-                    ExplicitLeft = 1466
+                    ExplicitLeft = 977
                     object DBText20: TDBText
                       AlignWithMargins = True
                       Left = 3
@@ -7975,15 +7973,15 @@
               object Panel29: TPanel
                 Left = 1
                 Top = 1
-                Width = 1096
+                Width = 1156
                 Height = 457
                 Align = alClient
                 TabOrder = 1
-                ExplicitWidth = 1585
+                ExplicitWidth = 1096
                 object Label7: TLabel
                   Left = 1
                   Top = 1
-                  Width = 1094
+                  Width = 1154
                   Height = 21
                   Align = alTop
                   Alignment = taCenter
@@ -8003,7 +8001,7 @@
                 object DBGRIDHISTORICO: TDBGrid
                   Left = 1
                   Top = 22
-                  Width = 1094
+                  Width = 1154
                   Height = 434
                   Align = alClient
                   DataSource = DSQRYHISTORICO
@@ -8025,11 +8023,11 @@
           object TabSheet5: TTabSheet
             Caption = 'Movimento do Estoque'
             ImageIndex = 5
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Panel50: TPanel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 129
               Align = alTop
               BevelOuter = bvNone
@@ -8037,7 +8035,7 @@
               ParentBackground = False
               TabOrder = 0
               StyleElements = []
-              ExplicitWidth = 1747
+              ExplicitWidth = 1258
               object Panel51: TPanel
                 Left = 0
                 Top = 0
@@ -8171,17 +8169,17 @@
               object Panel52: TPanel
                 Left = 161
                 Top = 0
-                Width = 749
+                Width = 809
                 Height = 129
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 1
-                ExplicitWidth = 1238
+                ExplicitWidth = 749
                 object DBText54: TDBText
                   AlignWithMargins = True
                   Left = 3
                   Top = 20
-                  Width = 743
+                  Width = 803
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -8203,7 +8201,7 @@
                   AlignWithMargins = True
                   Left = 3
                   Top = 1
-                  Width = 743
+                  Width = 803
                   Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -8222,7 +8220,7 @@
                   AlignWithMargins = True
                   Left = 3
                   Top = 42
-                  Width = 743
+                  Width = 803
                   Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -8241,7 +8239,7 @@
                   AlignWithMargins = True
                   Left = 3
                   Top = 61
-                  Width = 743
+                  Width = 803
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -8261,14 +8259,14 @@
                 end
               end
               object Panel53: TPanel
-                Left = 1056
+                Left = 1116
                 Top = 0
                 Width = 202
                 Height = 129
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 2
-                ExplicitLeft = 1545
+                ExplicitLeft = 1056
                 object Label68: TLabel
                   AlignWithMargins = True
                   Left = 3
@@ -8390,14 +8388,14 @@
                 end
               end
               object Panel54: TPanel
-                Left = 910
+                Left = 970
                 Top = 0
                 Width = 146
                 Height = 129
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 3
-                ExplicitLeft = 1399
+                ExplicitLeft = 910
                 object DBText57: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -8482,7 +8480,7 @@
             object DBGridmovestoque: TDBGrid
               Left = 0
               Top = 129
-              Width = 1258
+              Width = 1318
               Height = 693
               Align = alClient
               DataSource = DataModule1.DSqryTabest1mov
@@ -8499,33 +8497,51 @@
       object TabSheet8: TTabSheet
         Caption = 'Altera'#231#227'o de Pre'#231'os'
         ImageIndex = 1
-        ExplicitLeft = 6
-        ExplicitTop = 25
-        ExplicitWidth = 1755
+        ExplicitWidth = 1266
         object PageControl3: TPageControl
           Left = 0
           Top = 0
-          Width = 1266
+          Width = 1326
           Height = 852
           ActivePage = TabSheet6
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 1755
+          ExplicitWidth = 1266
           object TabSheet6: TTabSheet
             Caption = 'Produto'
-            ExplicitWidth = 1747
-            ExplicitHeight = 561
+            ExplicitWidth = 1258
             object Labelproduto: TLabel
               Left = 0
               Top = 43
-              Width = 1258
-              Height = 30
+              Width = 1318
+              Height = 45
               Align = alTop
               Alignment = taCenter
               Caption = 'Labelproduto'
-              Color = 15514233
+              Color = clNavy
               Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
+              Font.Color = clWhite
+              Font.Height = -29
+              Font.Name = 'Segoe UI Semibold'
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+              Transparent = False
+              StyleElements = []
+              ExplicitWidth = 1258
+            end
+            object Label109: TLabel
+              AlignWithMargins = True
+              Left = 3
+              Top = 524
+              Width = 1312
+              Height = 30
+              Align = alTop
+              Alignment = taCenter
+              Caption = 'Informa'#231#245'es'
+              Color = clNavy
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clWhite
               Font.Height = -21
               Font.Name = 'Segoe UI Semibold'
               Font.Style = [fsBold]
@@ -8533,37 +8549,17 @@
               ParentFont = False
               Transparent = False
               StyleElements = []
-              ExplicitLeft = 3
-              ExplicitTop = 128
-              ExplicitWidth = 1747
-            end
-            object Label102: TLabel
-              AlignWithMargins = True
-              Left = 3
-              Top = 140
-              Width = 1252
-              Height = 30
-              Align = alTop
-              Alignment = taCenter
-              Caption = 'Pre'#231'os'
-              Font.Charset = ANSI_CHARSET
-              Font.Color = clWindowText
-              Font.Height = -21
-              Font.Name = 'Segoe UI Semibold'
-              Font.Style = [fsBold]
-              ParentFont = False
-              ExplicitTop = 235
-              ExplicitWidth = 1741
+              ExplicitTop = 512
+              ExplicitWidth = 119
             end
             object Panel30: TPanel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 43
               Align = alTop
               TabOrder = 0
-              ExplicitTop = 8
-              ExplicitWidth = 1747
+              ExplicitWidth = 1258
               object btnconsultaprodutos: TButton
                 Left = 1
                 Top = 1
@@ -8577,531 +8573,42 @@
             end
             object Panel55: TPanel
               Left = 0
-              Top = 73
-              Width = 1258
-              Height = 64
+              Top = 88
+              Width = 1318
+              Height = 73
               Align = alTop
               TabOrder = 1
-              ExplicitTop = 8
-              ExplicitWidth = 1747
-              object Panel56: TPanel
-                Left = 1009
+              object Panel57: TPanel
+                Left = 361
                 Top = 1
                 Width = 128
-                Height = 62
+                Height = 71
                 Align = alLeft
                 BevelOuter = bvNone
                 TabOrder = 0
-                object Label94: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Fornecedor'
-                  ExplicitWidth = 60
-                end
-                object Edit1: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel57: TPanel
-                Left = 369
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 1
+                ExplicitLeft = 369
+                ExplicitHeight = 62
                 object Label95: TLabel
                   AlignWithMargins = True
                   Left = 3
                   Top = 3
                   Width = 122
-                  Height = 15
+                  Height = 17
                   Align = alTop
                   Caption = 'Cod Fornecedor'
-                  ExplicitWidth = 84
-                end
-                object Edit2: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel58: TPanel
-                Left = 241
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 2
-                object Label96: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Cod Barras'
-                  ExplicitWidth = 56
-                end
-                object Edit3: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel59: TPanel
-                Left = 113
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 3
-                object Label97: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Cod Interno'
-                  ExplicitWidth = 63
-                end
-                object Edit4: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel60: TPanel
-                Left = 625
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 4
-                object Label98: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Localiza'#231#227'o'
-                  ExplicitWidth = 62
-                end
-                object Edit5: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel61: TPanel
-                Left = 497
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 5
-                object Label99: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Cod adcional'
-                  ExplicitWidth = 69
-                end
-                object Edit6: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel62: TPanel
-                Left = 881
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 6
-                object Label100: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Marca'
-                  ExplicitWidth = 33
-                end
-                object Edit7: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object Panel63: TPanel
-                Left = 753
-                Top = 1
-                Width = 128
-                Height = 62
-                Align = alLeft
-                BevelOuter = bvNone
-                TabOrder = 7
-                object Label101: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 3
-                  Width = 122
-                  Height = 15
-                  Align = alTop
-                  Caption = 'Grupo'
-                  ExplicitWidth = 33
-                end
-                object Edit8: TEdit
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 24
-                  Width = 122
-                  Height = 23
-                  Align = alTop
-                  TabOrder = 0
-                  Text = 'Edit1'
-                end
-              end
-              object RadioGroup1: TRadioGroup
-                Left = 1
-                Top = 1
-                Width = 112
-                Height = 62
-                Align = alLeft
-                Caption = 'Tipo'
-                Items.Strings = (
-                  'Produto'
-                  'Servi'#231'o')
-                TabOrder = 8
-              end
-            end
-            object Panel64: TPanel
-              Left = 0
-              Top = 173
-              Width = 1258
-              Height = 348
-              Align = alTop
-              TabOrder = 2
-              ExplicitLeft = -2
-              ExplicitTop = 176
-              ExplicitWidth = 1747
-              object Panel65: TPanel
-                Left = 769
-                Top = 1
-                Width = 256
-                Height = 346
-                Align = alLeft
-                TabOrder = 0
-                ExplicitLeft = 710
-                object Label106: TLabel
-                  Left = 1
-                  Top = 1
-                  Width = 254
-                  Height = 21
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Pre'#231'o Atacado'
-                  Color = 15514233
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentColor = False
-                  ParentFont = False
-                  Transparent = False
-                  StyleElements = []
-                  ExplicitWidth = 107
-                end
-                object Label119: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 87
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio Atacado'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitLeft = 6
-                  ExplicitTop = 59
-                end
-                object Label120: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 211
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitLeft = 6
-                  ExplicitTop = 184
-                end
-                object Label121: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 149
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Atacado'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitWidth = 153
-                end
-                object Label122: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 25
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitWidth = 88
-                end
-                object CurrencyEdit9: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 52
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 0
-                  ExplicitLeft = 8
-                  ExplicitTop = 33
-                end
-                object CurrencyEdit10: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 176
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 1
-                  ExplicitLeft = 8
-                  ExplicitTop = 95
-                end
-                object CurrencyEdit11: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 238
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 2
-                  ExplicitLeft = 8
-                  ExplicitTop = 130
-                end
-                object CurrencyEdit12: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 114
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 3
-                  ExplicitLeft = 12
-                  ExplicitTop = 60
-                end
-              end
-              object Panel66: TPanel
-                Left = 513
-                Top = 1
-                Width = 256
-                Height = 346
-                Align = alLeft
-                TabOrder = 1
-                ExplicitLeft = 473
-                object Label105: TLabel
-                  Left = 1
-                  Top = 1
-                  Width = 254
-                  Height = 21
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Pre'#231'o Varejo'
-                  Color = 15514233
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentColor = False
-                  ParentFont = False
-                  Transparent = False
-                  StyleElements = []
-                  ExplicitWidth = 92
-                end
-                object Label115: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 79
-                  Width = 248
-                  Height = 17
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio Atacado'
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clWindowText
                   Font.Height = -13
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
-                  ExplicitTop = 87
-                  ExplicitWidth = 169
+                  ExplicitWidth = 97
                 end
-                object Label116: TLabel
+                object editcodfornecedor: TEdit
                   AlignWithMargins = True
-                  Left = 4
-                  Top = 187
-                  Width = 248
-                  Height = 17
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -13
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitTop = 211
-                  ExplicitWidth = 115
-                end
-                object Label117: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 133
-                  Width = 248
-                  Height = 17
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Atacado'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -13
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitTop = 149
-                  ExplicitWidth = 127
-                end
-                object Label118: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 25
-                  Width = 248
-                  Height = 17
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -13
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitWidth = 73
-                end
-                object CurrencyEdit5: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 48
-                  Width = 248
+                  Left = 3
+                  Top = 26
+                  Width = 122
                   Height = 25
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9111,13 +8618,726 @@
                   Font.Style = [fsBold]
                   ParentFont = False
                   TabOrder = 0
-                  ExplicitTop = 52
+                  Text = 'editcodfornecedor'
+                  ExplicitTop = 24
                 end
-                object CurrencyEdit6: TCurrencyEdit
+              end
+              object Panel58: TPanel
+                Left = 233
+                Top = 1
+                Width = 128
+                Height = 71
+                Align = alLeft
+                BevelOuter = bvNone
+                TabOrder = 1
+                ExplicitLeft = 241
+                ExplicitHeight = 62
+                object Label96: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 3
+                  Width = 122
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Cod Barras'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 66
+                end
+                object editcodbarra: TEdit
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 26
+                  Width = 122
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 0
+                  Text = 'editcodbarras'
+                end
+              end
+              object Panel59: TPanel
+                Left = 105
+                Top = 1
+                Width = 128
+                Height = 71
+                Align = alLeft
+                BevelOuter = bvNone
+                TabOrder = 2
+                ExplicitLeft = 113
+                ExplicitHeight = 62
+                object Label97: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 3
+                  Width = 122
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Cod Interno'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 73
+                end
+                object editcodinterno: TEdit
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 26
+                  Width = 122
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 0
+                  Text = 'editcodinterno'
+                  ExplicitTop = 24
+                end
+              end
+              object Panel61: TPanel
+                Left = 489
+                Top = 1
+                Width = 128
+                Height = 71
+                Align = alLeft
+                BevelOuter = bvNone
+                TabOrder = 3
+                ExplicitLeft = 497
+                ExplicitHeight = 62
+                object Label99: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 3
+                  Width = 122
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Cod adcional'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 78
+                end
+                object editcodorigem: TEdit
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 26
+                  Width = 122
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 0
+                  Text = 'editcodorigem'
+                end
+              end
+              object RadioGroup1: TRadioGroup
+                Left = 1
+                Top = 1
+                Width = 104
+                Height = 71
+                Align = alLeft
+                Caption = 'Tipo'
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -13
+                Font.Name = 'Segoe UI Semibold'
+                Font.Style = [fsBold]
+                Items.Strings = (
+                  'Produto'
+                  'Servi'#231'o')
+                ParentFont = False
+                TabOrder = 4
+              end
+            end
+            object Panel64: TPanel
+              Left = 0
+              Top = 161
+              Width = 1318
+              Height = 360
+              Align = alTop
+              BevelOuter = bvNone
+              TabOrder = 2
+              object Panel66: TPanel
+                Left = 918
+                Top = 0
+                Width = 400
+                Height = 360
+                Align = alRight
+                Color = clSilver
+                ParentBackground = False
+                TabOrder = 0
+                StyleElements = []
+                ExplicitLeft = 857
+                ExplicitTop = 1
+                ExplicitHeight = 346
+                object Label105: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 398
+                  Height = 25
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Pre'#231'o Atacado'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -19
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 124
+                end
+                object Panel70: TPanel
+                  AlignWithMargins = True
+                  Left = 190
+                  Top = 29
+                  Width = 206
+                  Height = 327
+                  Align = alClient
+                  BevelOuter = bvNone
+                  TabOrder = 0
+                  ExplicitLeft = 1
+                  ExplicitTop = 22
+                  ExplicitWidth = 168
+                  ExplicitHeight = 323
+                  object Label115: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 26
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label116: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 80
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 02'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label117: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 134
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label118: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 188
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 04'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label123: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'MARGEM'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitLeft = 4
+                    ExplicitTop = 4
+                    ExplicitWidth = 57
+                  end
+                  object editprecoatacado1: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 49
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 0
+                    ExplicitLeft = 8
+                    ExplicitTop = 35
+                    ExplicitWidth = 120
+                  end
+                  object editprecoatacado2: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 103
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 1
+                    ExplicitLeft = 8
+                    ExplicitTop = 89
+                    ExplicitWidth = 120
+                  end
+                  object editprecoatacado3: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 157
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 2
+                    ExplicitLeft = 8
+                    ExplicitTop = 143
+                    ExplicitWidth = 120
+                  end
+                  object CurrencyEdit8: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 299
+                    Width = 103
+                    Height = 25
+                    Margins.Right = 100
+                    Align = alBottom
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 3
+                    ExplicitLeft = 8
+                    ExplicitTop = 197
+                    ExplicitWidth = 120
+                  end
+                  object CurrencyEdit21: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 268
+                    Width = 103
+                    Height = 25
+                    Margins.Right = 100
+                    Align = alBottom
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 4
+                    ExplicitLeft = 6
+                    ExplicitTop = 219
+                    ExplicitWidth = 200
+                  end
+                  object editprecoatacado4: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 211
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 5
+                    ExplicitLeft = 6
+                    ExplicitTop = 219
+                  end
+                end
+                object Panel69: TPanel
                   AlignWithMargins = True
                   Left = 4
-                  Top = 156
-                  Width = 248
+                  Top = 29
+                  Width = 180
+                  Height = 327
+                  Align = alLeft
+                  BevelOuter = bvNone
+                  TabOrder = 1
+                  ExplicitHeight = 313
+                  object Label124: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 26
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 01'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 67
+                  end
+                  object Label125: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 80
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 02'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label126: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 134
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label127: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 188
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 04'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label128: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'MARGEM'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 57
+                  end
+                  object Label94: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 299
+                    Width = 174
+                    Height = 25
+                    Align = alBottom
+                    Caption = 'QTD Minima para atacado'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitTop = 265
+                  end
+                  object Label100: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 268
+                    Width = 174
+                    Height = 25
+                    Align = alBottom
+                    Caption = 'Quantidade Embalagem '
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitTop = 242
+                  end
+                  object editmargemvarejo1: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 49
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 0
+                    ExplicitLeft = 8
+                    ExplicitTop = 35
+                    ExplicitWidth = 120
+                  end
+                  object editmargemvarejo2: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 103
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 1
+                    ExplicitLeft = 8
+                    ExplicitTop = 89
+                    ExplicitWidth = 120
+                  end
+                  object editmargemvarejo3: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 157
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 2
+                    ExplicitLeft = 8
+                    ExplicitTop = 143
+                    ExplicitWidth = 120
+                  end
+                  object editmargemvarejo4: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 211
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 3
+                    ExplicitLeft = 8
+                    ExplicitTop = 197
+                    ExplicitWidth = 120
+                  end
+                end
+              end
+              object Panel67: TPanel
+                Left = 318
+                Top = 0
+                Width = 200
+                Height = 360
+                Align = alRight
+                Color = 10930928
+                ParentBackground = False
+                TabOrder = 1
+                StyleElements = []
+                ExplicitLeft = 217
+                ExplicitTop = 1
+                ExplicitHeight = 346
+                object Label111: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 137
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Pre'#231'o Custo Medio'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitTop = 149
+                  ExplicitWidth = 115
+                end
+                object Label112: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 83
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Pre'#231'o Custo Atacado'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitTop = 87
+                  ExplicitWidth = 127
+                end
+                object Label113: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 191
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Pre'#231'o Custo Medio Atacado'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitTop = 211
+                  ExplicitWidth = 169
+                end
+                object Label114: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 29
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Pre'#231'o Custo'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitTop = 25
+                  ExplicitWidth = 73
+                end
+                object Label106: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 198
+                  Height = 25
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Pre'#231'o Custo'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -19
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 102
+                end
+                object Editprcustomedioatacado: TCurrencyEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 214
+                  Width = 192
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 0
+                  ExplicitTop = 238
+                  ExplicitWidth = 248
+                end
+                object Editprcustomedio: TCurrencyEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 160
+                  Width = 192
                   Height = 25
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9128,12 +9348,13 @@
                   ParentFont = False
                   TabOrder = 1
                   ExplicitTop = 176
+                  ExplicitWidth = 248
                 end
-                object CurrencyEdit7: TCurrencyEdit
+                object Editprcustoatacado: TCurrencyEdit
                   AlignWithMargins = True
                   Left = 4
-                  Top = 210
-                  Width = 248
+                  Top = 106
+                  Width = 192
                   Height = 25
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9143,222 +9364,576 @@
                   Font.Style = [fsBold]
                   ParentFont = False
                   TabOrder = 2
-                  ExplicitTop = 238
-                end
-                object CurrencyEdit8: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 102
-                  Width = 248
-                  Height = 25
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -13
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 3
                   ExplicitTop = 114
+                  ExplicitWidth = 248
                 end
-              end
-              object Panel67: TPanel
-                Left = 257
-                Top = 1
-                Width = 256
-                Height = 346
-                Align = alLeft
-                TabOrder = 2
-                ExplicitLeft = 259
-                ExplicitTop = 3
-                object Label104: TLabel
-                  Left = 1
-                  Top = 1
-                  Width = 254
-                  Height = 21
-                  Align = alTop
-                  Alignment = taCenter
-                  Caption = 'Pre'#231'o de Custo'
-                  Color = 15514233
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentColor = False
-                  ParentFont = False
-                  Transparent = False
-                  StyleElements = []
-                  ExplicitLeft = 6
-                  ExplicitTop = -1
-                end
-                object Label111: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 149
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitWidth = 140
-                end
-                object Label112: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 87
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Atacado'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitLeft = 20
-                  ExplicitTop = 61
-                end
-                object Label113: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 211
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo Medio Atacado'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitWidth = 205
-                end
-                object Label114: TLabel
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 25
-                  Width = 248
-                  Height = 21
-                  Align = alTop
-                  Caption = 'Pre'#231'o Custo'
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  ExplicitTop = 4
-                  ExplicitWidth = 88
-                end
-                object CurrencyEdit1: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 238
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 0
-                  ExplicitTop = 102
-                end
-                object CurrencyEdit2: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 176
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 1
-                  ExplicitTop = 48
-                end
-                object CurrencyEdit3: TCurrencyEdit
-                  AlignWithMargins = True
-                  Left = 4
-                  Top = 114
-                  Width = 248
-                  Height = 29
-                  Align = alTop
-                  Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
-                  Font.Name = 'Segoe UI Semibold'
-                  Font.Style = [fsBold]
-                  ParentFont = False
-                  TabOrder = 2
-                  ExplicitLeft = 8
-                  ExplicitTop = 60
-                end
-                object CurrencyEdit4: TCurrencyEdit
+                object Editprcusto: TCurrencyEdit
                   AlignWithMargins = True
                   Left = 4
                   Top = 52
-                  Width = 248
-                  Height = 29
+                  Width = 192
+                  Height = 25
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clWindowText
-                  Font.Height = -16
+                  Font.Height = -13
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
                   TabOrder = 3
-                  ExplicitLeft = 12
-                  ExplicitTop = 60
+                  ExplicitWidth = 248
                 end
               end
               object Panel68: TPanel
-                Left = 1
-                Top = 1
-                Width = 256
-                Height = 346
-                Align = alLeft
-                TabOrder = 3
-                ExplicitLeft = -2
-                ExplicitTop = 3
-                object Label103: TLabel
+                Left = 118
+                Top = 0
+                Width = 200
+                Height = 360
+                Align = alRight
+                Color = clMoneyGreen
+                ParentBackground = False
+                TabOrder = 2
+                ExplicitLeft = 161
+                ExplicitHeight = 348
+                object Label104: TLabel
                   Left = 1
                   Top = 1
-                  Width = 254
-                  Height = 21
+                  Width = 198
+                  Height = 25
                   Align = alTop
                   Alignment = taCenter
-                  Caption = 'Estoque'
-                  Color = 15514233
+                  Caption = 'Infor'
+                  Color = clNavy
                   Font.Charset = ANSI_CHARSET
-                  Font.Color = clWindowText
-                  Font.Height = -16
+                  Font.Color = clWhite
+                  Font.Height = -19
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentColor = False
                   ParentFont = False
                   Transparent = False
                   StyleElements = []
-                  ExplicitWidth = 59
+                  ExplicitWidth = 42
+                end
+                object Label101: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 191
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Localiza'#231#227'o'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 67
+                end
+                object Label98: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 137
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Fornecedor'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 69
                 end
                 object Label107: TLabel
                   AlignWithMargins = True
                   Left = 4
-                  Top = 88
-                  Width = 248
+                  Top = 83
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Marca'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 37
+                end
+                object Label108: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 29
+                  Width = 192
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Grupo'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 38
+                end
+                object Editlocalizacao: TEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 214
+                  Width = 192
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 0
+                  Text = 'Editlocalizacao'
+                  ExplicitTop = 200
+                  ExplicitWidth = 153
+                end
+                object Editfornecedor: TEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 160
+                  Width = 192
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 1
+                  Text = 'Editfornecedor'
+                  ExplicitTop = 150
+                  ExplicitWidth = 153
+                end
+                object editmarca: TEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 106
+                  Width = 192
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 2
+                  Text = 'editmarca'
+                  ExplicitTop = 100
+                  ExplicitWidth = 153
+                end
+                object Editgrupo: TEdit
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 52
+                  Width = 192
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 3
+                  Text = 'Editgrupo'
+                  ExplicitTop = 50
+                  ExplicitWidth = 153
+                end
+              end
+              object Panel65: TPanel
+                Left = 518
+                Top = 0
+                Width = 400
+                Height = 360
+                Align = alRight
+                Color = 15519415
+                ParentBackground = False
+                TabOrder = 3
+                StyleElements = []
+                ExplicitLeft = 457
+                ExplicitTop = 1
+                ExplicitHeight = 346
+                object Label135: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 398
+                  Height = 25
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Pre'#231'o Varejo'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -19
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 107
+                end
+                object Panel71: TPanel
+                  AlignWithMargins = True
+                  Left = 190
+                  Top = 29
+                  Width = 206
+                  Height = 327
+                  Align = alClient
+                  BevelOuter = bvNone
+                  TabOrder = 0
+                  ExplicitLeft = 1
+                  ExplicitTop = 22
+                  ExplicitWidth = 168
+                  ExplicitHeight = 323
+                  object Label119: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 26
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 01'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 50
+                  end
+                  object Label120: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 80
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 02'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label121: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 134
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label122: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 188
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Pre'#231'o 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 52
+                  end
+                  object Label129: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 200
+                    Height = 17
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'Pre'#231'o'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 34
+                  end
+                  object editprecovarejo1: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 49
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 0
+                    ExplicitLeft = 8
+                    ExplicitTop = 35
+                    ExplicitWidth = 120
+                  end
+                  object editprecovarejo2: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 103
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 1
+                    ExplicitLeft = 8
+                    ExplicitTop = 89
+                    ExplicitWidth = 120
+                  end
+                  object editprecovarejo3: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 157
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 2
+                    ExplicitLeft = 8
+                    ExplicitTop = 143
+                    ExplicitWidth = 120
+                  end
+                  object editprecovarejo4: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 211
+                    Width = 200
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 3
+                    ExplicitLeft = 8
+                    ExplicitTop = 197
+                    ExplicitWidth = 120
+                  end
+                end
+                object Panel72: TPanel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 29
+                  Width = 180
+                  Height = 327
+                  Align = alLeft
+                  BevelOuter = bvNone
+                  TabOrder = 1
+                  ExplicitHeight = 313
+                  object Label130: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 26
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 01'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 67
+                  end
+                  object Label131: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 80
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 02'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label132: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 134
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 03'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label133: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 188
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Caption = 'Margem 04'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 69
+                  end
+                  object Label134: TLabel
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 3
+                    Width = 174
+                    Height = 17
+                    Align = alTop
+                    Alignment = taCenter
+                    Caption = 'MARGEM'
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    ExplicitWidth = 57
+                  end
+                  object editmargemverejo1: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 49
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 0
+                    ExplicitLeft = 8
+                    ExplicitTop = 35
+                    ExplicitWidth = 120
+                  end
+                  object editmargemverejo2: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 103
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 1
+                    ExplicitLeft = 8
+                    ExplicitTop = 89
+                    ExplicitWidth = 120
+                  end
+                  object editmargemverejo3: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 157
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 2
+                    ExplicitLeft = 8
+                    ExplicitTop = 143
+                    ExplicitWidth = 120
+                  end
+                  object editmargemverejo4: TCurrencyEdit
+                    AlignWithMargins = True
+                    Left = 3
+                    Top = 211
+                    Width = 174
+                    Height = 25
+                    Align = alTop
+                    Font.Charset = ANSI_CHARSET
+                    Font.Color = clWindowText
+                    Font.Height = -13
+                    Font.Name = 'Segoe UI Semibold'
+                    Font.Style = [fsBold]
+                    ParentFont = False
+                    TabOrder = 3
+                    ExplicitLeft = 8
+                    ExplicitTop = 197
+                    ExplicitWidth = 120
+                  end
+                end
+              end
+              object Panel73: TPanel
+                Left = 0
+                Top = 0
+                Width = 118
+                Height = 360
+                Align = alClient
+                Color = clMoneyGreen
+                ParentBackground = False
+                TabOrder = 4
+                ExplicitLeft = 8
+                ExplicitWidth = 161
+                ExplicitHeight = 348
+                object Label102: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 92
+                  Width = 110
                   Height = 21
                   Align = alTop
                   Caption = 'Estoque Deposito'
@@ -9370,11 +9945,11 @@
                   ParentFont = False
                   ExplicitWidth = 130
                 end
-                object DBText58: TDBText
+                object DBTextestoquedeposito: TDBText
                   AlignWithMargins = True
                   Left = 4
-                  Top = 115
-                  Width = 248
+                  Top = 119
+                  Width = 110
                   Height = 30
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9384,12 +9959,13 @@
                   Font.Style = [fsBold]
                   ParentFont = False
                   ExplicitTop = 52
+                  ExplicitWidth = 248
                 end
-                object Label108: TLabel
+                object Label103: TLabel
                   AlignWithMargins = True
                   Left = 4
-                  Top = 25
-                  Width = 248
+                  Top = 29
+                  Width = 110
                   Height = 21
                   Align = alTop
                   Caption = 'Estoque Loja'
@@ -9401,11 +9977,11 @@
                   ParentFont = False
                   ExplicitWidth = 93
                 end
-                object DBText59: TDBText
+                object DBTexestoqueloja: TDBText
                   AlignWithMargins = True
                   Left = 4
-                  Top = 52
-                  Width = 248
+                  Top = 56
+                  Width = 110
                   Height = 30
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9414,12 +9990,14 @@
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
+                  ExplicitTop = 52
+                  ExplicitWidth = 248
                 end
-                object Label109: TLabel
+                object Label136: TLabel
                   AlignWithMargins = True
                   Left = 4
-                  Top = 151
-                  Width = 248
+                  Top = 155
+                  Width = 110
                   Height = 21
                   Align = alTop
                   Caption = 'Estoque Total'
@@ -9431,11 +10009,11 @@
                   ParentFont = False
                   ExplicitWidth = 98
                 end
-                object DBText60: TDBText
+                object DBTextestoquetotal: TDBText
                   AlignWithMargins = True
                   Left = 4
-                  Top = 178
-                  Width = 248
+                  Top = 182
+                  Width = 110
                   Height = 30
                   Align = alTop
                   Font.Charset = ANSI_CHARSET
@@ -9446,12 +10024,81 @@
                   ParentFont = False
                   ExplicitLeft = 2
                   ExplicitTop = 214
+                  ExplicitWidth = 248
                 end
-                object Label110: TLabel
+                object Label137: TLabel
                   AlignWithMargins = True
                   Left = 4
-                  Top = 214
-                  Width = 248
+                  Top = 281
+                  Width = 110
+                  Height = 21
+                  Align = alTop
+                  Caption = 'Estoque Minimo'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -16
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 119
+                end
+                object DBTextestoquefiscal: TDBText
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 245
+                  Width = 110
+                  Height = 30
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -21
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitLeft = 6
+                  ExplicitTop = 236
+                end
+                object Label138: TLabel
+                  Left = 1
+                  Top = 1
+                  Width = 116
+                  Height = 25
+                  Align = alTop
+                  Alignment = taCenter
+                  Caption = 'Estoque'
+                  Color = clNavy
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWhite
+                  Font.Height = -19
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                  Transparent = False
+                  StyleElements = []
+                  ExplicitWidth = 68
+                end
+                object DBTextestoqueminino: TDBText
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 308
+                  Width = 110
+                  Height = 30
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -21
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitLeft = 2
+                  ExplicitTop = 337
+                end
+                object Label143: TLabel
+                  AlignWithMargins = True
+                  Left = 4
+                  Top = 218
+                  Width = 110
                   Height = 21
                   Align = alTop
                   Caption = 'Estoque Fiscal'
@@ -9463,21 +10110,185 @@
                   ParentFont = False
                   ExplicitWidth = 102
                 end
-                object DBText61: TDBText
+              end
+            end
+            object Panel56: TPanel
+              Left = 0
+              Top = 557
+              Width = 1318
+              Height = 265
+              Align = alClient
+              TabOrder = 3
+              ExplicitLeft = -2
+              ExplicitTop = 548
+              ExplicitHeight = 277
+              object Panel75: TPanel
+                Left = 1
+                Top = 1
+                Width = 176
+                Height = 263
+                Align = alLeft
+                BevelOuter = bvNone
+                TabOrder = 0
+                ExplicitHeight = 275
+                object Label141: TLabel
                   AlignWithMargins = True
-                  Left = 4
-                  Top = 241
-                  Width = 248
-                  Height = 30
+                  Left = 3
+                  Top = 55
+                  Width = 170
+                  Height = 17
                   Align = alTop
+                  Caption = 'Ult. Altera'#231#227'o'
                   Font.Charset = ANSI_CHARSET
                   Font.Color = clWindowText
-                  Font.Height = -21
+                  Font.Height = -13
                   Font.Name = 'Segoe UI Semibold'
                   Font.Style = [fsBold]
                   ParentFont = False
-                  ExplicitLeft = 2
-                  ExplicitTop = 302
+                  ExplicitWidth = 81
+                end
+                object Label110: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 3
+                  Width = 170
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Data de Cadastro'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 105
+                end
+                object Label139: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 159
+                  Width = 170
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Dias sem Atualizar Pre'#231'o'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitLeft = -3
+                  ExplicitTop = 150
+                end
+                object Label140: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 107
+                  Width = 170
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Ult. Altera'#231#227'o de Pre'#231'o'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 138
+                end
+                object Label142: TLabel
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 213
+                  Width = 170
+                  Height = 17
+                  Align = alTop
+                  Caption = 'Ult. a alterar Pre'#231'o'
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  ExplicitWidth = 112
+                end
+                object dtultalteracao: TDateTimePicker
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 78
+                  Width = 170
+                  Height = 23
+                  Align = alTop
+                  Date = 45975.000000000000000000
+                  Time = 0.540720196760958100
+                  TabOrder = 0
+                  ExplicitLeft = 6
+                  ExplicitTop = 34
+                  ExplicitWidth = 138
+                end
+                object dtcadastro: TDateTimePicker
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 26
+                  Width = 170
+                  Height = 23
+                  Align = alTop
+                  Date = 45975.000000000000000000
+                  Time = 0.540720196760958100
+                  TabOrder = 1
+                  ExplicitLeft = 6
+                  ExplicitTop = 34
+                  ExplicitWidth = 138
+                end
+                object dtultalteracaopreco: TDateTimePicker
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 130
+                  Width = 170
+                  Height = 23
+                  Align = alTop
+                  Date = 45975.000000000000000000
+                  Time = 0.540720196760958100
+                  TabOrder = 2
+                  ExplicitLeft = 16
+                  ExplicitTop = 40
+                  ExplicitWidth = 186
+                end
+                object editdiasnaoatualizapreco: TEdit
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 182
+                  Width = 170
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 3
+                  Text = 'editdiasnaoatualizapreco'
+                  ExplicitTop = 159
+                end
+                object editultuseralterapreco: TEdit
+                  AlignWithMargins = True
+                  Left = 3
+                  Top = 236
+                  Width = 170
+                  Height = 25
+                  Align = alTop
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -13
+                  Font.Name = 'Segoe UI Semibold'
+                  Font.Style = [fsBold]
+                  ParentFont = False
+                  TabOrder = 4
+                  Text = 'Edit1'
+                  ExplicitLeft = 4
+                  ExplicitTop = 200
+                  ExplicitWidth = 153
                 end
               end
             end
@@ -9485,13 +10296,11 @@
           object TabSheet10: TTabSheet
             Caption = 'Alterar Pre'#231'os'
             ImageIndex = 1
-            ExplicitLeft = 2
-            ExplicitTop = 20
-            ExplicitWidth = 1747
+            ExplicitWidth = 1258
             object Label76: TLabel
               Left = 0
               Top = 0
-              Width = 1258
+              Width = 1318
               Height = 21
               Align = alTop
               Alignment = taCenter
@@ -9511,16 +10320,15 @@
             object Panel31: TPanel
               Left = 0
               Top = 546
-              Width = 1258
+              Width = 1318
               Height = 276
               Align = alBottom
               TabOrder = 0
-              ExplicitTop = 576
-              ExplicitWidth = 1755
+              ExplicitWidth = 1258
               object Label77: TLabel
                 Left = 1
                 Top = 1
-                Width = 1256
+                Width = 1316
                 Height = 21
                 Align = alTop
                 Alignment = taCenter
@@ -10382,7 +11190,7 @@
             object DBGRIDPRODUTOSBASE: TDBGrid
               Left = 0
               Top = 21
-              Width = 1258
+              Width = 1318
               Height = 525
               Align = alClient
               DataSource = DataModule1.DSQRYPRODUTOSBASE

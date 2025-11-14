@@ -50,11 +50,37 @@ procedure TSelectProduto.DBGridprodutosDblClick(Sender: TObject);
 begin
   if not DataModule1.qrySelecionaProdutos.IsEmpty then
   begin
+
     frmmenu.labelproduto.caption := DataModule1.qrySelecionaProdutos.FieldByName('PRODUTO').AsString;
-   // FRMSvEtiqueta.svetiquetas.Editquantidade.Text := DataModule1.qrySelecionaProdutos.FieldByName('QUANTIDADE').AsString;
+
+    if Assigned(frmmenu.Editcodinterno) then
+      frmmenu.Editcodinterno.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODINTERNO').AsString;
+
+    if Assigned(frmmenu.Editcodbarra) then
+      frmmenu.Editcodbarra.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODBARRA').AsString;
+
+    if Assigned(frmmenu.Editcodfornecedor) then
+      frmmenu.Editcodfornecedor.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODFORNECEDOR').AsString;
+
+    if Assigned(frmmenu.Editcodorigem) then
+      frmmenu.Editcodorigem.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODorigem').AsString;
+
+    if Assigned(frmmenu.Editgrupo) then
+      frmmenu.Editgrupo.Text := DataModule1.qrySelecionaProdutos.FieldByName('lksetor').AsString;
+
+    if Assigned(frmmenu.Editmarca) then
+      frmmenu.Editmarca.Text := DataModule1.qrySelecionaProdutos.FieldByName('fabricante').AsString;
+
+    if Assigned(frmmenu.Editfornecedor) then
+      frmmenu.Editfornecedor.Text := DataModule1.qrySelecionaProdutos.FieldByName('lkfornec').AsString;
+
+    if Assigned(frmmenu.Editlocalizacao) then
+      frmmenu.Editlocalizacao.Text := DataModule1.qrySelecionaProdutos.FieldByName('moeda').AsString;
+
+
+
 
     Close;
-
 
   end;
 end;
@@ -74,9 +100,11 @@ begin
   with DataModule1.qrySelecionaProdutos do
   begin
     Close;
-    SQL.Text := 'SELECT CODIGO, CODINTERNO, PRODUTO, QUANTIDADE,UNIDADE, PRECOVENDA, PRPRAZO FROM TABEST1 ' +
+    SQL.Text := 'SELECT * FROM TABEST1 ' +
                 'WHERE CODIGO LIKE ' + QuotedStr('%' + EditSelectProduto.Text + '%') +
                 ' OR CODINTERNO LIKE ' + QuotedStr('%' + EditSelectProduto.Text + '%') +
+                ' OR CODBARRA LIKE ' + QuotedStr('%' + EditSelectProduto.Text + '%') +
+                ' OR CODFORNECEDOR LIKE ' + QuotedStr('%' + EditSelectProduto.Text + '%') +
                 ' OR PRODUTO LIKE ' + QuotedStr('%' + EditSelectProduto.Text + '%');
     Open;
   end;

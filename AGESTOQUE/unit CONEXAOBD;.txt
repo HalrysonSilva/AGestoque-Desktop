@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Classes,MidasLib, Uni, UniProvider, SQLServerUniProvider, UniDacVcl, System.IniFiles,
   DBAccess, Data.DB, MemDS,   windows , forms,
-    Vcl.Dialogs,  System.IOUtils, DASQLMonitor, UniSQLMonitor, Datasnap.DBClient;
+    Vcl.Dialogs,  System.IOUtils, DASQLMonitor, UniSQLMonitor, Datasnap.DBClient,
+  frxClass, frxDBSet;
 
     const
   ARQUIVO_CONEXAO = 'Servcom.dll';
@@ -22,35 +23,71 @@ type
     QRYSEQ: TUniQuery;
     QRYHIS_CAB: TUniQuery;
     QRYHIS_ITENS: TUniQuery;
-    qryTabest1movData: TUniQuery;
-    qryTabest1movProduto: TUniQuery;
-    qryTabest1movSaldoAnterior: TUniQuery;
-    qryTabest1movQuantidade: TUniQuery;
-    qryTabest1movSaldo: TUniQuery;
-    qryTabest1movOperacao: TUniQuery;
-    qryTabest1movLkItem: TUniQuery;
+    CDSPRODUTOS: TClientDataSet;
+    CDSPRODUTOSCodInterno: TStringField;
+    CDSPRODUTOSProduto: TStringField;
+    CDSPRODUTOSGrupo: TStringField;
+    CDSPRODUTOSMarca: TStringField;
+    CDSPRODUTOSFornecedor: TStringField;
+    CDSPRODUTOSPeriodo: TStringField;
+    CDSPRODUTOSLocalizacao: TStringField;
+    CDSPRODUTOSprecocusto: TCurrencyField;
+    CDSPRODUTOScustototal: TCurrencyField;
+    CDSPRODUTOSCodFornecedor: TStringField;
+    CDSPRODUTOSValorDiferenca: TCurrencyField;
+    CDSPRODUTOSEstoque: TFloatField;
+    CDSPRODUTOSCodbarra: TStringField;
+    CDSPRODUTOSQuantidadeVendida: TFloatField;
+    CDSPRODUTOSContagem: TFloatField;
+    CDSPRODUTOSDiferenca: TFloatField;
+    CDSPRODUTOSID_ORDEM: TIntegerField;
+    DSCDSPRODUTOS: TDataSource;
+    DSCDSTOTAIS: TDataSource;
+    CDSTOTAIS: TClientDataSet;
+    CDSTOTAISTOTALCUSTO: TCurrencyField;
+    CDSTOTAISTOTALDIFERENCA: TCurrencyField;
+    QRYPRODUTOSBASE: TUniQuery;
+    DSQRYPRODUTOSBASE: TDataSource;
     qryTabest1mov: TUniQuery;
-    qryTabest1movidControle: TIntegerField;
-    DateTimeField1: TDateTimeField;
-    qryTabest1movUSUARIO: TWideStringField;
-    qryTabest1movPedido: TIntegerField;
-    IntegerField1: TIntegerField;
-    qryTabest1movCodBarra: TStringField;
-    StringField1: TStringField;
-    FloatField1: TFloatField;
-    FloatField2: TFloatField;
-    FloatField3: TFloatField;
-    qryTabest1movCodigoUsuario: TIntegerField;
-    qryTabest1movLkOperacao: TIntegerField;
-    StringField2: TStringField;
-    qryTabest1movLkTipo: TIntegerField;
-    qryTabest1movTipo: TStringField;
-    qryTabest1movTerminal: TStringField;
     DSqryTabest1mov: TDataSource;
+    QRYPRODUTOSCONTADOS: TUniQuery;
+    QRYPRODUTOSCONTADOSID_ITEM: TIntegerField;
+    QRYPRODUTOSCONTADOSNUMRELATORIO: TIntegerField;
+    QRYPRODUTOSCONTADOSCODINTERNO: TStringField;
+    QRYPRODUTOSCONTADOSPRODUTO_DESCRICAO: TStringField;
+    QRYPRODUTOSCONTADOSGRUPO: TStringField;
+    QRYPRODUTOSCONTADOSMARCA: TStringField;
+    QRYPRODUTOSCONTADOSFORNECEDOR: TStringField;
+    QRYPRODUTOSCONTADOSCODFORNECEDOR: TStringField;
+    QRYPRODUTOSCONTADOSCODBARRA: TStringField;
+    QRYPRODUTOSCONTADOSQTD_VENDIDA: TFloatField;
+    QRYPRODUTOSCONTADOSLOCALIZACAO: TStringField;
+    QRYPRODUTOSCONTADOSCUSTO_TOTAL: TCurrencyField;
+    QRYPRODUTOSCONTADOSESTOQUE_ANTERIOR: TFloatField;
+    QRYPRODUTOSCONTADOSCONTAGEM_FINAL: TFloatField;
+    QRYPRODUTOSCONTADOSDIFERENCA: TFloatField;
+    QRYPRODUTOSCONTADOSPRECO_CUSTO: TCurrencyField;
+    QRYPRODUTOSCONTADOSVALOR_DIFERENCA: TCurrencyField;
+    QRYPEDIDOS: TUniQuery;
+    DSQRYPEDIDOS: TDataSource;
+    DSQRYPRODUTOSCONTADOS: TDataSource;
+    QRYITENSHIST: TUniQuery;
+    DSQRYITENSHIST: TDataSource;
+    QRYMARCA: TUniQuery;
+    QRYGRUPOS: TUniQuery;
+    QRYFORNECEDOR: TUniQuery;
+    QRYUPDATETABEST1: TUniQuery;
+    QRYUPDATETABESTMOV: TUniQuery;
+    QryBuscaLkItem: TUniQuery;
+    DBPRODUTOS: TfrxDBDataset;
+    DBTOTAIS: TfrxDBDataset;
+    frxDBCAB: TfrxDBDataset;
+    frxRelatorio: TfrxReport;
+    QRYSELECIONAPRODUTOS: TUniQuery;
+    DSQRYSELECIONAPRODUTO: TDataSource;
 
 
-
-    procedure DataModuleCreate(Sender: TObject); // DataSource para grid
+procedure DataModuleCreate(Sender: TObject); // DataSource para grid
   private
     procedure CarregarConexao(const NomeConnection: string;
       UniConnectDialog: TUniConnectDialog);
@@ -80,6 +117,58 @@ uses FRMAGESTOQUE, FRMSENHA;
 
 
 {$R *.dfm}
+
+ function TDataModule1.LerArqCfg(Topico, variavel, sNomeArquivo: string): string;
+var
+  ArquivoINI: TIniFile;
+  ArquivoTXT: TextFile;
+  sArquivo: WideString;
+  sLinha: string;
+  iPos, iTam, iTamLinha: Integer;
+begin
+  if Pos(':', sNomeArquivo) > 0 then
+    sArquivo := PChar(sNomeArquivo)
+  else
+    sArquivo := PChar(ExtractFilePath(Application.ExeName) + sNomeArquivo);
+
+  // Caso seja um Arquivo sem SESSÃO [] OU SEJA UM TXT
+  if Topico <= ' ' then
+  begin
+    iPos := 0;
+    iTam := Length(variavel + '=');
+    iTamLinha := 0;
+    AssignFile(ArquivoTXT, sArquivo);
+
+    Reset(ArquivoTXT);
+    While not Eoln(ArquivoTXT) do
+    begin
+      Readln(ArquivoTXT, sLinha);
+      iPos := Pos(UpperCase(variavel) + '=', UpperCase(sLinha));
+      if iPos > 0 then
+      begin
+        // iTamLinha := Length(sLinha);
+        sLinha := Alltrim(Copy(sLinha, (iPos + iTam), 100));
+        // Ler Até a Posição Ponto e Virgula (;)
+        iPos := Pos(';', UpperCase(sLinha));
+        if iPos > 0 then
+        begin
+          sLinha := Alltrim(Copy(sLinha, 1, iPos - 1));
+        end;
+
+        Result := sLinha;
+        Break;
+      end;
+    end;
+    CloseFile(ArquivoTXT); // Fecha o Arquivo
+  end;
+  IF iPos > 0 then
+    Exit;
+
+  ArquivoINI := TIniFile.Create(sArquivo);
+  ArquivoINI.ReadString(Topico, variavel, '');
+  Result := ArquivoINI.ReadString(Topico, variavel, '');
+  ArquivoINI.Free;
+end;
 
 
 procedure TDataModule1.CarregarConexao(const NomeConnection: string; UniConnectDialog: TUniConnectDialog);
@@ -289,57 +378,9 @@ begin
 end;
 
 
-function TDataModule1.LerArqCfg(Topico, variavel, sNomeArquivo: string): string;
-var
-  ArquivoINI: TIniFile;
-  ArquivoTXT: TextFile;
-  sArquivo: WideString;
-  sLinha: string;
-  iPos, iTam, iTamLinha: Integer;
-begin
-  if Pos(':', sNomeArquivo) > 0 then
-    sArquivo := PChar(sNomeArquivo)
-  else
-    sArquivo := PChar(ExtractFilePath(Application.ExeName) + sNomeArquivo);
 
-  // Caso seja um Arquivo sem SESSÃO [] OU SEJA UM TXT
-  if Topico <= ' ' then
-  begin
-    iPos := 0;
-    iTam := Length(variavel + '=');
-    iTamLinha := 0;
-    AssignFile(ArquivoTXT, sArquivo);
 
-    Reset(ArquivoTXT);
-    While not Eoln(ArquivoTXT) do
-    begin
-      Readln(ArquivoTXT, sLinha);
-      iPos := Pos(UpperCase(variavel) + '=', UpperCase(sLinha));
-      if iPos > 0 then
-      begin
-        // iTamLinha := Length(sLinha);
-        sLinha := Alltrim(Copy(sLinha, (iPos + iTam), 100));
-        // Ler Até a Posição Ponto e Virgula (;)
-        iPos := Pos(';', UpperCase(sLinha));
-        if iPos > 0 then
-        begin
-          sLinha := Alltrim(Copy(sLinha, 1, iPos - 1));
-        end;
 
-        Result := sLinha;
-        Break;
-      end;
-    end;
-    CloseFile(ArquivoTXT); // Fecha o Arquivo
-  end;
-  IF iPos > 0 then
-    Exit;
-
-  ArquivoINI := TIniFile.Create(sArquivo);
-  ArquivoINI.ReadString(Topico, variavel, '');
-  Result := ArquivoINI.ReadString(Topico, variavel, '');
-  ArquivoINI.Free;
-end;
 
 function TDataModule1.Alltrim(const Search: string): string;
 const
