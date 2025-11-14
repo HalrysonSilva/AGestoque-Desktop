@@ -1532,4 +1532,125 @@ object DataModule1: TDataModule1
     Left = 520
     Top = 80
   end
+  object QRYALTERAPRECOS: TUniQuery
+    Connection = ConDados
+    SQL.Strings = (
+      'UPDATE TABEST1'
+      'SET'
+      '    -- Pre'#231'os Varejo'
+      '    PrecoVenda = :PrVarejo1,'
+      '    Lucro      = :PerVarejo1,'
+      '    PrPrazo    = :PrVarejo2,'
+      '    PerPrazo   = :PerVarejo2,'
+      '    PrAtacado  = :PrVarejo3,'
+      '    PerAtacado = :PerVarejo3,'
+      '    PrMinimo   = :PrVarejo4,'
+      '    PerMinimo  = :PerVarejo4,'
+      '    -- Pre'#231'os Atacado'
+      '    PrAtacado1 = :PrAtacado1,'
+      '    PerAtacado1 = :PerAtacado1,'
+      '    PrAtacado2 = :PrAtacado2,'
+      '    PerAtacado2 = :PerAtacado2,'
+      '    PrAtacado3 = :PrAtacado3,'
+      '    PerAtacado3 = :PerAtacado3,'
+      '    PrAtacado4 = :PrAtacado4,'
+      '    PerAtacado4 = :PerAtacado4,'
+      '    -- Controle'
+      '    DtAtualiza = GETDATE(),'
+      '    LkUsuario  = :LkUsuario'
+      'WHERE Controle = :Controle;')
+    Left = 528
+    Top = 152
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'PrVarejo1'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerVarejo1'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrVarejo2'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerVarejo2'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrVarejo3'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerVarejo3'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrVarejo4'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerVarejo4'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrAtacado1'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerAtacado1'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrAtacado2'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerAtacado2'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrAtacado3'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerAtacado3'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PrAtacado4'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'PerAtacado4'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'LkUsuario'
+        Value = nil
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Controle'
+        Value = nil
+      end>
+  end
 end

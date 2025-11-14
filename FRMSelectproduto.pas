@@ -78,6 +78,155 @@ begin
       frmmenu.Editlocalizacao.Text := DataModule1.qrySelecionaProdutos.FieldByName('moeda').AsString;
 
 
+if Assigned(frmmenu.DBTexestoqueloja) then
+    frmmenu.DBTexestoqueloja.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('quantidade').AsFloat);
+
+if Assigned(frmmenu.DBTextestoquedeposito) then
+    frmmenu.DBTextestoquedeposito.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('qtddepos').AsFloat);
+
+if Assigned(frmmenu.DBTextestoquefiscal) then
+    frmmenu.DBTextestoquefiscal.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('qtdfiscal').AsFloat);
+
+if Assigned(frmmenu.DBTextestoqueminino) then
+    frmmenu.DBTextestoqueminino.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('estminimo').AsFloat);
+
+frmmenu.DBTextestoquetotal.Caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('quantidade').AsFloat + DataModule1.qrySelecionaProdutos.FieldByName('qtddepos').AsFloat);
+
+
+ // INFORMAÇAO DE PREÇOS
+
+    //preço custo
+
+if Assigned(frmmenu.Editprcusto) then
+frmmenu.Editprcusto.Value := DataModule1.qrySelecionaProdutos.FieldByName('PrecoCusto').AsCurrency;
+
+    //Customedio
+if Assigned(frmmenu.Editprcustomedio) then
+frmmenu.Editprcustomedio.Value := DataModule1.qrySelecionaProdutos.FieldByName('CustoMedio').AsCurrency;
+
+
+// Margem de Lucro Varejo 1
+if Assigned(frmmenu.editmargemvarejo1) then
+    frmmenu.editmargemvarejo1.Value := DataModule1.qrySelecionaProdutos.FieldByName('Lucro').AsFloat;
+
+    // Margem de Lucro Varejo 2
+if Assigned(frmmenu.editmargemvarejo2) then
+    frmmenu.editmargemvarejo2.Value := DataModule1.qrySelecionaProdutos.FieldByName('perprazo').AsFloat;
+
+
+        // Margem de Lucro Varejo 3
+if Assigned(frmmenu.editmargemvarejo3) then
+    frmmenu.editmargemvarejo3.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado').AsFloat;
+
+           // Margem de Lucro Varejo 4
+if Assigned(frmmenu.editmargemvarejo4) then
+    frmmenu.editmargemvarejo4.Value := DataModule1.qrySelecionaProdutos.FieldByName('perminimo').AsFloat;
+
+
+             // PRECO VAREJO 1
+if Assigned(frmmenu.editprecovarejo1) then
+    frmmenu.editprecovarejo1.Value := DataModule1.qrySelecionaProdutos.FieldByName('precovenda').AsFloat;
+
+                 // PRECO VAREJO 2
+if Assigned(frmmenu.editprecovarejo2) then
+    frmmenu.editprecovarejo2.Value := DataModule1.qrySelecionaProdutos.FieldByName('prprazo').AsFloat;
+
+
+                     // PRECO VAREJO 3
+if Assigned(frmmenu.editprecovarejo3) then
+    frmmenu.editprecovarejo3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado').AsFloat;
+
+                         // PRECO VAREJO 4
+if Assigned(frmmenu.editprecovarejo4) then
+    frmmenu.editprecovarejo4.Value := DataModule1.qrySelecionaProdutos.FieldByName('prminimo').AsFloat;
+
+
+                         // Margem de Lucro atacado 1
+if Assigned(frmmenu.editmargematacado1) then
+    frmmenu.editmargematacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado1').AsFloat;
+
+                             // Margem de Lucro atacado 2
+if Assigned(frmmenu.editmargematacado2) then
+    frmmenu.editmargematacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado2').AsFloat;
+
+                             // Margem de Lucro atacado 3
+if Assigned(frmmenu.editmargematacado3) then
+    frmmenu.editmargematacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado3').AsFloat;
+
+                             // Margem de Lucro atacado 4
+if Assigned(frmmenu.editmargematacado4) then
+    frmmenu.editmargematacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado4').AsFloat;
+
+                                 //preço atacado 1
+if Assigned(frmmenu.editprecoatacado1) then
+    frmmenu.editprecoatacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado1').AsFloat;
+
+                                     //preço atacado 2
+if Assigned(frmmenu.editprecoatacado2) then
+    frmmenu.editprecoatacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado2').AsFloat;
+
+                                     //preço atacado 3
+if Assigned(frmmenu.editprecoatacado3) then
+    frmmenu.editprecoatacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado3').AsFloat;
+
+                                     //preço atacado 4
+if Assigned(frmmenu.editprecoatacado4) then
+    frmmenu.editprecoatacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado4').AsFloat;
+
+
+
+                                     //preço atacado unitario 1
+if Assigned(frmmenu.editprecounatacado1) then
+    frmmenu.editprecounatacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado1').AsFloat;
+
+                                     //preço atacado unitario 2
+if Assigned(frmmenu.editprecounatacado2) then
+    frmmenu.editprecounatacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado2').AsFloat;
+
+                                     //preço atacado unitario 3
+if Assigned(frmmenu.editprecounatacado3) then
+    frmmenu.editprecounatacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado3').AsFloat;
+
+                                     //preço atacado unitario 4
+if Assigned(frmmenu.editprecounatacado4) then
+    frmmenu.editprecounatacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado4').AsFloat;
+
+                                       //quantidade na embalagem
+    if Assigned(frmmenu.editqtdembalagem) then
+    frmmenu.editqtdembalagem.text := DataModule1.qrySelecionaProdutos.FieldByName('qtdatacado').Asstring;
+
+                                           //quantidade mimina para atacado
+    if Assigned(frmmenu.editqtdminatacado) then
+    frmmenu.editqtdminatacado.text := DataModule1.qrySelecionaProdutos.FieldByName('qtdminpratacado').Asstring;
+
+
+// data cadastro
+if Assigned(frmmenu.dtdatacastro) then
+    frmmenu.dtdatacastro.Date := DataModule1.qrySelecionaProdutos.FieldByName('Data').AsDateTime; // Data de Cadastro
+
+// data da última venda
+if Assigned(frmmenu.dtultvenda) then
+    frmmenu.dtultvenda.Date := DataModule1.qrySelecionaProdutos.FieldByName('ultvenda').AsDateTime;
+
+// data da última alteração geral
+if Assigned(frmmenu.dtultalteracao) then
+    frmmenu.dtultalteracao.Date := DataModule1.qrySelecionaProdutos.FieldByName('DtAlteracao').AsDateTime;
+
+  // data da última alteração geral
+if Assigned(frmmenu.dtultcompra) then
+    frmmenu.dtultcompra.Date := DataModule1.qrySelecionaProdutos.FieldByName('ultreaj').AsDateTime;
+
+     // usuarios que fizeram alteraçao
+if Assigned(frmmenu.Editultalterar) then
+    frmmenu.Editultalterar.text := DataModule1.qrySelecionaProdutos.FieldByName('lkuser').Asstring;
+
+
+
+
+
+
+
+
 
 
     Close;

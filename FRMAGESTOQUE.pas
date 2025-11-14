@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, frxClass,
   frxDBSet, MemDS, DBAccess, Uni, Vcl.ComCtrls, Vcl.Buttons, Vcl.Grids,
   Vcl.DBGrids, Vcl.DBCtrls, Vcl.DBCGrids, Datasnap.DBClient, Data.DB,
-  Vcl.Touch.GestureMgr, Vcl.Mask, RxToolEdit, RxCurrEdit;
+  Vcl.Touch.GestureMgr, Vcl.Mask, RxToolEdit, RxCurrEdit,Math;
 
 
 
@@ -268,8 +268,6 @@ type
     DSQRYHISTORICO: TDataSource;
     PageControl3: TPageControl;
     TabSheet6: TTabSheet;
-    Panel30: TPanel;
-    btnconsultaprodutos: TButton;
     Labelproduto: TLabel;
     Panel55: TPanel;
     Panel57: TPanel;
@@ -289,57 +287,29 @@ type
     Label76: TLabel;
     Panel31: TPanel;
     Label77: TLabel;
-    Panel34: TPanel;
-    Label82: TLabel;
-    Label83: TLabel;
-    Label84: TLabel;
-    Label85: TLabel;
-    CEPRECOATACADO4: TCurrencyEdit;
-    CEPRECOATACADO3: TCurrencyEdit;
-    CEPRECOATACADO2: TCurrencyEdit;
-    CEPRECOATACADO1: TCurrencyEdit;
     Panel35: TPanel;
     Label78: TLabel;
     Label79: TLabel;
     Label80: TLabel;
-    Label81: TLabel;
     CEPERCENTUALATACADO4: TCurrencyEdit;
     CEPERCENTUALATACADO3: TCurrencyEdit;
     CEPERCENTUALATACADO2: TCurrencyEdit;
-    CEPERCENTUALATACADO1: TCurrencyEdit;
     Panel36: TPanel;
-    BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
     Panel47: TPanel;
     Label86: TLabel;
     Label87: TLabel;
     Label88: TLabel;
-    Label89: TLabel;
     CEPERCENTUALVAREJO4: TCurrencyEdit;
     CEPERCENTUALVAREJO3: TCurrencyEdit;
     CEPERCENTUALVAREJO2: TCurrencyEdit;
-    CEPERCENTUALVAREJO1: TCurrencyEdit;
-    Panel48: TPanel;
-    Label90: TLabel;
-    Label91: TLabel;
-    Label92: TLabel;
-    Label93: TLabel;
-    CEPRECOVAREJO4: TCurrencyEdit;
-    CEPRECOVAREJO3: TCurrencyEdit;
-    CEPRECOVAREJO2: TCurrencyEdit;
-    CEPRECOVAREJO1: TCurrencyEdit;
     DBGRIDPRODUTOSBASE: TDBGrid;
     Panel64: TPanel;
     Panel66: TPanel;
     Panel67: TPanel;
-    Panel68: TPanel;
     Label105: TLabel;
     Label111: TLabel;
-    Editprcustomedioatacado: TCurrencyEdit;
     Editprcustomedio: TCurrencyEdit;
-    Label112: TLabel;
-    Label113: TLabel;
-    Editprcustoatacado: TCurrencyEdit;
     Label114: TLabel;
     Editprcusto: TCurrencyEdit;
     Panel70: TPanel;
@@ -350,7 +320,6 @@ type
     Label117: TLabel;
     editprecoatacado3: TCurrencyEdit;
     Label118: TLabel;
-    CurrencyEdit8: TCurrencyEdit;
     Label123: TLabel;
     Panel69: TPanel;
     Label124: TLabel;
@@ -358,10 +327,10 @@ type
     Label126: TLabel;
     Label127: TLabel;
     Label128: TLabel;
-    editmargemvarejo1: TCurrencyEdit;
-    editmargemvarejo2: TCurrencyEdit;
-    editmargemvarejo3: TCurrencyEdit;
-    editmargemvarejo4: TCurrencyEdit;
+    editmargematacado1: TCurrencyEdit;
+    editmargematacado2: TCurrencyEdit;
+    editmargematacado3: TCurrencyEdit;
+    editmargematacado4: TCurrencyEdit;
     Panel65: TPanel;
     Panel71: TPanel;
     Label119: TLabel;
@@ -379,13 +348,12 @@ type
     Label132: TLabel;
     Label133: TLabel;
     Label134: TLabel;
-    editmargemverejo1: TCurrencyEdit;
-    editmargemverejo2: TCurrencyEdit;
-    editmargemverejo3: TCurrencyEdit;
-    editmargemverejo4: TCurrencyEdit;
+    editmargemvarejo1: TCurrencyEdit;
+    editmargemvarejo2: TCurrencyEdit;
+    editmargemvarejo3: TCurrencyEdit;
+    editmargemvarejo4: TCurrencyEdit;
     Label135: TLabel;
     Label106: TLabel;
-    Label104: TLabel;
     Panel73: TPanel;
     Label102: TLabel;
     DBTextestoquedeposito: TDBText;
@@ -396,33 +364,65 @@ type
     Label137: TLabel;
     DBTextestoquefiscal: TDBText;
     Label138: TLabel;
-    Label101: TLabel;
-    Editlocalizacao: TEdit;
-    Label98: TLabel;
-    Editfornecedor: TEdit;
-    Label107: TLabel;
-    editmarca: TEdit;
-    Label108: TLabel;
-    Editgrupo: TEdit;
-    CurrencyEdit21: TCurrencyEdit;
     editprecoatacado4: TCurrencyEdit;
-    Label94: TLabel;
-    Label100: TLabel;
     Panel56: TPanel;
     Label109: TLabel;
     Panel75: TPanel;
-    Label141: TLabel;
-    dtultalteracao: TDateTimePicker;
-    Label110: TLabel;
-    dtcadastro: TDateTimePicker;
-    Label139: TLabel;
-    dtultalteracaopreco: TDateTimePicker;
-    Label140: TLabel;
-    Label142: TLabel;
-    editdiasnaoatualizapreco: TEdit;
-    editultuseralterapreco: TEdit;
     DBTextestoqueminino: TDBText;
     Label143: TLabel;
+    Panel60: TPanel;
+    Label144: TLabel;
+    Label145: TLabel;
+    dtultalteracao: TDateTimePicker;
+    dtdatacastro: TDateTimePicker;
+    Panel63: TPanel;
+    Label142: TLabel;
+    Label149: TLabel;
+    dtultalteracaopreco: TDateTimePicker;
+    editdiasnaoalterapreco: TEdit;
+    Panel74: TPanel;
+    Panel76: TPanel;
+    Panel77: TPanel;
+    Panel78: TPanel;
+    Label108: TLabel;
+    Editgrupo: TEdit;
+    Label107: TLabel;
+    editmarca: TEdit;
+    Label98: TLabel;
+    Editfornecedor: TEdit;
+    Label101: TLabel;
+    Editlocalizacao: TEdit;
+    Panel68: TPanel;
+    Label104: TLabel;
+    Label110: TLabel;
+    Label112: TLabel;
+    Label113: TLabel;
+    Label141: TLabel;
+    editprecounatacado1: TCurrencyEdit;
+    editprecounatacado2: TCurrencyEdit;
+    editprecounatacado3: TCurrencyEdit;
+    editprecounatacado4: TCurrencyEdit;
+    btnconsultaprodutos: TBitBtn;
+    Label100: TLabel;
+    Label94: TLabel;
+    editqtdembalagem: TEdit;
+    editqtdminatacado: TEdit;
+    dtultvenda: TDateTimePicker;
+    Label139: TLabel;
+    Panel30: TPanel;
+    Label140: TLabel;
+    Editultalterar: TEdit;
+    dtultcompra: TDateTimePicker;
+    Label146: TLabel;
+    Edit2: TEdit;
+    Label147: TLabel;
+    Panel34: TPanel;
+    Label85: TLabel;
+    CEPERCENTUALVAREJO1: TCurrencyEdit;
+    Label81: TLabel;
+    CEPERCENTUALATACADO1: TCurrencyEdit;
+    btnatualizaprecos: TBitBtn;
+    Button1: TCheckBox;
    
     procedure CarregarGrupos;
     procedure CarregarMarcas;
@@ -504,8 +504,12 @@ type
     procedure QRYRKVENDAfterScroll(DataSet: TDataSet);
     procedure QRYHISTORICOAfterScroll(DataSet: TDataSet);
     procedure btnconsultaprodutosClick(Sender: TObject);
-  
+    procedure DefinirPercentuaisPadrao;
+    procedure Button1Click(Sender: TObject);
 
+    procedure AplicarAjusteDePrecosEmMassa;
+    procedure btnatualizaprecosClick(Sender: TObject);
+    procedure CEPERCENTUALATACADO1Change(Sender: TObject);
 
 
 
@@ -1198,6 +1202,11 @@ end;
 
 
 
+
+procedure Tfrmmenu.btnatualizaprecosClick(Sender: TObject);
+begin
+AplicarAjusteDePrecosEmMassa;
+end;
 
 procedure Tfrmmenu.btnconfirmaClick(Sender: TObject);
 
@@ -1944,6 +1953,29 @@ end;
 
 
 
+procedure Tfrmmenu.CEPERCENTUALATACADO1Change(Sender: TObject);
+var
+  fNovoPercentual: Extended;
+begin
+  // 1. Coleta o novo valor do campo 1 (CEPERCENTUALATACADO1)
+  // O valor é lido diretamente do TCurrencyEdit.
+  fNovoPercentual := TCurrencyEdit(Sender).Value;
+
+  // 2. Propaga o valor para os demais campos de Atacado (2, 3 e 4)
+  if Assigned(CEPERCENTUALATACADO2) then
+    CEPERCENTUALATACADO2.Value := fNovoPercentual;
+
+  if Assigned(CEPERCENTUALATACADO3) then
+    CEPERCENTUALATACADO3.Value := fNovoPercentual;
+
+  if Assigned(CEPERCENTUALATACADO4) then
+    CEPERCENTUALATACADO4.Value := fNovoPercentual;
+
+  // Nota: Não é necessário chamar a rotina de ajuste em massa aqui.
+  // A rotina AplicarAjusteDePrecosEmMassa lerá esses valores já ajustados quando for executada.
+end;
+
+
 procedure Tfrmmenu.EditcontagemChange(Sender: TObject);
 var
   Estoque, Contagem, Diferenca: Real;
@@ -2103,7 +2135,7 @@ CarregarFornecedores;
 CriarEstruturaManualCDS;
 PageControl1.ActivePage := TabSheet1;
 FNumRelatorioAtual := 0;
-
+DefinirPercentuaisPadrao;
 
 
 LabelStatusConferencia.Visible := False;
@@ -2892,7 +2924,7 @@ begin
 
   // 3. ATUALIZAÇÃO DA LABEL ESPECÍFICA (Labeltotalconferidos)
   // Esta label mostrará a contagem pura do CDSPRODUTOS
- 
+
 
   // 4. ATUALIZAÇÃO DA LABEL GERAL (Labelitensvendidos) - Opcional, mantém o formato de comparação
   if Assigned(Labelitensvendidos) then
@@ -2900,6 +2932,9 @@ begin
     Labelitensvendidos.Caption := Format('Conferidos: %d de %d', [ItensConferidos, TotalItensConsulta]);
   end;
 end;
+
+
+
 
 
 procedure Tfrmmenu.BitBtn3Click(Sender: TObject);
@@ -3112,6 +3147,11 @@ end;
 
 
 
+
+procedure Tfrmmenu.Button1Click(Sender: TObject);
+begin
+DefinirPercentuaisPadrao;
+end;
 
 procedure Tfrmmenu.movimentojacontado;
 var
@@ -3527,7 +3567,7 @@ procedure Tfrmmenu.CarregarListaBaseProdutos;
 var
   SQLText: TStringList;
 begin
-  // 1. Validação dos componentes (mantida para segurança)
+  // 1. Validação dos componentes
   if not Assigned(datamodule1.QRYPRODUTOSBASE) or not Assigned(datamodule1.DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
   begin
     ShowMessage('Erro: Os componentes QRYPRODUTOSBASE, DSQRYPRODUTOSBASE ou DBGRIDPRODUTOSBASE não foram criados ou atribuídos.');
@@ -3540,51 +3580,49 @@ begin
     SQLText.Add('  P.Controle AS LkProduto,');
     SQLText.Add('  P.CodInterno,');
     SQLText.Add('  P.Produto,');
-    SQLText.Add('  G.Setor AS Grupo,');
-    SQLText.Add('  P.Fabricante AS Marca,');
-    SQLText.Add('  F.Empresa AS Fornecedor,');
 
     // =========================================================
-    // COLUNAS DE PREÇO E MARGEM SOLICITADAS DA TABEST1
+    // COLUNAS DE PREÇO E MARGEM (TODAS DE TABEST1)
     // =========================================================
     SQLText.Add('  P.PrecoCusto,');
-    SQLText.Add('  P.Lucro AS MargemVarejo,');         // Campo Lucro (Margem %)
-    SQLText.Add('  P.PrecoVenda AS PrecoVarejo,');      // Preço de Venda (Varejo)
+    SQLText.Add('  P.Lucro AS MargemVarejo,');
+    SQLText.Add('  P.PrecoVenda AS PrecoVarejo,');
 
-    SQLText.Add('  P.PerPrazo AS PerPrazo,');          // Margem Prazo (PerPrazo)
-    SQLText.Add('  P.PrPrazo AS PrPrazo,');            // Preço Prazo (PrPrazo)
-    SQLText.Add('  P.PerAtacado AS PerAtacado,');      // Margem Atacado (PerAtacado)
-    SQLText.Add('  P.PrAtacado AS PrAtacado,');        // Preço Atacado (PrAtacado)
-    SQLText.Add('  P.PerMinimo AS PerMinimo,');        // Margem Mínima (PerMinimo)
-    SQLText.Add('  P.PrMinimo AS PrMinimo,');          // Preço Mínimo (PrMinimo)
+    SQLText.Add('  P.PerPrazo AS PerPrazo,');
+    SQLText.Add('  P.PrPrazo AS PrPrazo,');
+    SQLText.Add('  P.PerAtacado AS PerAtacado,');
+    SQLText.Add('  P.PrAtacado AS PrAtacado,');
+    SQLText.Add('  P.PerMinimo AS PerMinimo,');
+    SQLText.Add('  P.PrMinimo AS PrMinimo,');
 
-    // Níveis de Atacado
+    // Níveis de Atacado (Preços)
     SQLText.Add('  P.PrAtacado1 AS PrAtacado1,');
     SQLText.Add('  P.PrAtacado2 AS PrAtacado2,');
     SQLText.Add('  P.PrAtacado3 AS PrAtacado3,');
     SQLText.Add('  P.PrAtacado4 AS PrAtacado4,');
 
-    // Outros campos para contexto
-    SQLText.Add('  P.Quantidade AS Estoque,');
-    SQLText.Add('  P.Quantidade * P.PrecoCusto AS CustoTotal,');
-    SQLText.Add('  P.Moeda AS Localizacao');
+    // Níveis de Atacado (Margens)
+    SQLText.Add('  P.PerAtacado1 AS PerAtacado1,');
+    SQLText.Add('  P.PerAtacado2 AS PerAtacado2,');
+    SQLText.Add('  P.PerAtacado3 AS PerAtacado3,');
+    SQLText.Add('  P.PerAtacado4 AS PerAtacado4');
+
 
     SQLText.Add('FROM tabest1 P WITH (NOLOCK)');
-    SQLText.Add('LEFT JOIN tabest8 G WITH (NOLOCK) ON P.LkSetor = G.Controle');
-    SQLText.Add('LEFT JOIN tabfor F WITH (NOLOCK) ON P.LkFornec = F.Controle');
+    // JOINS removidos, filtros aplicados diretamente na TABEST1
 
     // Filtros de Inatividade e Visibilidade (Padrão)
     SQLText.Add('WHERE P.Inativo <> 1');
     SQLText.Add('  AND P.NaoSaiTabela = 0');
 
     // =========================================================
-    // APLICAÇÃO DOS FILTROS DA TELA (Mantida)
+    // APLICAÇÃO DOS FILTROS DA TELA (Diretos na TABEST1)
     // =========================================================
     if cmbgrupo.ItemIndex > 0 then
-      SQLText.Add('  AND G.Controle = :Grupo');
+      SQLText.Add('  AND P.LkSetor = :Grupo');
 
     if cmbfornecedor.ItemIndex > 0 then
-      SQLText.Add('  AND F.Controle = :Fornecedor');
+      SQLText.Add('  AND P.LkFornec = :Fornecedor');
 
     if cmbmarca.ItemIndex > 0 then
       SQLText.Add('  AND P.Fabricante = :Marca');
@@ -3595,7 +3633,7 @@ begin
     SQLText.Add('ORDER BY P.Produto ASC');
 
     // =========================================================
-    // EXECUÇÃO NO QRYPRODUTOSBASE E LIGAÇÃO DO GRID (Mantida)
+    // EXECUÇÃO E LIGAÇÃO DO GRID
     // =========================================================
     datamodule1.QRYPRODUTOSBASE.Close;
     datamodule1.QRYPRODUTOSBASE.Params.Clear;
@@ -3629,6 +3667,181 @@ begin
     SQLText.Free;
   end;
 end;
+
+
+
+procedure Tfrmmenu.DefinirPercentuaisPadrao;
+begin
+  // =========================================================
+  // MARGENS DE VAREJO
+  // As margens de 2 a 4 são descontos, por isso usamos valores negativos.
+  // =========================================================
+  if Assigned(CEPERCENTUALVAREJO1) then
+    CEPERCENTUALVAREJO1.Value := 10.00; // 10% (Margem de lucro base)
+
+  if Assigned(CEPERCENTUALVAREJO2) then
+    CEPERCENTUALVAREJO2.Value := -3.00; // -3% (Desconto/Nível 2)
+
+  if Assigned(CEPERCENTUALVAREJO3) then
+    CEPERCENTUALVAREJO3.Value := -6.00; // -6% (Desconto/Nível 3)
+
+  if Assigned(CEPERCENTUALVAREJO4) then
+    CEPERCENTUALVAREJO4.Value := -9.00; // -9% (Desconto/Nível 4)
+
+
+  // =========================================================
+  // MARGENS DE ATACADO
+  // Todos os níveis de atacado têm 10% (Margem de lucro)
+  // =========================================================
+  if Assigned(CEPERCENTUALATACADO1) then
+    CEPERCENTUALATACADO1.Value := 10.00;
+
+  if Assigned(CEPERCENTUALATACADO2) then
+    CEPERCENTUALATACADO2.Value := 10.00;
+
+  if Assigned(CEPERCENTUALATACADO3) then
+    CEPERCENTUALATACADO3.Value := 10.00;
+
+  if Assigned(CEPERCENTUALATACADO4) then
+    CEPERCENTUALATACADO4.Value := 10.00;
+end;
+
+
+procedure Tfrmmenu.AplicarAjusteDePrecosEmMassa;
+const
+  // Constante base para divisão por 100
+  PERC_BASE = 100.00;
+  // Margens fixas de DESCONTO (negativo) para Varejo 2, 3 e 4
+  DESCONTO_VAREJO_2 = -3.00;
+  DESCONTO_VAREJO_3 = -6.00;
+  DESCONTO_VAREJO_4 = -9.00;
+var
+  iContador: Integer;
+  fPrecoCusto: Extended;
+  fPerVarejo1: Extended;
+  fPerAtacado1, fPerAtacado2, fPerAtacado3, fPerAtacado4: Extended;
+  fPrecoVarejoBase: Extended;
+  fNovoPreco: Extended;
+  iLkUsuario: Integer;
+begin
+  // 1. Validação
+  if datamodule1.QRYPRODUTOSBASE.IsEmpty then
+  begin
+    ShowMessage('A lista de produtos para ajuste está vazia. Use "Consultar Produtos" primeiro.');
+    Exit;
+  end;
+
+  if MessageDlg('Confirma a aplicação dos novos percentuais de preço para TODOS os produtos da lista?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+    Exit;
+
+  // 2. Coleta dos Percentuais
+  fPerVarejo1  := CEPERCENTUALVAREJO1.Value;
+  fPerAtacado1 := CEPERCENTUALATACADO1.Value;
+  fPerAtacado2 := CEPERCENTUALATACADO2.Value;
+  fPerAtacado3 := CEPERCENTUALATACADO3.Value;
+  fPerAtacado4 := CEPERCENTUALATACADO4.Value;
+
+  // 3. Coleta do LkUsuario
+  if Assigned(FRMSEN) then
+    iLkUsuario := FRMSEN.UsuarioControle
+  else
+    iLkUsuario := 0;
+
+  // 4. Início da Transação
+  DataModule1.ConDados.StartTransaction;
+  datamodule1.QRYPRODUTOSBASE.DisableControls;
+  iContador := 0;
+
+  try
+    datamodule1.QRYPRODUTOSBASE.First;
+    while not datamodule1.QRYPRODUTOSBASE.Eof do
+    begin
+      fPrecoCusto := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
+
+      // =========================================================
+      // 5. CÁLCULO DOS PREÇOS VAREJO
+      // =========================================================
+
+      // --- 5.1 CÁLCULO VAREJO 1 (PrecoVenda / Lucro) ---
+      // Lógica: Mark-up Simples
+      fPrecoVarejoBase := RoundTo(fPrecoCusto * (1 + (fPerVarejo1 / PERC_BASE)), -2);
+
+      // Armazena o Preço 1 e sua margem
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat   := fPrecoVarejoBase;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat  := fPerVarejo1;
+
+
+      // --- 5.2 CÁLCULO DOS DEMAIS PREÇOS VAREJO (DESCONTO SOBRE O PREÇO 1) ---
+
+      // VAREJO 2 (PrPrazo / PerPrazo) - 3% de desconto
+      fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_2 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo2').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo2').AsFloat  := DESCONTO_VAREJO_2;
+
+      // VAREJO 3 (PrAtacado / PerAtacado) - 6% de desconto
+      fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_3 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo3').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo3').AsFloat  := DESCONTO_VAREJO_3;
+
+      // VAREJO 4 (PrMinimo / PerMinimo) - 9% de desconto
+      fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_4 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat  := DESCONTO_VAREJO_4;
+
+
+      // =========================================================
+      // 6. CÁLCULO DOS PREÇOS ATACADO (MARK-UP BASE CUSTO)
+      // =========================================================
+
+      // ATACADO 1
+      fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado1 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat  := fPerAtacado1;
+
+      // ATACADO 2
+      fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado2 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado2').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat  := fPerAtacado2;
+
+      // ATACADO 3
+      fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado3 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat  := fPerAtacado3;
+
+      // ATACADO 4
+      fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado4 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4').AsFloat   := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat  := fPerAtacado4;
+
+
+      // 7. Execução do UPDATE na TABEST1
+      DataModule1.QRYALTERAPRECOS.Close;
+      DataModule1.QRYALTERAPRECOS.ParamByName('Controle').AsInteger := datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger;
+      DataModule1.QRYALTERAPRECOS.ParamByName('LkUsuario').AsInteger := iLkUsuario;
+      DataModule1.QRYALTERAPRECOS.Execute;
+
+      Inc(iContador);
+      datamodule1.QRYPRODUTOSBASE.Next;
+    end;
+
+    // 8. Commit e Sucesso
+    DataModule1.ConDados.Commit;
+    ShowMessage(Format('Ajuste de preços concluído com sucesso! %d produtos atualizados.', [iContador]));
+
+  except
+    on E: Exception do
+    begin
+      DataModule1.ConDados.Rollback;
+      ShowMessage('ERRO CRÍTICO ao aplicar ajustes. Transação CANCELADA. Detalhes: ' + E.Message);
+    end;
+  end;
+
+  datamodule1.QRYPRODUTOSBASE.EnableControls;
+  datamodule1.QRYPRODUTOSBASE.Refresh;
+end;
+
+
 
 
 

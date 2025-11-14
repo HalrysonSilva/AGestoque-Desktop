@@ -85,6 +85,7 @@ type
     frxRelatorio: TfrxReport;
     QRYSELECIONAPRODUTOS: TUniQuery;
     DSQRYSELECIONAPRODUTO: TDataSource;
+    QRYALTERAPRECOS: TUniQuery;
 
 
 procedure DataModuleCreate(Sender: TObject); // DataSource para grid
