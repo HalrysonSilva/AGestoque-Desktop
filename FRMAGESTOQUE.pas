@@ -35,7 +35,7 @@ type
     btnconsultar: TBitBtn;
     Editlocal: TEdit;
     Label5: TLabel;
-    PageControl2: TPageControl;
+    MENUCONTAGEM: TPageControl;
     TabSheet7: TTabSheet;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
@@ -220,38 +220,9 @@ type
     Panel29: TPanel;
     Label7: TLabel;
     DBGRIDHISTORICO: TDBGrid;
-    TabSheet5: TTabSheet;
-    Panel50: TPanel;
-    Panel51: TPanel;
-    DBText51: TDBText;
-    Label64: TLabel;
-    DBText52: TDBText;
-    Label65: TLabel;
-    DBText53: TDBText;
-    Label74: TLabel;
-    Panel52: TPanel;
-    DBText54: TDBText;
-    Label66: TLabel;
-    Label67: TLabel;
-    DBText55: TDBText;
-    Panel53: TPanel;
-    Label68: TLabel;
-    DBText56: TDBText;
-    DBText46: TDBText;
-    Label39: TLabel;
-    Label49: TLabel;
-    DBText47: TDBText;
-    Panel54: TPanel;
-    DBText57: TDBText;
-    Label70: TLabel;
-    Label57: TLabel;
-    DBText48: TDBText;
-    DBGridmovestoque: TDBGrid;
     TabSheet8: TTabSheet;
     dsQRYRKVEND: TDataSource;
     QRYRKVEND: TUniQuery;
-    QRYPRODUTOSABERTOS: TUniQuery;
-    DSQRYPRODUTOSABERTOS: TDataSource;
     QRYHISTORICO: TUniQuery;
     QRYHISTORICONUMRELATORIO: TIntegerField;
     QRYHISTORICODATA_AJUSTE: TDateTimeField;
@@ -266,7 +237,7 @@ type
     QRYHISTORICOLOCALIZACAO_FILTRO: TStringField;
     QRYHISTORICOSTATUS: TBooleanField;
     DSQRYHISTORICO: TDataSource;
-    PageControl3: TPageControl;
+    MENUPRECOS: TPageControl;
     TabSheet6: TTabSheet;
     Labelproduto: TLabel;
     Panel55: TPanel;
@@ -294,8 +265,6 @@ type
     CEPERCENTUALATACADO4: TCurrencyEdit;
     CEPERCENTUALATACADO3: TCurrencyEdit;
     CEPERCENTUALATACADO2: TCurrencyEdit;
-    Panel36: TPanel;
-    BitBtn2: TBitBtn;
     Panel47: TPanel;
     Label86: TLabel;
     Label87: TLabel;
@@ -423,6 +392,9 @@ type
     CEPERCENTUALATACADO1: TCurrencyEdit;
     btnatualizaprecos: TBitBtn;
     Button1: TCheckBox;
+    Panel48: TPanel;
+    Btnconsultaaberto: TBitBtn;
+    btnconsultamov: TBitBtn;
    
     procedure CarregarGrupos;
     procedure CarregarMarcas;
@@ -500,7 +472,6 @@ type
 
     procedure btnmovimentoClick(Sender: TObject);
     procedure CarregarListaBaseProdutos;
-    procedure BitBtn3Click(Sender: TObject);
     procedure QRYRKVENDAfterScroll(DataSet: TDataSet);
     procedure QRYHISTORICOAfterScroll(DataSet: TDataSet);
     procedure btnconsultaprodutosClick(Sender: TObject);
@@ -510,6 +481,18 @@ type
     procedure AplicarAjusteDePrecosEmMassa;
     procedure btnatualizaprecosClick(Sender: TObject);
     procedure CEPERCENTUALATACADO1Change(Sender: TObject);
+   procedure Estoque_RegistrarMovimentoPreco(sCodInterno: string; iLkUsuario: Integer; iLkItem: Integer;
+    fCustoAnt, fVendaAnt, fMargemVarejoAnt, fPrPrazoAnt, fPerPrazoAnt, fPrAtacadoVarejoAnt, fPerAtacadoVarejoAnt,
+    fPrMinimoAnt, fPerMinimoAnt, fPrAtacado1Ant, fPerAtacado1Ant: Extended;
+    fCustoNovo, fVendaNovo, fMargemVarejoNovo, fPrPrazoNovo, fPerPrazoNovo, fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo,
+    fPrMinimoNovo, fPerMinimoNovo, fPrAtacado1Novo, fPerAtacado1Novo: Extended);
+
+    procedure ConsultarMovimentoProdutoBase;
+    procedure btnconsultamovClick(Sender: TObject);
+
+    procedure btnconsultacadastroClick(Sender: TObject);
+    procedure DBGRIDPRODUTOSBASEDblClick(Sender: TObject);
+
 
 
 
@@ -539,7 +522,7 @@ implementation
 
 {$R *.dfm}
 
-uses CONEXAOBD, FRMSENHA, FRMSelectproduto;
+uses CONEXAOBD, FRMSENHA, FRMSelectproduto, FRMMOVIMENTO, FRMPOSICAOESTOQUE;
 
 
 
@@ -727,7 +710,12 @@ end;
 
 procedure Tfrmmenu.btnmovimentoClick(Sender: TObject);
 begin
-movimentojacontado;
+  // Cria a instância do novo formulário
+  if not Assigned(formmov) then
+    formmov := Tformmov.Create(Application);
+
+  // Chama a procedure para carregar e exibir
+  formmov.CarregarMovimentohistoricoEExibir;
 end;
 
 procedure Tfrmmenu.btnprodconfClick(Sender: TObject);
@@ -1354,6 +1342,160 @@ end;
 
 
 
+procedure Tfrmmenu.btnconsultacadastroClick(Sender: TObject);
+var
+  QRY_BASE: TUniQuery;
+  QRY_DETALHES: TUniQuery;
+  iLkProduto: Integer;
+  fEstoque, fQtdDepos: Extended;
+begin
+  QRY_BASE := DataModule1.QRYPRODUTOSBASE;
+
+  if not QRY_BASE.IsEmpty then
+  begin
+    // 1. OBTÉM A CHAVE E EXECUTA A CONSULTA DETALHADA
+    iLkProduto := QRY_BASE.FieldByName('LkProduto').AsInteger;
+    QRY_DETALHES := DataModule1.QRYPRODUTOSDETALHES;
+
+    with QRY_DETALHES do
+    begin
+        Close;
+        SQL.Text := 'SELECT * FROM TabEst1 WITH (NOLOCK) WHERE Controle = :LkProduto';
+        ParamByName('LkProduto').AsInteger := iLkProduto;
+        Open;
+    end;
+
+    if QRY_DETALHES.IsEmpty then Exit; // Sai se não achou o produto
+
+
+    labelproduto.caption := QRY_BASE.FieldByName('PRODUTO').AsString;
+
+    // Atribuição à segunda Label
+
+
+    if Assigned(frmmenu.Editcodinterno) then
+      frmmenu.Editcodinterno.Text := QRY_DETALHES.FieldByName('CodInterno').AsString;
+
+    if Assigned(frmmenu.Editcodbarra) then
+      frmmenu.Editcodbarra.Text := QRY_DETALHES.FieldByName('CodBarra').AsString;
+
+    if Assigned(frmmenu.Editcodfornecedor) then
+      frmmenu.Editcodfornecedor.Text := QRY_DETALHES.FieldByName('CodFornecedor').AsString;
+
+    if Assigned(frmmenu.Editcodorigem) then
+      frmmenu.Editcodorigem.Text := QRY_DETALHES.FieldByName('CodORIGEM').AsString; // Campo CodOrigem
+
+
+    // 3. CARREGAMENTO DAS QUANTIDADES DE ESTOQUE (QRY_DETALHES)
+    fEstoque := QRY_DETALHES.FieldByName('Quantidade').AsFloat;
+    fQtdDepos := QRY_DETALHES.FieldByName('QtdDepos').AsFloat;
+
+    if Assigned(frmmenu.DBTexestoqueloja) then
+      frmmenu.DBTexestoqueloja.caption := FormatFloat('0.00', fEstoque);
+
+    if Assigned(frmmenu.DBTextestoquedeposito) then
+      frmmenu.DBTextestoquedeposito.caption := FormatFloat('0.00', fQtdDepos);
+
+    if Assigned(frmmenu.DBTextestoquetotal) then
+      frmmenu.DBTextestoquetotal.Caption := FormatFloat('0.00', fEstoque + fQtdDepos);
+
+
+    // =========================================================================
+    // 4. CARREGAMENTO COMPLETO DE PREÇOS E MARGENS (Lidos da QRY_BASE simplificada)
+    // =========================================================================
+
+    // CUSTO
+    if Assigned(frmmenu.Editprcusto) then
+        frmmenu.Editprcusto.Value := QRY_BASE.FieldByName('PrecoCusto').AsCurrency;
+
+    // VAREJO 1 (PrecoVenda / Lucro)
+    if Assigned(frmmenu.editmargemvarejo1) then
+        frmmenu.editmargemvarejo1.Value := QRY_BASE.FieldByName('MargemVarejo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo1) then
+        frmmenu.editprecovarejo1.Value := QRY_BASE.FieldByName('PrecoVarejo').AsCurrency;
+
+    // VAREJO 2 (PrPrazo / PerPrazo)
+    if Assigned(frmmenu.editmargemvarejo2) then
+        frmmenu.editmargemvarejo2.Value := QRY_BASE.FieldByName('PerPrazo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo2) then
+        frmmenu.editprecovarejo2.Value := QRY_BASE.FieldByName('PrPrazo').AsCurrency;
+
+    // VAREJO 3 (PrAtacado / PerAtacado)
+    if Assigned(frmmenu.editmargemvarejo3) then
+        frmmenu.editmargemvarejo3.Value := QRY_BASE.FieldByName('PerAtacado').AsFloat;
+    if Assigned(frmmenu.editprecovarejo3) then
+        frmmenu.editprecovarejo3.Value := QRY_BASE.FieldByName('PrAtacado').AsCurrency;
+
+    // VAREJO 4 (PrMinimo / PerMinimo)
+    if Assigned(frmmenu.editmargemvarejo4) then
+        frmmenu.editmargemvarejo4.Value := QRY_BASE.FieldByName('PerMinimo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo4) then
+        frmmenu.editprecovarejo4.Value := QRY_BASE.FieldByName('PrMinimo').AsCurrency;
+
+
+    // ATACADO 1 (PrAtacado1 / PerAtacado1)
+    if Assigned(frmmenu.editmargematacado1) then
+      frmmenu.editmargematacado1.Value := QRY_BASE.FieldByName('PerAtacado1').AsFloat;
+    if Assigned(frmmenu.editprecoatacado1) then
+      frmmenu.editprecoatacado1.Value := QRY_BASE.FieldByName('PrAtacado1').AsCurrency;
+
+    // ATACADO 2 (PrAtacado2 / PerAtacado2)
+    if Assigned(frmmenu.editmargematacado2) then
+      frmmenu.editmargematacado2.Value := QRY_BASE.FieldByName('PerAtacado2').AsFloat;
+    if Assigned(frmmenu.editprecoatacado2) then
+      frmmenu.editprecoatacado2.Value := QRY_BASE.FieldByName('PrAtacado2').AsCurrency;
+
+    // ATACADO 3 (PrAtacado3 / PerAtacado3)
+    if Assigned(frmmenu.editmargematacado3) then
+      frmmenu.editmargematacado3.Value := QRY_BASE.FieldByName('PerAtacado3').AsFloat;
+    if Assigned(frmmenu.editprecoatacado3) then
+      frmmenu.editprecoatacado3.Value := QRY_BASE.FieldByName('PrAtacado3').AsCurrency;
+
+    // ATACADO 4 (PrAtacado4 / PerAtacado4)
+    if Assigned(frmmenu.editmargematacado4) then
+      frmmenu.editmargematacado4.Value := QRY_BASE.FieldByName('PerAtacado4').AsFloat;
+    if Assigned(frmmenu.editprecoatacado4) then
+      frmmenu.editprecoatacado4.Value := QRY_BASE.FieldByName('PrAtacado4').AsCurrency;
+
+
+    // 5. CARREGAMENTO DAS DATAS E USUÁRIO (Vindas da QRY_DETALHES)
+
+    // Data de Cadastro
+    if Assigned(frmmenu.dtdatacastro) then
+        frmmenu.dtdatacastro.Date := QRY_DETALHES.FieldByName('Data').AsDateTime;
+
+    // Data da Última Venda
+    if Assigned(frmmenu.dtultvenda) and (QRY_DETALHES.FindField('UltVenda') <> nil) then
+        frmmenu.dtultvenda.Date := QRY_DETALHES.FieldByName('UltVenda').AsDateTime;
+
+    // Data da Última Alteração
+    if Assigned(frmmenu.dtultalteracao) then
+        frmmenu.dtultalteracao.Date := QRY_DETALHES.FieldByName('DtAlteracao').AsDateTime;
+
+    // Usuários que fizeram a alteração (LkUsuario)
+    if Assigned(frmmenu.Editultalterar) then
+        frmmenu.Editultalterar.text := QRY_DETALHES.FieldByName('LkUsuario').AsString; // Campo LkUsuario
+
+
+    // 6. MUDANÇA DE ABA PARA VISUALIZAÇÃO
+    if Assigned(MENUPRECOS) then
+        MENUPRECOS.ActivePage := TabSheet6;
+  end;
+end;
+
+
+
+procedure Tfrmmenu.btnconsultamovClick(Sender: TObject);
+begin
+
+  // Cria a instância do novo formulário
+  if not Assigned(formmov) then
+    formmov := Tformmov.Create(Application);
+
+  // Chama a procedure para carregar e exibir
+  formmov.CarregarMovimentoEExibir;
+end;
+
 procedure Tfrmmenu.btnconsultaprodutosClick(Sender: TObject);
 begin
   // A forma mais direta para criar, exibir modalmente e destruir o Form
@@ -1369,6 +1511,7 @@ end;
 procedure Tfrmmenu.btnconsultarClick(Sender: TObject);
 begin
 RelatorioManual;
+CarregarListaBaseProdutos;
 
 
 
@@ -2220,55 +2363,7 @@ begin
     datamodule1.QRYPEDIDOS.Close;
 end;
 
-procedure Tfrmmenu.QRYPRODUTOSABERTOSAfterScroll(DataSet: TDataSet);
-var
-  LkProduto: Integer;
-begin
-  // 1. Garante que há um produto ativo na lista mestra
-  if not DataSet.IsEmpty and DataSet.Active then
-  begin
-    LkProduto := DataSet.FieldByName('LkProduto').AsInteger;
 
-    // 2. Fecha a query de detalhe
-    datamodule1.QRYPEDIDOS.Close;
-
-    // 3. Define a SQL (Garante que está configurada corretamente)
-    datamodule1.QRYPEDIDOS.SQL.Text :=
-      'SELECT ' +
-      '    A.*, ' + // Traz todas as colunas de TabEst3A
-      '    B.Qtdreal AS QuantidadeItem, ' + // Quantidade do item no pedido
-      '    CASE ' +
-      '        WHEN A.STATUS = ''P'' THEN ''PRÉ-VENDA'' ' +
-      '        WHEN A.STATUS = ''O'' THEN ''ORÇAMENTO'' ' +
-      '        ELSE ''OUTROS'' ' +
-      '    END AS Situacao ' +
-      'FROM TabEst3A A WITH (NOLOCK) ' +
-      'INNER JOIN TabEst3B B WITH (NOLOCK) ON A.Pedido = B.PEDIDO ' +
-      'WHERE A.Data >= :DataInicio AND A.Data <= :DataFim ' +
-      '  AND A.Cancelada <> 1 ' +
-      '  AND A.VENDA <> 1 ' +
-      '  AND A.STATUS =''P'' ' +
-      '  AND B.LkProduto = :LkProduto ' + // Filtro Mestre: ID do produto selecionado
-      'ORDER BY A.Pedido DESC';
-
-    // 4. Aplica os parâmetros
-    datamodule1.QRYPEDIDOS.ParamByName('DataInicio').AsDateTime := dtinicio.Date;
-    datamodule1.QRYPEDIDOS.ParamByName('DataFim').AsDateTime := dtfim.Date;
-    datamodule1.QRYPEDIDOS.ParamByName('LkProduto').AsInteger := LkProduto; // Parâmetro Mestre
-
-    // 5. Abre a consulta Detalhe
-    datamodule1.QRYPEDIDOS.Open;
-
-    // 6. Liga a fonte de dados detalhe (se já não estiver no FormShow)
-    datamodule1.DSQRYPEDIDOS.DataSet := datamodule1.QRYPEDIDOS;
-  DBCtrlGridpedidos.DataSource := datamodule1.DSQRYPEDIDOS;
-  end
-  else
-  begin
-    // Se a mestra estiver vazia ou inativa, garante que a detalhe está fechada
-    datamodule1.QRYPEDIDOS.Close;
-  end;
-end;
 
 
 
@@ -2610,6 +2705,155 @@ end;
 
 
 
+
+
+
+
+
+
+
+
+
+
+procedure Tfrmmenu.DBGRIDPRODUTOSBASEDblClick(Sender: TObject);
+var
+  QRY_BASE: TUniQuery;
+  QRY_DETALHES: TUniQuery;
+  iLkProduto: Integer;
+  fEstoque, fQtdDepos: Extended;
+begin
+  QRY_BASE := DataModule1.QRYPRODUTOSBASE;
+
+  if not QRY_BASE.IsEmpty then
+  begin
+    // 1. OBTÉM A CHAVE E EXECUTA A CONSULTA DETALHADA
+    iLkProduto := QRY_BASE.FieldByName('LkProduto').AsInteger;
+    QRY_DETALHES := DataModule1.QRYPRODUTOSDETALHES;
+
+    with QRY_DETALHES do
+    begin
+        Close;
+        SQL.Text := 'SELECT * FROM TabEst1 WITH (NOLOCK) WHERE Controle = :LkProduto';
+        ParamByName('LkProduto').AsInteger := iLkProduto;
+        Open;
+    end;
+
+    if QRY_DETALHES.IsEmpty then Exit; // Sai se não achou o produto
+
+
+    // 2. CARREGAMENTO DOS CÓDIGOS E IDENTIFICAÇÃO (QRY_DETALHES)
+    frmmenu.labelproduto.caption := QRY_BASE.FieldByName('PRODUTO').AsString;
+
+    if Assigned(frmmenu.Editcodinterno) then
+      frmmenu.Editcodinterno.Text := QRY_DETALHES.FieldByName('CodInterno').AsString;
+
+    if Assigned(frmmenu.Editcodbarra) then
+      frmmenu.Editcodbarra.Text := QRY_DETALHES.FieldByName('CodBarra').AsString;
+
+    if Assigned(frmmenu.Editcodfornecedor) then
+      frmmenu.Editcodfornecedor.Text := QRY_DETALHES.FieldByName('CodFornecedor').AsString;
+
+    if Assigned(frmmenu.Editcodorigem) then
+      frmmenu.Editcodorigem.Text := QRY_DETALHES.FieldByName('CodORIGEM').AsString; // Campo CodOrigem
+
+
+    // 3. CARREGAMENTO DAS QUANTIDADES DE ESTOQUE (QRY_DETALHES)
+    fEstoque := QRY_DETALHES.FieldByName('Quantidade').AsFloat;
+    fQtdDepos := QRY_DETALHES.FieldByName('QtdDepos').AsFloat;
+
+    if Assigned(frmmenu.DBTexestoqueloja) then
+      frmmenu.DBTexestoqueloja.caption := FormatFloat('0.00', fEstoque);
+
+    if Assigned(frmmenu.DBTextestoquedeposito) then
+      frmmenu.DBTextestoquedeposito.caption := FormatFloat('0.00', fQtdDepos);
+
+    if Assigned(frmmenu.DBTextestoquetotal) then
+      frmmenu.DBTextestoquetotal.Caption := FormatFloat('0.00', fEstoque + fQtdDepos);
+
+
+    // =========================================================================
+    // 4. CARREGAMENTO COMPLETO DE PREÇOS E MARGENS (Lidos da QRY_BASE simplificada)
+    // =========================================================================
+
+    // CUSTO
+    if Assigned(frmmenu.Editprcusto) then
+        frmmenu.Editprcusto.Value := QRY_BASE.FieldByName('PrecoCusto').AsCurrency;
+
+    // VAREJO 1 (PrecoVenda / Lucro)
+    if Assigned(frmmenu.editmargemvarejo1) then
+        frmmenu.editmargemvarejo1.Value := QRY_BASE.FieldByName('MargemVarejo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo1) then
+        frmmenu.editprecovarejo1.Value := QRY_BASE.FieldByName('PrecoVarejo').AsCurrency;
+
+    // VAREJO 2 (PrPrazo / PerPrazo)
+    if Assigned(frmmenu.editmargemvarejo2) then
+        frmmenu.editmargemvarejo2.Value := QRY_BASE.FieldByName('PerPrazo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo2) then
+        frmmenu.editprecovarejo2.Value := QRY_BASE.FieldByName('PrPrazo').AsCurrency;
+
+    // VAREJO 3 (PrAtacado / PerAtacado)
+    if Assigned(frmmenu.editmargemvarejo3) then
+        frmmenu.editmargemvarejo3.Value := QRY_BASE.FieldByName('PerAtacado').AsFloat;
+    if Assigned(frmmenu.editprecovarejo3) then
+        frmmenu.editprecovarejo3.Value := QRY_BASE.FieldByName('PrAtacado').AsCurrency;
+
+    // VAREJO 4 (PrMinimo / PerMinimo)
+    if Assigned(frmmenu.editmargemvarejo4) then
+        frmmenu.editmargemvarejo4.Value := QRY_BASE.FieldByName('PerMinimo').AsFloat;
+    if Assigned(frmmenu.editprecovarejo4) then
+        frmmenu.editprecovarejo4.Value := QRY_BASE.FieldByName('PrMinimo').AsCurrency;
+
+
+    // ATACADO 1 (PrAtacado1 / PerAtacado1)
+    if Assigned(frmmenu.editmargematacado1) then
+      frmmenu.editmargematacado1.Value := QRY_BASE.FieldByName('PerAtacado1').AsFloat;
+    if Assigned(frmmenu.editprecoatacado1) then
+      frmmenu.editprecoatacado1.Value := QRY_BASE.FieldByName('PrAtacado1').AsCurrency;
+
+    // ATACADO 2 (PrAtacado2 / PerAtacado2)
+    if Assigned(frmmenu.editmargematacado2) then
+      frmmenu.editmargematacado2.Value := QRY_BASE.FieldByName('PerAtacado2').AsFloat;
+    if Assigned(frmmenu.editprecoatacado2) then
+      frmmenu.editprecoatacado2.Value := QRY_BASE.FieldByName('PrAtacado2').AsCurrency;
+
+    // ATACADO 3 (PrAtacado3 / PerAtacado3)
+    if Assigned(frmmenu.editmargematacado3) then
+      frmmenu.editmargematacado3.Value := QRY_BASE.FieldByName('PerAtacado3').AsFloat;
+    if Assigned(frmmenu.editprecoatacado3) then
+      frmmenu.editprecoatacado3.Value := QRY_BASE.FieldByName('PrAtacado3').AsCurrency;
+
+    // ATACADO 4 (PrAtacado4 / PerAtacado4)
+    if Assigned(frmmenu.editmargematacado4) then
+      frmmenu.editmargematacado4.Value := QRY_BASE.FieldByName('PerAtacado4').AsFloat;
+    if Assigned(frmmenu.editprecoatacado4) then
+      frmmenu.editprecoatacado4.Value := QRY_BASE.FieldByName('PrAtacado4').AsCurrency;
+
+
+    // 5. CARREGAMENTO DAS DATAS E USUÁRIO (Vindas da QRY_DETALHES)
+
+    // Data de Cadastro
+    if Assigned(frmmenu.dtdatacastro) then
+        frmmenu.dtdatacastro.Date := QRY_DETALHES.FieldByName('Data').AsDateTime;
+
+    // Data da Última Venda
+    if Assigned(frmmenu.dtultvenda) and (QRY_DETALHES.FindField('UltVenda') <> nil) then
+        frmmenu.dtultvenda.Date := QRY_DETALHES.FieldByName('UltVenda').AsDateTime;
+
+    // Data da Última Alteração
+    if Assigned(frmmenu.dtultalteracao) then
+        frmmenu.dtultalteracao.Date := QRY_DETALHES.FieldByName('DtAlteracao').AsDateTime;
+
+    // Usuários que fizeram a alteração (LkUsuario)
+    if Assigned(frmmenu.Editultalterar) then
+        frmmenu.Editultalterar.text := QRY_DETALHES.FieldByName('LkUsuario').AsString; // Campo LkUsuario
+
+
+    // 6. MUDANÇA DE ABA PARA VISUALIZAÇÃO
+    if Assigned(MENUPRECOS) then
+        MENUPRECOS.ActivePage := TabSheet6;
+  end;
+end;
+
 procedure Tfrmmenu.DBTextprodutoClick(Sender: TObject);
 begin
 LocalizarProximoNaoConferido;
@@ -2937,11 +3181,6 @@ end;
 
 
 
-procedure Tfrmmenu.BitBtn3Click(Sender: TObject);
-begin
-CarregarListaBaseProdutos;
-end;
-
 procedure Tfrmmenu.Label1Click(Sender: TObject);
 begin
 LocalizarProximoNaoConferido;
@@ -2967,6 +3206,8 @@ begin
 BuscarProdutoPreVendaPorCodInterno;
 CarregarPedidosDoProdutoAtual;
 end;
+
+
 
 procedure Tfrmmenu.LocalizarProximoNaoConferido;
 var
@@ -3211,8 +3452,6 @@ begin
       Open;
     end;
 
-    // 5. Navega para a aba de movimentação (TabSheet5)
-    PageControl1.ActivePage := TabSheet5;
 
   except
     on E: Exception do
@@ -3717,12 +3956,25 @@ const
   DESCONTO_VAREJO_4 = -9.00;
 var
   iContador: Integer;
+  iLkUsuario: Integer;
   fPrecoCusto: Extended;
+  fNovoPreco: Extended;
+  fPrecoVarejoBase: Extended;
+
+  // Variáveis de Coleta de Percentuais (Inputs)
   fPerVarejo1: Extended;
   fPerAtacado1, fPerAtacado2, fPerAtacado3, fPerAtacado4: Extended;
-  fPrecoVarejoBase: Extended;
-  fNovoPreco: Extended;
-  iLkUsuario: Integer;
+
+  // Variáveis ANTERIORES (11 campos lidos da QRYPRODUTOSBASE)
+  fCustoAnterior, fVendaAnterior, fMargemVarejoAnterior, fPrPrazoAnterior, fPerPrazoAnterior: Extended;
+  fPrAtacadoVarejoAnterior, fPerAtacadoVarejoAnterior, fPrMinimoAnterior, fPerMinimoAnterior: Extended;
+  fPrAtacado1Anterior, fPerAtacado1Anterior: Extended;
+
+  // Variáveis NOVAS (11 campos calculados para Log)
+  fPrecoCustoNovo, fPrecoVendaNovo, fMargemVarejoNova, fPrPrazoNovo, fPerPrazoNovo: Extended;
+  fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo, fPrMinimoNovo, fPerMinimoNovo: Extended;
+  fPrAtacado1Novo, fPerAtacado1Novo: Extended;
+
 begin
   // 1. Validação
   if datamodule1.QRYPRODUTOSBASE.IsEmpty then
@@ -3735,12 +3987,20 @@ begin
     mtConfirmation, [mbYes, mbNo], 0) = mrNo then
     Exit;
 
-  // 2. Coleta dos Percentuais
+  // 2. Coleta dos Percentuais (Inputs)
   fPerVarejo1  := CEPERCENTUALVAREJO1.Value;
   fPerAtacado1 := CEPERCENTUALATACADO1.Value;
   fPerAtacado2 := CEPERCENTUALATACADO2.Value;
   fPerAtacado3 := CEPERCENTUALATACADO3.Value;
   fPerAtacado4 := CEPERCENTUALATACADO4.Value;
+
+  // Propagação do Percentual de Atacado 1 para os demais
+  if fPerAtacado1 <> 0 then
+  begin
+      fPerAtacado2 := fPerAtacado1;
+      fPerAtacado3 := fPerAtacado1;
+      fPerAtacado4 := fPerAtacado1;
+  end;
 
   // 3. Coleta do LkUsuario
   if Assigned(FRMSEN) then
@@ -3757,63 +4017,79 @@ begin
     datamodule1.QRYPRODUTOSBASE.First;
     while not datamodule1.QRYPRODUTOSBASE.Eof do
     begin
-      fPrecoCusto := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
+      // 5. COLETA DOS VALORES ANTERIORES (Lidos da QRYPRODUTOSBASE antes do UPDATE)
+      fPrecoCusto             := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
+      fCustoAnterior          := fPrecoCusto;
+      fVendaAnterior          := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoVarejo').AsFloat;
+      fMargemVarejoAnterior   := datamodule1.QRYPRODUTOSBASE.FieldByName('MargemVarejo').AsFloat;
+      fPrPrazoAnterior        := datamodule1.QRYPRODUTOSBASE.FieldByName('PrPrazo').AsFloat;
+      fPerPrazoAnterior       := datamodule1.QRYPRODUTOSBASE.FieldByName('PerPrazo').AsFloat;
+      fPrAtacadoVarejoAnterior:= datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado').AsFloat;
+      fPerAtacadoVarejoAnterior:= datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado').AsFloat;
+      fPrMinimoAnterior       := datamodule1.QRYPRODUTOSBASE.FieldByName('PrMinimo').AsFloat;
+      fPerMinimoAnterior      := datamodule1.QRYPRODUTOSBASE.FieldByName('PerMinimo').AsFloat;
+      fPrAtacado1Anterior     := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1').AsFloat;
+      fPerAtacado1Anterior    := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
 
       // =========================================================
-      // 5. CÁLCULO DOS PREÇOS VAREJO
+      // 6. CÁLCULO DOS PREÇOS NOVOS E PREENCHIMENTO DOS PARÂMETROS
       // =========================================================
 
-      // --- 5.1 CÁLCULO VAREJO 1 (PrecoVenda / Lucro) ---
-      // Lógica: Mark-up Simples
+      // Armazena Custo Novo (neste caso, é igual ao anterior, mas o registramos)
+      fPrecoCustoNovo := fPrecoCusto;
+
+      // --- CÁLCULO VAREJO 1 (PrecoVenda / Lucro) ---
       fPrecoVarejoBase := RoundTo(fPrecoCusto * (1 + (fPerVarejo1 / PERC_BASE)), -2);
+      fPrecoVendaNovo := fPrecoVarejoBase;
+      fMargemVarejoNova := fPerVarejo1;
 
-      // Armazena o Preço 1 e sua margem
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat   := fPrecoVarejoBase;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat  := fPerVarejo1;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat := fPrecoVendaNovo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat := fMargemVarejoNova;
 
-
-      // --- 5.2 CÁLCULO DOS DEMAIS PREÇOS VAREJO (DESCONTO SOBRE O PREÇO 1) ---
-
-      // VAREJO 2 (PrPrazo / PerPrazo) - 3% de desconto
+      // --- CÁLCULO VAREJO 2 (PrPrazo / PerPrazo) - Desconto fixo ---
       fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_2 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo2').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo2').AsFloat  := DESCONTO_VAREJO_2;
+      fPrPrazoNovo := fNovoPreco;
+      fPerPrazoNovo := DESCONTO_VAREJO_2;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo2').AsFloat := fPrPrazoNovo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo2').AsFloat := fPerPrazoNovo;
 
-      // VAREJO 3 (PrAtacado / PerAtacado) - 6% de desconto
+      // --- CÁLCULO VAREJO 3 (PrAtacado / PerAtacado) - Desconto fixo ---
       fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_3 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo3').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo3').AsFloat  := DESCONTO_VAREJO_3;
+      fPrAtacadoVarejoNovo := fNovoPreco;
+      fPerAtacadoVarejoNovo := DESCONTO_VAREJO_3;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo3').AsFloat := fPrAtacadoVarejoNovo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo3').AsFloat := fPerAtacadoVarejoNovo;
 
-      // VAREJO 4 (PrMinimo / PerMinimo) - 9% de desconto
+      // --- CÁLCULO VAREJO 4 (PrMinimo / PerMinimo) - Desconto fixo ---
       fNovoPreco := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_4 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat  := DESCONTO_VAREJO_4;
+      fPrMinimoNovo := fNovoPreco;
+      fPerMinimoNovo := DESCONTO_VAREJO_4;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat := fPrMinimoNovo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat := fPerMinimoNovo;
 
-
-      // =========================================================
-      // 6. CÁLCULO DOS PREÇOS ATACADO (MARK-UP BASE CUSTO)
-      // =========================================================
-
-      // ATACADO 1
+      // --- CÁLCULO ATACADO 1 (PrAtacado1 / PerAtacado1) ---
       fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado1 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat  := fPerAtacado1;
+      fPrAtacado1Novo := fNovoPreco;
+      fPerAtacado1Novo := fPerAtacado1;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1').AsFloat := fPrAtacado1Novo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat := fPerAtacado1Novo;
+
+      // O restante dos cálculos Atacado 2, 3 e 4 usa as variáveis fPerAtacadoX já ajustadas (fPerAtacado1)
 
       // ATACADO 2
       fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado2 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado2').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat  := fPerAtacado2;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado2').AsFloat := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat := fPerAtacado2;
 
       // ATACADO 3
       fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado3 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat  := fPerAtacado3;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3').AsFloat := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat := fPerAtacado3;
 
       // ATACADO 4
       fNovoPreco := RoundTo(fPrecoCusto * (1 + (fPerAtacado4 / PERC_BASE)), -2);
-      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4').AsFloat   := fNovoPreco;
-      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat  := fPerAtacado4;
-
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4').AsFloat := fNovoPreco;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat := fPerAtacado4;
 
       // 7. Execução do UPDATE na TABEST1
       DataModule1.QRYALTERAPRECOS.Close;
@@ -3821,11 +4097,29 @@ begin
       DataModule1.QRYALTERAPRECOS.ParamByName('LkUsuario').AsInteger := iLkUsuario;
       DataModule1.QRYALTERAPRECOS.Execute;
 
+      // 8. REGISTRO DO MOVIMENTO DE ALTERAÇÃO DE PREÇO
+      // Chamada usando os 22 valores ANTERIOR e NOVO
+      Estoque_RegistrarMovimentoPreco(
+          datamodule1.QRYPRODUTOSBASE.FieldByName('CodInterno').AsString,
+          iLkUsuario,
+          datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger, // LkItem
+
+          // VALORES ANTERIORES (11 campos)
+          fCustoAnterior, fVendaAnterior, fMargemVarejoAnterior, fPrPrazoAnterior, fPerPrazoAnterior,
+          fPrAtacadoVarejoAnterior, fPerAtacadoVarejoAnterior, fPrMinimoAnterior, fPerMinimoAnterior,
+          fPrAtacado1Anterior, fPerAtacado1Anterior,
+
+          // VALORES NOVOS (11 campos)
+          fPrecoCustoNovo, fPrecoVendaNovo, fMargemVarejoNova, fPrPrazoNovo, fPerPrazoNovo,
+          fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo, fPrMinimoNovo, fPerMinimoNovo,
+          fPrAtacado1Novo, fPerAtacado1Novo
+      );
+
       Inc(iContador);
       datamodule1.QRYPRODUTOSBASE.Next;
     end;
 
-    // 8. Commit e Sucesso
+    // 9. Commit e Sucesso
     DataModule1.ConDados.Commit;
     ShowMessage(Format('Ajuste de preços concluído com sucesso! %d produtos atualizados.', [iContador]));
 
@@ -3839,6 +4133,148 @@ begin
 
   datamodule1.QRYPRODUTOSBASE.EnableControls;
   datamodule1.QRYPRODUTOSBASE.Refresh;
+end;
+
+
+
+
+
+
+procedure Tfrmmenu.Estoque_RegistrarMovimentoPreco(sCodInterno: string; iLkUsuario: Integer; iLkItem: Integer;
+    fCustoAnt, fVendaAnt, fMargemVarejoAnt, fPrPrazoAnt, fPerPrazoAnt, fPrAtacadoVarejoAnt, fPerAtacadoVarejoAnt,
+    fPrMinimoAnt, fPerMinimoAnt, fPrAtacado1Ant, fPerAtacado1Ant: Extended;
+    fCustoNovo, fVendaNovo, fMargemVarejoNovo, fPrPrazoNovo, fPerPrazoNovo, fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo,
+    fPrMinimoNovo, fPerMinimoNovo, fPrAtacado1Novo, fPerAtacado1Novo: Extended);
+const
+  LK_TIPO_ALTERACAO_PRECO = 7;
+  LK_OPERACAO_INTERNA = 1;
+var
+  sTerminal: string;
+  iTamanhoTerminal: DWord;
+begin
+  // 1. OBTENÇÃO DO NOME DO COMPUTADOR (TERMINAL)
+  sTerminal := '';
+  iTamanhoTerminal := MAX_COMPUTERNAME_LENGTH + 1;
+  SetLength(sTerminal, iTamanhoTerminal);
+
+  if Winapi.Windows.GetComputerName(PChar(sTerminal), iTamanhoTerminal) then
+    SetLength(sTerminal, iTamanhoTerminal);
+
+  sTerminal := Trim(sTerminal);
+
+  // 2. EXECUÇÃO DO INSERT na TABEST1MOV com TODOS os campos de PREÇO
+  with DataModule1.QRYUPDATETABESTMOV do
+  begin
+    Close;
+    SQL.Text :=
+      'INSERT INTO TabEst1Mov ' +
+      ' (Data, CodInterno, Quantidade, SaldoAnterior, Saldo, LkOperacao, LkUsuario, LkItem, LkTipo, Terminal, ' +
+      // CAMPOS ANTERIORES
+      ' PrecoCustoAnterior, PrecoVendaAnterior, MargemVarejoAnterior, PrPrazoAnterior, PerPrazoAnterior, ' +
+      ' PrAtacadoVarejoAnterior, PerAtacadoVarejoAnterior, PrMinimoAnterior, PerMinimoAnterior, PrAtacado1Anterior, PerAtacado1Anterior, ' +
+      // CAMPOS NOVOS
+      ' PrecoCustoNovo, PrecoVendaNovo, MargemVarejoNova, PrPrazoNovo, PerPrazoNovo, ' +
+      ' PrAtacadoVarejoNovo, PerAtacadoVarejoNovo, PrMinimoNovo, PerMinimoNovo, PrAtacado1Novo, PerAtacado1Novo) ' +
+      'VALUES (GETDATE(), :CodInt, :QtdMov, :SaldoAnt, :SaldoAtual, :LkOp, :LkUser, :LkItem, :LkTipo, :Terminal, ' +
+      // VALORES ANTERIORES
+      ' :CustoAnt, :VendaAnt, :MargemAnt, :PrPrazoAnt, :PerPrazoAnt, :PrAtacadoVarejoAnt, :PerAtacadoVarejoAnt, :PrMinimoAnt, :PerMinimoAnt, :PrAtacado1Ant, :PerAtacado1Ant, ' +
+      // VALORES NOVOS
+      ' :CustoNovo, :VendaNovo, :MargemNovo, :PrPrazoNovo, :PerPrazoNovo, :PrAtacadoVarejoNovo, :PerAtacadoVarejoNovo, :PrMinimoNovo, :PerMinimoNovo, :PrAtacado1Novo, :PerAtacado1Novo)';
+
+    // Parâmetros de Estoque (Zerados)
+    ParamByName('CodInt').AsString := sCodInterno;
+    ParamByName('QtdMov').AsFloat := 0.0;
+    ParamByName('SaldoAnt').AsFloat := 0.0;
+    ParamByName('SaldoAtual').AsFloat := 0.0;
+
+    ParamByName('LkOp').AsInteger := LK_OPERACAO_INTERNA;
+    ParamByName('LkUser').AsInteger := iLkUsuario;
+    ParamByName('LkItem').AsInteger := iLkItem;
+    ParamByName('LkTipo').AsInteger := LK_TIPO_ALTERACAO_PRECO;
+    ParamByName('Terminal').AsString := sTerminal;
+
+    // 3. ATRIBUIÇÃO DOS VALORES ANTERIORES (Extended/Float -> Currency/Float)
+    ParamByName('CustoAnt').AsCurrency := fCustoAnt;
+    ParamByName('VendaAnt').AsCurrency := fVendaAnt;
+    ParamByName('MargemAnt').AsFloat := fMargemVarejoAnt;
+    ParamByName('PrPrazoAnt').AsCurrency := fPrPrazoAnt;
+    ParamByName('PerPrazoAnt').AsFloat := fPerPrazoAnt;
+    ParamByName('PrAtacadoVarejoAnt').AsCurrency := fPrAtacadoVarejoAnt;
+    ParamByName('PerAtacadoVarejoAnt').AsFloat := fPerAtacadoVarejoAnt;
+    ParamByName('PrMinimoAnt').AsCurrency := fPrMinimoAnt;
+    ParamByName('PerMinimoAnt').AsFloat := fPerMinimoAnt;
+    ParamByName('PrAtacado1Ant').AsCurrency := fPrAtacado1Ant;
+    ParamByName('PerAtacado1Ant').AsFloat := fPerAtacado1Ant;
+
+    // 4. ATRIBUIÇÃO DOS VALORES NOVOS (Extended/Float -> Currency/Float)
+    ParamByName('CustoNovo').AsCurrency := fCustoNovo;
+    ParamByName('VendaNovo').AsCurrency := fVendaNovo;
+    ParamByName('MargemNovo').AsFloat := fMargemVarejoNovo;
+    ParamByName('PrPrazoNovo').AsCurrency := fPrPrazoNovo;
+    ParamByName('PerPrazoNovo').AsFloat := fPerPrazoNovo;
+    ParamByName('PrAtacadoVarejoNovo').AsCurrency := fPrAtacadoVarejoNovo;
+    ParamByName('PerAtacadoVarejoNovo').AsFloat := fPerAtacadoVarejoNovo;
+    ParamByName('PrMinimoNovo').AsCurrency := fPrMinimoNovo;
+    ParamByName('PerMinimoNovo').AsFloat := fPerMinimoNovo;
+    ParamByName('PrAtacado1Novo').AsCurrency := fPrAtacado1Novo;
+    ParamByName('PerAtacado1Novo').AsFloat := fPerAtacado1Novo;
+
+    Execute;
+  end;
+end;
+
+
+procedure Tfrmmenu.ConsultarMovimentoProdutoBase;
+var
+  sCodInterno: string;
+begin
+  // 1. Validação e Captura do CodInterno do Edit
+  if not Assigned(Editcodinterno) or (Trim(Editcodinterno.Text) = '') then
+  begin
+    ShowMessage('O campo "Código Interno" (Editcodinterno) está vazio. Por favor, carregue um produto.');
+    Exit;
+  end;
+
+  sCodInterno := Trim(Editcodinterno.Text);
+
+  try
+    // 2. Define e executa o SQL para consultar a TabEst1Mov
+    with DataModule1.qryTabest1mov do
+    begin
+      Close;
+
+      SQL.Clear;
+      SQL.Add('SELECT top 50');
+
+      // M.*: Seleciona todos os campos da TabEst1Mov (incluindo todos os campos de preço/margem)
+      // T.*: Seleciona todos os campos da TabEstMovTipo (incluindo Tipo e LkOperacao)
+      // U.USUARIO: Seleciona o nome do usuário
+      SQL.Add('    M.*, T.*, U.USUARIO AS NomeUsuario');
+
+      SQL.Add('FROM');
+      SQL.Add('TabEst1Mov M WITH (NOLOCK)');
+      SQL.Add('INNER JOIN SERV U ON U.Controle = M.LkUsuario');
+      SQL.Add('INNER JOIN TabEstMovTipo T ON T.Controle = M.LkTipo');
+
+      // Filtro pelo CodInterno do produto selecionado
+      SQL.Add('WHERE M.CodInterno = :CodInterno');
+      SQL.Add('ORDER BY M.Data DESC');
+
+      // Define o parâmetro antes de abrir
+      ParamByName('CodInterno').AsString := sCodInterno;
+
+      // 3. Abre a Query
+      Open;
+    end;
+
+   
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao consultar movimentação do produto: ' + E.Message);
+    end;
+  end;
 end;
 
 
@@ -3866,5 +4302,7 @@ end;
 
 
 
-
 end.
+
+
+

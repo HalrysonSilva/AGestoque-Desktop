@@ -1,0 +1,91 @@
+unit FRMMOVIMENTO;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ExtCtrls;
+
+type
+  Tformmov = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGridmovestoque: TDBGrid;
+    procedure CarregarMovimentoEExibir;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formmov: Tformmov;
+
+implementation
+
+{$R *.dfm}
+
+uses CONEXAOBD, FRMAGESTOQUE, FRMSelectproduto, FRMSENHA;
+
+
+procedure Tformmov.CarregarMovimentoEExibir;
+var
+  sCodInterno: string;
+begin
+  // 1. Validação e Captura do CodInterno do formulário principal (frmmenu)
+  if not Assigned(frmmenu) or not Assigned(frmmenu.Editcodinterno) or (Trim(frmmenu.Editcodinterno.Text) = '') then
+  begin
+    ShowMessage('O Código Interno do produto não está disponível no formulário principal.');
+    Exit;
+  end;
+
+  sCodInterno := Trim(frmmenu.Editcodinterno.Text);
+
+  try
+    // 2. Define e executa o SQL para consultar a TabEst1Mov
+    // Usaremos a query do DataModule (qryTabest1mov)
+    with DataModule1.qryTabest1mov do
+    begin
+      Close;
+
+      // Comando SQL completo (SELECT * para todos os campos de auditoria)
+      SQL.Clear;
+      SQL.Add('SELECT top 50');
+
+      // M.*: Campos da TabEst1Mov (incluindo preço/margem)
+      // T.*: Campos da TabEstMovTipo
+      // U.USUARIO: Nome do usuário
+      SQL.Add('    M.*, T.*, U.USUARIO AS NomeUsuario');
+
+      SQL.Add('FROM');
+      SQL.Add('    TabEst1Mov M WITH (NOLOCK)');
+      SQL.Add('INNER JOIN SERV U ON U.Controle = M.LkUsuario');
+      SQL.Add('INNER JOIN TabEstMovTipo T ON T.Controle = M.LkTipo');
+
+      // Filtro pelo CodInterno
+      SQL.Add('WHERE M.CodInterno = :CodInterno');
+      SQL.Add('ORDER BY M.Data DESC');
+
+      // Define o parâmetro antes de abrir
+      ParamByName('CodInterno').AsString := sCodInterno;
+
+      // 3. Abre a Query
+      Open;
+    end;
+
+    // 4. Liga a Query ao DBGrid e exibe o formulário
+    DBGridmovestoque.DataSource := DataModule1.DSqryTabest1mov; // Associa o DataSource ao Grid
+
+    // Exibe o formulário modalmente
+    Self.ShowModal;
+
+  except
+    on E: Exception do
+    begin
+      ShowMessage('Erro ao consultar movimentação: ' + E.Message);
+    end;
+  end;
+end;
+
+end.

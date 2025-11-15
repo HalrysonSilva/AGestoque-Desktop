@@ -1,0 +1,61 @@
+unit FRMPOSICAOESTOQUE;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls;
+
+type
+  TFormposicaoest = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBGridprodutos: TDBGrid;
+    Label2: TLabel;
+    DBGridpedidos: TDBGrid;
+    procedure CarregarPosicaoEExibir;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Formposicaoest: TFormposicaoest;
+
+implementation
+
+{$R *.dfm}
+
+uses CONEXAOBD, FRMAGESTOQUE, FRMMOVIMENTO, FRMSelectproduto, FRMSENHA;
+
+
+
+procedure TFormposicaoest.CarregarPosicaoEExibir;
+begin
+  // 1. Validação de Dados
+  if not frmmenu.QRYPRODUTOSABERTOS.Active then
+  begin
+    ShowMessage('A lista de Produtos em Aberto não foi carregada. Execute a consulta no módulo principal primeiro.');
+    Exit;
+  end;
+
+  // 2. LIGAÇÃO DA LISTA MESTRA (Produtos em Aberto)
+  // O DataSource deve ser DSQRYPRODUTOSABERTOS (assumindo que este foi criado no DataModule)
+  DBGridprodutos.DataSource := frmmenu.DSQRYPRODUTOSABERTOS;
+
+  // 3. LIGAÇÃO DA LISTA DETALHE (Pedidos de Reserva)
+  // O DataSource deve ser DSQRYPEDIDOS (assumindo que este foi criado no DataModule)
+  DBGridpedidos.DataSource := DataModule1.DSQRYPEDIDOS;
+
+  // 4. Configura as Labels
+  Label1.Caption := 'Produtos com Reserva/Pré-Venda:';
+  Label2.Caption := 'Pedidos de Reserva do Produto Selecionado:';
+
+  // 5. Exibe o formulário modalmente
+  Self.ShowModal;
+end;
+
+end.

@@ -218,7 +218,7 @@ if Assigned(frmmenu.dtultcompra) then
 
      // usuarios que fizeram alteraçao
 if Assigned(frmmenu.Editultalterar) then
-    frmmenu.Editultalterar.text := DataModule1.qrySelecionaProdutos.FieldByName('lkuser').Asstring;
+    frmmenu.Editultalterar.text := DataModule1.qrySelecionaProdutos.FieldByName ('lkusuario').Asstring;
 
 
 

@@ -1,0 +1,34 @@
+object Formposicaoest: TFormposicaoest
+  Left = 0
+  Top = 0
+  Caption = 'Formposicaoest'
+  ClientHeight = 632
+  ClientWidth = 835
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI Semibold'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 17
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 835
+    Height = 297
+    Align = alTop
+    TabOrder = 0
+    ExplicitTop = -6
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 297
+    Width = 835
+    Height = 335
+    Align = alClient
+    TabOrder = 1
+    ExplicitTop = 303
+  end
+end

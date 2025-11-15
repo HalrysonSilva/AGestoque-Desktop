@@ -7,7 +7,9 @@ uses
   CONEXAOBD in 'CONEXAOBD.pas' {DataModule1},
   Vcl.Themes,
   Vcl.Styles,
-  FRMSelectproduto in 'FRMSelectproduto.pas' {SelectProduto};
+  FRMSelectproduto in 'FRMSelectproduto.pas' {SelectProduto},
+  FRMMOVIMENTO in 'FRMMOVIMENTO.pas' {formmov},
+  FRMPOSICAOESTOQUE in 'FRMPOSICAOESTOQUE.pas' {Formposicaoest};
 
 {$R *.res}
 
@@ -15,7 +17,7 @@ begin
   Application.Initialize;
 
   // 1. Cria o DataModule de Conexão
-  TStyleManager.TrySetStyle('Amethyst Kamri');
+  TStyleManager.TrySetStyle('Lavender Classico');
   Application.CreateForm(TDataModule1, DataModule1);
   // Instancia o formulário de login manualmente
   FRMSEN := TFRMSEN.Create(nil);

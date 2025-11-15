@@ -2,8 +2,8 @@ object SelectProduto: TSelectProduto
   Left = 0
   Top = 0
   Caption = 'Produtos'
-  ClientHeight = 561
-  ClientWidth = 784
+  ClientHeight = 658
+  ClientWidth = 945
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -12,13 +12,14 @@ object SelectProduto: TSelectProduto
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poMainFormCenter
+  WindowState = wsMaximized
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
   object Label2: TLabel
     Left = 0
     Top = 89
-    Width = 784
+    Width = 945
     Height = 17
     Align = alTop
     Alignment = taCenter
@@ -28,38 +29,49 @@ object SelectProduto: TSelectProduto
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 784
+    Width = 945
     Height = 89
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 784
     object Label1: TLabel
-      Left = 16
-      Top = 12
-      Width = 112
+      AlignWithMargins = True
+      Left = 4
+      Top = 4
+      Width = 937
       Height = 17
+      Align = alTop
       Caption = 'Pesquisar Produto'
+      ExplicitLeft = 16
+      ExplicitTop = 12
+      ExplicitWidth = 112
     end
     object Editselectproduto: TEdit
-      Left = 16
-      Top = 39
-      Width = 513
-      Height = 38
+      AlignWithMargins = True
+      Left = 4
+      Top = 27
+      Width = 937
+      Height = 33
+      Align = alTop
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -21
-      Font.Name = 'Segoe UI'
+      Font.Height = -19
+      Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
       OnChange = EditselectprodutoChange
       OnKeyDown = EditselectprodutoKeyDown
+      ExplicitLeft = 16
+      ExplicitTop = 39
+      ExplicitWidth = 521
     end
   end
   object DBGridprodutos: TDBGrid
     Left = 0
     Top = 106
-    Width = 784
-    Height = 455
+    Width = 945
+    Height = 552
     Align = alClient
     DataSource = DataModule1.DSQRYSELECIONAPRODUTO
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]

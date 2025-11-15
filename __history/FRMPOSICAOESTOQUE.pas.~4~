@@ -1,0 +1,33 @@
+unit FRMPOSICAOESTOQUE;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls;
+
+type
+  TFormposicaoest = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DBGridprodutos: TDBGrid;
+    Label2: TLabel;
+    DBGridpedidos: TDBGrid;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Formposicaoest: TFormposicaoest;
+
+implementation
+
+{$R *.dfm}
+
+uses CONEXAOBD, FRMAGESTOQUE, FRMMOVIMENTO, FRMSelectproduto, FRMSENHA;
+
+end.
