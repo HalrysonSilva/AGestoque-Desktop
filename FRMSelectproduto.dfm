@@ -60,6 +60,7 @@ object SelectProduto: TSelectProduto
       Top = 33
       Width = 1073
       Height = 40
+      Cursor = crIBeam
       Align = alTop
       BevelInner = bvNone
       BevelOuter = bvRaised

@@ -1730,8 +1730,8 @@ object DataModule1: TDataModule1
       '    DtAtualiza = GETDATE(),'
       '    LkUsuario  = :LkUsuario'
       'WHERE Controle = :Controle;')
-    Left = 528
-    Top = 152
+    Left = 520
+    Top = 136
     ParamData = <
       item
         DataType = ftUnknown
@@ -1828,8 +1828,8 @@ object DataModule1: TDataModule1
     Connection = ConDados
     SQL.Strings = (
       'SELECT * FROM TABEST1')
-    Left = 536
-    Top = 216
+    Left = 520
+    Top = 200
     object QRYPRODUTOSDETALHESControle: TIntegerField
       FieldName = 'Controle'
       Required = True
@@ -2297,12 +2297,17 @@ object DataModule1: TDataModule1
   end
   object QRY_BASE: TUniQuery
     Connection = ConDados
-    Left = 584
-    Top = 328
+    Left = 520
+    Top = 264
   end
   object QRY_DETALHES: TUniQuery
     Connection = ConDados
-    Left = 584
-    Top = 392
+    Left = 512
+    Top = 336
+  end
+  object UniTransaction1: TUniTransaction
+    DefaultConnection = ConDados
+    Left = 128
+    Top = 16
   end
 end

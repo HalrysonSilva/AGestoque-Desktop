@@ -184,6 +184,7 @@ type
     btnsalvaprog: TBitBtn;
     btnapagar: TBitBtn;
     btnlimpalista: TBitBtn;
+    SpeedButton1: TSpeedButton;
 
     procedure CarregarGrupos;
     procedure CarregarMarcas;

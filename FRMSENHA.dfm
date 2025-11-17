@@ -5349,9 +5349,6 @@ object FRMSEN: TFRMSEN
     ParentBackground = False
     TabOrder = 0
     StyleElements = []
-    ExplicitLeft = 552
-    ExplicitTop = -8
-    ExplicitHeight = 567
     object Label1: TLabel
       AlignWithMargins = True
       Left = 4
@@ -5395,15 +5392,13 @@ object FRMSEN: TFRMSEN
       Top = 182
       Width = 253
       Height = 33
+      Cursor = crHandPoint
       Margins.Left = 20
       Margins.Right = 20
       Align = alTop
       Style = csDropDownList
       TabOrder = 0
       OnChange = CmbusuarioChange
-      ExplicitLeft = 4
-      ExplicitTop = 29
-      ExplicitWidth = 385
     end
     object EditSenha: TEdit
       AlignWithMargins = True
@@ -5411,14 +5406,12 @@ object FRMSEN: TFRMSEN
       Top = 252
       Width = 253
       Height = 33
+      Cursor = crIBeam
       Margins.Left = 20
       Margins.Right = 20
       Align = alTop
       PasswordChar = '*'
       TabOrder = 1
-      ExplicitLeft = 4
-      ExplicitTop = 93
-      ExplicitWidth = 385
     end
     object btnlogar: TBitBtn
       AlignWithMargins = True
@@ -5426,6 +5419,7 @@ object FRMSEN: TFRMSEN
       Top = 317
       Width = 253
       Height = 45
+      Cursor = crHandPoint
       Margins.Left = 20
       Margins.Top = 29
       Margins.Right = 20
@@ -5433,9 +5427,6 @@ object FRMSEN: TFRMSEN
       Caption = 'Entrar'
       TabOrder = 2
       OnClick = btnlogarClick
-      ExplicitLeft = 4
-      ExplicitTop = 159
-      ExplicitWidth = 385
     end
   end
   object Panel2: TPanel
@@ -5452,10 +5443,6 @@ object FRMSEN: TFRMSEN
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 8
-    ExplicitTop = -8
-    ExplicitWidth = 546
-    ExplicitHeight = 567
   end
   object QRYUSER: TUniQuery
     Left = 88

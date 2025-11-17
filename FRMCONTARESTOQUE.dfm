@@ -5493,6 +5493,7 @@
         Top = 164
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
@@ -5503,7 +5504,6 @@
         ParentFont = False
         TabOrder = 0
         StyleElements = []
-        ExplicitWidth = 155
       end
       object cmbfornecedor: TComboBox
         AlignWithMargins = True
@@ -5511,6 +5511,7 @@
         Top = 221
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
@@ -5521,7 +5522,6 @@
         ParentFont = False
         TabOrder = 1
         StyleElements = []
-        ExplicitWidth = 155
       end
       object cmbmarca: TComboBox
         AlignWithMargins = True
@@ -5529,6 +5529,7 @@
         Top = 278
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Style = csDropDownList
         Font.Charset = ANSI_CHARSET
@@ -5539,7 +5540,6 @@
         ParentFont = False
         TabOrder = 2
         StyleElements = []
-        ExplicitWidth = 155
       end
       object dtfim: TDateTimePicker
         AlignWithMargins = True
@@ -5547,6 +5547,7 @@
         Top = 107
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Date = 45910.000000000000000000
         Time = 0.724186782405013200
@@ -5558,7 +5559,6 @@
         ParentFont = False
         TabOrder = 3
         StyleElements = []
-        ExplicitWidth = 155
       end
       object dtinicio: TDateTimePicker
         AlignWithMargins = True
@@ -5566,6 +5566,7 @@
         Top = 53
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Date = 45910.000000000000000000
         Time = 0.724186782405013200
@@ -5577,7 +5578,6 @@
         ParentFont = False
         TabOrder = 4
         StyleElements = []
-        ExplicitWidth = 155
       end
       object btnconsultar: TBitBtn
         AlignWithMargins = True
@@ -5585,6 +5585,7 @@
         Top = 388
         Width = 174
         Height = 50
+        Cursor = crHandPoint
         Margins.Top = 25
         Align = alTop
         Caption = 'Consultar'
@@ -5707,7 +5708,6 @@
         ParentDoubleBuffered = True
         TabOrder = 5
         OnClick = btnconsultarClick
-        ExplicitWidth = 155
       end
       object Editlocal: TEdit
         AlignWithMargins = True
@@ -5715,6 +5715,7 @@
         Top = 335
         Width = 174
         Height = 25
+        Cursor = crHandPoint
         Align = alTop
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -5724,7 +5725,6 @@
         ParentFont = False
         TabOrder = 6
         StyleElements = []
-        ExplicitWidth = 155
       end
     end
     object PageControl1: TPageControl
@@ -5735,11 +5735,8 @@
       ActivePage = TabSheet3
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 161
-      ExplicitWidth = 1245
       object TabSheet1: TTabSheet
         Caption = 'Produtos Vendidos'
-        ExplicitWidth = 1237
         object Panel3: TPanel
           Left = 0
           Top = 0
@@ -5748,7 +5745,6 @@
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitWidth = 1237
           object Panel4: TPanel
             Left = 0
             Top = 0
@@ -5757,7 +5753,6 @@
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitWidth = 1237
             object Labelitensvendidos: TLabel
               AlignWithMargins = True
               Left = 3
@@ -5787,7 +5782,6 @@
               RowCount = 6
               SelectedColor = clInactiveCaption
               Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoParentPassthrough]
-              ExplicitWidth = 1047
               object Panel5: TPanel
                 AlignWithMargins = True
                 Left = 907
@@ -5797,9 +5791,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 0
-                ExplicitLeft = 929
-                ExplicitTop = 0
-                ExplicitHeight = 127
                 object DBText9: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -5866,9 +5857,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 1
-                ExplicitLeft = 783
-                ExplicitTop = 0
-                ExplicitHeight = 127
                 object DBText4: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -5933,9 +5921,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 2
-                ExplicitLeft = 581
-                ExplicitTop = 0
-                ExplicitHeight = 127
                 object Label16: TLabel
                   AlignWithMargins = True
                   Left = 3
@@ -6004,9 +5989,6 @@
                 Align = alLeft
                 BevelOuter = bvNone
                 TabOrder = 3
-                ExplicitLeft = 0
-                ExplicitTop = 0
-                ExplicitHeight = 127
                 object DBText3: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -6103,10 +6085,6 @@
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 4
-                ExplicitLeft = 161
-                ExplicitTop = 0
-                ExplicitWidth = 420
-                ExplicitHeight = 127
                 object DBText2: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -6176,7 +6154,6 @@
               Color = 3026478
               ParentBackground = False
               TabOrder = 1
-              ExplicitLeft = 1047
               object Label21: TLabel
                 AlignWithMargins = True
                 Left = 4
@@ -6192,7 +6169,6 @@
                 Font.Name = 'Segoe UI Semibold'
                 Font.Style = [fsBold]
                 ParentFont = False
-                ExplicitTop = 643
                 ExplicitWidth = 70
               end
               object Labeldiferença: TLabel
@@ -6210,7 +6186,6 @@
                 Font.Name = 'Segoe UI Semibold'
                 Font.Style = [fsBold]
                 ParentFont = False
-                ExplicitTop = 670
                 ExplicitWidth = 15
               end
               object Label23: TLabel
@@ -6228,7 +6203,6 @@
                 Font.Name = 'Segoe UI Semibold'
                 Font.Style = [fsBold]
                 ParentFont = False
-                ExplicitTop = 572
                 ExplicitWidth = 85
               end
               object DBTextquantidade: TDBText
@@ -6247,7 +6221,6 @@
                 Font.Name = 'Segoe UI Semibold'
                 Font.Style = [fsBold]
                 ParentFont = False
-                ExplicitTop = 529
                 ExplicitWidth = 223
               end
               object Label22: TLabel
@@ -6265,7 +6238,6 @@
                 Font.Name = 'Segoe UI Semibold'
                 Font.Style = [fsBold]
                 ParentFont = False
-                ExplicitTop = 502
                 ExplicitWidth = 59
               end
               object Editcontagem: TEdit
@@ -6285,7 +6257,6 @@
                 StyleElements = []
                 OnChange = EditcontagemChange
                 OnKeyPress = EditcontagemKeyPress
-                ExplicitTop = 599
               end
               object btnconsultprevenda: TBitBtn
                 AlignWithMargins = True
@@ -6509,7 +6480,6 @@
                 TabOrder = 0
                 StyleElements = []
                 OnClick = btnconsultprevendaClick
-                ExplicitTop = 360
               end
               object btnconfirmar: TBitBtn
                 AlignWithMargins = True
@@ -6747,7 +6717,6 @@
             ParentBackground = False
             TabOrder = 1
             StyleElements = []
-            ExplicitWidth = 1237
             object Pnproduto: TPanel
               Left = 0
               Top = 0
@@ -6759,7 +6728,6 @@
               ParentBackground = False
               TabOrder = 0
               StyleElements = []
-              ExplicitWidth = 1237
               object Labelinfor: TLabel
                 AlignWithMargins = True
                 Left = 1166
@@ -6778,7 +6746,6 @@
                 ParentColor = False
                 ParentFont = False
                 StyleElements = []
-                ExplicitLeft = 1185
                 ExplicitHeight = 25
               end
               object Label1: TLabel
@@ -6830,7 +6797,6 @@
       object TabSheet2: TTabSheet
         Caption = 'Produtos Conferidos'
         ImageIndex = 1
-        ExplicitWidth = 1237
         object Panel22: TPanel
           Left = 0
           Top = 0
@@ -6839,7 +6805,6 @@
           Align = alClient
           Caption = 'Panel22'
           TabOrder = 0
-          ExplicitWidth = 1237
           object DBCtrlGrid1: TDBCtrlGrid
             Left = 1
             Top = 1
@@ -6852,7 +6817,6 @@
             TabOrder = 0
             RowCount = 6
             SelectedColor = clInactiveCaption
-            ExplicitWidth = 1045
             object Panel16: TPanel
               AlignWithMargins = True
               Left = 3
@@ -6862,9 +6826,6 @@
               Align = alLeft
               BevelOuter = bvNone
               TabOrder = 0
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitHeight = 130
               object Label26: TLabel
                 AlignWithMargins = True
                 Left = 3
@@ -6956,9 +6917,6 @@
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 1
-              ExplicitLeft = 928
-              ExplicitTop = 0
-              ExplicitHeight = 130
               object DBTextdif: TDBText
                 AlignWithMargins = True
                 Left = 3
@@ -7021,9 +6979,6 @@
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 2
-              ExplicitLeft = 828
-              ExplicitTop = 0
-              ExplicitHeight = 130
               object DBTextqtd: TDBText
                 AlignWithMargins = True
                 Left = 3
@@ -7129,9 +7084,6 @@
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 4
-              ExplicitLeft = 728
-              ExplicitTop = 0
-              ExplicitHeight = 130
               object Label30: TLabel
                 AlignWithMargins = True
                 Left = 3
@@ -7194,10 +7146,6 @@
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 5
-              ExplicitLeft = 155
-              ExplicitTop = 0
-              ExplicitWidth = 573
-              ExplicitHeight = 130
               object Label31: TLabel
                 AlignWithMargins = True
                 Left = 3
@@ -7258,7 +7206,6 @@
             Color = 3026478
             ParentBackground = False
             TabOrder = 1
-            ExplicitLeft = 1046
             object btnatualizahist: TBitBtn
               AlignWithMargins = True
               Left = 3
@@ -7780,7 +7727,6 @@
             Align = alBottom
             BevelOuter = bvNone
             TabOrder = 2
-            ExplicitWidth = 1235
             object LabelStatusConferencia: TLabel
               Left = 0
               Top = 0
@@ -7808,7 +7754,6 @@
       object TabSheet3: TTabSheet
         Caption = 'Hist'#243'rico de Conf'#234'rencia'
         ImageIndex = 2
-        ExplicitWidth = 1237
         object Panel37: TPanel
           Left = 1028
           Top = 0
@@ -7820,13 +7765,140 @@
           ParentBackground = False
           TabOrder = 0
           TabStop = True
-          ExplicitLeft = 1047
+          object SpeedButton1: TSpeedButton
+            AlignWithMargins = True
+            Left = 3
+            Top = 653
+            Width = 184
+            Height = 82
+            Align = alBottom
+            Glyph.Data = {
+              460E0000424D460E00000000000036000000280000001E0000001E0000000100
+              200000000000100E000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000E0E
+              0E35212121802121218021212180212121802121218021212180212121802121
+              2180212121802121218021212180212121802121218021212180212121802121
+              218021212180212121800E0E0E35000000000000000000000000000000000000
+              000000000000000000000000000000000000383838D7434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF383838D700000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF00000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF000000000000
+              0000000000001313134813131348000000000000000000000000131313481313
+              1348000000000000000000000000131313481313134800000000000000000000
+              0000434343FF434343FF00000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000004343
+              43FF434343FF000000000000000000000000434343FF434343FF000000000000
+              000000000000434343FF434343FF000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF000000000000000000000000434343FF434343FF0000
+              00000000000000000000434343FF434343FF0000000000000000000000004343
+              43FF434343FF000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF00000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000001313
+              1348131313480000000000000000000000001313134813131348000000000000
+              0000000000001313134813131348000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF000000000000000000000000434343FF434343FF0000
+              00000000000000000000434343FF434343FF0000000000000000000000004343
+              43FF434343FF000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF000000000000000000000000434343FF434343FF00000000000000000000
+              0000434343FF434343FF000000000000000000000000434343FF434343FF0000
+              00000000000000000000434343FF434343FF0000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF00000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF21212180212121802121218021212180212121802121
+              2180212121802121218021212180212121802121218021212180212121802121
+              218021212180212121802121218021212180434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF0000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF00000000000000000000000000000000000000000000
+              00000000000000000000434343FF434343FF0000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF00000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF212121802121218021212180212121802121218021212180212121802121
+              2180212121802121218021212180212121802121218021212180212121802121
+              21802121218021212180434343FF434343FF0000000000000000000000000000
+              000000000000000000000000000000000000434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF00000000000000000000000000000000000000000000
+              0000000000000000000006060617434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF4343
+              43FF434343FF434343FF434343FF434343FF434343FF434343FF434343FF0606
+              0617000000000000000000000000000000000000000000000000000000000000
+              000000000000000000000000000021212180434343FF434343FF000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000434343FF434343FF21212180000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000021212180434343FF434343FF0000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000434343FF4343
+              43FF212121800000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000001111
+              1140212121802121218000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000002121218021212180111111400000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000}
+            ExplicitLeft = 0
+            ExplicitTop = 656
+            ExplicitWidth = 190
+          end
           object btnrelatpositivo: TBitBtn
             AlignWithMargins = True
             Left = 3
             Top = 3
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alTop
             Caption = 'Relat'#243'rio Positivo'
             Glyph.Data = {
@@ -7955,6 +8027,7 @@
             Top = 59
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alTop
             Caption = 'Relat'#243'rio Negativo'
             Glyph.Data = {
@@ -8083,6 +8156,7 @@
             Top = 115
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alTop
             Caption = 'Relat'#243'rio Correto'
             Glyph.Data = {
@@ -8211,6 +8285,7 @@
             Top = 227
             Width = 184
             Height = 126
+            Cursor = crHandPoint
             Align = alTop
             Caption = 'Atualizar Estoque'
             Glyph.Data = {
@@ -8427,6 +8502,7 @@
             Top = 171
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alTop
             Caption = 'Movimenta'#231#227'o'
             Glyph.Data = {
@@ -8549,7 +8625,6 @@
             TabOrder = 6
             StyleElements = []
             OnClick = btnmovimentoClick
-            ExplicitTop = 227
           end
           object btnapagahistorico: TBitBtn
             AlignWithMargins = True
@@ -8557,6 +8632,7 @@
             Top = 741
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alBottom
             Caption = 'Apagar'
             Glyph.Data = {
@@ -8686,6 +8762,7 @@
             Top = 797
             Width = 184
             Height = 50
+            Cursor = crHandPoint
             Align = alBottom
             Caption = 'Recarregar'
             Glyph.Data = {
@@ -8817,7 +8894,6 @@
           Height = 850
           Align = alClient
           TabOrder = 1
-          ExplicitWidth = 1047
           object Panel13: TPanel
             Left = 1
             Top = 486
@@ -8825,7 +8901,6 @@
             Height = 363
             Align = alBottom
             TabOrder = 0
-            ExplicitWidth = 1045
             object Label9: TLabel
               Left = 1
               Top = 1
@@ -8860,9 +8935,6 @@
               TabOrder = 0
               SelectedColor = clInactiveCaption
               ShowFocus = False
-              ExplicitLeft = 0
-              ExplicitTop = 28
-              ExplicitWidth = 1043
               object Panel24: TPanel
                 AlignWithMargins = True
                 Left = 170
@@ -8872,7 +8944,6 @@
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 0
-                ExplicitWidth = 535
                 object Label32: TLabel
                   AlignWithMargins = True
                   Left = 3
@@ -8931,7 +9002,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 1
-                ExplicitLeft = 711
                 object Label33: TLabel
                   AlignWithMargins = True
                   Left = 3
@@ -8994,7 +9064,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 2
-                ExplicitLeft = 817
                 object DBText18: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -9057,7 +9126,6 @@
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 3
-                ExplicitLeft = 923
                 object DBText20: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -9244,7 +9312,6 @@
             Height = 485
             Align = alClient
             TabOrder = 1
-            ExplicitWidth = 1045
             object Label7: TLabel
               Left = 1
               Top = 1

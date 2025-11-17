@@ -284,6 +284,7 @@ type
     qryTabest1movPerAtacado4Novo: TFloatField;
     QRY_BASE: TUniQuery;
     QRY_DETALHES: TUniQuery;
+    UniTransaction1: TUniTransaction;
 
 
 procedure DataModuleCreate(Sender: TObject); // DataSource para grid

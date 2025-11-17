@@ -27,14 +27,12 @@ object Formenu: TFormenu
     ParentBackground = False
     TabOrder = 0
     StyleElements = []
-    ExplicitLeft = 2
-    ExplicitTop = -5
-    ExplicitWidth = 1063
     object brnalterapreco: TAdvGlowButton
       Left = 0
       Top = 0
       Width = 250
       Height = 136
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Altera'#231#227'o de Pre'#231'os'
       Font.Charset = ANSI_CHARSET
@@ -229,6 +227,7 @@ object Formenu: TFormenu
       Top = 0
       Width = 250
       Height = 136
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Contagem de Estoque'
       Font.Charset = ANSI_CHARSET
@@ -343,6 +342,7 @@ object Formenu: TFormenu
       Top = 0
       Width = 250
       Height = 136
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Produtos Reservados'
       Font.Charset = ANSI_CHARSET
@@ -469,7 +469,6 @@ object Formenu: TFormenu
       Appearance.TextColorDisabled = clWhite
       Layout = blGlyphTop
       StyleElements = []
-      ExplicitLeft = 750
     end
   end
   object Panel1: TPanel
@@ -487,9 +486,6 @@ object Formenu: TFormenu
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 768
-    ExplicitTop = 328
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitTop = 128
   end
 end
