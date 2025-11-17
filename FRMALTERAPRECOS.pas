@@ -883,6 +883,7 @@ begin
     CarregarGrupos;
     CarregarMarcas;
     CarregarFornecedores;
+    DefinirPercentuaisPadrao;
 end;
 
 procedure Tformalterapreco.AplicarAjusteDePrecosEmMassa;
