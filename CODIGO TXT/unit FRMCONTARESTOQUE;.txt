@@ -1,4 +1,7 @@
-unit FRMAGESTOQUE;
+unit FRMCONTARESTOQUE;
+
+
+
 
 interface
 
@@ -7,7 +10,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, frxClass,
   frxDBSet, MemDS, DBAccess, Uni, Vcl.ComCtrls, Vcl.Buttons, Vcl.Grids,
   Vcl.DBGrids, Vcl.DBCtrls, Vcl.DBCGrids, Datasnap.DBClient, Data.DB,
-  Vcl.Touch.GestureMgr, Vcl.Mask, RxToolEdit, RxCurrEdit;
+  Vcl.Touch.GestureMgr, Vcl.Mask, RxToolEdit, RxCurrEdit,Math;
 
 
 
@@ -18,7 +21,7 @@ type
 
 
 
-  Tfrmmenu = class(TForm)
+  Tformcontaestoque = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
     cmbgrupo: TComboBox;
@@ -35,8 +38,22 @@ type
     btnconsultar: TBitBtn;
     Editlocal: TEdit;
     Label5: TLabel;
-    PageControl2: TPageControl;
-    TabSheet7: TTabSheet;
+    dsQRYRKVEND: TDataSource;
+    QRYRKVEND: TUniQuery;
+    QRYHISTORICO: TUniQuery;
+    QRYHISTORICONUMRELATORIO: TIntegerField;
+    QRYHISTORICODATA_AJUSTE: TDateTimeField;
+    QRYHISTORICOUSUARIO: TStringField;
+    QRYHISTORICOLKUSUARIO: TIntegerField;
+    QRYHISTORICOTOTAL_CUSTO_DIF: TCurrencyField;
+    QRYHISTORICOPERIODO_INICIO: TDateField;
+    QRYHISTORICOPERIODO_FIM: TDateField;
+    QRYHISTORICOGRUPO_FILTRO: TStringField;
+    QRYHISTORICOMARCA_FILTRO: TStringField;
+    QRYHISTORICOFORNECEDOR_FILTRO: TStringField;
+    QRYHISTORICOLOCALIZACAO_FILTRO: TStringField;
+    QRYHISTORICOSTATUS: TBooleanField;
+    DSQRYHISTORICO: TDataSource;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     Panel3: TPanel;
@@ -76,8 +93,6 @@ type
     Label23: TLabel;
     DBTextquantidade: TDBText;
     Label22: TLabel;
-    btnconsultprevenda: TButton;
-    btnconfirma: TBitBtn;
     Editcontagem: TEdit;
     Panel14: TPanel;
     Pnproduto: TPanel;
@@ -118,74 +133,14 @@ type
     DBText26: TDBText;
     Label62: TLabel;
     Panel23: TPanel;
-    btnsalvaprog: TBitBtn;
-    btnatualizahist: TBitBtn;
-    btnlimpalista: TBitBtn;
-    btnapagar: TBitBtn;
     Panel26: TPanel;
     LabelStatusConferencia: TLabel;
-    TabSheet4: TTabSheet;
-    Panel46: TPanel;
-    DBCtrlGridprodabertos: TDBCtrlGrid;
-    Panel33: TPanel;
-    Label34: TLabel;
-    DBText27: TDBText;
-    Label40: TLabel;
-    DBText28: TDBText;
-    Panel38: TPanel;
-    DBText29: TDBText;
-    Label41: TLabel;
-    Label42: TLabel;
-    DBText30: TDBText;
-    Panel39: TPanel;
-    Label43: TLabel;
-    DBText31: TDBText;
-    Label44: TLabel;
-    DBText32: TDBText;
-    Panel40: TPanel;
-    DBText33: TDBText;
-    Label45: TLabel;
-    DBText34: TDBText;
-    Label46: TLabel;
-    Panel41: TPanel;
-    DBText35: TDBText;
-    Label47: TLabel;
-    DBText36: TDBText;
-    Label48: TLabel;
-    Panel49: TPanel;
-    btnconsultartodos: TBitBtn;
-    Panel11: TPanel;
-    Label75: TLabel;
-    DBCtrlGridpedidos: TDBCtrlGrid;
-    Panel42: TPanel;
-    DBText39: TDBText;
-    Label51: TLabel;
-    Panel43: TPanel;
-    DBText41: TDBText;
-    Label53: TLabel;
-    DBText42: TDBText;
-    Label54: TLabel;
-    Panel44: TPanel;
-    DBText43: TDBText;
-    Label55: TLabel;
-    DBText44: TDBText;
-    Label56: TLabel;
-    Panel45: TPanel;
-    DBText40: TDBText;
-    Label52: TLabel;
-    DBText37: TDBText;
-    Panel32: TPanel;
-    DBText38: TDBText;
-    Label50: TLabel;
     TabSheet3: TTabSheet;
     Panel37: TPanel;
-    btnRetomarProgresso: TButton;
-    btnapagahistorico: TButton;
     btnrelatpositivo: TBitBtn;
     btnrelatnegativo: TBitBtn;
     btnrelacorreto: TBitBtn;
     btnatualizaestoque: TBitBtn;
-    btnmovimento: TButton;
     Panel12: TPanel;
     Panel13: TPanel;
     Label9: TLabel;
@@ -220,208 +175,16 @@ type
     Panel29: TPanel;
     Label7: TLabel;
     DBGRIDHISTORICO: TDBGrid;
-    TabSheet5: TTabSheet;
-    Panel50: TPanel;
-    Panel51: TPanel;
-    DBText51: TDBText;
-    Label64: TLabel;
-    DBText52: TDBText;
-    Label65: TLabel;
-    DBText53: TDBText;
-    Label74: TLabel;
-    Panel52: TPanel;
-    DBText54: TDBText;
-    Label66: TLabel;
-    Label67: TLabel;
-    DBText55: TDBText;
-    Panel53: TPanel;
-    Label68: TLabel;
-    DBText56: TDBText;
-    DBText46: TDBText;
-    Label39: TLabel;
-    Label49: TLabel;
-    DBText47: TDBText;
-    Panel54: TPanel;
-    DBText57: TDBText;
-    Label70: TLabel;
-    Label57: TLabel;
-    DBText48: TDBText;
-    DBGridmovestoque: TDBGrid;
-    TabSheet8: TTabSheet;
-    dsQRYRKVEND: TDataSource;
-    QRYRKVEND: TUniQuery;
-    QRYPRODUTOSABERTOS: TUniQuery;
-    DSQRYPRODUTOSABERTOS: TDataSource;
-    QRYHISTORICO: TUniQuery;
-    QRYHISTORICONUMRELATORIO: TIntegerField;
-    QRYHISTORICODATA_AJUSTE: TDateTimeField;
-    QRYHISTORICOUSUARIO: TStringField;
-    QRYHISTORICOLKUSUARIO: TIntegerField;
-    QRYHISTORICOTOTAL_CUSTO_DIF: TCurrencyField;
-    QRYHISTORICOPERIODO_INICIO: TDateField;
-    QRYHISTORICOPERIODO_FIM: TDateField;
-    QRYHISTORICOGRUPO_FILTRO: TStringField;
-    QRYHISTORICOMARCA_FILTRO: TStringField;
-    QRYHISTORICOFORNECEDOR_FILTRO: TStringField;
-    QRYHISTORICOLOCALIZACAO_FILTRO: TStringField;
-    QRYHISTORICOSTATUS: TBooleanField;
-    DSQRYHISTORICO: TDataSource;
-    PageControl3: TPageControl;
-    TabSheet6: TTabSheet;
-    Panel30: TPanel;
-    btnconsultaprodutos: TButton;
-    Labelproduto: TLabel;
-    Panel55: TPanel;
-    Panel57: TPanel;
-    Label95: TLabel;
-    Edit2: TEdit;
-    Panel58: TPanel;
-    Label96: TLabel;
-    Edit3: TEdit;
-    Panel59: TPanel;
-    Label97: TLabel;
-    Edit4: TEdit;
-    Panel61: TPanel;
-    Label99: TLabel;
-    Edit6: TEdit;
-    RadioGroup1: TRadioGroup;
-    TabSheet10: TTabSheet;
-    Label76: TLabel;
-    Panel31: TPanel;
-    Label77: TLabel;
-    Panel34: TPanel;
-    Label82: TLabel;
-    Label83: TLabel;
-    Label84: TLabel;
-    Label85: TLabel;
-    CEPRECOATACADO4: TCurrencyEdit;
-    CEPRECOATACADO3: TCurrencyEdit;
-    CEPRECOATACADO2: TCurrencyEdit;
-    CEPRECOATACADO1: TCurrencyEdit;
-    Panel35: TPanel;
-    Label78: TLabel;
-    Label79: TLabel;
-    Label80: TLabel;
-    Label81: TLabel;
-    CEPERCENTUALATACADO4: TCurrencyEdit;
-    CEPERCENTUALATACADO3: TCurrencyEdit;
-    CEPERCENTUALATACADO2: TCurrencyEdit;
-    CEPERCENTUALATACADO1: TCurrencyEdit;
-    Panel36: TPanel;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    Panel47: TPanel;
-    Label86: TLabel;
-    Label87: TLabel;
-    Label88: TLabel;
-    Label89: TLabel;
-    CEPERCENTUALVAREJO4: TCurrencyEdit;
-    CEPERCENTUALVAREJO3: TCurrencyEdit;
-    CEPERCENTUALVAREJO2: TCurrencyEdit;
-    CEPERCENTUALVAREJO1: TCurrencyEdit;
-    Panel48: TPanel;
-    Label90: TLabel;
-    Label91: TLabel;
-    Label92: TLabel;
-    Label93: TLabel;
-    CEPRECOVAREJO4: TCurrencyEdit;
-    CEPRECOVAREJO3: TCurrencyEdit;
-    CEPRECOVAREJO2: TCurrencyEdit;
-    CEPRECOVAREJO1: TCurrencyEdit;
-    DBGRIDPRODUTOSBASE: TDBGrid;
-    Panel64: TPanel;
-    Panel66: TPanel;
-    Panel67: TPanel;
-    Panel68: TPanel;
-    Label105: TLabel;
-    Label111: TLabel;
-    Editprcustomedioatacado: TCurrencyEdit;
-    Editprcustomedio: TCurrencyEdit;
-    Label112: TLabel;
-    Label113: TLabel;
-    Editprcustoatacado: TCurrencyEdit;
-    Label114: TLabel;
-    Editprcusto: TCurrencyEdit;
-    Panel70: TPanel;
-    Label115: TLabel;
-    editprecoatacado1: TCurrencyEdit;
-    Label116: TLabel;
-    editprecoatacado2: TCurrencyEdit;
-    Label117: TLabel;
-    editprecoatacado3: TCurrencyEdit;
-    Label118: TLabel;
-    CurrencyEdit8: TCurrencyEdit;
-    Label123: TLabel;
-    Panel69: TPanel;
-    Label124: TLabel;
-    Label125: TLabel;
-    Label126: TLabel;
-    Label127: TLabel;
-    Label128: TLabel;
-    editmargemvarejo1: TCurrencyEdit;
-    editmargemvarejo2: TCurrencyEdit;
-    editmargemvarejo3: TCurrencyEdit;
-    editmargemvarejo4: TCurrencyEdit;
-    Panel65: TPanel;
-    Panel71: TPanel;
-    Label119: TLabel;
-    Label120: TLabel;
-    Label121: TLabel;
-    Label122: TLabel;
-    Label129: TLabel;
-    editprecovarejo1: TCurrencyEdit;
-    editprecovarejo2: TCurrencyEdit;
-    editprecovarejo3: TCurrencyEdit;
-    editprecovarejo4: TCurrencyEdit;
-    Panel72: TPanel;
-    Label130: TLabel;
-    Label131: TLabel;
-    Label132: TLabel;
-    Label133: TLabel;
-    Label134: TLabel;
-    editmargemverejo1: TCurrencyEdit;
-    editmargemverejo2: TCurrencyEdit;
-    editmargemverejo3: TCurrencyEdit;
-    editmargemverejo4: TCurrencyEdit;
-    Label135: TLabel;
-    Label106: TLabel;
-    Label104: TLabel;
-    Panel73: TPanel;
-    Label102: TLabel;
-    DBText62: TDBText;
-    Label103: TLabel;
-    DBText63: TDBText;
-    Label136: TLabel;
-    DBText64: TDBText;
-    Label137: TLabel;
-    DBText65: TDBText;
-    Label138: TLabel;
-    Label101: TLabel;
-    Edit8: TEdit;
-    Label98: TLabel;
-    Edit5: TEdit;
-    Label107: TLabel;
-    Edit9: TEdit;
-    Label108: TLabel;
-    Edit10: TEdit;
-    CurrencyEdit21: TCurrencyEdit;
-    editprecoatacado4: TCurrencyEdit;
-    Label94: TLabel;
-    Label100: TLabel;
-    Panel56: TPanel;
-    Label109: TLabel;
-    Panel75: TPanel;
-    Label141: TLabel;
-    dtultalteracao: TDateTimePicker;
-    Label110: TLabel;
-    dtcadastro: TDateTimePicker;
-    Label139: TLabel;
-    dtultalteracaopreco: TDateTimePicker;
-    Label140: TLabel;
-    Label142: TLabel;
-    editdiasnaoatualizapreco: TEdit;
-    editultuseralterapreco: TEdit;
-   
+    btnmovimento: TBitBtn;
+    btnapagahistorico: TBitBtn;
+    btnRetomarProgresso: TBitBtn;
+    btnconsultprevenda: TBitBtn;
+    btnconfirmar: TBitBtn;
+    btnatualizahist: TBitBtn;
+    btnsalvaprog: TBitBtn;
+    btnapagar: TBitBtn;
+    btnlimpalista: TBitBtn;
+
     procedure CarregarGrupos;
     procedure CarregarMarcas;
     procedure CarregarFornecedores;
@@ -443,10 +206,9 @@ type
 
 
     procedure EditcontagemKeyPress(Sender: TObject; var Key: Char);
-    procedure btnconfirmaClick(Sender: TObject);
+
  
-    procedure btnupClick(Sender: TObject);
-    procedure BtndownClick(Sender: TObject);
+  
 
     procedure TeclaClick(Sender: TObject);
 
@@ -469,20 +231,19 @@ type
     procedure AtualizarBotoesRelatorio;
     procedure DBTextprodutoClick(Sender: TObject);
     procedure Label1Click(Sender: TObject);
-    procedure CarregarProdutosEmAberto;
-    procedure QRYPRODUTOSABERTOSAfterScroll(DataSet: TDataSet);
-    procedure btnqryprodupClick(Sender: TObject);
-    procedure btnqryproddownClick(Sender: TObject);
-    procedure btnqrypedidoupClick(Sender: TObject);
-    procedure btnqrypedidodownClick(Sender: TObject);
 
-    procedure QRYPRODUTOSABERTOSAfterClose(DataSet: TDataSet);
 
-    procedure BuscarProdutoPreVendaPorCodInterno;
-    procedure LabelinforClick(Sender: TObject);
-    procedure CarregarPedidosDoProdutoAtual;
-    procedure btnconsultartodosClick(Sender: TObject);
-    procedure btnconsultprevendaClick(Sender: TObject);
+
+
+
+
+
+
+
+
+
+
+
 
     procedure btnatualizaestoqueClick(Sender: TObject);
     procedure AjustarEstoqueEAtualizarMovimento(Sender: TObject);
@@ -497,12 +258,28 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
 
     procedure btnmovimentoClick(Sender: TObject);
-    procedure CarregarListaBaseProdutos;
-    procedure BitBtn3Click(Sender: TObject);
+
     procedure QRYRKVENDAfterScroll(DataSet: TDataSet);
     procedure QRYHISTORICOAfterScroll(DataSet: TDataSet);
     procedure btnconsultaprodutosClick(Sender: TObject);
-  
+
+
+
+
+
+
+
+
+
+    procedure btnconsultamovClick(Sender: TObject);
+
+
+
+    procedure btnconsultprevendaClick(Sender: TObject);
+    procedure BtnconsultaabertoClick(Sender: TObject);
+    procedure btnconfirmarClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
 
 
@@ -527,20 +304,21 @@ type
   end;
 
 var
-  frmmenu: Tfrmmenu;
+  formcontaestoque: Tformcontaestoque;
 
 implementation
 
 {$R *.dfm}
 
-uses CONEXAOBD, FRMSENHA, FRMSelectproduto;
+uses CONEXAOBD, FRMSENHA, FRMSelectproduto, FRMMOVIMENTO, FRMPOSICAOESTOQUE,
+  FRM_MENU, FRMALTERAPRECOS;
 
 
 
 
 
 
-function Tfrmmenu.VerificarConferenciaCompleta: Boolean;
+function Tformcontaestoque.VerificarConferenciaCompleta: Boolean;
 var
   BM: TBookmark;
   CodInterno: string;
@@ -583,7 +361,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.AtualizarBotoesRelatorio;
+procedure Tformcontaestoque.AtualizarBotoesRelatorio;
 var
   ConferenciaCompleta: Boolean;
   ConferenciaIniciada: Boolean;
@@ -627,7 +405,7 @@ begin
       begin
         // ESTADO 2: INCOMPLETO (Em Andamento)
         LabelStatusConferencia.Caption := 'Contagem EM ANDAMENTO...';
-        LabelStatusConferencia.Color := clnavy;
+        LabelStatusConferencia.Color := $002E2E2E;
         LabelStatusConferencia.Font.Color := clwhite;
       end;
     end;
@@ -650,7 +428,7 @@ end;
 
 
 
-procedure Tfrmmenu.btnlimpalistaClick(Sender: TObject);
+procedure Tformcontaestoque.btnlimpalistaClick(Sender: TObject);
 begin
   // 1. Confirmação do Usuário
   if not datamodule1.CDSPRODUTOS.IsEmpty then
@@ -719,12 +497,19 @@ end;
 
 
 
-procedure Tfrmmenu.btnmovimentoClick(Sender: TObject);
+procedure Tformcontaestoque.btnmovimentoClick(Sender: TObject);
 begin
-movimentojacontado;
+  // Cria a instância do novo formulário
+  if not Assigned(formmov) then
+    formmov := Tformmov.Create(Application);
+
+  // Chama a procedure para carregar e exibir
+  formmov.CarregaMovProdutosContados;
+
+
 end;
 
-procedure Tfrmmenu.btnprodconfClick(Sender: TObject);
+procedure Tformcontaestoque.btnprodconfClick(Sender: TObject);
 var
   NovoIndice: Integer;
 begin
@@ -760,7 +545,7 @@ begin
   end;
 end;
 
-procedure Tfrmmenu.btnprodvendClick(Sender: TObject);
+procedure Tformcontaestoque.btnprodvendClick(Sender: TObject);
 var
   NovoIndice: Integer;
 begin
@@ -802,71 +587,24 @@ begin
   end;
 end;
 
-procedure Tfrmmenu.btnqrypedidodownClick(Sender: TObject);
-begin
-  // Move para o próximo registro na Query Detalhe (Pedidos de Reserva)
-  if datamodule1.QRYPEDIDOS.Active then
-  begin
-    if not datamodule1.QRYPEDIDOS.Eof then
-    begin
-      datamodule1.QRYPEDIDOS.Next; // Move para o próximo registro
-    end
-    // else { Opcional: ShowMessage('Você já está no último pedido.'); }
-  end;
-end;
-
-
-
-procedure Tfrmmenu.btnqrypedidoupClick(Sender: TObject);
-begin
-  // Move para o registro anterior na Query Detalhe (Pedidos de Reserva)
-  if datamodule1.QRYPEDIDOS.Active then
-  begin
-    if not datamodule1.QRYPEDIDOS.Bof then
-    begin
-      datamodule1.QRYPEDIDOS.Prior; // Move para o registro anterior
-    end
-    // else { Opcional: ShowMessage('Você já está no primeiro pedido.'); }
-  end;
-end;
-
-
-
-
-procedure Tfrmmenu.btnqryproddownClick(Sender: TObject);
-begin
-  // Move para o próximo registro na Query Mestra (Produtos em Aberto)
-  if QRYPRODUTOSABERTOS.Active then
-  begin
-    if not QRYPRODUTOSABERTOS.Eof then
-    begin
-      QRYPRODUTOSABERTOS.Next; // Move para o próximo registro
-    end
-    // else { Opcional: ShowMessage('Você já está no último produto.'); }
-  end;
-end;
-
-
-
-procedure Tfrmmenu.btnqryprodupClick(Sender: TObject);
-begin
-  // Move para o registro anterior na Query Mestra (Produtos em Aberto)
-  if QRYPRODUTOSABERTOS.Active then
-  begin
-    if not QRYPRODUTOSABERTOS.Bof then
-    begin
-      QRYPRODUTOSABERTOS.Prior; // Move para o registro anterior
-    end
-    // else { Opcional: ShowMessage('Você já está no primeiro produto.'); }
-  end;
-end;
 
 
 
 
 
 
-procedure Tfrmmenu.btnapagahistoricoClick(Sender: TObject);
+
+
+
+
+
+
+
+
+
+
+
+procedure Tformcontaestoque.btnapagahistoricoClick(Sender: TObject);
 var
   NumRelatorioExcluir: Integer;
   Msg: String;
@@ -958,7 +696,7 @@ end;
 
 
 
-procedure Tfrmmenu.btnapagarClick(Sender: TObject);
+procedure Tformcontaestoque.btnapagarClick(Sender: TObject);
 begin
   // 1. Verifica se o ClientDataSet está aberto e possui registros
   if not datamodule1.CDSPRODUTOS.Active or datamodule1.CDSPRODUTOS.IsEmpty then
@@ -997,12 +735,12 @@ begin
 end;
 
 
-procedure Tfrmmenu.btnatualizaestoqueClick(Sender: TObject);
+procedure Tformcontaestoque.btnatualizaestoqueClick(Sender: TObject);
 begin
 AjustarEstoqueEAtualizarMovimento(Sender);
 end;
 
-procedure Tfrmmenu.btnatualizahistClick(Sender: TObject);
+procedure Tformcontaestoque.btnatualizahistClick(Sender: TObject);
 var
   Msg: String;
   ContadorAjustes: Integer;
@@ -1197,8 +935,11 @@ end;
 
 
 
-procedure Tfrmmenu.btnconfirmaClick(Sender: TObject);
 
+
+
+
+procedure Tformcontaestoque.btnconfirmarClick(Sender: TObject);
 var
   // MUDANÇA: Usar Extended para aceitar números decimais (melhor precisão que Real/Float)
   Contagem: Extended;
@@ -1343,7 +1084,39 @@ end;
 
 
 
-procedure Tfrmmenu.btnconsultaprodutosClick(Sender: TObject);
+
+
+
+
+procedure Tformcontaestoque.BtnconsultaabertoClick(Sender: TObject);
+begin
+  // 1. Cria ou exibe a instância do novo formulário
+  if not Assigned(Formposicaoest) then
+    Formposicaoest := TFormposicaoest.Create(Application);
+
+  // 2. Chama a procedure para carregar a posição, passando as datas como parâmetro
+  Formposicaoest.CarregarPosicaodecodinternocadastro; // <-- Esta linha está correta
+
+  // 3. Exibe o formulário
+  Formposicaoest.ShowModal;
+end;
+
+
+
+
+
+procedure Tformcontaestoque.btnconsultamovClick(Sender: TObject);
+begin
+
+  // Cria a instância do novo formulário
+  if not Assigned(formmov) then
+    formmov := Tformmov.Create(Application);
+
+  // Chama a procedure para carregar e exibir
+  formmov.CarregaMovProdutosContados;
+end;
+
+procedure Tformcontaestoque.btnconsultaprodutosClick(Sender: TObject);
 begin
   // A forma mais direta para criar, exibir modalmente e destruir o Form
   with TSelectProduto.Create(Application) do
@@ -1355,57 +1128,12 @@ begin
 end;
 
 
-procedure Tfrmmenu.btnconsultarClick(Sender: TObject);
+procedure Tformcontaestoque.btnconsultarClick(Sender: TObject);
 begin
 RelatorioManual;
 
 
 
-end;
-
-procedure Tfrmmenu.btnconsultartodosClick(Sender: TObject);
-begin
-CarregarProdutosEmAberto;
-end;
-
-procedure Tfrmmenu.BtndownClick(Sender: TObject);
-begin
-  // --- ABA 1: PRODUTOS VENDIDOS (QRYRKVEND) ---
-  if PageControl1.ActivePage = TabSheet1 then
-  begin
-    if QRYRKVEND.Active and not QRYRKVEND.Eof then
-    QRYRKVEND.Next;
-  end
-
-  // --- ABA 2: PRODUTOS CONFERIDOS (CDSPRODUTOS) ---
-  else if PageControl1.ActivePage = TabSheet2 then
-  begin
-    if datamodule1.CDSPRODUTOS.Active and not datamodule1.CDSPRODUTOS.Eof then
-      datamodule1.CDSPRODUTOS.Next;
-  end
-
-  // --- ABA 3: HISTÓRICO (QRYHISTORICO) ---
-  else if PageControl1.ActivePage = TabSheet3 then
-  begin
-    if QRYHISTORICO.Active and not QRYHISTORICO.Eof then
-      QRYHISTORICO.Next;
-  end
-
-  // --- ABA 4: PRODUTOS EM ABERTO (QRYPRODUTOSABERTOS - Mestra) ---
-  else if PageControl1.ActivePage = TabSheet4 then
-  begin
-    // Navegação na Query Mestra (Produtos)
-    if QRYPRODUTOSABERTOS.Active and not QRYPRODUTOSABERTOS.Eof then
-      QRYPRODUTOSABERTOS.Next;
-  end
-
-  // --- ABA 5: PEDIDOS EM ABERTO (QRYPEDIDOS - Detalhe) ---
-  else if PageControl1.ActivePage = TabSheet4 then // <-- NOVO BLOCO PARA ABA 5
-  begin
-    // Navegação na Query Detalhe de Pedidos
-    if datamodule1.QRYPEDIDOS.Active and not datamodule1.QRYPEDIDOS.Eof then
-      datamodule1.QRYPEDIDOS.Next;
-  end;
 
 
 end;
@@ -1414,7 +1142,12 @@ end;
 
 
 
-procedure Tfrmmenu.btnRelatPositivoClick(Sender: TObject);
+
+
+
+
+
+Procedure Tformcontaestoque.btnRelatPositivoClick(Sender: TObject);
 const
   FILTRO_VALOR_POSITIVO = 'DIFERENCA > 0';
 begin
@@ -1458,7 +1191,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.btnrelatnegativoClick(Sender: TObject);
+procedure Tformcontaestoque.btnrelatnegativoClick(Sender: TObject);
 const
   FILTRO_VALOR_NEGATIVO = 'DIFERENCA < 0';
 begin
@@ -1502,7 +1235,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.btnrelacorretoClick(Sender: TObject);
+procedure Tformcontaestoque.btnrelacorretoClick(Sender: TObject);
 const
   FILTRO_DIFERENCA_ZERO = 'DIFERENCA = 0';
 begin
@@ -1558,7 +1291,7 @@ end;
 
 
 
-procedure Tfrmmenu.btnRetomarProgressoClick(Sender: TObject);
+procedure Tformcontaestoque.btnRetomarProgressoClick(Sender: TObject);
 var
   NumRelatorioSelecionado: Integer;
   bConferenciaCompleta: Boolean; // Variável para o Status
@@ -1595,8 +1328,8 @@ begin
     AtualizarContadores;
     LocalizarProximoNaoConferido;
     AtualizarBotoesRelatorio;
-    BuscarProdutoPreVendaPorCodInterno;
-    CarregarPedidosDoProdutoAtual;
+
+
     PageControl1.ActivePage := TabSheet2;
   end;
 end;
@@ -1606,51 +1339,12 @@ end;
 
 
 
-procedure Tfrmmenu.btnupClick(Sender: TObject);
-begin
-  // --- ABA 1: PRODUTOS VENDIDOS (QRYRKVEND) ---
-  if PageControl1.ActivePage = TabSheet1 then
-  begin
-    if QRYRKVEND.Active and not QRYRKVEND.Bof then
-      QRYRKVEND.Prior;
-  end
-
-  // --- ABA 2: PRODUTOS CONFERIDOS (CDSPRODUTOS) ---
-  else if PageControl1.ActivePage = TabSheet2 then
-  begin
-    if datamodule1.CDSPRODUTOS.Active and not datamodule1.CDSPRODUTOS.Bof then
-      datamodule1.CDSPRODUTOS.Prior;
-  end
-
-  // --- ABA 3: HISTÓRICO (QRYHISTORICO) ---
-  else if PageControl1.ActivePage = TabSheet3 then
-  begin
-    if QRYHISTORICO.Active and not QRYHISTORICO.Bof then
-      QRYHISTORICO.Prior;
-  end
-
-  // --- ABA 4: PRODUTOS EM ABERTO (QRYPRODUTOSABERTOS - Mestra) ---
-  else if PageControl1.ActivePage = TabSheet4 then
-  begin
-    // Navegação na Query Mestra de Produtos em Aberto
-    if QRYPRODUTOSABERTOS.Active and not QRYPRODUTOSABERTOS.Bof then
-      QRYPRODUTOSABERTOS.Prior
-  end
-
-  // --- ABA 5: PEDIDOS EM ABERTO (QRYPEDIDOS - Detalhe) ---
-  else if PageControl1.ActivePage = TabSheet4 then // <-- NOVO BLOCO PARA ABA 5
-  begin
-    // Navegação na Query Detalhe de Pedidos
-    if datamodule1.QRYPEDIDOS.Active and not datamodule1.QRYPEDIDOS.Bof then
-      datamodule1.QRYPEDIDOS.Prior;
-  end;
-  
-end;
 
 
 
 
-procedure Tfrmmenu.btnsalvaprogClick(Sender: TObject);
+
+procedure Tformcontaestoque.btnsalvaprogClick(Sender: TObject);
 var
   Msg: String;
   ContadorAjustes: Integer;
@@ -1847,7 +1541,7 @@ end;
 
 
 
-procedure Tfrmmenu.CarregarGrupos;
+procedure Tformcontaestoque.CarregarGrupos;
 begin
   // Garante que a conexão do componente QRYGRUPOS está ativa
   if not datamodule1.qrygrupos.Connection.Connected then
@@ -1879,7 +1573,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.CarregarMarcas;
+procedure Tformcontaestoque.CarregarMarcas;
 var
   Marca: string;
 begin
@@ -1918,7 +1612,7 @@ end;
 
 
 
-procedure Tfrmmenu.CDSPRODUTOSCalcFields(DataSet: TDataSet);
+procedure Tformcontaestoque.CDSPRODUTOSCalcFields(DataSet: TDataSet);
 var
   PrecoCusto: Currency;
   Diferenca: Integer;
@@ -1942,7 +1636,11 @@ end;
 
 
 
-procedure Tfrmmenu.EditcontagemChange(Sender: TObject);
+
+
+
+
+procedure Tformcontaestoque.EditcontagemChange(Sender: TObject);
 var
   Estoque, Contagem, Diferenca: Real;
 begin
@@ -1981,7 +1679,7 @@ end;
 
 
 
-procedure Tfrmmenu.EditcontagemKeyPress(Sender: TObject; var Key: Char);
+procedure Tformcontaestoque.EditcontagemKeyPress(Sender: TObject; var Key: Char);
 var
   DecimalSeparator: Char;
 begin
@@ -1995,7 +1693,7 @@ begin
 
     // 2. Chama a procedure que você deseja executar
     // Assumindo que sua procedure btnconfirmaClick aceita apenas Sender: TObject
-    btnconfirmaClick(Sender);
+    btnconfirmarClick(Sender);
 
     // 3. Sai da procedure, ignorando toda a lógica de validação de caracteres abaixo
     Exit;
@@ -2041,8 +1739,7 @@ end;
 
 
 
-
-procedure Tfrmmenu.CarregarFornecedores;
+procedure Tformcontaestoque.CarregarFornecedores;
 begin
   // Garante que a conexão do componente QRYFORNECEDOR está ativa
   if not datamodule1.qryfornecedor.Connection.Connected then
@@ -2090,15 +1787,76 @@ end;
 
 
 
-procedure Tfrmmenu.FormShow(Sender: TObject);
+procedure Tformcontaestoque.FormClose(Sender: TObject;
+  var Action: TCloseAction);
 begin
+  // 1. Limpa e fecha o ClientDataSet (lista de itens conferidos)
+  // Isso remove todos os dados e libera a estrutura da memória.
+  if Assigned(DataModule1.CDSPRODUTOS) and DataModule1.CDSPRODUTOS.Active then
+    DataModule1.CDSPRODUTOS.EmptyDataSet;
+
+  if Assigned(DataModule1.CDSPRODUTOS) then
+    DataModule1.CDSPRODUTOS.Close;
+
+  // 2. Fecha as Queries Ativas de Consulta
+  // Isso libera os cursores e recursos da conexão SQL Server.
+  if Assigned(QRYRKVEND) and QRYRKVEND.Active then
+    QRYRKVEND.Close;
+
+
+     if Assigned(QRYhistorico) and QRYRKVEND.Active then
+    QRYhistorico.Close;
+
+      if Assigned(datamodule1.QRYPRODUTOSCONTADOS) and QRYRKVEND.Active then
+    datamodule1.QRYPRODUTOSCONTADOS.Close;
+
+end;
+
+procedure Tformcontaestoque.FormDestroy(Sender: TObject);
+begin
+  // 1. Limpa e fecha o ClientDataSet (lista de itens conferidos)
+  // Isso remove todos os dados e libera a estrutura da memória.
+  if Assigned(DataModule1.CDSPRODUTOS) and DataModule1.CDSPRODUTOS.Active then
+    DataModule1.CDSPRODUTOS.EmptyDataSet;
+
+  if Assigned(DataModule1.CDSPRODUTOS) then
+    DataModule1.CDSPRODUTOS.Close;
+
+  // 2. Fecha as Queries Ativas de Consulta
+  // Isso libera os cursores e recursos da conexão SQL Server.
+  if Assigned(QRYRKVEND) and QRYRKVEND.Active then
+    QRYRKVEND.Close;
+
+
+     if Assigned(QRYhistorico) and QRYRKVEND.Active then
+    QRYhistorico.Close;
+
+      if Assigned(datamodule1.QRYPRODUTOSCONTADOS) and QRYRKVEND.Active then
+    datamodule1.QRYPRODUTOSCONTADOS.Close;
+
+
+
+
+
+
+
+
+
+  inherited; // Chama o destrutor do pai para garantir a limpeza padrão do VCL
+end;
+
+
+
+procedure Tformcontaestoque.FormShow(Sender: TObject);
+begin
+
 dtinicio.DateTime:=now;
 dtfim.DateTime:=now;
 CarregarHistorico;
 CarregarGrupos;
 CarregarMarcas;
 CarregarFornecedores;
-CriarEstruturaManualCDS;
+
 PageControl1.ActivePage := TabSheet1;
 FNumRelatorioAtual := 0;
 
@@ -2133,7 +1891,7 @@ end;
 
 
 
-procedure Tfrmmenu.QRYHISTORICOAfterScroll(DataSet: TDataSet);
+procedure Tformcontaestoque.QRYHISTORICOAfterScroll(DataSet: TDataSet);
 var
   iNumRelatorio: Integer;
   bStatusCompleto: Boolean; // Variável para ler o STATUS
@@ -2157,12 +1915,12 @@ begin
    datamodule1. QRYPRODUTOSCONTADOS.Open;
 
     // Chama o cálculo para atualizar CDSTOTAIS (mantido conforme a última alteração)
-    frmmenu.CalcularETotalizar;
+    CalcularETotalizar;
 
     // 6. NOVO: Habilita ou desabilita o botão de ajuste de estoque
     // O botão só será Enabled se o STATUS for TRUE (Completo)
-    frmmenu.btnatualizaestoque.Enabled := bStatusCompleto;
-    frmmenu.btnapagahistorico.Enabled := not bStatusCompleto;
+    btnatualizaestoque.Enabled := bStatusCompleto;
+    btnapagahistorico.Enabled := not bStatusCompleto;
 
   end
   else
@@ -2171,70 +1929,13 @@ begin
     datamodule1.QRYPRODUTOSCONTADOS.Close;
 
     // Desabilita o botão quando não há histórico selecionado
-   frmmenu.btnatualizaestoque.Enabled := False;
+   btnatualizaestoque.Enabled := False;
 
   end;
 end;
 
 
 
-procedure Tfrmmenu.QRYPRODUTOSABERTOSAfterClose(DataSet: TDataSet);
-begin
-  // Esta procedure garante que, se a Query Mestra fechar (por filtro, limpeza, etc.),
-  // a Query Detalhe seja forçada a fechar, limpando o DBCtrlGridpedidos.
-  if datamodule1.QRYPEDIDOS.Active then
-    datamodule1.QRYPEDIDOS.Close;
-end;
-
-procedure Tfrmmenu.QRYPRODUTOSABERTOSAfterScroll(DataSet: TDataSet);
-var
-  LkProduto: Integer;
-begin
-  // 1. Garante que há um produto ativo na lista mestra
-  if not DataSet.IsEmpty and DataSet.Active then
-  begin
-    LkProduto := DataSet.FieldByName('LkProduto').AsInteger;
-
-    // 2. Fecha a query de detalhe
-    datamodule1.QRYPEDIDOS.Close;
-
-    // 3. Define a SQL (Garante que está configurada corretamente)
-    datamodule1.QRYPEDIDOS.SQL.Text :=
-      'SELECT ' +
-      '    A.*, ' + // Traz todas as colunas de TabEst3A
-      '    B.Qtdreal AS QuantidadeItem, ' + // Quantidade do item no pedido
-      '    CASE ' +
-      '        WHEN A.STATUS = ''P'' THEN ''PRÉ-VENDA'' ' +
-      '        WHEN A.STATUS = ''O'' THEN ''ORÇAMENTO'' ' +
-      '        ELSE ''OUTROS'' ' +
-      '    END AS Situacao ' +
-      'FROM TabEst3A A WITH (NOLOCK) ' +
-      'INNER JOIN TabEst3B B WITH (NOLOCK) ON A.Pedido = B.PEDIDO ' +
-      'WHERE A.Data >= :DataInicio AND A.Data <= :DataFim ' +
-      '  AND A.Cancelada <> 1 ' +
-      '  AND A.VENDA <> 1 ' +
-      '  AND A.STATUS =''P'' ' +
-      '  AND B.LkProduto = :LkProduto ' + // Filtro Mestre: ID do produto selecionado
-      'ORDER BY A.Pedido DESC';
-
-    // 4. Aplica os parâmetros
-    datamodule1.QRYPEDIDOS.ParamByName('DataInicio').AsDateTime := dtinicio.Date;
-    datamodule1.QRYPEDIDOS.ParamByName('DataFim').AsDateTime := dtfim.Date;
-    datamodule1.QRYPEDIDOS.ParamByName('LkProduto').AsInteger := LkProduto; // Parâmetro Mestre
-
-    // 5. Abre a consulta Detalhe
-    datamodule1.QRYPEDIDOS.Open;
-
-    // 6. Liga a fonte de dados detalhe (se já não estiver no FormShow)
-    datamodule1.DSQRYPEDIDOS.DataSet := datamodule1.QRYPEDIDOS;
-  DBCtrlGridpedidos.DataSource := datamodule1.DSQRYPEDIDOS;
-  end
-  else
-  begin
-    // Se a mestra estiver vazia ou inativa, garante que a detalhe está fechada
-    datamodule1.QRYPEDIDOS.Close;
-  end;
-end;
 
 
 
@@ -2266,18 +1967,20 @@ end;
 
 
 
-procedure Tfrmmenu.QRYRKVENDAfterScroll(DataSet: TDataSet);
+
+
+procedure Tformcontaestoque.QRYRKVENDAfterScroll(DataSet: TDataSet);
 var
   CodInterno: string;
 begin
   // 1. Verificação de componentes e abas
-  if not Assigned(frmmenu.Pnproduto) or not Assigned(frmmenu.Labelinfor) then Exit;
-  if frmmenu.PageControl1.ActivePage <> frmmenu.TabSheet1 then Exit;
+  if not Assigned(Pnproduto) or not Assigned(Labelinfor) then Exit;
+  if PageControl1.ActivePage <> TabSheet1 then Exit;
   if not DataSet.Active or DataSet.IsEmpty then Exit;
 
   // Garante que o painel e a label estão visíveis
-  frmmenu.Pnproduto.Visible := True;
-  frmmenu.Labelinfor.Visible := True;
+  Pnproduto.Visible := True;
+  Labelinfor.Visible := True;
 
   CodInterno := DataSet.FieldByName('CodInterno').AsString;
 
@@ -2305,7 +2008,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.RelatorioManual;
+procedure Tformcontaestoque.RelatorioManual;
 var
   SQLText: TStringList;
 begin
@@ -2417,7 +2120,7 @@ end;
 
 
 
-procedure Tfrmmenu.CriarEstruturaManualCDS;
+procedure Tformcontaestoque.CriarEstruturaManualCDS;
 var
   IndexDef: TIndexDef;
 begin
@@ -2513,7 +2216,7 @@ end;
 
 
 
-procedure Tfrmmenu.DBGRIDHISTORICODrawColumnCell(Sender: TObject;
+procedure Tformcontaestoque.DBGRIDHISTORICODrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 var
   bStatus: Boolean;
@@ -2576,7 +2279,20 @@ end;
 
 
 
-procedure Tfrmmenu.DBTextprodutoClick(Sender: TObject);
+
+
+
+
+
+
+
+
+
+
+
+
+
+procedure Tformcontaestoque.DBTextprodutoClick(Sender: TObject);
 begin
 LocalizarProximoNaoConferido;
 end;
@@ -2585,7 +2301,7 @@ end;
 
 
 
-procedure Tfrmmenu.TeclaClick(Sender: TObject);
+procedure Tformcontaestoque.TeclaClick(Sender: TObject);
 var
   Botao: TBitBtn;
   Caractere: Char;
@@ -2630,7 +2346,7 @@ begin
   else if Captura = 'CONFIRMAR' then
   begin
     // Ação: Confirma a Contagem (Chama a procedure principal)
-    btnconfirmaClick(Sender);
+    btnconfirmarClick(Sender);
   end
   else if Captura = 'SAIR' then
   begin
@@ -2643,7 +2359,7 @@ end;
 
 
 
-procedure Tfrmmenu.CarregarHistorico;
+procedure Tformcontaestoque.CarregarHistorico;
 begin
   try
     // 1. Garante que a conexão está ativa
@@ -2671,7 +2387,7 @@ end;
 
 
 
-procedure Tfrmmenu.CarregarItensProgresso(NumRelatorio: Integer);
+procedure Tformcontaestoque.CarregarItensProgresso(NumRelatorio: Integer);
 var
   ContadorOrdem: Integer; // Contador para o campo ID_ORDEM
 begin
@@ -2772,7 +2488,7 @@ end;
 
 
 
-procedure Tfrmmenu.AplicarPeriodoEExecutarRelatorio(NumRelatorio: Integer);
+procedure Tformcontaestoque.AplicarPeriodoEExecutarRelatorio(NumRelatorio: Integer);
 var
   DataInicio, DataFim: TDateTime;
   // Variáveis para os filtros recuperados
@@ -2871,7 +2587,7 @@ begin
 end;
 
 
-procedure Tfrmmenu.AtualizarContadores;
+procedure Tformcontaestoque.AtualizarContadores;
 var
   TotalItensConsulta: Integer;
   ItensConferidos: Integer;
@@ -2890,7 +2606,7 @@ begin
 
   // 3. ATUALIZAÇÃO DA LABEL ESPECÍFICA (Labeltotalconferidos)
   // Esta label mostrará a contagem pura do CDSPRODUTOS
- 
+
 
   // 4. ATUALIZAÇÃO DA LABEL GERAL (Labelitensvendidos) - Opcional, mantém o formato de comparação
   if Assigned(Labelitensvendidos) then
@@ -2900,12 +2616,10 @@ begin
 end;
 
 
-procedure Tfrmmenu.BitBtn3Click(Sender: TObject);
-begin
-CarregarListaBaseProdutos;
-end;
 
-procedure Tfrmmenu.Label1Click(Sender: TObject);
+
+
+procedure Tformcontaestoque.Label1Click(Sender: TObject);
 begin
 LocalizarProximoNaoConferido;
 end;
@@ -2925,13 +2639,10 @@ end;
 
 
 
-procedure Tfrmmenu.LabelinforClick(Sender: TObject);
-begin
-BuscarProdutoPreVendaPorCodInterno;
-CarregarPedidosDoProdutoAtual;
-end;
 
-procedure Tfrmmenu.LocalizarProximoNaoConferido;
+
+
+procedure Tformcontaestoque.LocalizarProximoNaoConferido;
 var
   CodInternoAtual: String;
   Achou: Boolean;
@@ -2982,126 +2693,6 @@ end;
 
 
 
-procedure Tfrmmenu.CarregarProdutosEmAberto;
-begin
-  // 1. Validação de Datas
-  if dtinicio.Date > dtfim.Date then
-  begin
-    ShowMessage('A Data Inicial não pode ser maior que a Data Final.');
-    Exit;
-  end;
-
-  // 2. Query Mestra: PRODUTOS EM ABERTO (QRYPRODUTOSABERTOS)
-  try
-    QRYPRODUTOSABERTOS.Close;
-
-    // SQL ATUALIZADO: Inclui CodBarra
-   QRYPRODUTOSABERTOS.SQL.Text :=
-      'SELECT ' +
-      '    B.LkProduto AS LkProduto, ' +
-      '    P.CodInterno, ' +
-      '    P.Produto, ' +
-      '    P.CodBarra, ' + // <-- NOVO: Código de Barras
-      '    P.CodFornecedor, ' +
-      '    P.Moeda AS Localizacao, ' +
-      '    G.Setor AS Grupo, ' +
-      '    P.Fabricante AS Marca, ' +
-      '    F.Empresa AS Fornecedor, ' +
-      '    P.Quantidade AS QtdEstoque, ' +
-      '    CAST(SUM(B.Qtdreal) AS NUMERIC(12, 2)) AS QtdReserva, ' +
-      '    COUNT(DISTINCT A.Pedido) AS NumPedidos ' +
-      'FROM TabEst3B B WITH (NOLOCK) ' +
-      'INNER JOIN TabEst3A A WITH (NOLOCK) ON A.Pedido = B.PEDIDO ' +
-      'INNER JOIN TABEST1 P WITH (NOLOCK) ON P.Controle = B.LkProduto ' +
-      'LEFT JOIN TabEst8 G WITH (NOLOCK) ON P.LkSetor = G.Controle ' +
-      'LEFT JOIN TabFor F WITH (NOLOCK) ON P.LkFornec = F.Controle ' +
-      'WHERE A.DATA >= :DataInicio AND A.DATA <= :DataFim ' +
-      '  AND A.Cancelada <> 1 ' +
-      '  AND A.VENDA <> 1 ' +
-      '  AND A.STATUS IN (''P'') ' +
-      // É crucial incluir todos os novos campos no GROUP BY
-      'GROUP BY B.LkProduto, P.CodInterno, P.Produto, P.Quantidade, P.CodFornecedor, P.Moeda, G.Setor, P.Fabricante, F.Empresa, P.CodBarra ' + // <-- INCLUÍDO NO GROUP BY
-      'ORDER BY P.Produto';
-
-    // Aplica filtros de data
-    QRYPRODUTOSABERTOS.ParamByName('DataInicio').AsDateTime := dtinicio.Date;
-    QRYPRODUTOSABERTOS.ParamByName('DataFim').AsDateTime := dtfim.Date;
-
-    // Abre a consulta Mestra
-    QRYPRODUTOSABERTOS.Open;
-
-    // Liga a fonte de dados mestra ao DBCtrlGrid
-    DSQRYPRODUTOSABERTOS.DataSet := QRYPRODUTOSABERTOS;
-    DBCtrlGridprodabertos.DataSource := DSQRYPRODUTOSABERTOS;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao consultar produtos em aberto: ' + E.Message);
-  end;
-end;
-
-
-
-
-
-procedure Tfrmmenu.BuscarProdutoPreVendaPorCodInterno;
-var
-  CodInternoSelecionado: string;
-begin
-  // 1. Validação: Verifica se há produto selecionado na QRYRKVEND
-  if not QRYRKVEND.Active or QRYRKVEND.IsEmpty then
-  begin
-    ShowMessage('Nenhum produto selecionado para busca.');
-    Exit;
-  end;
-
-  CodInternoSelecionado := QRYRKVEND.FieldByName('CodInterno').AsString;
-
-  // 2. Executa a consulta de pré-vendas filtrando por CodInterno
-  try
-    QRYPRODUTOSABERTOS.Close;
-
-    QRYPRODUTOSABERTOS.SQL.Text :=
-      'SELECT ' +
-      '    B.LkProduto AS LkProduto, ' +
-      '    P.CodInterno, ' +
-      '    P.Produto, ' +
-      '    P.CodBarra, ' +
-      '    P.CodFornecedor, ' +
-      '    P.Moeda AS Localizacao, ' +
-      '    G.Setor AS Grupo, ' +
-      '    P.Fabricante AS Marca, ' +
-      '    F.Empresa AS Fornecedor, ' +
-      '    P.Quantidade AS QtdEstoque, ' +
-      '    CAST(SUM(B.Qtdreal) AS NUMERIC(12, 2)) AS QtdReserva, ' +
-      '    COUNT(DISTINCT A.Pedido) AS NumPedidos ' +
-      'FROM TabEst3B B WITH (NOLOCK) ' +
-      'INNER JOIN TabEst3A A WITH (NOLOCK) ON A.Pedido = B.PEDIDO ' +
-      'INNER JOIN TABEST1 P WITH (NOLOCK) ON P.Controle = B.LkProduto ' +
-      'LEFT JOIN TabEst8 G WITH (NOLOCK) ON P.LkSetor = G.Controle ' +
-      'LEFT JOIN TabFor F WITH (NOLOCK) ON P.LkFornec = F.Controle ' +
-      'WHERE A.Cancelada <> 1 ' +
-      '  AND A.VENDA <> 1 ' +
-      '  AND A.STATUS IN (''P'') ' +
-      '  AND P.CodInterno = :CodInterno ' +
-      'GROUP BY B.LkProduto, P.CodInterno, P.Produto, P.Quantidade, P.CodFornecedor, P.Moeda, G.Setor, P.Fabricante, F.Empresa, P.CodBarra ' +
-      'ORDER BY P.Produto';
-
-    QRYPRODUTOSABERTOS.ParamByName('CodInterno').AsString := CodInternoSelecionado;
-
-    QRYPRODUTOSABERTOS.Open;
-
-    // Liga ao grid
-    DSQRYPRODUTOSABERTOS.DataSet := QRYPRODUTOSABERTOS;
-    DBCtrlGridprodabertos.DataSource := DSQRYPRODUTOSABERTOS;
-
-   
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao buscar produto em pré-vendas: ' + E.Message);
-  end;
-end;
 
 
 
@@ -3111,7 +2702,16 @@ end;
 
 
 
-procedure Tfrmmenu.movimentojacontado;
+
+
+
+
+
+
+
+
+
+procedure Tformcontaestoque.movimentojacontado;
 var
   sCodInterno: string;
 begin
@@ -3169,8 +2769,6 @@ begin
       Open;
     end;
 
-    // 5. Navega para a aba de movimentação (TabSheet5)
-    PageControl1.ActivePage := TabSheet5;
 
   except
     on E: Exception do
@@ -3186,80 +2784,7 @@ end;
 
 
 
-procedure Tfrmmenu.btnconsultprevendaClick(Sender: TObject);
-begin
-
-BuscarProdutoPreVendaPorCodInterno;
-CarregarPedidosDoProdutoAtual;
- PageControl1.ActivePage := TabSheet4;
-end;
-
-procedure Tfrmmenu.CarregarPedidosDoProdutoAtual;
-var
-  CodInterno: string;
-begin
-  // 1. Validação: Verifica se há produto selecionado na QRYRKVEND
-  if not QRYRKVEND.Active or QRYRKVEND.IsEmpty then
-  begin
-    ShowMessage('Nenhum produto selecionado para carregar pedidos.');
-    Exit;
-  end;
-
-  CodInterno := QRYRKVEND.FieldByName('CodInterno').AsString;
-
-  // 2. Busca o LkProduto correspondente na TABEST1
-  with DataModule1.QRYSEQ do
-  begin
-    Close;
-    SQL.Text := 'SELECT Controle FROM TABEST1 WHERE CodInterno = :CodInterno';
-    ParamByName('CodInterno').AsString := CodInterno;
-    Open;
-
-    if IsEmpty then
-    begin
-      ShowMessage('Produto não encontrado na base TABEST1.');
-      Exit;
-    end;
-  end;
-
-  // 3. Carrega os pedidos vinculados ao LkProduto
-  try
-    datamodule1.QRYPEDIDOS.Close;
-
-   datamodule1. QRYPEDIDOS.SQL.Text :=
-      'SELECT ' +
-      '    A.*, ' +
-      '    B.Qtdreal AS QuantidadeItem, ' +
-      '    CASE ' +
-      '        WHEN A.STATUS = ''P'' THEN ''PRÉ-VENDA'' ' +
-      '        WHEN A.STATUS = ''O'' THEN ''ORÇAMENTO'' ' +
-      '        ELSE ''OUTROS'' ' +
-      '    END AS Situacao ' +
-      'FROM TabEst3A A WITH (NOLOCK) ' +
-      'INNER JOIN TabEst3B B WITH (NOLOCK) ON A.Pedido = B.PEDIDO ' +
-      'WHERE A.Cancelada <> 1 ' +
-      '  AND A.VENDA <> 1 ' +
-      '  AND A.STATUS = ''P'' ' +
-      '  AND B.LkProduto = :LkProduto ' +
-      'ORDER BY A.Pedido DESC';
-
-    datamodule1.QRYPEDIDOS.ParamByName('LkProduto').AsInteger := DataModule1.QRYSEQ.FieldByName('Controle').AsInteger;
-
-    datamodule1.QRYPEDIDOS.Open;
-
-   datamodule1. DSQRYPEDIDOS.DataSet := datamodule1.QRYPEDIDOS;
-    DBCtrlGridpedidos.DataSource := datamodule1.DSQRYPEDIDOS;
-
-  except
-    on E: Exception do
-      ShowMessage('Erro ao carregar pedidos do produto: ' + E.Message);
-  end;
-end;
-
-
-
-
- procedure Tfrmmenu.Estoque_AjustarSaldo(sCodInterno: string; fNovaQuantidade: Extended; iLkUsuario: Integer);
+procedure Tformcontaestoque.Estoque_AjustarSaldo(sCodInterno: string; fNovaQuantidade: Extended; iLkUsuario: Integer);
 // Responsável por atualizar a quantidade na TABEST1
 begin
     datamodule1.QRYUPDATETABEST1.SQL.Text :=
@@ -3275,7 +2800,7 @@ end;
 
 
 
-procedure Tfrmmenu.Estoque_RegistrarMovimento(sCodInterno: string; fDiferenca: Extended; fEstoqueAnterior: Extended; fNovaQuantidade: Extended; iLkUsuario: Integer; iLkItem: Integer);
+procedure Tformcontaestoque.Estoque_RegistrarMovimento(sCodInterno: string; fDiferenca: Extended; fEstoqueAnterior: Extended; fNovaQuantidade: Extended; iLkUsuario: Integer; iLkItem: Integer);
 // Responsável por inserir o registro na TABEST1MOV
 var
   iLkOperacao: Integer;
@@ -3337,7 +2862,7 @@ end;
 
 
 
-procedure Tfrmmenu.AjustarEstoqueEAtualizarMovimento(Sender: TObject);
+procedure Tformcontaestoque.AjustarEstoqueEAtualizarMovimento(Sender: TObject);
 var
   sCodInterno, sProduto: string;
   fNovaQuantidade, fEstoqueAnterior, fDiferenca: Extended;
@@ -3453,7 +2978,7 @@ end;
 
 
 
-procedure Tfrmmenu.CalcularETotalizar;
+procedure Tformcontaestoque.CalcularETotalizar;
 var
   TotalCusto: Currency;
   TotalDiferenca: Currency;
@@ -3520,136 +3045,375 @@ begin
 end;
 
 
-
-procedure Tfrmmenu.CarregarListaBaseProdutos;
-var
-  SQLText: TStringList;
+procedure Tformcontaestoque.btnconsultprevendaClick(Sender: TObject);
 begin
-  // 1. Validação dos componentes (mantida para segurança)
-  if not Assigned(datamodule1.QRYPRODUTOSBASE) or not Assigned(datamodule1.DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
-  begin
-    ShowMessage('Erro: Os componentes QRYPRODUTOSBASE, DSQRYPRODUTOSBASE ou DBGRIDPRODUTOSBASE não foram criados ou atribuídos.');
-    Exit;
+  // 1. Cria ou exibe a instância do novo formulário
+  if not Assigned(Formposicaoest) then
+    Formposicaoest := TFormposicaoest.Create(Application);
+
+  // 2. Chama a procedure para carregar a posição, passando as datas como parâmetro
+  Formposicaoest.CarregarPosicaocodinternovendas; // <-- Esta linha está correta
+
+  // 3. Exibe o formulário
+  Formposicaoest.ShowModal;
+end;
+
+
+
+END.
+
+
+
+
+
+
+
+
+
+
+
+
+unit FRMSelectproduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TSelectProduto = class(TForm)
+    Panel1: TPanel;
+    Editselectproduto: TEdit;
+    Label1: TLabel;
+    DBGridprodutos: TDBGrid;
+    Label2: TLabel;
+    procedure LimparFormulario;
+    procedure EditselectprodutoChange(Sender: TObject);
+    procedure DBGridprodutosDblClick(Sender: TObject);
+    procedure DBGridprodutosKeyPress(Sender: TObject; var Key: Char);
+    procedure EditselectprodutoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
   end;
 
-  SQLText := TStringList.Create;
-  try
-    SQLText.Add('SELECT');
-    SQLText.Add('  P.Controle AS LkProduto,');
-    SQLText.Add('  P.CodInterno,');
-    SQLText.Add('  P.Produto,');
-    SQLText.Add('  G.Setor AS Grupo,');
-    SQLText.Add('  P.Fabricante AS Marca,');
-    SQLText.Add('  F.Empresa AS Fornecedor,');
+var
+  SelectProduto: TSelectProduto;
 
-    // =========================================================
-    // COLUNAS DE PREÇO E MARGEM SOLICITADAS DA TABEST1
-    // =========================================================
-    SQLText.Add('  P.PrecoCusto,');
-    SQLText.Add('  P.Lucro AS MargemVarejo,');         // Campo Lucro (Margem %)
-    SQLText.Add('  P.PrecoVenda AS PrecoVarejo,');      // Preço de Venda (Varejo)
+implementation
 
-    SQLText.Add('  P.PerPrazo AS PerPrazo,');          // Margem Prazo (PerPrazo)
-    SQLText.Add('  P.PrPrazo AS PrPrazo,');            // Preço Prazo (PrPrazo)
-    SQLText.Add('  P.PerAtacado AS PerAtacado,');      // Margem Atacado (PerAtacado)
-    SQLText.Add('  P.PrAtacado AS PrAtacado,');        // Preço Atacado (PrAtacado)
-    SQLText.Add('  P.PerMinimo AS PerMinimo,');        // Margem Mínima (PerMinimo)
-    SQLText.Add('  P.PrMinimo AS PrMinimo,');          // Preço Mínimo (PrMinimo)
+{$R *.dfm}
 
-    // Níveis de Atacado
-    SQLText.Add('  P.PrAtacado1 AS PrAtacado1,');
-    SQLText.Add('  P.PrAtacado2 AS PrAtacado2,');
-    SQLText.Add('  P.PrAtacado3 AS PrAtacado3,');
-    SQLText.Add('  P.PrAtacado4 AS PrAtacado4,');
-
-    // Outros campos para contexto
-    SQLText.Add('  P.Quantidade AS Estoque,');
-    SQLText.Add('  P.Quantidade * P.PrecoCusto AS CustoTotal,');
-    SQLText.Add('  P.Moeda AS Localizacao');
-
-    SQLText.Add('FROM tabest1 P WITH (NOLOCK)');
-    SQLText.Add('LEFT JOIN tabest8 G WITH (NOLOCK) ON P.LkSetor = G.Controle');
-    SQLText.Add('LEFT JOIN tabfor F WITH (NOLOCK) ON P.LkFornec = F.Controle');
-
-    // Filtros de Inatividade e Visibilidade (Padrão)
-    SQLText.Add('WHERE P.Inativo <> 1');
-    SQLText.Add('  AND P.NaoSaiTabela = 0');
-
-    // =========================================================
-    // APLICAÇÃO DOS FILTROS DA TELA (Mantida)
-    // =========================================================
-    if cmbgrupo.ItemIndex > 0 then
-      SQLText.Add('  AND G.Controle = :Grupo');
-
-    if cmbfornecedor.ItemIndex > 0 then
-      SQLText.Add('  AND F.Controle = :Fornecedor');
-
-    if cmbmarca.ItemIndex > 0 then
-      SQLText.Add('  AND P.Fabricante = :Marca');
-
-    if Trim(Editlocal.Text) <> '' then
-      SQLText.Add('  AND P.Moeda = :Localizacao');
-
-    SQLText.Add('ORDER BY P.Produto ASC');
-
-    // =========================================================
-    // EXECUÇÃO NO QRYPRODUTOSBASE E LIGAÇÃO DO GRID (Mantida)
-    // =========================================================
-    datamodule1.QRYPRODUTOSBASE.Close;
-    datamodule1.QRYPRODUTOSBASE.Params.Clear;
-    datamodule1.QRYPRODUTOSBASE.SQL.Text := SQLText.Text;
-    datamodule1.QRYPRODUTOSBASE.Connection := DataModule1.ConDados;
-
-    if cmbgrupo.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
-
-    if cmbfornecedor.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
-
-    if cmbmarca.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Marca').AsString := cmbmarca.Items[cmbmarca.ItemIndex];
-
-    if Trim(Editlocal.Text) <> '' then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Localizacao').AsString := Trim(Editlocal.Text);
-
-    try
-      datamodule1.QRYPRODUTOSBASE.Open;
-
-      datamodule1.DSQRYPRODUTOSBASE.DataSet := datamodule1.QRYPRODUTOSBASE;
-      DBGRIDPRODUTOSBASE.DataSource := datamodule1.DSQRYPRODUTOSBASE;
+uses CONEXAOBD, FRMCONTARESTOQUE, FRM_MENU, FRMALTERAPRECOS, FRMMOVIMENTO,
+  FRMPOSICAOESTOQUE, FRMSENHA;
 
 
-    except
-      on E: Exception do
-        ShowMessage('Erro ao carregar lista base de produtos: ' + E.Message);
-    end;
-  finally
-    SQLText.Free;
+procedure TSelectProduto.LimparFormulario;
+begin
+  Editselectproduto.Text := ''; // Limpa o campo de pesquisa
+  DBGridProdutos.DataSource := nil; // Remove a fonte de dados temporariamente
+  DataModule1.QRYSELECIONAPRODUTOS.Close; // Fecha a query
+  DataModule1.QRYSELECIONAPRODUTOS.SQL.Text := 'SELECT * FROM tabest1 WHERE 1=0'; // Query vazia
+  DataModule1.QRYSELECIONAPRODUTOS.Open; // Reabre a query vazia
+end;
+
+procedure TSelectProduto.DBGridprodutosDblClick(Sender: TObject);
+var
+  sCodInterno: string;
+  iNaoSaiTabela: Integer; // << Variável local para capturar o código do produto
+begin
+  if not DataModule1.qrySelecionaProdutos.IsEmpty then
+  begin
+    // Opção 1: Lê como booleano e converte (False=0, True=1)
+iNaoSaiTabela := Integer(DataModule1.qrySelecionaProdutos.FieldByName('NAOSAITABELA').AsBoolean);
+    Formalterapreco.labelproduto.caption := DataModule1.qrySelecionaProdutos.FieldByName('PRODUTO').AsString;
+
+    if Assigned(Formalterapreco.Editcodinterno) then
+      Formalterapreco.Editcodinterno.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODINTERNO').AsString;
+
+    if Assigned(Formalterapreco.Editcodbarra) then
+      Formalterapreco.Editcodbarra.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODBARRA').AsString;
+
+    if Assigned(Formalterapreco.Editcodfornecedor) then
+      Formalterapreco.Editcodfornecedor.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODFORNECEDOR').AsString;
+
+    if Assigned(Formalterapreco.Editcodorigem) then
+      Formalterapreco.Editcodorigem.Text := DataModule1.qrySelecionaProdutos.FieldByName('CODorigem').AsString;
+
+    if Assigned(Formalterapreco.Editgrupo) then
+      Formalterapreco.Editgrupo.Text := DataModule1.qrySelecionaProdutos.FieldByName('lksetor').AsString;
+
+    if Assigned(Formalterapreco.Editmarca) then
+      Formalterapreco.Editmarca.Text := DataModule1.qrySelecionaProdutos.FieldByName('fabricante').AsString;
+
+    if Assigned(Formalterapreco.Editfornecedor) then
+      Formalterapreco.Editfornecedor.Text := DataModule1.qrySelecionaProdutos.FieldByName('lkfornec').AsString;
+
+    if Assigned(Formalterapreco.Editlocalizacao) then
+      Formalterapreco.Editlocalizacao.Text := DataModule1.qrySelecionaProdutos.FieldByName('moeda').AsString;
+
+
+    if Assigned(Formalterapreco.DBTexestoqueloja) then
+      Formalterapreco.DBTexestoqueloja.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('quantidade').AsFloat);
+
+    if Assigned(Formalterapreco.DBTextestoquedeposito) then
+      Formalterapreco.DBTextestoquedeposito.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('qtddepos').AsFloat);
+
+    if Assigned(Formalterapreco.DBTextestoquefiscal) then
+      Formalterapreco.DBTextestoquefiscal.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('qtdfiscal').AsFloat);
+
+    if Assigned(Formalterapreco.DBTextestoqueminino) then
+      Formalterapreco.DBTextestoqueminino.caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('estminimo').AsFloat);
+
+    // DBTextestoquetotal deve ser verificado se é um TDBText (propriedade Caption) ou TDBEdit (propriedade Text)
+    if Assigned(Formalterapreco.DBTextestoquetotal) then
+      Formalterapreco.DBTextestoquetotal.Caption := FormatFloat('0.00', DataModule1.qrySelecionaProdutos.FieldByName('quantidade').AsFloat + DataModule1.qrySelecionaProdutos.FieldByName('qtddepos').AsFloat);
+
+
+    // INFORMAÇAO DE PREÇOS
+
+    // preço custo
+    if Assigned(Formalterapreco.Editprcusto) then
+      Formalterapreco.Editprcusto.Value := DataModule1.qrySelecionaProdutos.FieldByName('PrecoCusto').AsCurrency;
+
+    // Customedio
+    if Assigned(Formalterapreco.Editprcustomedio) then
+      Formalterapreco.Editprcustomedio.Value := DataModule1.qrySelecionaProdutos.FieldByName('CustoMedio').AsCurrency;
+
+
+    // Margem de Lucro Varejo 1
+    if Assigned(Formalterapreco.editmargemvarejo1) then
+      Formalterapreco.editmargemvarejo1.Value := DataModule1.qrySelecionaProdutos.FieldByName('Lucro').AsFloat;
+
+    // Margem de Lucro Varejo 2
+    if Assigned(Formalterapreco.editmargemvarejo2) then
+      Formalterapreco.editmargemvarejo2.Value := DataModule1.qrySelecionaProdutos.FieldByName('perprazo').AsFloat;
+
+
+    // Margem de Lucro Varejo 3
+    if Assigned(Formalterapreco.editmargemvarejo3) then
+      Formalterapreco.editmargemvarejo3.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado').AsFloat;
+
+    // Margem de Lucro Varejo 4
+    if Assigned(Formalterapreco.editmargemvarejo4) then
+      Formalterapreco.editmargemvarejo4.Value := DataModule1.qrySelecionaProdutos.FieldByName('perminimo').AsFloat;
+
+
+    // PRECO VAREJO 1
+    if Assigned(Formalterapreco.editprecovarejo1) then
+      Formalterapreco.editprecovarejo1.Value := DataModule1.qrySelecionaProdutos.FieldByName('precovenda').AsFloat;
+
+    // PRECO VAREJO 2
+    if Assigned(Formalterapreco.editprecovarejo2) then
+      Formalterapreco.editprecovarejo2.Value := DataModule1.qrySelecionaProdutos.FieldByName('prprazo').AsFloat;
+
+
+    // PRECO VAREJO 3
+    if Assigned(Formalterapreco.editprecovarejo3) then
+      Formalterapreco.editprecovarejo3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado').AsFloat;
+
+    // PRECO VAREJO 4
+    if Assigned(Formalterapreco.editprecovarejo4) then
+      Formalterapreco.editprecovarejo4.Value := DataModule1.qrySelecionaProdutos.FieldByName('prminimo').AsFloat;
+
+
+    // Margem de Lucro atacado 1
+    if Assigned(Formalterapreco.editmargematacado1) then
+      Formalterapreco.editmargematacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado1').AsFloat;
+
+    // Margem de Lucro atacado 2
+    if Assigned(Formalterapreco.editmargematacado2) then
+      Formalterapreco.editmargematacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado2').AsFloat;
+
+    // Margem de Lucro atacado 3
+    if Assigned(Formalterapreco.editmargematacado3) then
+      Formalterapreco.editmargematacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado3').AsFloat;
+
+    // Margem de Lucro atacado 4
+    if Assigned(Formalterapreco.editmargematacado4) then
+      Formalterapreco.editmargematacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('peratacado4').AsFloat;
+
+    // preço atacado 1
+    if Assigned(Formalterapreco.editprecoatacado1) then
+      Formalterapreco.editprecoatacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado1').AsFloat;
+
+    // preço atacado 2
+    if Assigned(Formalterapreco.editprecoatacado2) then
+      Formalterapreco.editprecoatacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado2').AsFloat;
+
+    // preço atacado 3
+    if Assigned(Formalterapreco.editprecoatacado3) then
+      Formalterapreco.editprecoatacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado3').AsFloat;
+
+    // preço atacado 4
+    if Assigned(Formalterapreco.editprecoatacado4) then
+      Formalterapreco.editprecoatacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado4').AsFloat;
+
+
+    // preço atacado unitario 1
+    if Assigned(Formalterapreco.editprecounatacado1) then
+      Formalterapreco.editprecounatacado1.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado1').AsFloat;
+
+    // preço atacado unitario 2
+    if Assigned(Formalterapreco.editprecounatacado2) then
+      Formalterapreco.editprecounatacado2.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado2').AsFloat;
+
+    // preço atacado unitario 3
+    if Assigned(Formalterapreco.editprecounatacado3) then
+      Formalterapreco.editprecounatacado3.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado3').AsFloat;
+
+    // preço atacado unitario 4
+    if Assigned(Formalterapreco.editprecounatacado4) then
+      Formalterapreco.editprecounatacado4.Value := DataModule1.qrySelecionaProdutos.FieldByName('pratacado4').AsFloat;
+
+    // quantidade na embalagem
+    if Assigned(Formalterapreco.editqtdembalagem) then
+      Formalterapreco.editqtdembalagem.text := DataModule1.qrySelecionaProdutos.FieldByName('qtdatacado').Asstring;
+
+    // quantidade mimina para atacado
+    if Assigned(Formalterapreco.editqtdminatacado) then
+      Formalterapreco.editqtdminatacado.text := DataModule1.qrySelecionaProdutos.FieldByName('qtdminpratacado').Asstring;
+
+
+    // data cadastro
+    if Assigned(Formalterapreco.dtdatacastro) then
+      Formalterapreco.dtdatacastro.Date := DataModule1.qrySelecionaProdutos.FieldByName('Data').AsDateTime; // Data de Cadastro
+
+    // data da última venda
+    if Assigned(Formalterapreco.dtultvenda) then
+      Formalterapreco.dtultvenda.Date := DataModule1.qrySelecionaProdutos.FieldByName('ultvenda').AsDateTime;
+
+    // data da última alteração geral
+    if Assigned(Formalterapreco.dtultalteracao) then
+      Formalterapreco.dtultalteracao.Date := DataModule1.qrySelecionaProdutos.FieldByName('DtAlteracao').AsDateTime;
+
+    // data da última compra/reajuste
+    if Assigned(Formalterapreco.dtultcompra) then
+      Formalterapreco.dtultcompra.Date := DataModule1.qrySelecionaProdutos.FieldByName('ultreaj').AsDateTime;
+
+    // usuarios que fizeram alteraçao
+    if Assigned(Formalterapreco.Editultalterar) then
+      Formalterapreco.Editultalterar.text := DataModule1.qrySelecionaProdutos.FieldByName ('lkusuario').Asstring;
+
+    if not DataModule1.qrySelecionaProdutos.IsEmpty then
+
+    // 1. CAPTURA o CodInterno do produto selecionado
+    // Este é o único dado necessário para o próximo passo.
+    sCodInterno := DataModule1.qrySelecionaProdutos.FieldByName('CODINTERNO').AsString;
+
+    if Assigned(Formalterapreco.RadioGroup1) then
+        begin
+            // 0 (Produto, não sai da tabela) ou 1 (Serviço, sai da tabela/não conta estoque)
+            Formalterapreco.RadioGroup1.ItemIndex := iNaoSaiTabela;
+        end;
+
+        Formalterapreco.AtualizarDiasSemAlteracao;
+        Formalterapreco. CarregarUltimoUsuarioAlteracao;
+
+    // 2. CRIA E ABRE o Formulário de Movimento (Tformmov)
+
+    // Cria a instância se ela não existir
+
+    Close;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   end;
 end;
 
 
 
+procedure TSelectProduto.DBGridprodutosKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then // Código para tecla Enter
+  begin
+    DBGridProdutosDblClick(Sender); // Chama o evento de duplo clique
+    Close; // Fecha o formulário de seleção
+  end;
+end;
+
+
+procedure TSelectProduto.EditSelectProdutoChange(Sender: TObject);
+var
+  sFiltro: string;
+  sTextoBusca: string;
+begin
+  // Texto a ser buscado (usado apenas uma vez para o QuotedStr)
+  sTextoBusca := QuotedStr('%' + EditSelectProduto.Text + '%');
+
+  // 1. Constrói a cláusula WHERE com todos os campos solicitados
+  sFiltro :=
+    'WHERE CODIGO LIKE ' + sTextoBusca +
+    ' OR CODINTERNO LIKE ' + sTextoBusca +
+    ' OR PRODUTO LIKE ' + sTextoBusca +
+    ' OR CODBARRA LIKE ' + sTextoBusca +          // << NOVO
+    ' OR CODFORNECEDOR LIKE ' + sTextoBusca +    // << NOVO
+    ' OR CODORIGEM LIKE ' + sTextoBusca +        // << NOVO
+    ' OR MOEDA LIKE ' + sTextoBusca;             // << NOVO (Localização)
+
+  with DataModule1.qrySelecionaProdutos do
+  begin
+    Close;
+
+    // NOTA: Usar 'SELECT *' pressupõe que a Query está configurada
+    // para buscar todos os campos necessários (incluindo NAOSAITABELA).
+    SQL.Text := 'SELECT * FROM TABEST1 ' + sFiltro;
+
+    Open;
+  end;
+
+  // Associa a query ao DBGrid
+  DBGridProdutos.DataSource := DataModule1.DSQRYSELECIONAPRODUTO;
+end;
 
 
 
+procedure TSelectProduto.EditselectprodutoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key = VK_DOWN then // Tecla para baixo
+  begin
+    DBGridProdutos.SetFocus; // Move o foco para o DBGrid
+    SendMessage(DBGridProdutos.Handle, WM_KEYDOWN, VK_DOWN, 0); // Simula a tecla para baixo
+  end
+  else if Key = VK_UP then // Tecla para cima
+  begin
+    DBGridProdutos.SetFocus; // Move o foco para o DBGrid
+    SendMessage(DBGridProdutos.Handle, WM_KEYDOWN, VK_UP, 0); // Simula a tecla para cima
+  end;
+end;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+procedure TSelectProduto.FormShow(Sender: TObject);
+begin
+EditSelectProduto.SetFocus;
+end;
 
 end.

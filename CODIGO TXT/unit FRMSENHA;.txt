@@ -1,0 +1,222 @@
+unit FRMSENHA;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Data.DB, MemDS, DBAccess, Uni,
+  System.DateUtils; // Adicionado para DayOf, MonthOf e HourOf
+
+type
+  TFRMSEN = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Cmbusuario: TComboBox;
+    EditSenha: TEdit;
+    Label2: TLabel;
+    btnlogar: TBitBtn;
+    QRYUSER: TUniQuery;
+    QRYSENHA: TUniQuery;
+    Panel2: TPanel;
+    procedure FormShow(Sender: TObject);
+    procedure CmbusuarioChange(Sender: TObject);
+    procedure btnlogarClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    FUsuarioControle: Integer;
+    property UsuarioControle: Integer read FUsuarioControle;
+
+  end;
+
+var
+  FRMSEN: TFRMSEN;
+
+implementation
+
+{$R *.dfm}
+
+uses CONEXAOBD, FRMCONTARESTOQUE;
+
+// -----------------------------------------------------------
+// FUNÇÕES AUXILIARES DE CRIPTOGRAFIA E SENHA DO DIA
+// -----------------------------------------------------------
+
+function Codifica(S: string): string;
+var
+  Cod: string;
+  I: integer;
+begin
+  S := S + #13 + '          ';
+  Cod := '';
+  for I := 9 downto 1 do
+    Cod := Cod + Copy(S, I, 1);
+  S := Copy(Cod, 4, 3) +
+       Copy(Cod, 1, 3) +
+       Copy(Cod, 7, 3);
+  Cod := '';
+  for I := 1 to 9 do
+  begin
+    if (I mod 2) = 0 then
+    begin
+      if ord(S[I]) = 255 then
+        Cod := Cod + #0
+      else
+        Cod := Cod + chr(ord(S[I]) + 1);
+    end
+    else
+    begin
+      if ord(S[I]) = 0 then
+        Cod := Cod + chr(255)
+      else
+        Cod := Cod + chr(ord(S[I]) - 1);
+    end;
+  end;
+  Result := Cod;
+end;
+
+function GeraSenhaDia: string;
+var
+  DiaNum, MesNum, HoraNum: Integer;
+begin
+  // Obtém o dia, mês e hora atuais
+  DiaNum := DayOf(Now);
+  MesNum := MonthOf(Now);
+  HoraNum := HourOf(Time);
+
+  // Aplica a lógica de cálculo (Dia + 100, Mês + 11, Hora)
+  Result := IntToStr(DiaNum + 100) + IntToStr(MesNum + 11) + IntToStr(HoraNum);
+end;
+
+
+function ChecaSenhaDia(S: string): boolean;
+var
+  SenhaMestra: string;
+begin
+  // 1. Gera a senha mestra atual
+  SenhaMestra := GeraSenhaDia;
+
+  // 2. Compara a senha digitada (S) com a Senha Mestra
+  Result := (S = SenhaMestra);
+end;
+
+// -----------------------------------------------------------
+// MÉTODOS DO FORMULÁRIO
+// -----------------------------------------------------------
+
+procedure TFRMSEN.btnlogarClick(Sender: TObject);
+var
+  SenhaDigitada, SenhaCodificada: string;
+  AcessoMestre: Boolean;
+begin
+  // 1. Prepara e verifica a senha
+  SenhaDigitada := EditSenha.Text;
+
+  // Codifica a senha digitada para verificação de BANCO DE DADOS
+  SenhaCodificada := Codifica(UpperCase(SenhaDigitada));
+
+  // Verifica se a senha digitada é a Senha Mestra do Dia
+  AcessoMestre := ChecaSenhaDia(SenhaDigitada);
+
+  // 2. Busca o usuário, a senha e o CONTROLE no banco de dados
+  QRYUSER.Close;
+  // A query busca a CODSENHA e o CONTROLE.
+  QRYUSER.SQL.Text := 'SELECT CODSENHA, CONTROLE FROM SERV WHERE USUARIO = :USUARIO';
+  QRYUSER.ParamByName('USUARIO').AsString := Cmbusuario.Text;
+  QRYUSER.Open;
+
+  if QRYUSER.IsEmpty then
+  begin
+    ShowMessage('Usuário não encontrado.');
+    Exit;
+  end;
+
+  // 3. Verifica o acesso: (Senha Mestra OU Senha Codificada = Senha do Banco)
+  if AcessoMestre or (QRYUSER.FieldByName('CODSENHA').AsString = SenhaCodificada) then
+  begin
+    // Se logou com qualquer uma das senhas, carrega o CONTROLE do usuário
+    FUsuarioControle := QRYUSER.FieldByName('CONTROLE').AsInteger;
+
+    // Opcional: Avisar sobre o tipo de acesso
+    if AcessoMestre then
+      ShowMessage('lOGIN REALIZADO COM SUCESSO!');
+
+    // Fecha o form e retorna sucesso
+    ModalResult := mrOk;
+  end
+  else
+  begin
+    ShowMessage('Senha incorreta.');
+    EditSenha.SetFocus;
+    EditSenha.SelectAll;
+  end;
+end;
+
+
+procedure TFRMSEN.CmbusuarioChange(Sender: TObject);
+begin
+  // 1. Garante que há um item selecionado
+  if Cmbusuario.ItemIndex >= 0 then
+  begin
+    // 2. Recupera o CONTROLE (Integer) armazenado e salva no campo privado
+    FUsuarioControle := Integer(Cmbusuario.Items.Objects[Cmbusuario.ItemIndex]);
+  end
+  else
+  begin
+    FUsuarioControle := 0; // Nenhum usuário selecionado
+  end;
+end;
+
+
+procedure TFRMSEN.FormShow(Sender: TObject);
+var
+  iControle: Integer;
+begin
+  Cmbusuario.Items.Clear;
+  FUsuarioControle := 0;
+  // Zera o controle ao iniciar
+
+  if Assigned(DataModule1) and DataModule1.ConDados.Connected then
+  begin
+    with QRYUSER do
+    begin
+      Close;
+      Connection := DataModule1.ConDados;
+
+      // 1. Busca USUARIO E CONTROLE APENAS ONDE HabAlteracaoQtdEstoque = 1
+      SQL.Text := 'SELECT USUARIO, CONTROLE FROM SERV WHERE HabExclusaoItemVenda = 1 ORDER BY USUARIO';
+      Open;
+
+      // 2. Carrega nomes e armazena o CONTROLE no TComboBox.Items.Objects
+      while not Eof do
+      begin
+        iControle := FieldByName('CONTROLE').AsInteger;
+        // Armazena o CONTROLE (Integer) no campo Objects (TObject)
+        Cmbusuario.Items.AddObject(
+          FieldByName('USUARIO').AsString,
+          TObject(iControle)
+        );
+        Next;
+      end;
+      Close;
+
+      // 3. Seleciona o primeiro usuário e atualiza a variável FUsuarioControle
+      if Cmbusuario.Items.Count > 0 then
+      begin
+        Cmbusuario.ItemIndex := 0;
+        // Chama a rotina Change para carregar o CONTROLE do primeiro item
+        CmbusuarioChange(Cmbusuario);
+        EditSenha.SetFocus;
+      end;
+    end;
+  end
+  else
+  begin
+    ShowMessage('Atenção: A conexão com o banco de dados não está ativa.');
+  end;
+end;
+
+end.

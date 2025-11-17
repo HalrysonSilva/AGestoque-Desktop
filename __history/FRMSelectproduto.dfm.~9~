@@ -2,8 +2,8 @@ object SelectProduto: TSelectProduto
   Left = 0
   Top = 0
   Caption = 'Produtos'
-  ClientHeight = 724
-  ClientWidth = 1079
+  ClientHeight = 658
+  ClientWidth = 945
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -12,13 +12,14 @@ object SelectProduto: TSelectProduto
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poMainFormCenter
+  WindowState = wsMaximized
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
   object Label2: TLabel
     Left = 0
     Top = 89
-    Width = 1079
+    Width = 945
     Height = 17
     Align = alTop
     Alignment = taCenter
@@ -28,18 +29,17 @@ object SelectProduto: TSelectProduto
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1079
+    Width = 945
     Height = 89
     Align = alTop
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 945
     object Label1: TLabel
       Left = 0
       Top = 0
-      Width = 1079
-      Height = 30
+      Width = 945
+      Height = 35
       Align = alTop
       Alignment = taCenter
       Caption = 'Pesquisar Produto'
@@ -52,14 +52,13 @@ object SelectProduto: TSelectProduto
       ParentColor = False
       ParentFont = False
       Transparent = False
-      ExplicitWidth = 174
     end
     object Editselectproduto: TEdit
       AlignWithMargins = True
       Left = 3
-      Top = 33
-      Width = 1073
-      Height = 40
+      Top = 38
+      Width = 939
+      Height = 33
       Align = alTop
       BevelInner = bvNone
       BevelOuter = bvRaised
@@ -73,13 +72,15 @@ object SelectProduto: TSelectProduto
       TextHint = 'C'#243'digo do produto'
       OnChange = EditselectprodutoChange
       OnKeyDown = EditselectprodutoKeyDown
+      ExplicitLeft = 6
+      ExplicitTop = 41
     end
   end
   object DBGridprodutos: TDBGrid
     Left = 0
     Top = 106
-    Width = 1079
-    Height = 618
+    Width = 945
+    Height = 552
     Align = alClient
     DataSource = DataModule1.DSQRYSELECIONAPRODUTO
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]

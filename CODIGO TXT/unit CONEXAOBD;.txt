@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Classes,MidasLib, Uni, UniProvider, SQLServerUniProvider, UniDacVcl, System.IniFiles,
   DBAccess, Data.DB, MemDS,   windows , forms,
     Vcl.Dialogs,  System.IOUtils, DASQLMonitor, UniSQLMonitor, Datasnap.DBClient,
-  frxClass, frxDBSet;
+  frxClass, frxDBSet, dxSkinsCore, dxSkinsDefaultPainters, cxClasses,
+  cxLookAndFeels, dxSkinsForm;
 
     const
   ARQUIVO_CONEXAO = 'Servcom.dll';
@@ -281,6 +282,8 @@ type
     qryTabest1movPrAtacado4Novo: TCurrencyField;
     qryTabest1movPerAtacado4Anterior: TFloatField;
     qryTabest1movPerAtacado4Novo: TFloatField;
+    QRY_BASE: TUniQuery;
+    QRY_DETALHES: TUniQuery;
 
 
 procedure DataModuleCreate(Sender: TObject); // DataSource para grid
@@ -305,7 +308,8 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses FRMAGESTOQUE, FRMSENHA;
+uses FRMCONTARESTOQUE, FRMSENHA, FRM_MENU, FRMALTERAPRECOS, FRMMOVIMENTO,
+  FRMPOSICAOESTOQUE, FRMSelectproduto;
 
 
 
