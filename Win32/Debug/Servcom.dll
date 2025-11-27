@@ -1,1 +1,1 @@
-Provider Name=SQL Server;Data Source=.\BASE;Initial Catalog=Servsic;User ID=sa;Password=123;Login Prompt=False
+Provider Name=SQL Server;Data Source=.\COMPUSERVE;Initial Catalog=Servsic;User ID=sa;Password=123;Login Prompt=False

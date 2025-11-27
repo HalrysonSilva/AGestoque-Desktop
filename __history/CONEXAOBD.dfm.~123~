@@ -9,6 +9,7 @@ object DataModule1: TDataModule1
     Database = 'SERVSIC'
     Username = 'sa'
     Server = '.\COMPUSERVE'
+    Connected = True
     ConnectDialog = UniConnectDialog1
     LoginPrompt = False
     Left = 40

@@ -6,9 +6,10 @@ object DataModule1: TDataModule1
   object ConDados: TUniConnection
     ProviderName = 'SQL Server'
     Port = 1433
-    Database = 'SERVSIC'
+    Database = 'Servsic'
     Username = 'sa'
-    Server = '.\COMPUSERVE'
+    Server = '.\BASE'
+    Connected = True
     ConnectDialog = UniConnectDialog1
     LoginPrompt = False
     Left = 40

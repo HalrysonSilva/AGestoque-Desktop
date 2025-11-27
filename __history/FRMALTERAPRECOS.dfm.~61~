@@ -44,7 +44,7 @@ object Formalterapreco: TFormalterapreco
         ParentFont = False
         Transparent = False
         StyleElements = []
-        ExplicitWidth = 67
+        ExplicitTop = 85
       end
       object Panel31: TPanel
         Left = 0
@@ -71,6 +71,7 @@ object Formalterapreco: TFormalterapreco
           ParentFont = False
           Transparent = False
           StyleElements = []
+          ExplicitTop = 1
           ExplicitWidth = 49
         end
         object LABELTOTAL: TLabel
@@ -101,6 +102,9 @@ object Formalterapreco: TFormalterapreco
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
+          ExplicitLeft = 550
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label78: TLabel
             AlignWithMargins = True
             Left = 4
@@ -210,6 +214,9 @@ object Formalterapreco: TFormalterapreco
           Color = clWhite
           ParentBackground = False
           TabOrder = 1
+          ExplicitLeft = 400
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label86: TLabel
             AlignWithMargins = True
             Left = 4
@@ -319,6 +326,9 @@ object Formalterapreco: TFormalterapreco
           Color = clWhite
           ParentBackground = False
           TabOrder = 2
+          ExplicitLeft = 209
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label85: TLabel
             AlignWithMargins = True
             Left = 4
@@ -385,7 +395,6 @@ object Formalterapreco: TFormalterapreco
             ParentFont = False
             TabOrder = 2
             OnChange = CEPERCENTUALATACADO1Change
-            ExplicitLeft = 2
           end
           object btnatualizaprecos: TBitBtn
             AlignWithMargins = True
@@ -533,6 +542,7 @@ object Formalterapreco: TFormalterapreco
             Caption = '% Padr'#227'o'
             TabOrder = 0
             OnClick = Button1Click
+            ExplicitTop = 308
           end
         end
         object Panel3: TPanel
@@ -543,6 +553,8 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           Caption = 'Panel3'
           TabOrder = 3
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label9: TLabel
             AlignWithMargins = True
             Left = 4
@@ -551,7 +563,9 @@ object Formalterapreco: TFormalterapreco
             Height = 17
             Align = alTop
             Caption = 'Descri'#231#227'o'
-            ExplicitWidth = 57
+            ExplicitLeft = 0
+            ExplicitTop = 39
+            ExplicitWidth = 406
           end
           object Panel1: TPanel
             Left = 209
@@ -562,6 +576,10 @@ object Formalterapreco: TFormalterapreco
             Color = clWhite
             ParentBackground = False
             TabOrder = 0
+            ExplicitLeft = 0
+            ExplicitTop = 1
+            ExplicitWidth = 209
+            ExplicitHeight = 335
             object Label1: TLabel
               AlignWithMargins = True
               Left = 11
@@ -618,6 +636,7 @@ object Formalterapreco: TFormalterapreco
               Align = alTop
               Style = csDropDownList
               TabOrder = 0
+              ExplicitWidth = 200
             end
             object cmbfornecedornaoconsulta: TComboBox
               AlignWithMargins = True
@@ -628,6 +647,7 @@ object Formalterapreco: TFormalterapreco
               Align = alTop
               Style = csDropDownList
               TabOrder = 1
+              ExplicitWidth = 200
             end
             object cmbmarcanaoconsulta: TComboBox
               AlignWithMargins = True
@@ -638,6 +658,7 @@ object Formalterapreco: TFormalterapreco
               Align = alTop
               Style = csDropDownList
               TabOrder = 2
+              ExplicitWidth = 200
             end
           end
           object Panel2: TPanel
@@ -649,6 +670,9 @@ object Formalterapreco: TFormalterapreco
             Color = clWhite
             ParentBackground = False
             TabOrder = 1
+            ExplicitLeft = -1
+            ExplicitTop = -2
+            ExplicitHeight = 272
             object Label2: TLabel
               AlignWithMargins = True
               Left = 11
@@ -855,6 +879,8 @@ object Formalterapreco: TFormalterapreco
             ParentDoubleBuffered = True
             TabOrder = 2
             OnClick = btnconsultarClick
+            ExplicitTop = 205
+            ExplicitWidth = 200
           end
           object EDITCONSULTA: TEdit
             AlignWithMargins = True
@@ -871,6 +897,8 @@ object Formalterapreco: TFormalterapreco
             ParentFont = False
             TabOrder = 3
             TextHint = 'Consultar'
+            ExplicitLeft = -5
+            ExplicitTop = 45
           end
         end
       end

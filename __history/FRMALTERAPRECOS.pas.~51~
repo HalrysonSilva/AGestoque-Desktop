@@ -833,6 +833,7 @@ end;
 procedure Tformalterapreco.AplicarAjusteDePrecosEmMassa;
 const
   PERC_BASE = 100.00;
+  // Descontos fixos Varejo (mantidos)
   DESCONTO_VAREJO_2 = -3.00;
   DESCONTO_VAREJO_3 = -6.00;
   DESCONTO_VAREJO_4 = -9.00;
@@ -845,18 +846,20 @@ var
   fVendaAnterior, fPrecoVarejoBase, fPrecoVendaNovo, fMargemVarejoNova, fNovoPrecoVarejo: Extended;
 
   // Variáveis Atacado
-  fPrAtacado1UnAnt: Extended;
-  fPerReajusteAtacado: Extended;
-  fNovoPrecoAtacadoUnico: Extended;
+  fPrAtacado1UnAnt: Extended;      // O valor que está no banco hoje
+  fPerReajusteAtacado: Extended;   // O percentual que você digitou (Ex: 20%)
+  fNovoPrecoAtacadoUnico: Extended; // O resultado final (Ex: 12,00)
+  fMargemAtacadoReal: Extended;    // A margem recalculada para gravar no cadastro
 
   // Inputs
   fPerVarejo1: Extended;
 
-  // Auxiliares Log
+  // Auxiliares Log (Valores Antigos)
   fCustoAnterior, fMargemVarejoAnterior, fPrPrazoAnterior, fPerPrazoAnt: Extended;
   fPrAtacadoVarejoAnterior, fPerAtacadoVarejoAnt, fPrMinimoAnterior, fPerMinimoAnt: Extended;
   fPrAtacado1Anterior, fPerAtacado1Ant: Extended;
 
+  // Auxiliares Log (Valores Novos)
   fPrPrazoNovo, fPerPrazoNovo, fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo: Extended;
   fPrMinimoNovo, fPerMinimoNovo, fPrAtacado1Novo, fPerAtacado1Novo: Extended;
 
@@ -870,36 +873,37 @@ begin
     Exit;
   end;
 
-  if MessageDlg('Confirma o reajuste?' + #13#10 +
-                'Varejo: Baseado no Preço Atual (Recalcula Margem)' + #13#10 +
-                'Atacado: Baseado no Unitário Atual (NÃO Recalcula Margem)',
+  if MessageDlg('Confirma o reajuste? (Varejo sobre Venda Atual / Atacado Unitário sobre Unitário Atual)',
     mtConfirmation, [mbYes, mbNo], 0) = mrNo then
     Exit;
 
-  // 2. MONTAGEM DO SQL (Garante que todos parâmetros existam)
+  // 2. CORREÇÃO DO SQL UPDATE (Garante que os campos existem)
   DataModule1.QRYALTERAPRECOS.Close;
   DataModule1.QRYALTERAPRECOS.SQL.Clear;
   DataModule1.QRYALTERAPRECOS.SQL.Add('UPDATE TabEst1 SET');
-
   // Varejo
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrecoVenda = :PrVarejo1, Lucro = :PerVarejo1,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrPrazo = :PrVarejo2, PerPrazo = :PerVarejo2,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado = :PrVarejo3, PerAtacado = :PerVarejo3,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrMinimo = :PrVarejo4, PerMinimo = :PerVarejo4,');
-
-  // Atacado Margem (Vamos apenas repassar o valor antigo)
-  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado1 = :PerAtacado1, PerAtacado2 = :PerAtacado2,');
-  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado3 = :PerAtacado3, PerAtacado4 = :PerAtacado4,');
-
-  // Atacado Preço Unitário (O que vai mudar)
-  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado1Un = :PrAtacado1Un, PrAtacado2Un = :PrAtacado2Un,');
-  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado3Un = :PrAtacado3Un, PrAtacado4Un = :PrAtacado4Un,');
-
+  // Atacado CAIXA (Mantém margem recalculada)
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado1 = :PerAtacado1,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado2 = :PerAtacado2,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado3 = :PerAtacado3,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado4 = :PerAtacado4,');
+  // Atacado UNITÁRIO (Os campos que queremos editar)
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado1Un = :PrAtacado1Un,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado2Un = :PrAtacado2Un,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado3Un = :PrAtacado3Un,');
+  DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado4Un = :PrAtacado4Un,');
+  // Auditoria
   DataModule1.QRYALTERAPRECOS.SQL.Add('  LkUsuario = :LkUsuario, DtAlteracao = GETDATE()');
   DataModule1.QRYALTERAPRECOS.SQL.Add('WHERE Controle = :Controle');
 
-  // 3. Inputs
+  // 3. Captura dos Inputs
   fPerVarejo1  := CEPERCENTUALVAREJO1.Value;
+
+  // IMPORTANTE: Aqui pegamos o valor digitado (Ex: 20)
   fPerReajusteAtacado := CEPERCENTUALATACADO1.Value;
 
   if Assigned(FRMSEN) then iLkUsuario := FRMSEN.UsuarioControle else iLkUsuario := 0;
@@ -909,7 +913,7 @@ begin
   iContador := 0;
 
   FrmEsperaLocal := TFRMESPERA.Create(Application);
-  FrmEsperaLocal.Label1.Caption := 'Processando...';
+  FrmEsperaLocal.Label1.Caption := 'Aplicando reajustes...';
   FrmEsperaLocal.Show;
   Application.ProcessMessages;
 
@@ -917,97 +921,107 @@ begin
     datamodule1.QRYPRODUTOSBASE.First;
     while not datamodule1.QRYPRODUTOSBASE.Eof do
     begin
-      try
-        // Leitura de Campos
-        fPrecoCusto    := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
-        fVendaAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoVarejo').AsFloat;
-        fPrAtacado1UnAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1Un').AsFloat;
+      // Leitura Banco
+      fPrecoCusto    := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
+      fVendaAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoVarejo').AsFloat;
 
-        // Leitura Antigos para Log
-        fCustoAnterior := fPrecoCusto;
-        fMargemVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('MargemVarejo').AsFloat;
-        fPrPrazoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrPrazo').AsFloat;
-        fPerPrazoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerPrazo').AsFloat;
-        fPrAtacadoVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado').AsFloat;
-        fPerAtacadoVarejoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado').AsFloat;
-        fPrMinimoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrMinimo').AsFloat;
-        fPerMinimoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerMinimo').AsFloat;
-        fPrAtacado1Anterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1').AsFloat;
-        fPerAtacado1Ant := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
+      // LEITURA DO UNITÁRIO 1 ATUAL (Sua Base de Cálculo)
+      fPrAtacado1UnAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1Un').AsFloat;
 
-        // =====================================================================
-        // 1. CÁLCULO VAREJO (MANTÉM LÓGICA DE MARGEM C/ PROTEÇÃO)
-        // =====================================================================
-        fPrecoVarejoBase := RoundTo(fVendaAnterior * (1 + (fPerVarejo1 / PERC_BASE)), -2);
-        fPrecoVendaNovo := fPrecoVarejoBase;
+      // VARIAVEIS DE LOG (Valores Antigos)
+      fCustoAnterior := fPrecoCusto;
+      fMargemVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('MargemVarejo').AsFloat;
+      fPrPrazoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrPrazo').AsFloat;
+      fPerPrazoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerPrazo').AsFloat;
+      fPrAtacadoVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado').AsFloat;
+      fPerAtacadoVarejoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado').AsFloat;
+      fPrMinimoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrMinimo').AsFloat;
+      fPerMinimoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerMinimo').AsFloat;
+      fPrAtacado1Anterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1').AsFloat;
+      fPerAtacado1Ant := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
 
-        // Proteção contra Custo Zero no Varejo
-        if fPrecoCusto > 0.01 then
-           fMargemVarejoNova := ((fPrecoVendaNovo - fPrecoCusto) / fPrecoCusto) * 100
-        else
-           fMargemVarejoNova := 100; // Define 100% se custo for zero para não travar
+      // -----------------------------------------------------------------------
+      // CÁLCULO VAREJO
+      // -----------------------------------------------------------------------
+      fPrecoVarejoBase := RoundTo(fVendaAnterior * (1 + (fPerVarejo1 / PERC_BASE)), -2);
+      fPrecoVendaNovo := fPrecoVarejoBase;
 
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat := fPrecoVendaNovo;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat := fMargemVarejoNova;
+      if fPrecoCusto > 0 then
+         fMargemVarejoNova := ((fPrecoVendaNovo - fPrecoCusto) / fPrecoCusto) * 100
+      else
+         fMargemVarejoNova := 100;
 
-        // Varejo Secundários
-        fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_2 / PERC_BASE)), -2);
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo2').AsFloat := fNovoPrecoVarejo;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo2').AsFloat := DESCONTO_VAREJO_2;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat := fPrecoVendaNovo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat := fMargemVarejoNova;
 
-        fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_3 / PERC_BASE)), -2);
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo3').AsFloat := fNovoPrecoVarejo;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo3').AsFloat := DESCONTO_VAREJO_3;
+      // Varejo Secundários
+      fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_2 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo2').AsFloat := fNovoPrecoVarejo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo2').AsFloat := DESCONTO_VAREJO_2;
 
-        fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_4 / PERC_BASE)), -2);
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat := fNovoPrecoVarejo;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat := DESCONTO_VAREJO_4;
+      fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_3 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo3').AsFloat := fNovoPrecoVarejo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo3').AsFloat := DESCONTO_VAREJO_3;
 
-        // =====================================================================
-        // 2. CÁLCULO ATACADO UNITÁRIO (SEM USAR CUSTO)
-        // =====================================================================
+      fNovoPrecoVarejo := RoundTo(fPrecoVarejoBase * (1 + (DESCONTO_VAREJO_4 / PERC_BASE)), -2);
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat := fNovoPrecoVarejo;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat := DESCONTO_VAREJO_4;
 
-        // Calcula apenas em cima do preço anterior
-        fNovoPrecoAtacadoUnico := RoundTo(fPrAtacado1UnAnt * (1 + (fPerReajusteAtacado / PERC_BASE)), -2);
+      // -----------------------------------------------------------------------
+      // CÁLCULO ATACADO UNITÁRIO (CORRIGIDO AQUI)
+      // -----------------------------------------------------------------------
 
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1Un').AsFloat := fNovoPrecoAtacadoUnico;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado2Un').AsFloat := fNovoPrecoAtacadoUnico;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3Un').AsFloat := fNovoPrecoAtacadoUnico;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4Un').AsFloat := fNovoPrecoAtacadoUnico;
+      // 1. Pega o Preço Antigo (Ex: 10,00)
+      // 2. Aplica o percentual digitado (Ex: 20%) -> 10 * 1.20 = 12,00
+      fNovoPrecoAtacadoUnico := RoundTo(fPrAtacado1UnAnt * (1 + (fPerReajusteAtacado / PERC_BASE)), -2);
 
-        // Mantém a MARGEM ANTIGA (Não faz conta de divisão)
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado2').AsFloat;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado3').AsFloat;
-        DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado4').AsFloat;
+      // 3. Aplica esse preço NOVO nos 4 campos
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1Un').AsFloat := fNovoPrecoAtacadoUnico;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado2Un').AsFloat := fNovoPrecoAtacadoUnico;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3Un').AsFloat := fNovoPrecoAtacadoUnico;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4Un').AsFloat := fNovoPrecoAtacadoUnico;
 
-        // EXECUTA
-        DataModule1.QRYALTERAPRECOS.ParamByName('Controle').AsInteger := datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger;
-        DataModule1.QRYALTERAPRECOS.ParamByName('LkUsuario').AsInteger := iLkUsuario;
-        DataModule1.QRYALTERAPRECOS.Execute;
+      // 4. Atualiza o cadastro da MARGEM DO ATACADO para ficar coerente com o custo
+      // (Isso evita que fique o valor "100" errado, ele calcula a margem real do novo preço)
+      if fPrecoCusto > 0 then
+         fMargemAtacadoReal := ((fNovoPrecoAtacadoUnico - fPrecoCusto) / fPrecoCusto) * 100
+      else
+         fMargemAtacadoReal := 100;
 
-        // Log (Usamos as margens antigas para o Atacado no Log tb)
-        Estoque_RegistrarMovimentoPreco(
-            datamodule1.QRYPRODUTOSBASE.FieldByName('CodInterno').AsString,
-            iLkUsuario, datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger,
-            fCustoAnterior, fVendaAnterior, fMargemVarejoAnterior, fPrPrazoAnterior, fPerPrazoAnt,
-            fPrAtacadoVarejoAnterior, fPerAtacadoVarejoAnt, fPrMinimoAnterior, fPerMinimoAnt,
-            fPrAtacado1Anterior, fPerAtacado1Ant,
-            fPrecoCusto, fPrecoVendaNovo, fMargemVarejoNova, fPrPrazoNovo, fPerPrazoNovo,
-            fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo, fPrMinimoNovo, fPerMinimoNovo,
-            fNovoPrecoAtacadoUnico, fPerAtacado1Ant // <--- Passa a margem antiga no log
-        );
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat := fMargemAtacadoReal;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat := fMargemAtacadoReal;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat := fMargemAtacadoReal;
+      DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat := fMargemAtacadoReal;
 
-        Inc(iContador);
+      // Var Log Atacado
+      fPrAtacado1Novo := fNovoPrecoAtacadoUnico;
+      fPerAtacado1Novo := fMargemAtacadoReal;
 
-      except
-        // Ignora falha pontual
-      end;
+      // Executa
+      DataModule1.QRYALTERAPRECOS.ParamByName('Controle').AsInteger := datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger;
+      DataModule1.QRYALTERAPRECOS.ParamByName('LkUsuario').AsInteger := iLkUsuario;
+      DataModule1.QRYALTERAPRECOS.Execute;
 
+      // Log
+      Estoque_RegistrarMovimentoPreco(
+          datamodule1.QRYPRODUTOSBASE.FieldByName('CodInterno').AsString,
+          iLkUsuario,
+          datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger,
+          // Antigos
+          fCustoAnterior, fVendaAnterior, fMargemVarejoAnterior, fPrPrazoAnterior, fPerPrazoAnt,
+          fPrAtacadoVarejoAnterior, fPerAtacadoVarejoAnt, fPrMinimoAnterior, fPerMinimoAnt,
+          fPrAtacado1Anterior, fPerAtacado1Ant,
+          // Novos
+          fPrecoCusto, fPrecoVendaNovo, fMargemVarejoNova, fPrPrazoNovo, fPerPrazoNovo,
+          fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo, fPrMinimoNovo, fPerMinimoNovo,
+          fPrAtacado1Novo, fPerAtacado1Novo
+      );
+
+      Inc(iContador);
       datamodule1.QRYPRODUTOSBASE.Next;
 
       if (iContador mod 50 = 0) then begin
-        FrmEsperaLocal.Label1.Caption := Format('Processando... %d ok.', [iContador]);
+        FrmEsperaLocal.Label1.Caption := Format('Atualizando... %d produtos.', [iContador]);
         Application.ProcessMessages;
       end;
     end;
@@ -1019,7 +1033,7 @@ begin
     on E: Exception do
     begin
       DataModule1.ConDados.Rollback;
-      ShowMessage('ERRO GERAL: ' + E.Message);
+      ShowMessage('ERRO: ' + E.Message);
     end;
   end;
 
@@ -1204,7 +1218,7 @@ begin
     SQLText.Add('  P.PerPrazo, P.PrPrazo, P.PerAtacado, P.PrAtacado, P.PerMinimo, P.PrMinimo,');
     SQLText.Add('  P.PrAtacado1, P.PrAtacado2, P.PrAtacado3, P.PrAtacado4,');
     SQLText.Add('  P.PerAtacado1, P.PerAtacado2, P.PerAtacado3, P.PerAtacado4,');
-    SQLText.Add('  P.PrAtacado1Un, P.PrAtacado2Un, P.PrAtacado3Un, P.PrAtacado4Un,');
+
     // CAMPOS DE DETALHE E AUDITORIA (AGORA DIVIDIDOS)
     SQLText.Add('  P.Data, P.CodBarra, P.CodFornecedor, P.CodORIGEM, P.LkSetor, P.Fabricante,');
     SQLText.Add('  P.LkFornec, P.Moeda, P.QtdAtacado, P.QtdMinPrAtacado, P.UltVenda, P.DtAlteracao,');
