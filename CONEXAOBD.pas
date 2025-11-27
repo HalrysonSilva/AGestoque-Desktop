@@ -1,4 +1,4 @@
-unit CONEXAOBD;
+Ôªøunit CONEXAOBD;
 
 interface
 
@@ -14,7 +14,7 @@ uses
 
 type
   TDataModule1 = class(TDataModule)
-    ConDados: TUniConnection; // Componente de conex„o
+    ConDados: TUniConnection; // Componente de conex√£o
 
     SQLServerUniProvider1: TSQLServerUniProvider;
     UniSQLMonitor1: TUniSQLMonitor;
@@ -43,10 +43,6 @@ type
     CDSPRODUTOSDiferenca: TFloatField;
     CDSPRODUTOSID_ORDEM: TIntegerField;
     DSCDSPRODUTOS: TDataSource;
-    DSCDSTOTAIS: TDataSource;
-    CDSTOTAIS: TClientDataSet;
-    CDSTOTAISTOTALCUSTO: TCurrencyField;
-    CDSTOTAISTOTALDIFERENCA: TCurrencyField;
     QRYPRODUTOSBASE: TUniQuery;
     DSQRYPRODUTOSBASE: TDataSource;
     qryTabest1mov: TUniQuery;
@@ -235,9 +231,15 @@ type
     QRY_BASE: TUniQuery;
     QRY_DETALHES: TUniQuery;
     UniTransaction1: TUniTransaction;
+    CDSTOTAIS: TClientDataSet;
+    DSCDSTOTAIS: TDataSource;
+    CDSTOTAISTOTALCUSTO: TCurrencyField;
+    CDSTOTAISTOTALDIFERENCA: TCurrencyField;
 
 
-procedure DataModuleCreate(Sender: TObject); // DataSource para grid
+procedure DataModuleCreate(Sender: TObject);
+
+    procedure CDSPRODUTOSCalcFields(DataSet: TDataSet); // DataSource para grid
   private
     procedure CarregarConexao(const NomeConnection: string;
       UniConnectDialog: TUniConnectDialog);
@@ -253,7 +255,7 @@ procedure DataModuleCreate(Sender: TObject); // DataSource para grid
   end;
 
 var
-  DataModule1: TDataModule1; // Inst‚ncia global do DataModule
+  DataModule1: TDataModule1; // Inst√¢ncia global do DataModule
 
 implementation
 
@@ -282,7 +284,7 @@ begin
   else
     sArquivo := PChar(ExtractFilePath(Application.ExeName) + sNomeArquivo);
 
-  // Caso seja um Arquivo sem SESS√O [] OU SEJA UM TXT
+  // Caso seja um Arquivo sem SESS√ÉO [] OU SEJA UM TXT
   if Topico <= ' ' then
   begin
     iPos := 0;
@@ -299,7 +301,7 @@ begin
       begin
         // iTamLinha := Length(sLinha);
         sLinha := Alltrim(Copy(sLinha, (iPos + iTam), 100));
-        // Ler AtÈ a PosiÁ„o Ponto e Virgula (;)
+        // Ler At√© a Posi√ß√£o Ponto e Virgula (;)
         iPos := Pos(';', UpperCase(sLinha));
         if iPos > 0 then
         begin
@@ -334,11 +336,11 @@ begin
   Connection := TUniConnection(FindComponent(NomeConnection));
   if not Assigned(Connection) then
   begin
-    ShowMessage('Componente ' + NomeConnection + ' n„o encontrado!');
+    ShowMessage('Componente ' + NomeConnection + ' n√£o encontrado!');
     Exit;
   end;
 
-  // Verifica se o arquivo de conex„o existe
+  // Verifica se o arquivo de conex√£o existe
   if FileExists(CaminhoArquivo) then
   begin
     ConnStr := Trim(TFile.ReadAllText(CaminhoArquivo, TEncoding.UTF8));
@@ -363,16 +365,40 @@ begin
   end
   else
   begin
-    // Se n„o existe, abre o di·logo de conex„o
+    // Se n√£o existe, abre o di√°logo de conex√£o
     if Assigned(UniConnectDialog) and UniConnectDialog.Execute then
     begin
       Connection.Connected := True;
       TFile.WriteAllText(CaminhoArquivo, Connection.ConnectString, TEncoding.UTF8);
     end
     else
-      ShowMessage('Arquivo de conex„o n„o encontrado e usu·rio cancelou a configuraÁ„o.');
+      ShowMessage('Arquivo de conex√£o n√£o encontrado e usu√°rio cancelou a configura√ß√£o.');
   end;
 end;
+
+procedure TDataModule1.CDSPRODUTOSCalcFields(DataSet: TDataSet);
+var
+  PrecoCusto: Currency;
+  Diferenca: Real; // ‚≠ê CR√çTICO: Usar Real (ou Extended) para ler ftFloat
+begin
+  // 1. Verifica√ß√£o de seguran√ßa: Evita erros se os campos estiverem nulos
+  if DataSet.FieldByName('DIFERENCA').IsNull or DataSet.FieldByName('PRECOCUSTO').IsNull then
+  begin
+    DataSet.FieldByName('ValorDiferenca').AsCurrency := 0;
+    Exit;
+  end;
+
+  // 2. Coleta os valores. PrecoCusto √© Currency.
+  PrecoCusto := DataSet.FieldByName('PrecoCusto').AsCurrency;
+
+  // 3. Coleta o valor da diferen√ßa de quantidade como Real (AsFloat)
+  Diferenca := DataSet.FieldByName('Diferenca').AsFloat;
+
+  // 4. Calcula o Valor Diferen√ßa (Custo Unit√°rio * Diferen√ßa de Quantidade)
+  DataSet.FieldByName('ValorDiferenca').AsCurrency := PrecoCusto * Diferenca;
+end;
+
+
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin
@@ -411,7 +437,7 @@ begin
   try
     sConfiguracao := TStringlist.Create;
     cfg_PathSistema := ExtractFilePath(Application.ExeName);
-    // BuscaPrimeiro Arquivo Raiz do ServSic, caso n„o exista, ent„o usa do Raiz NFetop
+    // BuscaPrimeiro Arquivo Raiz do ServSic, caso n√£o exista, ent√£o usa do Raiz NFetop
     // sArqConexao := cfg_PathSistema + 'Servcom.dll';
 
     sArqConexao := '..\Servsicx\ServCom.dll';
@@ -435,7 +461,7 @@ begin
         if not conDados.ConnectDialog.Execute then
         begin
           ShowMessage
-            ('ConfiguraÁ„o da conex„o com Banco de Dados SQL "CANCELADA PELO USUARIO"!');
+            ('Configura√ß√£o da conex√£o com Banco de Dados SQL "CANCELADA PELO USUARIO"!');
           Application.Terminate;
           Exit;
         end;
@@ -447,7 +473,7 @@ begin
         ELSE
         begin
           ShowMessage
-            ('FALHA na ConfiguraÁ„o da conex„o com Banco de Dados SQL!');
+            ('FALHA na Configura√ß√£o da conex√£o com Banco de Dados SQL!');
           Application.Terminate;
         end;
 
@@ -474,7 +500,7 @@ begin
 
       end;
 
-      // Conex„o SDac
+      // Conex√£o SDac
       if sParamServer > ' ' then
       begin
         conDados.Server := sParamServer;
@@ -529,6 +555,9 @@ begin
     Result := '';
    end;
 end;
+
+
+
 
 
 

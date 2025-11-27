@@ -169,19 +169,29 @@ type
     Panel48: TPanel;
     Btnconsultaaberto: TBitBtn;
     btnconsultamov: TBitBtn;
+    qrycarregaprodutos: TUniQuery;
+    qrycarregadetalhes: TUniQuery;
+    Panel3: TPanel;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label5: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    cmbgruponaoconsulta: TComboBox;
+    cmbfornecedornaoconsulta: TComboBox;
+    cmbmarcanaoconsulta: TComboBox;
     Panel2: TPanel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label6: TLabel;
-    Label5: TLabel;
     cmbgrupo: TComboBox;
     cmbfornecedor: TComboBox;
     cmbmarca: TComboBox;
     btnconsultar: TBitBtn;
-    Editlocal: TEdit;
-    qrycarregaprodutos: TUniQuery;
-    qrycarregadetalhes: TUniQuery;
+    EDITCONSULTA: TEdit;
+    Label9: TLabel;
+    LABELTOTAL: TLabel;
     procedure CEPERCENTUALATACADO1Change(Sender: TObject);
 
     procedure CarregarListaBaseProdutos;
@@ -205,7 +215,12 @@ type
     procedure CarregarUltimoUsuarioAlteracao;
     procedure btnatualizaprecosClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure CarregarFornecedoresnegativos;
+     procedure  CarregarMarcasnegativas;
+     procedure  CarregarGruposnegativos;
 
+    procedure ContarRegistrosGrid;
+    procedure CarregarDetalhesPorCodInterno(const sCodInterno: string);
     procedure DBGRIDPRODUTOSBASECellClick(Column: TColumn);
 
 
@@ -245,8 +260,10 @@ begin
   // Limpa o ComboBox
   cmbfornecedor.Items.Clear;
 
+
   // Adiciona a opção "Todos" com o valor 0
   cmbfornecedor.Items.AddObject('Todos', TObject(0));
+
 
   // Define a consulta SQL do seu QRYFORNECEDOR
   // A propriedade 'Sql.Text' do seu QRYFORNECEDOR deve ser configurada da seguinte forma:
@@ -258,8 +275,9 @@ begin
     while not datamodule1.qryfornecedor.Eof do
     begin
       // Adiciona o nome da empresa (texto visível) e guarda o controle (objeto)
-      cmbfornecedor.Items.AddObject(datamodule1.qryfornecedor.FieldByName('Empresa').AsString, TObject(datamodule1.qryfornecedor.FieldByName('Controle').AsInteger));
+       cmbfornecedor.Items.AddObject(datamodule1.qryfornecedor.FieldByName('Empresa').AsString, TObject(datamodule1.qryfornecedor.FieldByName('Controle').AsInteger));
       datamodule1.qryfornecedor.Next;
+
     end;
   finally
     // Fecha a query para liberar recursos
@@ -268,7 +286,70 @@ begin
 
   // Seleciona a primeira opção ("Todos") por padrão
   cmbfornecedor.ItemIndex := 0;
+
 end;
+
+
+
+
+
+
+procedure Tformalterapreco.CarregarFornecedoresnegativos;
+begin
+  // Garante que a conexão do componente QRYFORNECEDOR está ativa
+  if not datamodule1.qryfornecedor.Connection.Connected then
+    datamodule1.qryfornecedor.Connection.Connected := True;
+
+  // Limpa o ComboBox
+  cmbfornecedornaoconsulta.Items.Clear;
+
+
+  // Adiciona a opção "Todos" com o valor 0
+  cmbfornecedornaoconsulta.Items.AddObject('Todos', TObject(0));
+
+
+  // Define a consulta SQL do seu QRYFORNECEDOR
+  // A propriedade 'Sql.Text' do seu QRYFORNECEDOR deve ser configurada da seguinte forma:
+  // 'SELECT Controle, Empresa FROM tabfor ORDER BY Empresa'
+  // Abre a query para carregar os dados
+  datamodule1.qryfornecedor.Open;
+  try
+    // Popula o ComboBox com os dados
+    while not datamodule1.qryfornecedor.Eof do
+    begin
+      // Adiciona o nome da empresa (texto visível) e guarda o controle (objeto)
+       cmbfornecedornaoconsulta.Items.AddObject(datamodule1.qryfornecedor.FieldByName('Empresa').AsString, TObject(datamodule1.qryfornecedor.FieldByName('Controle').AsInteger));
+      datamodule1.qryfornecedor.Next;
+
+    end;
+  finally
+    // Fecha a query para liberar recursos
+    datamodule1.qryfornecedor.Close;
+  end;
+
+  // Seleciona a primeira opção ("Todos") por padrão
+  cmbfornecedornaoconsulta.ItemIndex := 0;
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   procedure Tformalterapreco.CarregarGrupos;
 begin
@@ -279,8 +360,10 @@ begin
   // Limpa o ComboBox
   cmbgrupo.Items.Clear;
 
+
   // Adiciona a opção "Todos" com o valor 0
   cmbgrupo.Items.AddObject('Todos', TObject(0));
+
 
   // Abre a query para carregar os dados
   datamodule1.qrygrupos.Open;
@@ -291,6 +374,7 @@ begin
       // Adiciona o nome do setor (texto visível) e guarda o controle (objeto)
       cmbgrupo.Items.AddObject(datamodule1.qrygrupos.FieldByName('Setor').AsString, TObject(datamodule1.qrygrupos.FieldByName('Controle').AsInteger));
       datamodule1.qrygrupos.Next;
+
     end;
   finally
     // Fecha a query para liberar recursos
@@ -299,7 +383,59 @@ begin
 
   // Seleciona a primeira opção ("Todos") por padrão
   cmbgrupo.ItemIndex := 0;
+
 end;
+
+
+
+
+
+
+
+ procedure Tformalterapreco.CarregarGruposnegativos;
+begin
+  // Garante que a conexão do componente QRYGRUPOS está ativa
+  if not datamodule1.qrygrupos.Connection.Connected then
+    datamodule1.qrygrupos.Connection.Connected := True;
+
+  // Limpa o ComboBox
+  cmbgruponaoconsulta.Items.Clear;
+
+
+  // Adiciona a opção "Todos" com o valor 0
+ cmbgruponaoconsulta.Items.AddObject('Todos', TObject(0));
+
+
+  // Abre a query para carregar os dados
+  datamodule1.qrygrupos.Open;
+  try
+    // Popula o ComboBox com os dados
+    while not datamodule1.qrygrupos.Eof do
+    begin
+      // Adiciona o nome do setor (texto visível) e guarda o controle (objeto)
+      cmbgruponaoconsulta.Items.AddObject(datamodule1.qrygrupos.FieldByName('Setor').AsString, TObject(datamodule1.qrygrupos.FieldByName('Controle').AsInteger));
+      datamodule1.qrygrupos.Next;
+
+    end;
+  finally
+    // Fecha a query para liberar recursos
+    datamodule1.qrygrupos.Close;
+  end;
+
+  // Seleciona a primeira opção ("Todos") por padrão
+  cmbgruponaoconsulta.ItemIndex := 0;
+
+end;
+
+
+
+
+
+
+
+
+
+
 
 
 procedure Tformalterapreco.CarregarMarcas;
@@ -337,6 +473,49 @@ begin
 
   // Seleciona a primeira opção ("Todos") por padrão
   cmbmarca.ItemIndex := 0;
+end;
+
+
+
+
+
+
+
+procedure Tformalterapreco.CarregarMarcasnegativas;
+var
+  Marca: string;
+begin
+  // Garante que a conexão do componente QRYMARCA está ativa
+  if not datamodule1.qrymarca.Connection.Connected then
+    datamodule1.qrymarca.Connection.Connected := True;
+
+  // Limpa o ComboBox
+  cmbmarcanaoconsulta.Items.Clear;
+
+  // Adiciona a opção "Todos"
+   cmbmarcanaoconsulta.Items.AddObject('Todos', TObject(0));
+
+  // Define a consulta SQL para buscar fabricantes únicos e não nulos
+  // A propriedade 'Sql.Text' do seu QRYMARCA deve ser configurada da seguinte forma:
+  // 'SELECT DISTINCT FABRICANTE FROM tabest1 WHERE FABRICANTE IS NOT NULL AND FABRICANTE <> '' ORDER BY FABRICANTE'
+  // Abre a query para carregar os dados
+  datamodule1.qrymarca.Open;
+  try
+    // Popula o ComboBox com os dados
+    while not datamodule1.qrymarca.Eof do
+    begin
+      Marca := datamodule1.qrymarca.FieldByName('FABRICANTE').AsString;
+      // Adiciona a marca (texto visível) e guarda a mesma string como objeto
+       cmbmarcanaoconsulta.Items.AddObject(Marca, TObject(Marca));
+      datamodule1.qrymarca.Next;
+    end;
+  finally
+    // Fecha a query para liberar recursos
+    datamodule1.qrymarca.Close;
+  end;
+
+  // Seleciona a primeira opção ("Todos") por padrão
+   cmbmarcanaoconsulta.ItemIndex := 0;
 end;
 
 
@@ -420,6 +599,7 @@ end;
 procedure TFormalterapreco.btnconsultarClick(Sender: TObject);
 begin
 CarregarListaBaseProdutos;
+ContarRegistrosGrid;
 end;
 
 procedure TFormalterapreco.Button1Click(Sender: TObject);
@@ -427,110 +607,7 @@ begin
 DefinirPercentuaisPadrao;
 end;
 
-procedure Tformalterapreco.CarregarListaBaseProdutos;
-var
-  SQLText: TStringList;
-begin
-  // 1. Validação dos componentes
-  if not Assigned(datamodule1.QRYPRODUTOSBASE) or not Assigned(datamodule1.DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
-  begin
-    ShowMessage('Erro: Os componentes QRYPRODUTOSBASE, DSQRYPRODUTOSBASE ou DBGRIDPRODUTOSBASE não foram criados ou atribuídos.');
-    Exit;
-  end;
 
-  SQLText := TStringList.Create;
-  try
-    SQLText.Add('SELECT');
-    SQLText.Add('  P.Controle AS LkProduto,');
-    SQLText.Add('  P.CodInterno,');
-    SQLText.Add('  P.Produto,');
-
-    // =========================================================
-    // COLUNAS DE PREÇO E MARGEM (TODAS DE TABEST1)
-    // =========================================================
-    SQLText.Add('  P.PrecoCusto,');
-    SQLText.Add('  P.Lucro AS MargemVarejo,');
-    SQLText.Add('  P.PrecoVenda AS PrecoVarejo,');
-
-    SQLText.Add('  P.PerPrazo AS PerPrazo,');
-    SQLText.Add('  P.PrPrazo AS PrPrazo,');
-    SQLText.Add('  P.PerAtacado AS PerAtacado,');
-    SQLText.Add('  P.PrAtacado AS PrAtacado,');
-    SQLText.Add('  P.PerMinimo AS PerMinimo,');
-    SQLText.Add('  P.PrMinimo AS PrMinimo,');
-
-    // Níveis de Atacado (Preços)
-    SQLText.Add('  P.PrAtacado1 AS PrAtacado1,');
-    SQLText.Add('  P.PrAtacado2 AS PrAtacado2,');
-    SQLText.Add('  P.PrAtacado3 AS PrAtacado3,');
-    SQLText.Add('  P.PrAtacado4 AS PrAtacado4,');
-
-    // Níveis de Atacado (Margens)
-    SQLText.Add('  P.PerAtacado1 AS PerAtacado1,');
-    SQLText.Add('  P.PerAtacado2 AS PerAtacado2,');
-    SQLText.Add('  P.PerAtacado3 AS PerAtacado3,');
-    SQLText.Add('  P.PerAtacado4 AS PerAtacado4');
-
-
-    SQLText.Add('FROM tabest1 P WITH (NOLOCK)');
-    // JOINS removidos, filtros aplicados diretamente na TABEST1
-
-    // Filtros de Inatividade e Visibilidade (Padrão)
-    SQLText.Add('WHERE P.Inativo <> 1');
-    SQLText.Add('  AND P.NaoSaiTabela = 0');
-
-    // =========================================================
-    // APLICAÇÃO DOS FILTROS DA TELA (Diretos na TABEST1)
-    // =========================================================
-    if cmbgrupo.ItemIndex > 0 then
-      SQLText.Add('  AND P.LkSetor = :Grupo');
-
-    if cmbfornecedor.ItemIndex > 0 then
-      SQLText.Add('  AND P.LkFornec = :Fornecedor');
-
-    if cmbmarca.ItemIndex > 0 then
-      SQLText.Add('  AND P.Fabricante = :Marca');
-
-    if Trim(Editlocal.Text) <> '' then
-      SQLText.Add('  AND P.Moeda = :Localizacao');
-
-    SQLText.Add('ORDER BY P.Produto ASC');
-
-    // =========================================================
-    // EXECUÇÃO E LIGAÇÃO DO GRID
-    // =========================================================
-    datamodule1.QRYPRODUTOSBASE.Close;
-    datamodule1.QRYPRODUTOSBASE.Params.Clear;
-    datamodule1.QRYPRODUTOSBASE.SQL.Text := SQLText.Text;
-    datamodule1.QRYPRODUTOSBASE.Connection := DataModule1.ConDados;
-
-    if cmbgrupo.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
-
-    if cmbfornecedor.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
-
-    if cmbmarca.ItemIndex > 0 then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Marca').AsString := cmbmarca.Items[cmbmarca.ItemIndex];
-
-    if Trim(Editlocal.Text) <> '' then
-      datamodule1.QRYPRODUTOSBASE.ParamByName('Localizacao').AsString := Trim(Editlocal.Text);
-
-    try
-      datamodule1.QRYPRODUTOSBASE.Open;
-
-      datamodule1.DSQRYPRODUTOSBASE.DataSet := datamodule1.QRYPRODUTOSBASE;
-      DBGRIDPRODUTOSBASE.DataSource := datamodule1.DSQRYPRODUTOSBASE;
-
-
-    except
-      on E: Exception do
-        ShowMessage('Erro ao carregar lista base de produtos: ' + E.Message);
-    end;
-  finally
-    SQLText.Free;
-  end;
-end;
 
 
 
@@ -675,203 +752,26 @@ end;
 
 
 
+
+
+
+
+
 procedure TFormalterapreco.DBGRIDPRODUTOSBASECellClick(Column: TColumn);
 var
-  QRY_BASE_LOCAL: TUniQuery;
-  iNaoSaiTabela: Integer;
   sCodInterno: string;
-  fEstoqueTotal: Extended; // Usaremos esta variável para a soma do estoque
 begin
-  // 1. Referencia a Query Local (mestra do grid)
-  QRY_BASE_LOCAL := Self.QRYCARREGAPRODUTOS;
-
-  if not QRY_BASE_LOCAL.IsEmpty then
+  // 1. Verifica se a Query está aberta e não está vazia.
+  if (DataModule1.QRYPRODUTOSBASE.Active) and (not DataModule1.QRYPRODUTOSBASE.IsEmpty) then
   begin
-    // NOTE: Esta rotina assume que a QRYCARREGAPRODUTOS já contém todos os campos da TABEST1.
-    // Isso é consistente com a sua procedure CarregarListaBaseProdutos.
+    // 2. Captura o CodInterno do registro atualmente selecionado no DataModule.
+    // O DBGrid garante que o cursor está posicionado no clique.
+    sCodInterno := DataModule1.QRYPRODUTOSBASE.FieldByName('CODINTERNO').AsString;
 
-    // Opção 1: Lê NaoSaiTabela (assume que NaoSaiTabela é um campo booleano/integer na QRY)
-    // NAOSAITABELA: Campo booleano da TabEst1 (1 ou 0).
-    // O RadioGroup1 deve ter índices 0 e 1 (0=Não sai da tabela, 1=Sai da tabela).
-    iNaoSaiTabela := Integer(QRY_BASE_LOCAL.FieldByName('NAOSAITABELA').AsBoolean);
-
-    // --- CALCULA O ESTOQUE TOTAL (Loja + Depósito) ---
-    // NOTA: A QRYCARREGAPRODUTOS não seleciona 'qtddepos' ou 'qtdfiscal', pois só faz SELECT na TABEST1
-    // que tem apenas o campo 'Quantidade'.
-    // SE for necessário QtdDepos, você precisará reabrir a QRY DETALHE ou revisar a QRY BASE.
-    // Por enquanto, vou carregar apenas os campos disponíveis na QRY BASE.
-
-    // =========================================================================
-    // 2. CARREGAMENTO DOS CÓDIGOS, ESTOQUE E LOCALIZAÇÃO
-    // =========================================================================
-
-    Formalterapreco.labelproduto.caption := QRY_BASE_LOCAL.FieldByName('PRODUTO').AsString;
-
-    if Assigned(Formalterapreco.Editcodinterno) then
-      Formalterapreco.Editcodinterno.Text := QRY_BASE_LOCAL.FieldByName('CODINTERNO').AsString;
-
-    if Assigned(Formalterapreco.Editcodbarra) and (QRY_BASE_LOCAL.FindField('CodBarra') <> nil) then
-      Formalterapreco.Editcodbarra.Text := QRY_BASE_LOCAL.FieldByName('CODBARRA').AsString;
-
-    if Assigned(Formalterapreco.Editcodfornecedor) and (QRY_BASE_LOCAL.FindField('CodFornecedor') <> nil) then
-      Formalterapreco.Editcodfornecedor.Text := QRY_BASE_LOCAL.FieldByName('CODFORNECEDOR').AsString;
-
-    // Assumindo que a QRY BASE TEM o campo CODORIGEM (da TabEst1)
-    if Assigned(Formalterapreco.Editcodorigem) and (QRY_BASE_LOCAL.FindField('CodORIGEM') <> nil) then
-      Formalterapreco.Editcodorigem.Text := QRY_BASE_LOCAL.FieldByName('CODorigem').AsString;
-
-    // Assumindo que a QRY BASE TEM os campos de LkSetor, Fabricante, etc.
-    if Assigned(Formalterapreco.Editgrupo) and (QRY_BASE_LOCAL.FindField('LkSetor') <> nil) then
-      Formalterapreco.Editgrupo.Text := QRY_BASE_LOCAL.FieldByName('lksetor').AsString;
-
-    if Assigned(Formalterapreco.Editmarca) and (QRY_BASE_LOCAL.FindField('Fabricante') <> nil) then
-      Formalterapreco.Editmarca.Text := QRY_BASE_LOCAL.FieldByName('fabricante').AsString;
-
-    if Assigned(Formalterapreco.Editfornecedor) and (QRY_BASE_LOCAL.FindField('LkFornec') <> nil) then
-      Formalterapreco.Editfornecedor.Text := QRY_BASE_LOCAL.FieldByName('lkfornec').AsString;
-
-    if Assigned(Formalterapreco.Editlocalizacao) and (QRY_BASE_LOCAL.FindField('Moeda') <> nil) then
-      Formalterapreco.Editlocalizacao.Text := QRY_BASE_LOCAL.FieldByName('moeda').AsString;
-
-    // --- ESTOQUES (Da TabEst1) ---
-    // Estoque Loja (Quantidade na TabEst1)
-    if Assigned(Formalterapreco.DBTexestoqueloja) then
-      Formalterapreco.DBTexestoqueloja.caption := FormatFloat('0.00', QRY_BASE_LOCAL.FieldByName('quantidade').AsFloat);
-
-    // QTDDEPOS e QTDFISCAL não estão na QRY BASE da TABEST1, mas sim na QRY DETALHE.
-    // Para simplificar, vou preencher com 0 e forçar o total:
-    if Assigned(Formalterapreco.DBTextestoquedeposito) then
-      Formalterapreco.DBTextestoquedeposito.caption := FormatFloat('0.00', 0.0);
-
-    if Assigned(Formalterapreco.DBTextestoquefiscal) then
-      Formalterapreco.DBTextestoquefiscal.caption := FormatFloat('0.00', 0.0);
-
-    // Estoque Mínimo
-    if Assigned(Formalterapreco.DBTextestoqueminino) and (QRY_BASE_LOCAL.FindField('EstMinimo') <> nil) then
-      Formalterapreco.DBTextestoqueminino.caption := FormatFloat('0.00', QRY_BASE_LOCAL.FieldByName('estminimo').AsFloat);
-
-    // Estoque Total (usa apenas o campo Quantidade, que é o estoque principal)
-    fEstoqueTotal := QRY_BASE_LOCAL.FieldByName('quantidade').AsFloat;
-
-    if Assigned(Formalterapreco.DBTextestoquetotal) then
-      Formalterapreco.DBTextestoquetotal.Caption := FormatFloat('0.00', fEstoqueTotal);
-
-
-    // =========================================================================
-    // 3. CARREGAMENTO DE PREÇOS E MARGENS (DIRETAMENTE DA QRY BASE)
-    // =========================================================================
-
-    // CUSTO
-    if Assigned(Formalterapreco.Editprcusto) then
-      Formalterapreco.Editprcusto.Value := QRY_BASE_LOCAL.FieldByName('PrecoCusto').AsCurrency;
-
-    if Assigned(Formalterapreco.Editprcustomedio) and (QRY_BASE_LOCAL.FindField('CustoMedio') <> nil) then
-      Formalterapreco.Editprcustomedio.Value := QRY_BASE_LOCAL.FieldByName('CustoMedio').AsCurrency; // Assumindo que CustoMedio está na QRY
-
-
-    // VAREJO 1 (PrecoVenda / Lucro)
-    if Assigned(Formalterapreco.editmargemvarejo1) then
-      Formalterapreco.editmargemvarejo1.Value := QRY_BASE_LOCAL.FieldByName('Lucro').AsFloat;
-    if Assigned(Formalterapreco.editprecovarejo1) then
-      Formalterapreco.editprecovarejo1.Value := QRY_BASE_LOCAL.FieldByName('precovenda').AsFloat;
-
-    // VAREJO 2 a 4 (Prazo, Atacado, Mínimo)
-    if Assigned(Formalterapreco.editmargemvarejo2) then
-      Formalterapreco.editmargemvarejo2.Value := QRY_BASE_LOCAL.FieldByName('perprazo').AsFloat;
-    if Assigned(Formalterapreco.editprecovarejo2) then
-      Formalterapreco.editprecovarejo2.Value := QRY_BASE_LOCAL.FieldByName('prprazo').AsFloat;
-
-    if Assigned(Formalterapreco.editmargemvarejo3) then
-      Formalterapreco.editmargemvarejo3.Value := QRY_BASE_LOCAL.FieldByName('peratacado').AsFloat;
-    if Assigned(Formalterapreco.editprecovarejo3) then
-      Formalterapreco.editprecovarejo3.Value := QRY_BASE_LOCAL.FieldByName('pratacado').AsFloat;
-
-    if Assigned(Formalterapreco.editmargemvarejo4) then
-      Formalterapreco.editmargemvarejo4.Value := QRY_BASE_LOCAL.FieldByName('perminimo').AsFloat;
-    if Assigned(Formalterapreco.editprecovarejo4) then
-      Formalterapreco.editprecovarejo4.Value := QRY_BASE_LOCAL.FieldByName('prminimo').AsFloat;
-
-
-    // ATACADO 1 a 4 (Margens e Preços)
-    if Assigned(Formalterapreco.editmargematacado1) then
-      Formalterapreco.editmargematacado1.Value := QRY_BASE_LOCAL.FieldByName('peratacado1').AsFloat;
-    if Assigned(Formalterapreco.editprecoatacado1) then
-      Formalterapreco.editprecoatacado1.Value := QRY_BASE_LOCAL.FieldByName('pratacado1').AsFloat;
-
-    if Assigned(Formalterapreco.editmargematacado2) then
-      Formalterapreco.editmargematacado2.Value := QRY_BASE_LOCAL.FieldByName('peratacado2').AsFloat;
-    if Assigned(Formalterapreco.editprecoatacado2) then
-      Formalterapreco.editprecoatacado2.Value := QRY_BASE_LOCAL.FieldByName('pratacado2').AsFloat;
-
-    if Assigned(Formalterapreco.editmargematacado3) then
-      Formalterapreco.editmargematacado3.Value := QRY_BASE_LOCAL.FieldByName('peratacado3').AsFloat;
-    if Assigned(Formalterapreco.editprecoatacado3) then
-      Formalterapreco.editprecoatacado3.Value := QRY_BASE_LOCAL.FieldByName('pratacado3').AsFloat;
-
-    if Assigned(Formalterapreco.editmargematacado4) then
-      Formalterapreco.editmargematacado4.Value := QRY_BASE_LOCAL.FieldByName('peratacado4').AsFloat;
-    if Assigned(Formalterapreco.editprecoatacado4) then
-      Formalterapreco.editprecoatacado4.Value := QRY_BASE_LOCAL.FieldByName('pratacado4').AsFloat;
-
-
-    // Preços Atacado Unitário (Assumindo que PrAtacado é o unitário)
-    if Assigned(Formalterapreco.editprecounatacado1) then
-      Formalterapreco.editprecounatacado1.Value := QRY_BASE_LOCAL.FieldByName('pratacado1').AsFloat;
-    if Assigned(Formalterapreco.editprecounatacado2) then
-      Formalterapreco.editprecounatacado2.Value := QRY_BASE_LOCAL.FieldByName('pratacado2').AsFloat;
-    if Assigned(Formalterapreco.editprecounatacado3) then
-      Formalterapreco.editprecounatacado3.Value := QRY_BASE_LOCAL.FieldByName('pratacado3').AsFloat;
-    if Assigned(Formalterapreco.editprecounatacado4) then
-      Formalterapreco.editprecounatacado4.Value := QRY_BASE_LOCAL.FieldByName('pratacado4').AsFloat;
-
-    // Quantidades Atacado/Embalagem
-    if Assigned(Formalterapreco.editqtdembalagem) and (QRY_BASE_LOCAL.FindField('QtdAtacado') <> nil) then
-      Formalterapreco.editqtdembalagem.text := QRY_BASE_LOCAL.FieldByName('qtdatacado').Asstring;
-    if Assigned(Formalterapreco.editqtdminatacado) and (QRY_BASE_LOCAL.FindField('QtdMinPrAtacado') <> nil) then
-      Formalterapreco.editqtdminatacado.text := QRY_BASE_LOCAL.FieldByName('qtdminpratacado').Asstring;
-
-
-    // =========================================================================
-    // 4. DATAS E AUDITORIA (Diretamente da QRY BASE)
-    // =========================================================================
-
-    // Data de Cadastro
-    if Assigned(Formalterapreco.dtdatacastro) and (QRY_BASE_LOCAL.FindField('Data') <> nil) then
-      Formalterapreco.dtdatacastro.Date := QRY_BASE_LOCAL.FieldByName('Data').AsDateTime;
-
-    // Data da Última Venda
-    if Assigned(Formalterapreco.dtultvenda) and (QRY_BASE_LOCAL.FindField('UltVenda') <> nil) then
-      Formalterapreco.dtultvenda.Date := QRY_BASE_LOCAL.FieldByName('ultvenda').AsDateTime;
-
-    // Data da Última Alteração Geral
-    if Assigned(Formalterapreco.dtultalteracao) and (QRY_BASE_LOCAL.FindField('DtAlteracao') <> nil) then
-      Formalterapreco.dtultalteracao.Date := QRY_BASE_LOCAL.FieldByName('DtAlteracao').AsDateTime;
-
-    // Data da Última Compra/Reajuste
-    if Assigned(Formalterapreco.dtultcompra) and (QRY_BASE_LOCAL.FindField('UltReaj') <> nil) then
-      Formalterapreco.dtultcompra.Date := QRY_BASE_LOCAL.FieldByName('ultreaj').AsDateTime;
-
-    // Usuário que fez a última alteração (LkUsuario)
-    if Assigned(Formalterapreco.Editultalterar) and (QRY_BASE_LOCAL.FindField('LkUsuario') <> nil) then
-      Formalterapreco.Editultalterar.text := QRY_BASE_LOCAL.FieldByName ('lkusuario').Asstring;
-
-    // --- LÓGICA DE CONTROLE ---
-
-    sCodInterno := QRY_BASE_LOCAL.FieldByName('CODINTERNO').AsString;
-
-    if Assigned(Formalterapreco.RadioGroup1) then
-      begin
-        // NAOSAITABELA: Campo booleano (0 ou 1)
-        Formalterapreco.RadioGroup1.ItemIndex := iNaoSaiTabela;
-      end;
-
-    Formalterapreco.AtualizarDiasSemAlteracao;
-    Formalterapreco.CarregarUltimoUsuarioAlteracao;
-
-    Close; // Fecha o formulário TFormSelectproduto (onde este código estava originalmente)
+    // 3. Chama a procedure que carrega todos os detalhes com base no CodInterno.
+    CarregarDetalhesPorCodInterno(sCodInterno);
   end;
 end;
-
 
 
 
@@ -920,6 +820,9 @@ begin
     CarregarMarcas;
     CarregarFornecedores;
     DefinirPercentuaisPadrao;
+    CarregarFornecedoresnegativos;
+    CarregarGruposnegativos;
+    CarregarMarcasnegativas;
 end;
 
 
@@ -1246,4 +1149,350 @@ end;
 
 
 
-end.
+
+procedure TFormalterapreco.CarregarListaBaseProdutos;
+var
+  SQLText: TStringList;
+  sTermoBusca: string;
+  iLkGrupoExcluir: Integer;
+  iLkFornecedorExcluir: Integer;
+  sMarcaExcluir: string;
+
+  // Variáveis para a busca inteligente por palavras
+  sPalavras: TStringList;
+  sPalavra: string;
+  sClausulaBuscaProduto: string;
+  i: Integer;
+begin
+  // 1. Validação dos componentes
+  if not Assigned(datamodule1.QRYPRODUTOSBASE) or not Assigned(datamodule1.DSQRYPRODUTOSBASE) or not Assigned(DBGRIDPRODUTOSBASE) then
+  begin
+    ShowMessage('Erro: Componentes de acesso a dados ou grid não foram criados.');
+    Exit;
+  end;
+
+  // Coleta e preparação do termo de busca
+  sTermoBusca := Trim(EDITCONSULTA.Text);
+
+  // Quebra o termo de busca em palavras individuais (ex: 'kit relacoes' -> 'kit', 'relacoes')
+  sPalavras := TStringList.Create;
+  if sTermoBusca <> '' then
+  begin
+      sPalavras.CommaText := StringReplace(sTermoBusca, ' ', ',', [rfReplaceAll]);
+  end;
+
+  // 2. Coleta dos parâmetros de EXCLUSÃO (código omitido para brevidade, mas está completo na sua unit)
+
+  iLkGrupoExcluir := 0;
+  if (cmbgruponaoconsulta.ItemIndex > 0) and (cmbgruponaoconsulta.Items.Objects[cmbgruponaoconsulta.ItemIndex] <> nil) then
+    iLkGrupoExcluir := Integer(cmbgruponaoconsulta.Items.Objects[cmbgruponaoconsulta.ItemIndex]);
+
+  iLkFornecedorExcluir := 0;
+  if (cmbfornecedornaoconsulta.ItemIndex > 0) and (cmbfornecedornaoconsulta.Items.Objects[cmbfornecedornaoconsulta.ItemIndex] <> nil) then
+    iLkFornecedorExcluir := Integer(cmbfornecedornaoconsulta.Items.Objects[cmbfornecedornaoconsulta.ItemIndex]);
+
+  sMarcaExcluir := '';
+  if (cmbmarcanaoconsulta.ItemIndex > 0) and (cmbmarcanaoconsulta.Items[cmbmarcanaoconsulta.ItemIndex] <> 'Todos') then
+    sMarcaExcluir := cmbmarcanaoconsulta.Items[cmbmarcanaoconsulta.ItemIndex];
+
+
+  SQLText := TStringList.Create;
+  try
+    // 3. MONTAGEM DA QUERY SELECT
+    SQLText.Add('SELECT');
+    SQLText.Add('  P.Controle AS LkProduto,');
+    SQLText.Add('  P.CodInterno,');
+    SQLText.Add('  P.Produto,');
+
+    // CAMPOS DE PREÇO/MARGEM
+    SQLText.Add('  P.PrecoCusto, P.Lucro AS MargemVarejo, P.PrecoVenda AS PrecoVarejo,');
+    SQLText.Add('  P.PerPrazo, P.PrPrazo, P.PerAtacado, P.PrAtacado, P.PerMinimo, P.PrMinimo,');
+    SQLText.Add('  P.PrAtacado1, P.PrAtacado2, P.PrAtacado3, P.PrAtacado4,');
+    SQLText.Add('  P.PerAtacado1, P.PerAtacado2, P.PerAtacado3, P.PerAtacado4,');
+
+    // CAMPOS DE DETALHE E AUDITORIA (AGORA DIVIDIDOS)
+    SQLText.Add('  P.Data, P.CodBarra, P.CodFornecedor, P.CodORIGEM, P.LkSetor, P.Fabricante,');
+    SQLText.Add('  P.LkFornec, P.Moeda, P.QtdAtacado, P.QtdMinPrAtacado, P.UltVenda, P.DtAlteracao,');
+    SQLText.Add('  P.UltReaj, P.LkUsuario, P.UltDtPreco, P.EstMinimo, P.Quantidade, P.QtdDepos,');
+    SQLText.Add('  P.QtdFiscal, P.NaoSaiTabela');
+
+    SQLText.Add('FROM tabest1 P WITH (NOLOCK)');
+
+    // Filtros base de Inatividade
+    SQLText.Add('WHERE P.Inativo <> 1');
+    SQLText.Add('  AND P.NaoSaiTabela = 0');
+
+    // 4. LÓGICA DE BUSCA TEXTUAL MELHORADA (Busca Inteligente)
+    if sTermoBusca <> '' then
+    begin
+        // a. Monta a cláusula AND para o campo PRODUTO (lógica de "todos os termos")
+        sClausulaBuscaProduto := '';
+        for i := 0 to sPalavras.Count - 1 do
+        begin
+            sPalavra := Trim(sPalavras[i]);
+            if sPalavra <> '' then
+            begin
+                // Acumula cada palavra com AND (Busca por 'kit' E 'relacoes')
+                sClausulaBuscaProduto := sClausulaBuscaProduto + ' AND P.Produto LIKE ' + QuotedStr('%' + sPalavra + '%');
+            end;
+        end;
+
+        // b. Aplica o filtro de busca inteligente + OR (busca completa) nos campos de código
+        if Length(sClausulaBuscaProduto) > 5 then
+        begin
+            // Remove o primeiro ' AND ' da string
+            sClausulaBuscaProduto := Copy(sClausulaBuscaProduto, 6, Length(sClausulaBuscaProduto));
+
+            SQLText.Add('  AND (');
+            // Busca Inteligente no PRODUTO
+            SQLText.Add('      (' + sClausulaBuscaProduto + ')');
+
+            // OU busca o termo completo nos outros campos de código (mantendo a flexibilidade)
+            SQLText.Add('    OR P.CodInterno LIKE :BuscaCompleta');
+            SQLText.Add('    OR P.CodFornecedor LIKE :BuscaCompleta');
+            SQLText.Add('    OR P.CodBarra LIKE :BuscaCompleta');
+            SQLText.Add('  )');
+        end;
+    end
+    else
+    begin
+        // 5. APLICAÇÃO DOS FILTROS DE INCLUSÃO (Se não houver termo de busca)
+        if cmbgrupo.ItemIndex > 0 then
+          SQLText.Add('  AND P.LkSetor = :Grupo');
+
+        if cmbfornecedor.ItemIndex > 0 then
+          SQLText.Add('  AND P.LkFornec = :Fornecedor');
+
+        if cmbmarca.ItemIndex > 0 then
+          SQLText.Add('  AND P.Fabricante = :Marca');
+    end;
+
+    // 6. APLICAÇÃO DOS FILTROS DE EXCLUSÃO (Sempre aplicados)
+    if iLkGrupoExcluir > 0 then
+      SQLText.Add('  AND P.LkSetor <> :GrupoExcluir');
+
+    if iLkFornecedorExcluir > 0 then
+      SQLText.Add('  AND P.LkFornec <> :FornecedorExcluir');
+
+    if sMarcaExcluir <> '' then
+      SQLText.Add('  AND P.Fabricante <> :MarcaExcluir');
+
+    SQLText.Add('ORDER BY P.Produto ASC');
+
+    // 7. EXECUÇÃO E ATRIBUIÇÃO DE PARÂMETROS
+    datamodule1.QRYPRODUTOSBASE.Close;
+    datamodule1.QRYPRODUTOSBASE.Params.Clear;
+    datamodule1.QRYPRODUTOSBASE.SQL.Text := SQLText.Text;
+    datamodule1.QRYPRODUTOSBASE.Connection := DataModule1.ConDados;
+
+    // Parâmetros
+    if sTermoBusca <> '' then
+      // O parâmetro 'BuscaCompleta' é usado apenas na busca por códigos
+      datamodule1.QRYPRODUTOSBASE.ParamByName('BuscaCompleta').AsString := '%' + sTermoBusca + '%'
+    else
+    begin
+      // Parâmetros de INCLUSÃO (se não houver busca textual)
+      if cmbgrupo.ItemIndex > 0 then
+        datamodule1.QRYPRODUTOSBASE.ParamByName('Grupo').AsInteger := Integer(cmbgrupo.Items.Objects[cmbgrupo.ItemIndex]);
+
+      if cmbfornecedor.ItemIndex > 0 then
+        datamodule1.QRYPRODUTOSBASE.ParamByName('Fornecedor').AsInteger := Integer(cmbfornecedor.Items.Objects[cmbfornecedor.ItemIndex]);
+
+      if cmbmarca.ItemIndex > 0 then
+        datamodule1.QRYPRODUTOSBASE.ParamByName('Marca').AsString := cmbmarca.Items[cmbmarca.ItemIndex];
+    end;
+
+    // Parâmetros de EXCLUSÃO
+    if iLkGrupoExcluir > 0 then
+      datamodule1.QRYPRODUTOSBASE.ParamByName('GrupoExcluir').AsInteger := iLkGrupoExcluir;
+
+    if iLkFornecedorExcluir > 0 then
+      datamodule1.QRYPRODUTOSBASE.ParamByName('FornecedorExcluir').AsInteger := iLkFornecedorExcluir;
+
+    if sMarcaExcluir <> '' then
+      datamodule1.QRYPRODUTOSBASE.ParamByName('MarcaExcluir').AsString := sMarcaExcluir;
+
+    try
+      datamodule1.QRYPRODUTOSBASE.Open;
+      datamodule1.DSQRYPRODUTOSBASE.DataSet := datamodule1.QRYPRODUTOSBASE;
+      DBGRIDPRODUTOSBASE.DataSource := datamodule1.DSQRYPRODUTOSBASE;
+
+      // Carrega os detalhes do primeiro registro após a busca (Usando a lógica CodInterno)
+      if not datamodule1.QRYPRODUTOSBASE.IsEmpty then
+      begin
+          CarregarDetalhesPorCodInterno(datamodule1.QRYPRODUTOSBASE.FieldByName('CODINTERNO').AsString);
+      end;
+
+      ContarRegistrosGrid;
+
+    except
+      on E: Exception do
+        ShowMessage('Erro ao carregar lista base de produtos: ' + E.Message);
+    end;
+  finally
+    SQLText.Free;
+    sPalavras.Free;
+  end;
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+procedure TFormalterapreco.ContarRegistrosGrid;
+var
+  iContagem: Integer;
+begin
+  // 1. Garante que a query existe e está aberta
+  if Assigned(datamodule1.QRYPRODUTOSBASE) and datamodule1.QRYPRODUTOSBASE.Active then
+  begin
+    // 2. Coleta a contagem de registros.
+    iContagem := datamodule1.QRYPRODUTOSBASE.RecordCount;
+
+    // 3. Exibe o resultado na LABELTOTAL, se ela estiver atribuída.
+    if Assigned(LABELTOTAL) then
+    begin
+      // Exibe a mensagem formatada. Por exemplo: "Total: 150 produtos"
+      LABELTOTAL.Caption := Format('Total de Registros: %d', [iContagem]);
+    end
+    else
+    begin
+      // Mensagem de fallback, caso a label não exista no DFM
+      ShowMessage(Format('Total de registros encontrados na lista: %d', [iContagem]));
+    end;
+  end
+  else
+  begin
+    // Limpa a label se a lista não estiver aberta ou se não houver registros
+    if Assigned(LABELTOTAL) then
+      LABELTOTAL.Caption := 'Total de Registros: 0';
+  end;
+end;
+
+
+
+
+procedure TFormalterapreco.CarregarDetalhesPorCodInterno(const sCodInterno: string);
+var
+  QRY_DETALHE: TUniQuery;
+  fEstoqueTotal: Extended;
+  dDtUltPreco: TDateTime;
+begin
+  if Trim(sCodInterno) = '' then
+    Exit;
+
+  // 1. Configurar e Executar a Query de Detalhe
+  QRY_DETALHE := DataModule1.QRYPRODUTOSDETALHES;
+
+  with QRY_DETALHE do
+  begin
+    Close;
+
+    // Você deve definir o SQL para buscar todos os campos da TABEST1
+    // SELECT * FROM TABEST1 WHERE CodInterno = :CodInt
+    SQL.Text := 'SELECT * FROM TABEST1 WHERE CodInterno = :CodInt';
+
+    // Opcional: Se a QRYPRODUTOSDETALHES já tem o SQL definido, use apenas o filtro:
+    // SQL.Text := 'SELECT * FROM TABEST1 WHERE CodInterno = :CodInt';
+
+    ParamByName('CodInt').AsString := sCodInterno;
+    Open;
+  end;
+
+  if QRY_DETALHE.IsEmpty then
+  begin
+    ShowMessage('Produto com Código Interno "' + sCodInterno + '" não encontrado.');
+    Exit;
+  end;
+
+  // 2. CARREGAMENTO DOS CAMPOS NO FORMULÁRIO
+  with QRY_DETALHE do
+  begin
+    // DADOS BÁSICOS E IDENTIFICAÇÃO (Removido NAOSAITABELA)
+    labelproduto.caption       := FieldByName('PRODUTO').AsString;
+    Editcodinterno.Text        := FieldByName('CODINTERNO').AsString;
+    Editcodbarra.Text          := FieldByName('CODBARRA').AsString;
+    Editcodfornecedor.Text     := FieldByName('CODFORNECEDOR').AsString;
+    Editcodorigem.Text         := FieldByName('CODORIGEM').AsString;
+
+    Editgrupo.Text             := FieldByName('lksetor').AsString;
+    Editmarca.Text             := FieldByName('fabricante').AsString;
+    Editfornecedor.Text        := FieldByName('lkfornec').AsString;
+    Editlocalizacao.Text       := FieldByName('moeda').AsString; // Usando MOEDA como Localização
+
+    // ESTOQUES (Carrega todos os estoques completos da TABEST1)
+    DBTexestoqueloja.caption   := FormatFloat('0.00', FieldByName('quantidade').AsFloat);
+    DBTextestoquedeposito.caption := FormatFloat('0.00', FieldByName('qtddepos').AsFloat);
+    DBTextestoquefiscal.caption   := FormatFloat('0.00', FieldByName('qtdfiscal').AsFloat);
+    DBTextestoqueminino.caption   := FormatFloat('0.00', FieldByName('estminimo').AsFloat);
+
+    fEstoqueTotal := FieldByName('quantidade').AsFloat + FieldByName('qtddepos').AsFloat;
+    DBTextestoquetotal.Caption    := FormatFloat('0.00', fEstoqueTotal);
+
+    // Qtds Atacado
+    editqtdembalagem.text      := FieldByName('qtdatacado').Asstring;
+    editqtdminatacado.text     := FieldByName('qtdminpratacado').Asstring;
+
+    // PREÇOS E MARGENS
+    Editprcusto.Value          := FieldByName('PrecoCusto').AsCurrency;
+    Editprcustomedio.Value     := FieldByName('CustoMedio').AsCurrency;
+
+    // Margens Varejo (1 a 4)
+    editmargemvarejo1.Value    := FieldByName('Lucro').AsFloat;
+    editmargemvarejo2.Value    := FieldByName('perprazo').AsFloat;
+    editmargemvarejo3.Value    := FieldByName('peratacado').AsFloat;
+    editmargemvarejo4.Value    := FieldByName('perminimo').AsFloat;
+
+    // Preços Varejo (1 a 4)
+    editprecovarejo1.Value     := FieldByName('precovenda').AsFloat;
+    editprecovarejo2.Value     := FieldByName('prprazo').AsFloat;
+    editprecovarejo3.Value     := FieldByName('pratacado').AsFloat;
+    editprecovarejo4.Value     := FieldByName('prminimo').AsFloat;
+
+    // Margens Atacado (1 a 4)
+    editmargematacado1.Value   := FieldByName('peratacado1').AsFloat;
+    editmargematacado2.Value   := FieldByName('peratacado2').AsFloat;
+    editmargematacado3.Value   := FieldByName('peratacado3').AsFloat;
+    editmargematacado4.Value   := FieldByName('peratacado4').AsFloat;
+
+    // Preços Atacado (1 a 4)
+    editprecoatacado1.Value    := FieldByName('pratacado1').AsFloat;
+    editprecoatacado2.Value    := FieldByName('pratacado2').AsFloat;
+    editprecoatacado3.Value    := FieldByName('pratacado3').AsFloat;
+    editprecoatacado4.Value    := FieldByName('pratacado4').AsFloat;
+
+    // Preços Atacado Unitário (1 a 4)
+    editprecounatacado1.Value  := FieldByName('pratacado1').AsFloat;
+    editprecounatacado2.Value  := FieldByName('pratacado2').AsFloat;
+    editprecounatacado3.Value  := FieldByName('pratacado3').AsFloat;
+    editprecounatacado4.Value  := FieldByName('pratacado4').AsFloat;
+
+    // DATAS E USUÁRIOS
+    dtdatacastro.Date          := FieldByName('Data').AsDateTime;
+    dtultvenda.Date            := FieldByName('ultvenda').AsDateTime;
+    dtultalteracao.Date        := FieldByName('DtAlteracao').AsDateTime;
+    dtultcompra.Date           := FieldByName('ultreaj').AsDateTime;
+    Editultalterar.Text        := FieldByName('lkusuario').Asstring;
+
+    // Data da Última Alteração de Preço
+    dDtUltPreco := 0;
+    if (FindField('UltDtPreco') <> nil) then
+      dDtUltPreco := FieldByName('UltDtPreco').AsDateTime;
+    dtultalteracaopreco.Date := dDtUltPreco;
+
+    // 3. CHAMADAS DE AUDITORIA
+    AtualizarDiasSemAlteracao; // Utiliza a data de dtultalteracaopreco
+    CarregarUltimoUsuarioAlteracao; // Utiliza Editcodinterno.Text
+
+  end;
+END;
+
+
+END.

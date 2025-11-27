@@ -772,6 +772,7 @@ object DataModule1: TDataModule1
   object CDSPRODUTOS: TClientDataSet
     Aggregates = <>
     Params = <>
+    OnCalcFields = CDSPRODUTOSCalcFields
     Left = 145
     Top = 135
     object CDSPRODUTOSCodInterno: TStringField
@@ -840,23 +841,6 @@ object DataModule1: TDataModule1
     DataSet = CDSPRODUTOS
     Left = 145
     Top = 191
-  end
-  object DSCDSTOTAIS: TDataSource
-    DataSet = CDSTOTAIS
-    Left = 145
-    Top = 256
-  end
-  object CDSTOTAIS: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    Left = 144
-    Top = 318
-    object CDSTOTAISTOTALCUSTO: TCurrencyField
-      FieldName = 'TOTALCUSTO'
-    end
-    object CDSTOTAISTOTALDIFERENCA: TCurrencyField
-      FieldName = 'TOTALDIFERENCA'
-    end
   end
   object QRYPRODUTOSBASE: TUniQuery
     Connection = ConDados
@@ -1128,7 +1112,7 @@ object DataModule1: TDataModule1
     PrintOptions.Printer = 'Padr'#227'o'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45909.508089456000000000
-    ReportOptions.LastChange = 45961.391159166670000000
+    ReportOptions.LastChange = 45988.663786967590000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1854,6 +1838,8 @@ object DataModule1: TDataModule1
           AutoWidth = True
           DataSet = DBTOTAIS
           DataSetName = 'CDSTOTAIS'
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -16
@@ -1875,6 +1861,8 @@ object DataModule1: TDataModule1
           AutoWidth = True
           DataSet = DBTOTAIS
           DataSetName = 'CDSTOTAIS'
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -16
@@ -2541,5 +2529,22 @@ object DataModule1: TDataModule1
     DefaultConnection = ConDados
     Left = 128
     Top = 16
+  end
+  object CDSTOTAIS: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 512
+    Top = 456
+    object CDSTOTAISTOTALCUSTO: TCurrencyField
+      FieldName = 'TOTALCUSTO'
+    end
+    object CDSTOTAISTOTALDIFERENCA: TCurrencyField
+      FieldName = 'TOTALDIFERENCA'
+    end
+  end
+  object DSCDSTOTAIS: TDataSource
+    DataSet = CDSTOTAIS
+    Left = 512
+    Top = 400
   end
 end

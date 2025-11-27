@@ -139,7 +139,6 @@ type
     Panel37: TPanel;
     btnrelatpositivo: TBitBtn;
     btnrelatnegativo: TBitBtn;
-    btnrelacorreto: TBitBtn;
     btnatualizaestoque: TBitBtn;
     Panel12: TPanel;
     Panel13: TPanel;
@@ -184,7 +183,6 @@ type
     btnsalvaprog: TBitBtn;
     btnapagar: TBitBtn;
     btnlimpalista: TBitBtn;
-    SpeedButton1: TSpeedButton;
 
     procedure CarregarGrupos;
     procedure CarregarMarcas;
@@ -197,10 +195,10 @@ type
 
     procedure btnrelatpositivoClick(Sender: TObject);
     procedure btnapagarClick(Sender: TObject);
-    procedure CDSPRODUTOSCalcFields(DataSet: TDataSet);
+
     procedure btnrelatnegativoClick(Sender: TObject);
     procedure CalcularETotalizar;
-    procedure btnrelacorretoClick(Sender: TObject);
+
   
   
 
@@ -229,7 +227,7 @@ type
     procedure btnapagahistoricoClick(Sender: TObject);
     procedure AtualizarContadores;
     procedure LocalizarProximoNaoConferido;
-    procedure AtualizarBotoesRelatorio;
+
     procedure DBTextprodutoClick(Sender: TObject);
     procedure Label1Click(Sender: TObject);
 
@@ -362,56 +360,7 @@ begin
 end;
 
 
-procedure Tformcontaestoque.AtualizarBotoesRelatorio;
-var
-  ConferenciaCompleta: Boolean;
-  ConferenciaIniciada: Boolean;
-begin
-  // 1. Determina o estado da conferência
-  ConferenciaCompleta := VerificarConferenciaCompleta;
-  ConferenciaIniciada := not datamodule1.CDSPRODUTOS.IsEmpty;
 
-  // 2. Desabilita todos os botões de relatório por padrão
-  btnrelacorreto.Enabled := False;
-  btnrelatnegativo.Enabled := False;
-  btnrelatpositivo.Enabled := False;
-
-  // 3. Controla a visibilidade da Label e aplica o status
-  if Assigned(LabelStatusConferencia) then
-  begin
-    if not ConferenciaIniciada then
-    begin
-      // REGRA SOLICITADA: Se CDSPRODUTOS estiver vazio, oculta a Label
-      LabelStatusConferencia.Visible := False;
-    end
-    else
-    begin
-      // A contagem está em andamento ou completa
-      LabelStatusConferencia.Visible := True;
-
-      if ConferenciaCompleta then
-      begin
-        // ESTADO 1: COMPLETO (OK)
-        LabelStatusConferencia.Caption := 'Contagem COMPLETA!';
-        LabelStatusConferencia.Color := clGreen;
-        LabelStatusConferencia.Font.Color := clwhite;
-        btnsalvaprogClick(btnsalvaprog);
-
-        // Habilita os botões somente quando COMPLETO
-        btnrelacorreto.Enabled := True;
-        btnrelatnegativo.Enabled := True;
-        btnrelatpositivo.Enabled := True;
-      end
-      else
-      begin
-        // ESTADO 2: INCOMPLETO (Em Andamento)
-        LabelStatusConferencia.Caption := 'Contagem EM ANDAMENTO...';
-        LabelStatusConferencia.Color := $002E2E2E;
-        LabelStatusConferencia.Font.Color := clwhite;
-      end;
-    end;
-  end;
-end;
 
 
 
@@ -728,7 +677,7 @@ begin
     RELATORIOMANUAL;
 
     AtualizarContadores;
-    AtualizarBotoesRelatorio;
+
     PageControl1.ActivePage := TabSheet1;
     LocalizarProximoNaoConferido;
   end;
@@ -944,29 +893,25 @@ procedure Tformcontaestoque.btnconfirmarClick(Sender: TObject);
 var
   // MUDANÇA: Usar Extended para aceitar números decimais (melhor precisão que Real/Float)
   Contagem: Extended;
-  EstoqueAtual: Extended; // Variável para o Estoque lido da QRY
+  EstoqueAtual: Extended;
   PeriodoStr: String;
   CodInternoAtual: String;
-  Operacao: String; // Para informar se foi Inserção ou Edição
+  Operacao: String;
+  fDiferencaCalculada: Extended; // Variável para armazenar o cálculo da diferença
 begin
-  // 1. Validação de Dados de Entrada
+  // ... [Validações e Abertura do ClientDataSet - Linhas 128 a 139] ...
   if not datamodule1.CDSPRODUTOS.Active then
     datamodule1.CDSPRODUTOS.Open;
-
   if QRYRKVEND.IsEmpty then
   begin
     ShowMessage('Nenhuma consulta de produtos foi realizada. Clique em Consultar primeiro.');
     Exit;
   end;
-
   if Trim(Editcontagem.Text) = '' then
   begin
     ShowMessage('A contagem não pode ser vazia.');
     Exit;
   end;
-
-  // TENTA CONVERTER O VALOR DECIMAL
-  // Usa TryStrToFloat e muda a mensagem de erro
   if not TryStrToFloat(Editcontagem.Text, Contagem) then
   begin
     ShowMessage('A contagem deve ser um número válido (inteiro ou decimal). Por favor, corrija o valor.');
@@ -975,11 +920,38 @@ begin
   end;
 
   // Lê o estoque atual para o cálculo
-  EstoqueAtual := QRYRKVEND.FieldByName('Estoque').AsFloat; // Assume que o campo 'Estoque' do QRY é decimal
-
-  // 2. Identifica o Produto Atual e o Período
+  EstoqueAtual := QRYRKVEND.FieldByName('Estoque').AsFloat;
   CodInternoAtual := QRYRKVEND.FieldByName('CodInterno').AsString;
   PeriodoStr := FormatDateTime('dd/mm/yyyy', dtinicio.Date) + ' a ' + FormatDateTime('dd/mm/yyyy', dtfim.Date);
+
+  // NOVO CÁLCULO DA DIFERENÇA
+  fDiferencaCalculada := Contagem - EstoqueAtual; // Contagem - Estoque
+
+  // =========================================================
+  // ⛔ NOVO BLOCO DE VALIDAÇÃO: NÃO SALVAR SE DIFERENCA = 0
+  // =========================================================
+  if fDiferencaCalculada = 0 then
+  begin
+    // Se a diferença for zero e o produto já estava no CDS (edição), DEVE ser excluído.
+    if datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, []) then
+    begin
+      datamodule1.CDSPRODUTOS.Delete; // Exclui o registro (retira-o da lista de conferidos)
+     // ShowMessage('Conferência OK (Sem Diferença). Registro removido da lista.');
+    end
+    else
+    begin
+      // Se não tinha diferença e não estava no CDS (inclusão), apenas avança.
+    //  ShowMessage('Conferência OK (Sem Diferença). Produto não adicionado à lista.');
+    end;
+
+    // Processa o avanço e sai da procedure
+    Editcontagem.Text := '';
+    Labeldiferença.Caption := '';
+    AtualizarContadores; // Atualiza a contagem exibida
+    QRYRKVEND.Next;
+    Exit;
+  end;
+  // =========================================================
 
   // 3. Tenta Localizar o registro no CDSPRODUTOS pelo CodInterno
   if datamodule1.CDSPRODUTOS.Locate('CodInterno', CodInternoAtual, []) then
@@ -989,21 +961,17 @@ begin
     // =========================================================
     Operacao := 'Atualizado';
     datamodule1.CDSPRODUTOS.Edit;
-
-    // 4A. Atualiza Campos Dinâmicos (Estoque, Vendas, Custos e Info)
+    // ... [Atualiza Campos Dinâmicos: Estoque, Vendas, Custos, Strings - Linhas 136 a 139] ...
     datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
-    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
-
-    // ... [Atualização dos campos de string e currency] ...
+    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat;
     datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
     datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
-
     datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Localizacao').AsString := QRYRKVEND.FieldByName('Localizacao').AsString;
-   datamodule1.CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
+    datamodule1.CDSPRODUTOS.FieldByName('Periodo').AsString := PeriodoStr;
 
   end
   else
@@ -1014,22 +982,16 @@ begin
     Operacao := 'Inserido';
     datamodule1.CDSPRODUTOS.Append;
 
-    // 4B. Cópia Completa dos Campos
-
-    // ATRIBUIÇÃO DO CAMPO DE ORDENAÇÃO
-    datamodule1.CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := datamodule1.CDSPRODUTOS.RecordCount + 1; // Incrementa o contador para a ordem de inserção
-
+    // ... [Cópia Completa dos Campos - Linhas 140 a 144] ...
+    datamodule1.CDSPRODUTOS.FieldByName('ID_ORDEM').AsInteger := datamodule1.CDSPRODUTOS.RecordCount + 1;
     datamodule1.CDSPRODUTOS.FieldByName('PrecoCusto').AsCurrency := QRYRKVEND.FieldByName('PrecoCusto').AsCurrency;
     datamodule1.CDSPRODUTOS.FieldByName('CustoTotal').AsCurrency := QRYRKVEND.FieldByName('CustoTotal').AsCurrency;
-
     datamodule1.CDSPRODUTOS.FieldByName('Estoque').AsFloat := EstoqueAtual;
-    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat; // Assume ftFloat
-
-    // Campos de String (Chaves e Descrições)
+    datamodule1.CDSPRODUTOS.FieldByName('QuantidadeVendida').AsFloat := QRYRKVEND.FieldByName('QuantidadeVendida').AsFloat;
     datamodule1.CDSPRODUTOS.FieldByName('CodInterno').AsString := CodInternoAtual;
     datamodule1.CDSPRODUTOS.FieldByName('CodFornecedor').AsString := QRYRKVEND.FieldByName('CodFornecedor').AsString;
-   datamodule1.CDSPRODUTOS.FieldByName('CodBarra').AsString := QRYRKVEND.FieldByName('Codbarra').AsString;
-   datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('CodBarra').AsString := QRYRKVEND.FieldByName('Codbarra').AsString;
+    datamodule1.CDSPRODUTOS.FieldByName('Produto').AsString := QRYRKVEND.FieldByName('Produto').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Grupo').AsString := QRYRKVEND.FieldByName('Grupo').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Marca').AsString := QRYRKVEND.FieldByName('Marca').AsString;
     datamodule1.CDSPRODUTOS.FieldByName('Fornecedor').AsString := QRYRKVEND.FieldByName('Fornecedor').AsString;
@@ -1039,19 +1001,14 @@ begin
 
   try
     // 5. Salva os Campos de Inventário (Comum para Edição e Inserção)
-    // MUDANÇA: Atribuição usando AsFloat
     datamodule1.CDSPRODUTOS.FieldByName('Contagem').AsFloat := Contagem;
-
-    // MUDANÇA: Cálculo da Diferença usando AsFloat
-    datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat := Contagem - EstoqueAtual;
-
+    // ATRIBUIÇÃO USANDO O CÁLCULO FEITO ACIMA
+    datamodule1.CDSPRODUTOS.FieldByName('Diferenca').AsFloat := fDiferencaCalculada;
     // 6. Finaliza a Operação
     datamodule1.CDSPRODUTOS.Post;
 
     // ATUALIZA CONTAGEM DE PRODUTOS
-    AtualizarBotoesRelatorio;
     AtualizarContadores;
-
 
   except
     // 7. Em caso de erro, cancela a operação
@@ -1059,20 +1016,15 @@ begin
     raise;
 
   end;
-
   // 8. Preparação para o Próximo Produto
   Editcontagem.Text := '';
-
   Labeldiferença.Caption := '';
-
-
   if Assigned(datamodule1.CDSTOTAIS) then
       CalcularETotalizar;
 
   Editcontagem.SetFocus;
 
   QRYRKVEND.Next;
-
   if QRYRKVEND.Eof then
     ShowMessage('Contagem finalizada. Todos os produtos da lista foram conferidos.');
 
@@ -1181,7 +1133,7 @@ begin
       ShowMessage('Não foram encontrados registros com Diferença positiva (sobras) neste relatório.');
       Exit;
     end;
-
+    CalcularETotalizar;
     datamodule1.FRXrelatorio.ShowReport;
 
   finally
@@ -1225,7 +1177,7 @@ begin
       ShowMessage('Não foram encontrados registros com Diferença negativa (faltas) neste relatório.');
       Exit;
     end;
-
+     CalcularETotalizar;
     datamodule1.FRXrelatorio.ShowReport;
 
   finally
@@ -1236,48 +1188,7 @@ begin
 end;
 
 
-procedure Tformcontaestoque.btnrelacorretoClick(Sender: TObject);
-const
-  FILTRO_DIFERENCA_ZERO = 'DIFERENCA = 0';
-begin
-  if not QRYHISTORICO.Active or QRYHISTORICO.IsEmpty then
-  begin
-    ShowMessage('Selecione um registro no "Histórico de Conferência" para gerar o relatório.');
-    Exit;
-  end;
 
-  if not datamodule1.QRYPRODUTOSCONTADOS.Active then
-    QRYHISTORICOAfterScroll(QRYHISTORICO);
-
-  if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
-  begin
-    ShowMessage('O relatório de histórico selecionado não possui produtos conferidos.');
-    Exit;
-  end;
-
-  if datamodule1.DBPRODUTOS.DataSet <> datamodule1.QRYPRODUTOSCONTADOS then
-    datamodule1.DBPRODUTOS.DataSet := datamodule1.QRYPRODUTOSCONTADOS;
-
-  try
-    datamodule1.QRYPRODUTOSCONTADOS.DisableControls;
-
-    datamodule1.QRYPRODUTOSCONTADOS.Filter := FILTRO_DIFERENCA_ZERO;
-    datamodule1.QRYPRODUTOSCONTADOS.Filtered := True;
-
-    if datamodule1.QRYPRODUTOSCONTADOS.RecordCount = 0 then
-    begin
-      ShowMessage('Não foram encontrados registros conferidos sem diferença para gerar o relatório.');
-      Exit;
-    end;
-
-    datamodule1.FRXrelatorio.ShowReport;
-
-  finally
-    datamodule1.QRYPRODUTOSCONTADOS.Filtered := False;
-   datamodule1. QRYPRODUTOSCONTADOS.Filter := '';
-    datamodule1.QRYPRODUTOSCONTADOS.EnableControls;
-  end;
-end;
 
 
 
@@ -1328,7 +1239,7 @@ begin
 
     AtualizarContadores;
     LocalizarProximoNaoConferido;
-    AtualizarBotoesRelatorio;
+
 
 
     PageControl1.ActivePage := TabSheet2;
@@ -1519,7 +1430,7 @@ begin
   dtfim.DateTime:=now;
   datamodule1.CDSPRODUTOS.EmptyDataSet;
   CarregarHistorico;
-  AtualizarBotoesRelatorio;
+
 
   relatoriomanual;
   datamodule1.CDSPRODUTOS.EnableControls;
@@ -1613,27 +1524,7 @@ end;
 
 
 
-procedure Tformcontaestoque.CDSPRODUTOSCalcFields(DataSet: TDataSet);
-var
-  PrecoCusto: Currency;
-  Diferenca: Integer;
-begin
-  // Verificação de segurança para evitar erros se os campos estiverem nulos
-  if DataSet.FieldByName('Diferenca').IsNull or DataSet.FieldByName('PrecoCusto').IsNull then
-  begin
-    DataSet.FieldByName('ValorDiferenca').AsCurrency := 0;
-    Exit;
-  end;
 
-  // 1. Pega os valores necessários
-  PrecoCusto := DataSet.FieldByName('PrecoCusto').AsCurrency;
-  Diferenca := DataSet.FieldByName('Diferenca').AsInteger;
-
-  // 2. Calcula o valor financeiro da diferença
-  // Se a Diferenca for positiva (Estoque > Contagem), é um prejuízo (perda).
-  // Se a Diferenca for negativa (Estoque < Contagem), é um ganho.
-  DataSet.FieldByName('ValorDiferenca').AsCurrency := PrecoCusto * Diferenca;
-end;
 
 
 
@@ -2464,7 +2355,7 @@ begin
 
     // 4. Atualiza os contadores e status de botões
     AtualizarContadores;
-    AtualizarBotoesRelatorio;
+
 
   except
     on E: Exception do
@@ -3029,6 +2920,12 @@ begin
 
 
 end;
+
+
+
+
+
+
 
 
 procedure Tformcontaestoque.btnconsultprevendaClick(Sender: TObject);

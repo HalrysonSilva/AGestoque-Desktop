@@ -1,0 +1,5 @@
+server: .\base
+user: sa
+senha: 123
+banco: Servsic
+porta: 1433

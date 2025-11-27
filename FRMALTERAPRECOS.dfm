@@ -44,18 +44,18 @@ object Formalterapreco: TFormalterapreco
         ParentFont = False
         Transparent = False
         StyleElements = []
-        ExplicitWidth = 67
+        ExplicitTop = 85
       end
       object Panel31: TPanel
         Left = 0
-        Top = 416
+        Top = 400
         Width = 1174
-        Height = 360
+        Height = 376
         Align = alBottom
         TabOrder = 0
         object Label77: TLabel
           Left = 1
-          Top = 1
+          Top = 22
           Width = 1172
           Height = 21
           Align = alTop
@@ -71,17 +71,40 @@ object Formalterapreco: TFormalterapreco
           ParentFont = False
           Transparent = False
           StyleElements = []
+          ExplicitTop = 1
           ExplicitWidth = 49
         end
+        object LABELTOTAL: TLabel
+          Left = 1
+          Top = 1
+          Width = 1172
+          Height = 21
+          Align = alTop
+          Caption = 'Total de Registros'
+          Color = 3026478
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = True
+          StyleElements = []
+          ExplicitWidth = 131
+        end
         object Panel35: TPanel
-          Left = 550
-          Top = 22
+          Left = 750
+          Top = 43
           Width = 150
-          Height = 337
+          Height = 332
           Align = alLeft
           Color = clWhite
           ParentBackground = False
           TabOrder = 0
+          ExplicitLeft = 550
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label78: TLabel
             AlignWithMargins = True
             Left = 4
@@ -183,14 +206,17 @@ object Formalterapreco: TFormalterapreco
           end
         end
         object Panel47: TPanel
-          Left = 400
-          Top = 22
+          Left = 600
+          Top = 43
           Width = 150
-          Height = 337
+          Height = 332
           Align = alLeft
           Color = clWhite
           ParentBackground = False
           TabOrder = 1
+          ExplicitLeft = 400
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label86: TLabel
             AlignWithMargins = True
             Left = 4
@@ -292,14 +318,17 @@ object Formalterapreco: TFormalterapreco
           end
         end
         object Panel34: TPanel
-          Left = 209
-          Top = 22
+          Left = 409
+          Top = 43
           Width = 191
-          Height = 337
+          Height = 332
           Align = alLeft
           Color = clWhite
           ParentBackground = False
           TabOrder = 2
+          ExplicitLeft = 209
+          ExplicitTop = 22
+          ExplicitHeight = 337
           object Label85: TLabel
             AlignWithMargins = True
             Left = 4
@@ -506,121 +535,230 @@ object Formalterapreco: TFormalterapreco
           object Button1: TCheckBox
             AlignWithMargins = True
             Left = 4
-            Top = 308
+            Top = 303
             Width = 183
             Height = 25
             Align = alBottom
             Caption = '% Padr'#227'o'
             TabOrder = 0
             OnClick = Button1Click
+            ExplicitTop = 308
           end
         end
-        object Panel2: TPanel
+        object Panel3: TPanel
           Left = 1
-          Top = 22
-          Width = 208
-          Height = 337
+          Top = 43
+          Width = 408
+          Height = 332
           Align = alLeft
-          Color = clWhite
-          ParentBackground = False
+          Caption = 'Panel3'
           TabOrder = 3
-          object Label2: TLabel
-            AlignWithMargins = True
-            Left = 11
-            Top = 30
-            Width = 193
-            Height = 17
-            Margins.Left = 10
-            Margins.Top = 6
-            Align = alTop
-            Caption = 'Grupo'
-            ExplicitWidth = 38
-          end
-          object Label3: TLabel
-            AlignWithMargins = True
-            Left = 11
-            Top = 144
-            Width = 193
-            Height = 17
-            Margins.Left = 10
-            Margins.Top = 6
-            Align = alTop
-            Caption = 'Marca'
-            ExplicitWidth = 37
-          end
-          object Label4: TLabel
-            AlignWithMargins = True
-            Left = 11
-            Top = 87
-            Width = 193
-            Height = 17
-            Margins.Left = 10
-            Margins.Top = 6
-            Align = alTop
-            Caption = 'Fornecedor'
-            ExplicitWidth = 69
-          end
-          object Label6: TLabel
+          ExplicitTop = 22
+          ExplicitHeight = 337
+          object Label9: TLabel
             AlignWithMargins = True
             Left = 4
             Top = 4
-            Width = 200
+            Width = 400
             Height = 17
             Align = alTop
-            Alignment = taCenter
-            Caption = 'Filtros'
-            ExplicitWidth = 37
+            Caption = 'Descri'#231#227'o'
+            ExplicitLeft = 0
+            ExplicitTop = 39
+            ExplicitWidth = 406
           end
-          object Label5: TLabel
-            AlignWithMargins = True
-            Left = 11
-            Top = 201
-            Width = 193
-            Height = 17
-            Margins.Left = 10
-            Margins.Top = 6
-            Align = alTop
-            Caption = 'Localiza'#231#227'o'
-            ExplicitWidth = 67
-          end
-          object cmbgrupo: TComboBox
-            AlignWithMargins = True
-            Left = 4
-            Top = 53
-            Width = 200
-            Height = 25
-            Align = alTop
-            Style = csDropDownList
+          object Panel1: TPanel
+            Left = 209
+            Top = 59
+            Width = 198
+            Height = 209
+            Align = alClient
+            Color = clWhite
+            ParentBackground = False
             TabOrder = 0
+            ExplicitLeft = 0
+            ExplicitTop = 1
+            ExplicitWidth = 209
+            ExplicitHeight = 335
+            object Label1: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 30
+              Width = 183
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Grupo'
+              ExplicitWidth = 38
+            end
+            object Label5: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 144
+              Width = 183
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Marca'
+              ExplicitWidth = 37
+            end
+            object Label7: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 87
+              Width = 183
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Fornecedor'
+              ExplicitWidth = 69
+            end
+            object Label8: TLabel
+              AlignWithMargins = True
+              Left = 4
+              Top = 4
+              Width = 190
+              Height = 17
+              Align = alTop
+              Alignment = taCenter
+              Caption = 'N'#227'o Consultar '
+              ExplicitWidth = 91
+            end
+            object cmbgruponaoconsulta: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 53
+              Width = 190
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 0
+              ExplicitWidth = 200
+            end
+            object cmbfornecedornaoconsulta: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 110
+              Width = 190
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 1
+              ExplicitWidth = 200
+            end
+            object cmbmarcanaoconsulta: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 167
+              Width = 190
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 2
+              ExplicitWidth = 200
+            end
           end
-          object cmbfornecedor: TComboBox
-            AlignWithMargins = True
-            Left = 4
-            Top = 110
-            Width = 200
-            Height = 25
-            Align = alTop
-            Style = csDropDownList
+          object Panel2: TPanel
+            Left = 1
+            Top = 59
+            Width = 208
+            Height = 209
+            Align = alLeft
+            Color = clWhite
+            ParentBackground = False
             TabOrder = 1
-          end
-          object cmbmarca: TComboBox
-            AlignWithMargins = True
-            Left = 4
-            Top = 167
-            Width = 200
-            Height = 25
-            Align = alTop
-            Style = csDropDownList
-            TabOrder = 2
+            ExplicitLeft = -1
+            ExplicitTop = -2
+            ExplicitHeight = 272
+            object Label2: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 30
+              Width = 193
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Grupo'
+              ExplicitWidth = 38
+            end
+            object Label3: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 144
+              Width = 193
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Marca'
+              ExplicitWidth = 37
+            end
+            object Label4: TLabel
+              AlignWithMargins = True
+              Left = 11
+              Top = 87
+              Width = 193
+              Height = 17
+              Margins.Left = 10
+              Margins.Top = 6
+              Align = alTop
+              Caption = 'Fornecedor'
+              ExplicitWidth = 69
+            end
+            object Label6: TLabel
+              AlignWithMargins = True
+              Left = 4
+              Top = 4
+              Width = 200
+              Height = 17
+              Align = alTop
+              Alignment = taCenter
+              Caption = 'Consultar'
+              ExplicitWidth = 58
+            end
+            object cmbgrupo: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 53
+              Width = 200
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 0
+            end
+            object cmbfornecedor: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 110
+              Width = 200
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 1
+            end
+            object cmbmarca: TComboBox
+              AlignWithMargins = True
+              Left = 4
+              Top = 167
+              Width = 200
+              Height = 25
+              Align = alTop
+              Style = csDropDownList
+              TabOrder = 2
+            end
           end
           object btnconsultar: TBitBtn
             AlignWithMargins = True
             Left = 4
-            Top = 262
-            Width = 200
+            Top = 278
+            Width = 400
             Height = 50
             Margins.Top = 10
-            Align = alTop
+            Align = alBottom
             Caption = 'Consultar'
             Glyph.Data = {
               460E0000424D460E00000000000036000000280000001E0000001E0000000100
@@ -739,17 +877,28 @@ object Formalterapreco: TFormalterapreco
               0000000000000000000000000000000000000000000000000000000000000000
               00000000000000000000}
             ParentDoubleBuffered = True
-            TabOrder = 3
+            TabOrder = 2
             OnClick = btnconsultarClick
+            ExplicitTop = 205
+            ExplicitWidth = 200
           end
-          object Editlocal: TEdit
+          object EDITCONSULTA: TEdit
             AlignWithMargins = True
             Left = 4
-            Top = 224
-            Width = 200
-            Height = 25
+            Top = 27
+            Width = 400
+            Height = 29
             Align = alTop
-            TabOrder = 4
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Segoe UI Semibold'
+            Font.Style = [fsBold]
+            ParentFont = False
+            TabOrder = 3
+            TextHint = 'Consultar'
+            ExplicitLeft = -5
+            ExplicitTop = 45
           end
         end
       end
@@ -757,10 +906,10 @@ object Formalterapreco: TFormalterapreco
         Left = 0
         Top = 21
         Width = 1174
-        Height = 395
+        Height = 379
         Align = alClient
         DataSource = DataModule1.DSQRYPRODUTOSBASE
-        Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         TabOrder = 1
         TitleFont.Charset = ANSI_CHARSET
         TitleFont.Color = clWindowText
