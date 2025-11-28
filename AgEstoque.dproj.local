@@ -2,37 +2,37 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2025/09/09 12:00:49.000.266,=F:\DELPHI\Unit1.pas</Transaction>
-    <Transaction>2025/09/09 12:06:08.000.450,C:\Users\WILL\Music\RELRANKVENDAS.dfm=F:\DELPHI\Unit1.dfm</Transaction>
-    <Transaction>2025/09/09 12:06:08.000.450,C:\Users\WILL\Music\RELRANKVENDAS.pas=F:\DELPHI\Unit1.pas</Transaction>
-    <Transaction>2025/09/09 12:06:12.000.405,C:\Users\WILL\Music\Project1.dproj=F:\DELPHI\Project1.dproj</Transaction>
+    <Transaction>2025/09/09 12:06:08.000.450,F:\DELPHI\Unit1.pas=C:\Users\WILL\Music\RELRANKVENDAS.pas</Transaction>
+    <Transaction>2025/09/09 12:06:08.000.450,F:\DELPHI\Unit1.dfm=C:\Users\WILL\Music\RELRANKVENDAS.dfm</Transaction>
+    <Transaction>2025/09/09 12:06:12.000.405,F:\DELPHI\Project1.dproj=C:\Users\WILL\Music\Project1.dproj</Transaction>
     <Transaction>2025/09/09 12:10:28.000.253,=C:\Users\WILL\Music\CONEXAOBD.pas</Transaction>
     <Transaction>2025/10/29 19:26:02.000.965,=C:\developer\XE10.3\contagem de estoque\Unit1.pas</Transaction>
-    <Transaction>2025/10/29 23:03:45.000.945,C:\developer\XE10.3\AgEstoque\Project1.dproj=C:\developer\XE10.3\AgEstoque\AgEstoque.dproj</Transaction>
-    <Transaction>2025/10/30 09:26:11.000.087,C:\Developer\AgEstoque\FRMAGESTOQUE.dfm=C:\Developer\AgEstoque\RELRANKVENDAS.dfm</Transaction>
-    <Transaction>2025/10/30 09:26:11.000.087,C:\Developer\AgEstoque\FRMAGESTOQUE.pas=C:\Developer\AgEstoque\RELRANKVENDAS.pas</Transaction>
+    <Transaction>2025/10/29 23:03:45.000.945,C:\developer\XE10.3\AgEstoque\AgEstoque.dproj=C:\developer\XE10.3\AgEstoque\Project1.dproj</Transaction>
+    <Transaction>2025/10/30 09:26:11.000.087,C:\Developer\AgEstoque\RELRANKVENDAS.dfm=C:\Developer\AgEstoque\FRMAGESTOQUE.dfm</Transaction>
+    <Transaction>2025/10/30 09:26:11.000.087,C:\Developer\AgEstoque\RELRANKVENDAS.pas=C:\Developer\AgEstoque\FRMAGESTOQUE.pas</Transaction>
     <Transaction>2025/10/30 17:18:51.000.801,=C:\Developer\AgEstoque\SERVSEN2.pas</Transaction>
     <Transaction>2025/10/30 17:19:30.000.487,C:\Developer\AgEstoque\SERVSEN2.pas=</Transaction>
     <Transaction>2025/10/30 17:19:35.000.597,=C:\Developer\AgEstoque\SERVSEN2.pas</Transaction>
     <Transaction>2025/10/30 17:24:57.000.570,C:\Developer\AgEstoque\SERVSEN2.pas=</Transaction>
     <Transaction>2025/10/30 17:27:39.000.091,=C:\Developer\AgEstoque\Unit1.pas</Transaction>
     <Transaction>2025/10/31 07:07:16.000.301,=C:\developer\XE10.3\AgEstoque\Unit1.pas</Transaction>
-    <Transaction>2025/10/31 07:07:41.000.934,C:\developer\XE10.3\AgEstoque\Unit1.pas=C:\developer\XE10.3\AgEstoque\FRMSENHA.pas</Transaction>
-    <Transaction>2025/10/31 07:07:41.000.934,C:\developer\XE10.3\AgEstoque\Unit1.dfm=C:\developer\XE10.3\AgEstoque\FRMSENHA.dfm</Transaction>
+    <Transaction>2025/10/31 07:07:41.000.934,C:\developer\XE10.3\AgEstoque\FRMSENHA.pas=C:\developer\XE10.3\AgEstoque\Unit1.pas</Transaction>
+    <Transaction>2025/10/31 07:07:41.000.934,C:\developer\XE10.3\AgEstoque\FRMSENHA.dfm=C:\developer\XE10.3\AgEstoque\Unit1.dfm</Transaction>
     <Transaction>2025/10/31 10:19:41.000.551,=C:\Developer\WILL\AGestoque-Desktop\FRMSelectproduto.pas</Transaction>
     <Transaction>2025/11/14 23:22:31.000.577,=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/14 23:22:42.000.858,C:\developer\AGestoque-Desktop\FRMMOVIMENTO.pas=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/14 23:22:42.000.858,C:\developer\AGestoque-Desktop\FRMMOVIMENTO.dfm=C:\developer\AGestoque-Desktop\Unit1.dfm</Transaction>
+    <Transaction>2025/11/14 23:22:42.000.858,C:\developer\AGestoque-Desktop\Unit1.dfm=C:\developer\AGestoque-Desktop\FRMMOVIMENTO.dfm</Transaction>
+    <Transaction>2025/11/14 23:22:42.000.858,C:\developer\AGestoque-Desktop\Unit1.pas=C:\developer\AGestoque-Desktop\FRMMOVIMENTO.pas</Transaction>
     <Transaction>2025/11/14 23:54:36.000.212,=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/14 23:55:30.000.064,C:\developer\AGestoque-Desktop\FRMPOSICAOESTOQUE.pas=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/14 23:55:30.000.064,C:\developer\AGestoque-Desktop\FRMPOSICAOESTOQUE.dfm=C:\developer\AGestoque-Desktop\Unit1.dfm</Transaction>
+    <Transaction>2025/11/14 23:55:30.000.064,C:\developer\AGestoque-Desktop\Unit1.pas=C:\developer\AGestoque-Desktop\FRMPOSICAOESTOQUE.pas</Transaction>
+    <Transaction>2025/11/14 23:55:30.000.064,C:\developer\AGestoque-Desktop\Unit1.dfm=C:\developer\AGestoque-Desktop\FRMPOSICAOESTOQUE.dfm</Transaction>
     <Transaction>2025/11/16 13:02:14.000.445,=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/16 13:15:14.000.746,C:\developer\AGestoque-Desktop\FRM_MENU.dfm=C:\developer\AGestoque-Desktop\Unit1.dfm</Transaction>
-    <Transaction>2025/11/16 13:15:14.000.746,C:\developer\AGestoque-Desktop\FRM_MENU.pas=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
+    <Transaction>2025/11/16 13:15:14.000.746,C:\developer\AGestoque-Desktop\Unit1.pas=C:\developer\AGestoque-Desktop\FRM_MENU.pas</Transaction>
+    <Transaction>2025/11/16 13:15:14.000.746,C:\developer\AGestoque-Desktop\Unit1.dfm=C:\developer\AGestoque-Desktop\FRM_MENU.dfm</Transaction>
     <Transaction>2025/11/16 14:23:38.000.954,=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/16 14:23:56.000.462,C:\developer\AGestoque-Desktop\FRMALTERAPRECOS.dfm=C:\developer\AGestoque-Desktop\Unit1.dfm</Transaction>
-    <Transaction>2025/11/16 14:23:56.000.462,C:\developer\AGestoque-Desktop\FRMALTERAPRECOS.pas=C:\developer\AGestoque-Desktop\Unit1.pas</Transaction>
-    <Transaction>2025/11/16 15:19:33.000.884,C:\developer\AGestoque-Desktop\FRMCONTARESTOQUE.dfm=C:\developer\AGestoque-Desktop\FRMAGESTOQUE.dfm</Transaction>
-    <Transaction>2025/11/16 15:19:33.000.884,C:\developer\AGestoque-Desktop\FRMCONTARESTOQUE.pas=C:\developer\AGestoque-Desktop\FRMAGESTOQUE.pas</Transaction>
+    <Transaction>2025/11/16 14:23:56.000.462,C:\developer\AGestoque-Desktop\Unit1.pas=C:\developer\AGestoque-Desktop\FRMALTERAPRECOS.pas</Transaction>
+    <Transaction>2025/11/16 14:23:56.000.462,C:\developer\AGestoque-Desktop\Unit1.dfm=C:\developer\AGestoque-Desktop\FRMALTERAPRECOS.dfm</Transaction>
+    <Transaction>2025/11/16 15:19:33.000.884,C:\developer\AGestoque-Desktop\FRMAGESTOQUE.pas=C:\developer\AGestoque-Desktop\FRMCONTARESTOQUE.pas</Transaction>
+    <Transaction>2025/11/16 15:19:33.000.884,C:\developer\AGestoque-Desktop\FRMAGESTOQUE.dfm=C:\developer\AGestoque-Desktop\FRMCONTARESTOQUE.dfm</Transaction>
     <Transaction>2025/11/17 08:05:56.000.662,=C:\Developer\WILL\AGestoque-Desktop\TELAESPERA.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">

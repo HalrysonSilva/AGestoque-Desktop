@@ -838,10 +838,8 @@ const
   DESCONTO_VAREJO_4 = -9.00;
 var
   iContador: Integer;
-  iTotalRegistros: Integer; // Nova variável para o total
   iLkUsuario: Integer;
   fPrecoCusto: Extended;
-  sNomeProdutoAtual: string; // Nova variável para mostrar o nome
 
   // Variáveis Varejo
   fVendaAnterior, fPrecoVarejoBase, fPrecoVendaNovo, fMargemVarejoNova, fNovoPrecoVarejo: Extended;
@@ -872,12 +870,13 @@ begin
     Exit;
   end;
 
-// 1. Validação (Simplificada)
-  if MessageDlg('Confirma o reajuste de preços para todos os produtos listados?',
-      mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+  if MessageDlg('Confirma o reajuste?' + #13#10 +
+                'Varejo: Baseado no Preço Atual (Recalcula Margem)' + #13#10 +
+                'Atacado: Baseado no Unitário Atual (NÃO Recalcula Margem)',
+    mtConfirmation, [mbYes, mbNo], 0) = mrNo then
     Exit;
 
-  // 2. MONTAGEM DO SQL
+  // 2. MONTAGEM DO SQL (Garante que todos parâmetros existam)
   DataModule1.QRYALTERAPRECOS.Close;
   DataModule1.QRYALTERAPRECOS.SQL.Clear;
   DataModule1.QRYALTERAPRECOS.SQL.Add('UPDATE TabEst1 SET');
@@ -888,11 +887,11 @@ begin
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado = :PrVarejo3, PerAtacado = :PerVarejo3,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrMinimo = :PrVarejo4, PerMinimo = :PerVarejo4,');
 
-  // Atacado Margem
+  // Atacado Margem (Vamos apenas repassar o valor antigo)
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado1 = :PerAtacado1, PerAtacado2 = :PerAtacado2,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PerAtacado3 = :PerAtacado3, PerAtacado4 = :PerAtacado4,');
 
-  // Atacado Preço Unitário
+  // Atacado Preço Unitário (O que vai mudar)
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado1Un = :PrAtacado1Un, PrAtacado2Un = :PrAtacado2Un,');
   DataModule1.QRYALTERAPRECOS.SQL.Add('  PrAtacado3Un = :PrAtacado3Un, PrAtacado4Un = :PrAtacado4Un,');
 
@@ -905,63 +904,48 @@ begin
 
   if Assigned(FRMSEN) then iLkUsuario := FRMSEN.UsuarioControle else iLkUsuario := 0;
 
-  // Preparação para o Loop
-  iTotalRegistros := datamodule1.QRYPRODUTOSBASE.RecordCount; // Pega o total para o cálculo
-  iContador := 0;
-
   DataModule1.ConDados.StartTransaction;
   datamodule1.QRYPRODUTOSBASE.DisableControls;
+  iContador := 0;
 
-  // Criação da Tela de Espera
   FrmEsperaLocal := TFRMESPERA.Create(Application);
-  try
-    FrmEsperaLocal.Label1.Caption := 'Iniciando processamento...';
-    FrmEsperaLocal.Show;
-    Application.ProcessMessages;
+  FrmEsperaLocal.Label1.Caption := 'Processando...';
+  FrmEsperaLocal.Show;
+  Application.ProcessMessages;
 
+  try
     datamodule1.QRYPRODUTOSBASE.First;
     while not datamodule1.QRYPRODUTOSBASE.Eof do
     begin
-      Inc(iContador); // Incrementa no início para mostrar "1 de X" corretamente
-
       try
-        // Leitura de Dados para Log e Processamento
-        sNomeProdutoAtual := datamodule1.QRYPRODUTOSBASE.FieldByName('Produto').AsString;
-        fPrecoCusto       := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
-        fVendaAnterior    := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoVarejo').AsFloat;
-        fPrAtacado1UnAnt  := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1Un').AsFloat;
+        // Leitura de Campos
+        fPrecoCusto    := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoCusto').AsFloat;
+        fVendaAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrecoVarejo').AsFloat;
+        fPrAtacado1UnAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1Un').AsFloat;
 
-        // --- ATUALIZAÇÃO DO FORM DE ESPERA (LOG VISUAL) ---
-        // Mostra: "Processando 5 de 150 (3%)"
-        //         "Nome do Produto"
-        FrmEsperaLocal.Label1.Caption := Format('Processando %d de %d (%.0f%%)...' + sLineBreak + '%s',
-                                         [iContador,
-                                          iTotalRegistros,
-                                          (iContador / iTotalRegistros) * 100,
-                                          Copy(sNomeProdutoAtual, 1, 40)]); // Limita o nome a 40 chars para não estourar a tela
-        Application.ProcessMessages; // Atualiza a tela a cada item
-        // --------------------------------------------------
-
-        // Leitura Antigos para Log Interno (Auditoria)
-        fCustoAnterior           := fPrecoCusto;
-        fMargemVarejoAnterior    := datamodule1.QRYPRODUTOSBASE.FieldByName('MargemVarejo').AsFloat;
-        fPrPrazoAnterior         := datamodule1.QRYPRODUTOSBASE.FieldByName('PrPrazo').AsFloat;
-        fPerPrazoAnt             := datamodule1.QRYPRODUTOSBASE.FieldByName('PerPrazo').AsFloat;
+        // Leitura Antigos para Log
+        fCustoAnterior := fPrecoCusto;
+        fMargemVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('MargemVarejo').AsFloat;
+        fPrPrazoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrPrazo').AsFloat;
+        fPerPrazoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerPrazo').AsFloat;
         fPrAtacadoVarejoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado').AsFloat;
-        fPerAtacadoVarejoAnt     := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado').AsFloat;
-        fPrMinimoAnterior        := datamodule1.QRYPRODUTOSBASE.FieldByName('PrMinimo').AsFloat;
-        fPerMinimoAnt            := datamodule1.QRYPRODUTOSBASE.FieldByName('PerMinimo').AsFloat;
-        fPrAtacado1Anterior      := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1').AsFloat;
-        fPerAtacado1Ant          := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
+        fPerAtacadoVarejoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado').AsFloat;
+        fPrMinimoAnterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrMinimo').AsFloat;
+        fPerMinimoAnt := datamodule1.QRYPRODUTOSBASE.FieldByName('PerMinimo').AsFloat;
+        fPrAtacado1Anterior := datamodule1.QRYPRODUTOSBASE.FieldByName('PrAtacado1').AsFloat;
+        fPerAtacado1Ant := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
 
-        // 1. CÁLCULO VAREJO
+        // =====================================================================
+        // 1. CÁLCULO VAREJO (MANTÉM LÓGICA DE MARGEM C/ PROTEÇÃO)
+        // =====================================================================
         fPrecoVarejoBase := RoundTo(fVendaAnterior * (1 + (fPerVarejo1 / PERC_BASE)), -2);
         fPrecoVendaNovo := fPrecoVarejoBase;
 
+        // Proteção contra Custo Zero no Varejo
         if fPrecoCusto > 0.01 then
            fMargemVarejoNova := ((fPrecoVendaNovo - fPrecoCusto) / fPrecoCusto) * 100
         else
-           fMargemVarejoNova := 100;
+           fMargemVarejoNova := 100; // Define 100% se custo for zero para não travar
 
         DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo1').AsFloat := fPrecoVendaNovo;
         DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo1').AsFloat := fMargemVarejoNova;
@@ -979,7 +963,11 @@ begin
         DataModule1.QRYALTERAPRECOS.ParamByName('PrVarejo4').AsFloat := fNovoPrecoVarejo;
         DataModule1.QRYALTERAPRECOS.ParamByName('PerVarejo4').AsFloat := DESCONTO_VAREJO_4;
 
-        // 2. CÁLCULO ATACADO UNITÁRIO
+        // =====================================================================
+        // 2. CÁLCULO ATACADO UNITÁRIO (SEM USAR CUSTO)
+        // =====================================================================
+
+        // Calcula apenas em cima do preço anterior
         fNovoPrecoAtacadoUnico := RoundTo(fPrAtacado1UnAnt * (1 + (fPerReajusteAtacado / PERC_BASE)), -2);
 
         DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado1Un').AsFloat := fNovoPrecoAtacadoUnico;
@@ -987,17 +975,18 @@ begin
         DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado3Un').AsFloat := fNovoPrecoAtacadoUnico;
         DataModule1.QRYALTERAPRECOS.ParamByName('PrAtacado4Un').AsFloat := fNovoPrecoAtacadoUnico;
 
+        // Mantém a MARGEM ANTIGA (Não faz conta de divisão)
         DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado1').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado1').AsFloat;
         DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado2').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado2').AsFloat;
         DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado3').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado3').AsFloat;
         DataModule1.QRYALTERAPRECOS.ParamByName('PerAtacado4').AsFloat := datamodule1.QRYPRODUTOSBASE.FieldByName('PerAtacado4').AsFloat;
 
-        // EXECUTA UPDATE
+        // EXECUTA
         DataModule1.QRYALTERAPRECOS.ParamByName('Controle').AsInteger := datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger;
         DataModule1.QRYALTERAPRECOS.ParamByName('LkUsuario').AsInteger := iLkUsuario;
         DataModule1.QRYALTERAPRECOS.Execute;
 
-        // EXECUTA LOG (AUDITORIA)
+        // Log (Usamos as margens antigas para o Atacado no Log tb)
         Estoque_RegistrarMovimentoPreco(
             datamodule1.QRYPRODUTOSBASE.FieldByName('CodInterno').AsString,
             iLkUsuario, datamodule1.QRYPRODUTOSBASE.FieldByName('LkProduto').AsInteger,
@@ -1006,42 +995,38 @@ begin
             fPrAtacado1Anterior, fPerAtacado1Ant,
             fPrecoCusto, fPrecoVendaNovo, fMargemVarejoNova, fPrPrazoNovo, fPerPrazoNovo,
             fPrAtacadoVarejoNovo, fPerAtacadoVarejoNovo, fPrMinimoNovo, fPerMinimoNovo,
-            fNovoPrecoAtacadoUnico, fPerAtacado1Ant
+            fNovoPrecoAtacadoUnico, fPerAtacado1Ant // <--- Passa a margem antiga no log
         );
 
+        Inc(iContador);
+
       except
-        // Em caso de erro num produto específico, ele segue para o próximo
-        // Se quiser, pode adicionar um log de erro aqui também.
+        // Ignora falha pontual
       end;
 
       datamodule1.QRYPRODUTOSBASE.Next;
+
+      if (iContador mod 50 = 0) then begin
+        FrmEsperaLocal.Label1.Caption := Format('Processando... %d ok.', [iContador]);
+        Application.ProcessMessages;
+      end;
     end;
 
     DataModule1.ConDados.Commit;
-
-    // Mensagem Final
-    FrmEsperaLocal.Label1.Caption := 'Concluído!';
-    Application.ProcessMessages;
-    Sleep(500); // Pausa breve para ler "Concluído"
-
-    ShowMessage(Format('Processo Finalizado!' + #13#10 + '%d produtos atualizados com sucesso.', [iContador]));
+    ShowMessage(Format('Sucesso! %d produtos atualizados.', [iContador]));
 
   except
     on E: Exception do
     begin
       DataModule1.ConDados.Rollback;
-      ShowMessage('ERRO CRÍTICO (Alterações canceladas): ' + E.Message);
+      ShowMessage('ERRO GERAL: ' + E.Message);
     end;
   end;
 
   datamodule1.QRYPRODUTOSBASE.EnableControls;
   datamodule1.QRYPRODUTOSBASE.Refresh;
-
-  // Libera a tela de espera
-  if Assigned(FrmEsperaLocal) then
-     FrmEsperaLocal.Free;
+  FrmEsperaLocal.Free;
 end;
-
 
 //WILL
 
