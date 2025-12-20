@@ -21,6 +21,8 @@ type
     procedure EditselectprodutoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+  
+
   private
     { Private declarations }
   public
@@ -46,6 +48,8 @@ begin
   DataModule1.QRYSELECIONAPRODUTOS.SQL.Text := 'SELECT * FROM tabest1 WHERE 1=0'; // Query vazia
   DataModule1.QRYSELECIONAPRODUTOS.Open; // Reabre a query vazia
 end;
+
+
 
 procedure TSelectProduto.DBGridprodutosDblClick(Sender: TObject);
 var
@@ -227,6 +231,15 @@ iNaoSaiTabela := Integer(DataModule1.qrySelecionaProdutos.FieldByName('NAOSAITAB
 
     if not DataModule1.qrySelecionaProdutos.IsEmpty then
 
+    if Assigned(Formalterapreco.dtultalteracaopreco) and (DataModule1.qrySelecionaProdutos.FindField('UltDtPreco') <> nil) then
+      Formalterapreco.dtultalteracaopreco.Date := DataModule1.qrySelecionaProdutos.FieldByName('UltDtPreco').AsDateTime
+    else
+      Formalterapreco.dtultalteracaopreco.Date := 0;
+
+    if (DataModule1.qrySelecionaProdutos.FindField('LkUsuarioAltPreco') <> nil) then
+      Formalterapreco.Editultalterar.text := DataModule1.qrySelecionaProdutos.FieldByName('LkUsuarioAltPreco').Asstring;
+
+
     // 1. CAPTURA o CodInterno do produto selecionado
     // Este é o único dado necessário para o próximo passo.
     sCodInterno := DataModule1.qrySelecionaProdutos.FieldByName('CODINTERNO').AsString;
@@ -335,6 +348,8 @@ begin
     SendMessage(DBGridProdutos.Handle, WM_KEYDOWN, VK_UP, 0); // Simula a tecla para cima
   end;
 end;
+
+
 
 procedure TSelectProduto.FormShow(Sender: TObject);
 begin

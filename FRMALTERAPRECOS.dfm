@@ -247,6 +247,7 @@ object Formalterapreco: TFormalterapreco
             Height = 25
             Align = alTop
             DisplayFormat = '% ,0.00;-R$ ,0.00'
+            Enabled = False
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -263,6 +264,7 @@ object Formalterapreco: TFormalterapreco
             Height = 25
             Align = alTop
             DisplayFormat = '% ,0.00;-% ,0.00'
+            Enabled = False
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -279,6 +281,7 @@ object Formalterapreco: TFormalterapreco
             Height = 25
             Align = alTop
             DisplayFormat = '%,0.00;-% ,0.00'
+            Enabled = False
             Font.Charset = ANSI_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -498,6 +501,7 @@ object Formalterapreco: TFormalterapreco
             ParentDoubleBuffered = True
             ParentFont = False
             TabOrder = 3
+            OnClick = btnatualizaprecosClick
           end
           object Button1: TCheckBox
             AlignWithMargins = True
@@ -508,6 +512,7 @@ object Formalterapreco: TFormalterapreco
             Align = alBottom
             Caption = '% Padr'#227'o'
             TabOrder = 0
+            OnClick = Button1Click
           end
         end
         object Panel2: TPanel
@@ -762,15 +767,11 @@ object Formalterapreco: TFormalterapreco
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI Semibold'
         TitleFont.Style = [fsBold]
-        OnDblClick = DBGRIDPRODUTOSBASEDblClick
+        OnCellClick = DBGRIDPRODUTOSBASECellClick
       end
     end
     object TabSheet6: TTabSheet
       Caption = 'Dados do Produto'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Labelproduto: TLabel
         Left = 0
         Top = 0
@@ -819,8 +820,6 @@ object Formalterapreco: TFormalterapreco
         Height = 73
         Align = alTop
         TabOrder = 0
-        ExplicitLeft = -3
-        ExplicitTop = 32
         object Panel57: TPanel
           Left = 505
           Top = 1
@@ -829,12 +828,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitLeft = 436
           object Label95: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 97
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Cod Fornecedor'
@@ -844,6 +842,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 97
           end
           object editcodfornecedor: TEdit
             AlignWithMargins = True
@@ -860,7 +859,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel58: TPanel
@@ -871,12 +869,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 308
           object Label96: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 66
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Cod Barras'
@@ -886,6 +883,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 66
           end
           object editcodbarra: TEdit
             AlignWithMargins = True
@@ -902,7 +900,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel59: TPanel
@@ -913,12 +910,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 2
-          ExplicitLeft = 180
           object Label97: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 73
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Cod Interno'
@@ -928,6 +924,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 73
           end
           object editcodinterno: TEdit
             AlignWithMargins = True
@@ -944,7 +941,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel61: TPanel
@@ -955,12 +951,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 3
-          ExplicitLeft = 564
           object Label99: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 78
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Cod adcional'
@@ -970,6 +965,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 78
           end
           object editcodorigem: TEdit
             AlignWithMargins = True
@@ -986,7 +982,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object RadioGroup1: TRadioGroup
@@ -1007,8 +1002,6 @@ object Formalterapreco: TFormalterapreco
             'Servi'#231'o')
           ParentFont = False
           TabOrder = 4
-          ExplicitLeft = 73
-          ExplicitTop = -3
         end
         object Panel74: TPanel
           Left = 1205
@@ -1018,12 +1011,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 5
-          ExplicitLeft = 1076
           object Label101: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 67
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Localiza'#231#227'o'
@@ -1033,6 +1025,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 67
           end
           object Editlocalizacao: TEdit
             AlignWithMargins = True
@@ -1049,7 +1042,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel76: TPanel
@@ -1060,12 +1052,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 6
-          ExplicitLeft = 948
           object Label98: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 69
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Fornecedor'
@@ -1075,6 +1066,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 69
           end
           object Editfornecedor: TEdit
             AlignWithMargins = True
@@ -1091,7 +1083,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel77: TPanel
@@ -1102,12 +1093,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 7
-          ExplicitLeft = 820
           object Label107: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 37
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Marca'
@@ -1117,6 +1107,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 37
           end
           object editmarca: TEdit
             AlignWithMargins = True
@@ -1133,7 +1124,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object Panel78: TPanel
@@ -1144,12 +1134,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 8
-          ExplicitLeft = 692
           object Label108: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 38
+            Width = 134
             Height = 17
             Align = alTop
             Caption = 'Grupo'
@@ -1159,6 +1148,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 38
           end
           object Editgrupo: TEdit
             AlignWithMargins = True
@@ -1175,7 +1165,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 122
           end
         end
         object btnconsultaprodutos: TBitBtn
@@ -1315,7 +1304,6 @@ object Formalterapreco: TFormalterapreco
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitTop = 94
         object Panel66: TPanel
           Left = 674
           Top = 0
@@ -1957,7 +1945,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 0
-            ExplicitWidth = 112
           end
           object Editprcusto: TCurrencyEdit
             AlignWithMargins = True
@@ -1974,7 +1961,6 @@ object Formalterapreco: TFormalterapreco
             Font.Style = [fsBold]
             ParentFont = False
             TabOrder = 1
-            ExplicitWidth = 112
           end
         end
         object Panel65: TPanel
@@ -2014,8 +2000,6 @@ object Formalterapreco: TFormalterapreco
             Align = alClient
             BevelOuter = bvNone
             TabOrder = 0
-            ExplicitLeft = 119
-            ExplicitWidth = 127
             object Label119: TLabel
               AlignWithMargins = True
               Left = 3
@@ -2112,7 +2096,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 0
-              ExplicitWidth = 121
             end
             object editprecovarejo2: TCurrencyEdit
               AlignWithMargins = True
@@ -2129,7 +2112,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 1
-              ExplicitWidth = 121
             end
             object editprecovarejo3: TCurrencyEdit
               AlignWithMargins = True
@@ -2146,7 +2128,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 2
-              ExplicitWidth = 121
             end
             object editprecovarejo4: TCurrencyEdit
               AlignWithMargins = True
@@ -2163,7 +2144,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 3
-              ExplicitWidth = 121
             end
           end
           object Panel72: TPanel
@@ -2272,7 +2252,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 0
-              ExplicitWidth = 103
             end
             object editmargemvarejo2: TCurrencyEdit
               AlignWithMargins = True
@@ -2290,7 +2269,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 1
-              ExplicitWidth = 103
             end
             object editmargemvarejo3: TCurrencyEdit
               AlignWithMargins = True
@@ -2308,7 +2286,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 2
-              ExplicitWidth = 103
             end
             object editmargemvarejo4: TCurrencyEdit
               AlignWithMargins = True
@@ -2326,7 +2303,6 @@ object Formalterapreco: TFormalterapreco
               Font.Style = [fsBold]
               ParentFont = False
               TabOrder = 3
-              ExplicitWidth = 103
             end
           end
         end
@@ -2338,12 +2314,11 @@ object Formalterapreco: TFormalterapreco
           Align = alClient
           ParentBackground = False
           TabOrder = 3
-          ExplicitWidth = 304
           object Label102: TLabel
             AlignWithMargins = True
             Left = 4
             Top = 210
-            Width = 130
+            Width = 240
             Height = 21
             Align = alTop
             Caption = 'Estoque Deposito'
@@ -2353,6 +2328,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 130
           end
           object DBTextestoquedeposito: TDBText
             AlignWithMargins = True
@@ -2374,7 +2350,7 @@ object Formalterapreco: TFormalterapreco
             AlignWithMargins = True
             Left = 4
             Top = 147
-            Width = 93
+            Width = 240
             Height = 21
             Align = alTop
             Caption = 'Estoque Loja'
@@ -2384,6 +2360,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 93
           end
           object DBTexestoqueloja: TDBText
             AlignWithMargins = True
@@ -2405,7 +2382,7 @@ object Formalterapreco: TFormalterapreco
             AlignWithMargins = True
             Left = 4
             Top = 273
-            Width = 98
+            Width = 240
             Height = 21
             Align = alTop
             Caption = 'Estoque Total'
@@ -2415,6 +2392,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 98
           end
           object DBTextestoquetotal: TDBText
             AlignWithMargins = True
@@ -2437,7 +2415,7 @@ object Formalterapreco: TFormalterapreco
             AlignWithMargins = True
             Left = 4
             Top = 21
-            Width = 119
+            Width = 240
             Height = 21
             Align = alTop
             Caption = 'Estoque Minimo'
@@ -2447,6 +2425,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 119
           end
           object DBTextestoquefiscal: TDBText
             AlignWithMargins = True
@@ -2468,7 +2447,7 @@ object Formalterapreco: TFormalterapreco
           object Label138: TLabel
             Left = 1
             Top = 1
-            Width = 49
+            Width = 246
             Height = 17
             Align = alTop
             Alignment = taCenter
@@ -2483,6 +2462,7 @@ object Formalterapreco: TFormalterapreco
             ParentFont = False
             Transparent = False
             StyleElements = []
+            ExplicitWidth = 49
           end
           object DBTextestoqueminino: TDBText
             AlignWithMargins = True
@@ -2505,7 +2485,7 @@ object Formalterapreco: TFormalterapreco
             AlignWithMargins = True
             Left = 4
             Top = 84
-            Width = 102
+            Width = 240
             Height = 21
             Align = alTop
             Caption = 'Estoque Fiscal'
@@ -2515,6 +2495,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 102
           end
         end
       end
@@ -2525,8 +2506,6 @@ object Formalterapreco: TFormalterapreco
         Height = 279
         Align = alClient
         TabOrder = 2
-        ExplicitTop = 481
-        ExplicitHeight = 295
         object Panel75: TPanel
           Left = 177
           Top = 1
@@ -2535,7 +2514,6 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitHeight = 293
           object Label139: TLabel
             AlignWithMargins = True
             Left = 3
@@ -2601,7 +2579,6 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitHeight = 293
           object Label144: TLabel
             AlignWithMargins = True
             Left = 3
@@ -2667,7 +2644,6 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 2
-          ExplicitHeight = 293
           object Label142: TLabel
             AlignWithMargins = True
             Left = 3
@@ -2737,12 +2713,11 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 3
-          ExplicitHeight = 293
           object Label140: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 57
-            Width = 115
+            Width = 170
             Height = 17
             Align = alTop
             Caption = 'Ult. a alterar dados'
@@ -2752,12 +2727,13 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 115
           end
           object Label147: TLabel
             AlignWithMargins = True
             Left = 3
             Top = 3
-            Width = 112
+            Width = 170
             Height = 17
             Align = alTop
             Caption = 'Ult. a alterar Pre'#231'o'
@@ -2767,6 +2743,7 @@ object Formalterapreco: TFormalterapreco
             Font.Name = 'Segoe UI Semibold'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitWidth = 112
           end
           object Editultalterar: TEdit
             AlignWithMargins = True
@@ -2809,7 +2786,6 @@ object Formalterapreco: TFormalterapreco
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 4
-          ExplicitHeight = 293
           object Btnconsultaaberto: TBitBtn
             AlignWithMargins = True
             Left = 3

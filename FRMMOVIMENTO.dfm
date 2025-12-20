@@ -12,6 +12,7 @@ object formmov: Tformmov
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poMainFormCenter
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 17
   object Panel2: TPanel

@@ -1,0 +1,59 @@
+object formmov: Tformmov
+  Left = 0
+  Top = 0
+  Caption = 'formmov'
+  ClientHeight = 726
+  ClientWidth = 1164
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Segoe UI Semibold'
+  Font.Style = [fsBold]
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 17
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 1164
+    Height = 726
+    Align = alClient
+    TabOrder = 0
+    object Labelprod: TLabel
+      Left = 1
+      Top = 1
+      Width = 1162
+      Height = 37
+      Align = alTop
+      Alignment = taCenter
+      Caption = 'Produto'
+      Color = 3026478
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -27
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      StyleElements = []
+      ExplicitWidth = 100
+    end
+    object DBGridmovestoque: TDBGrid
+      Left = 1
+      Top = 38
+      Width = 1162
+      Height = 687
+      Align = alClient
+      DataSource = DataModule1.DSqryTabest1mov
+      TabOrder = 0
+      TitleFont.Charset = ANSI_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -13
+      TitleFont.Name = 'Segoe UI Semibold'
+      TitleFont.Style = [fsBold]
+    end
+  end
+end

@@ -1815,26 +1815,11 @@ end;
 
 procedure Tformcontaestoque.FormDestroy(Sender: TObject);
 begin
-  // 1. Limpa e fecha o ClientDataSet (lista de itens conferidos)
-  // Isso remove todos os dados e libera a estrutura da memória.
-  if Assigned(DataModule1.CDSPRODUTOS) and DataModule1.CDSPRODUTOS.Active then
-    DataModule1.CDSPRODUTOS.EmptyDataSet;
+  inherited;
 
-  if Assigned(DataModule1.CDSPRODUTOS) then
-    DataModule1.CDSPRODUTOS.Close;
-
-  // 2. Fecha as Queries Ativas de Consulta
-  // Isso libera os cursores e recursos da conexão SQL Server.
-  if Assigned(QRYRKVEND) and QRYRKVEND.Active then
-    QRYRKVEND.Close;
-
-
-     if Assigned(QRYhistorico) and QRYRKVEND.Active then
-    QRYhistorico.Close;
-
-      if Assigned(datamodule1.QRYPRODUTOSCONTADOS) and QRYRKVEND.Active then
-    datamodule1.QRYPRODUTOSCONTADOS.Close;
-
+  // Limpa o ponteiro global para o formulário.
+  // Isso evita que outras partes do código tentem acessá-lo após ser destruído.
+  Formposicaoest := nil;
 
 
 

@@ -5776,21 +5776,23 @@
               Height = 767
               Align = alClient
               DataSource = dsQRYRKVEND
-              PanelHeight = 127
+              PanelHeight = 153
               PanelWidth = 1011
               TabOrder = 0
-              RowCount = 6
+              RowCount = 5
               SelectedColor = clInactiveCaption
               Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoParentPassthrough]
+              ExplicitHeight = 635
               object Panel5: TPanel
                 AlignWithMargins = True
                 Left = 907
                 Top = 3
                 Width = 101
-                Height = 121
+                Height = 147
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 0
+                ExplicitHeight = 121
                 object DBText9: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -5853,10 +5855,11 @@
                 Left = 755
                 Top = 3
                 Width = 146
-                Height = 121
+                Height = 147
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 1
+                ExplicitHeight = 121
                 object DBText4: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -5917,10 +5920,11 @@
                 Left = 547
                 Top = 3
                 Width = 202
-                Height = 121
+                Height = 147
                 Align = alRight
                 BevelOuter = bvNone
                 TabOrder = 2
+                ExplicitHeight = 121
                 object Label16: TLabel
                   AlignWithMargins = True
                   Left = 3
@@ -5985,15 +5989,15 @@
                 Left = 3
                 Top = 3
                 Width = 161
-                Height = 121
+                Height = 147
                 Align = alLeft
                 BevelOuter = bvNone
                 TabOrder = 3
+                ExplicitHeight = 121
                 object DBText3: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 61
-                  Width = 155
+                  Left = 0
+                  Top = 54
+                  Width = 161
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -6006,23 +6010,23 @@
                   ExplicitWidth = 146
                 end
                 object Label13: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 83
-                  Width = 155
+                  Left = 0
+                  Top = 74
+                  Width = 161
                   Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'C'#243'd Fornecedor'
                   StyleElements = []
+                  ExplicitLeft = 3
+                  ExplicitTop = 83
                   ExplicitWidth = 97
                 end
                 object DBText1: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 102
-                  Width = 155
+                  Left = 0
+                  Top = 91
+                  Width = 161
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -6035,36 +6039,37 @@
                   ExplicitWidth = 87
                 end
                 object Label11: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 42
-                  Width = 155
+                  Left = 0
+                  Top = 37
+                  Width = 161
                   Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'C'#243'digo Barras'
                   StyleElements = []
+                  ExplicitLeft = 3
+                  ExplicitTop = 42
                   ExplicitWidth = 85
                 end
                 object Label24: TLabel
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 1
-                  Width = 155
+                  Left = 0
+                  Top = 0
+                  Width = 161
                   Height = 17
                   Margins.Top = 1
                   Margins.Bottom = 1
                   Align = alTop
                   Caption = 'C'#243'd Interno'
                   StyleElements = []
+                  ExplicitLeft = 3
+                  ExplicitTop = 1
                   ExplicitWidth = 73
                 end
                 object DBText50: TDBText
-                  AlignWithMargins = True
-                  Left = 3
-                  Top = 20
-                  Width = 155
+                  Left = 0
+                  Top = 17
+                  Width = 161
                   Height = 20
                   Margins.Top = 1
                   Margins.Bottom = 1
@@ -6074,6 +6079,7 @@
                   StyleElements = []
                   ExplicitLeft = 2
                   ExplicitTop = 16
+                  ExplicitWidth = 155
                 end
               end
               object Panel9: TPanel
@@ -6081,10 +6087,11 @@
                 Left = 170
                 Top = 3
                 Width = 371
-                Height = 121
+                Height = 147
                 Align = alClient
                 BevelOuter = bvNone
                 TabOrder = 4
+                ExplicitHeight = 121
                 object DBText2: TDBText
                   AlignWithMargins = True
                   Left = 3
@@ -6812,20 +6819,22 @@
             Height = 782
             Align = alClient
             DataSource = DataModule1.DSCDSPRODUTOS
-            PanelHeight = 130
+            PanelHeight = 156
             PanelWidth = 1009
             TabOrder = 0
-            RowCount = 6
+            RowCount = 5
             SelectedColor = clInactiveCaption
+            ExplicitHeight = 650
             object Panel16: TPanel
               AlignWithMargins = True
               Left = 3
               Top = 3
               Width = 155
-              Height = 124
+              Height = 150
               Align = alLeft
               BevelOuter = bvNone
               TabOrder = 0
+              ExplicitHeight = 124
               object Label26: TLabel
                 AlignWithMargins = True
                 Left = 3
@@ -6913,10 +6922,11 @@
               Left = 906
               Top = 3
               Width = 100
-              Height = 124
+              Height = 150
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitHeight = 124
               object DBTextdif: TDBText
                 AlignWithMargins = True
                 Left = 3
@@ -6975,10 +6985,11 @@
               Left = 800
               Top = 3
               Width = 100
-              Height = 124
+              Height = 150
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 2
+              ExplicitHeight = 124
               object DBTextqtd: TDBText
                 AlignWithMargins = True
                 Left = 3
@@ -7080,10 +7091,11 @@
               Left = 694
               Top = 3
               Width = 100
-              Height = 124
+              Height = 150
               Align = alRight
               BevelOuter = bvNone
               TabOrder = 4
+              ExplicitHeight = 124
               object Label30: TLabel
                 AlignWithMargins = True
                 Left = 3
@@ -7142,10 +7154,11 @@
               Left = 164
               Top = 3
               Width = 524
-              Height = 124
+              Height = 150
               Align = alClient
               BevelOuter = bvNone
               TabOrder = 5
+              ExplicitHeight = 124
               object Label31: TLabel
                 AlignWithMargins = True
                 Left = 3

@@ -92,7 +92,9 @@ type
     procedure CarregarProdutosEmAbertoEExibir;
 
     procedure QRYPRODUTOSABERTOSAfterScroll(DataSet: TDataSet);
-    procedure Label1Click(Sender: TObject);private
+    procedure Label1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);private
     { Private declarations }
   public
     { Public declarations }
@@ -297,6 +299,26 @@ end;
 
 
 
+
+procedure TFormposicaoest.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  // 1. Define a ação para liberar (destruir) o formulário da memória.
+  Action := caFree;
+
+  // 2. Limpa o ponteiro global para que ele não aponte mais para o objeto destruído.
+  // Isso é importante se você usa ShowModal ou Create(Application).
+  Formposicaoest := nil;
+end;
+
+procedure TFormposicaoest.FormDestroy(Sender: TObject);
+begin
+  // Chama o inherited para garantir que o destrutor padrão do TForm seja executado.
+  inherited;
+
+  // Limpa o ponteiro global para o formulário.
+  // Isso evita que outras partes do código tentem acessá-lo após ser destruído.
+  Formposicaoest := nil;
+end;
 
 procedure TFormposicaoest.Label1Click(Sender: TObject);
 begin

@@ -1,4 +1,4 @@
-unit FRMMOVIMENTO;
+Ôªøunit FRMMOVIMENTO;
 
 interface
 
@@ -14,7 +14,7 @@ type
     Labelprod: TLabel;
     procedure CarregaMovProdutosContados;
     procedure CarregaMovalterapreco;
-    procedure CarregarMovimentoParaProduto(const ACodInterno: string);
+
 
   private
     { Private declarations }
@@ -37,180 +37,124 @@ procedure Tformmov.CarregaMovProdutosContados;
 var
   sCodInterno: string;
 begin
-  // 1. ValidaÁ„o e Captura do CodInterno do formul·rio principal (frmmenu)
-  if not Assigned(formcontaestoque) or not Assigned(formcontaestoque.DBText45) or (Trim(formcontaestoque.DBText45.Caption) = '') then
+  if not Assigned(formcontaestoque) or not Assigned(formcontaestoque.DBText45) or
+     (Trim(formcontaestoque.DBText45.Caption) = '') then
   begin
-    ShowMessage('O CÛdigo Interno do produto n„o est· disponÌvel no formul·rio principal.');
+    ShowMessage('O C√≥digo Interno do produto n√£o est√° dispon√≠vel no formul√°rio principal.');
     Exit;
   end;
 
   sCodInterno := Trim(formcontaestoque.DBText45.Caption);
 
-  // 1.5. CAPTURA O NOME DO PRODUTO E EXIBE NA LABEL DO NOVO FORMUL¡RIO
   if Assigned(formcontaestoque.DBText14) then
     LabelProd.Caption := formcontaestoque.DBText14.Caption
   else
-    LabelProd.Caption := 'Produto n„o carregado';
+    LabelProd.Caption := 'Produto n√£o carregado';
 
-  // Verifica se o DBGrid tem o DataSource antes de tentar abrir
   if not Assigned(DBGridmovestoque.DataSource) then
-  begin
-    // VocÍ precisa de um TDataSource associado ‡ qryTabest1mov no DataModule1
-    // Supondo que vocÍ criou: DataModule1.DSqryTabest1mov
     DBGridmovestoque.DataSource := DataModule1.DSqryTabest1mov;
-  end;
 
   try
-    // 2. Define e executa o SQL para consultar a TabEst1Mov
     with DataModule1.qryTabest1mov do
     begin
       Close;
-
       SQL.Clear;
-      SQL.Add('SELECT top 50');
-      SQL.Add('    M.*, T.*, U.USUARIO AS NomeUsuario');
 
-      SQL.Add('FROM');
-      SQL.Add('    TabEst1Mov M WITH (NOLOCK)');
+      SQL.Add('SELECT TOP 50');
+
+      SQL.Add('    T.Tipo,'); // 2Ô∏è‚É£ Tipo segundo
+      SQL.Add('    M.*,');    // 3Ô∏è‚É£ Todas as outras colunas de M (inclusive Data de novo, mas sem problema)
+      SQL.Add('    U.USUARIO AS NomeUsuario,');
+      SQL.Add('    CASE M.LkOperacao WHEN 1 THEN ''SAIDA'' ELSE ''ENTRADA'' END AS OperacaoEstoque');
+
+      SQL.Add('FROM TabEst1Mov M WITH (NOLOCK)');
       SQL.Add('INNER JOIN SERV U ON U.Controle = M.LkUsuario');
       SQL.Add('INNER JOIN TabEstMovTipo T ON T.Controle = M.LkTipo');
-
-      // Filtro pelo CodInterno
       SQL.Add('WHERE M.CodInterno = :CodInterno');
       SQL.Add('ORDER BY M.Data DESC');
 
-      // Define o par‚metro antes de abrir
       ParamByName('CodInterno').AsString := sCodInterno;
-
-      // 3. Abre a Query
       Open;
     end;
 
-    // 4. Exibe o formul·rio modalmente
+    DBGridmovestoque.Refresh;
     Self.ShowModal;
 
   except
     on E: Exception do
-    begin
-      ShowMessage('Erro ao consultar movimentaÁ„o: ' + E.Message);
-    end;
+      ShowMessage('Erro ao consultar movimenta√ß√£o: ' + E.Message);
   end;
 end;
+
+
+
+
 
 
 procedure Tformmov.CarregaMovalterapreco;
 var
   sCodInterno: string;
 begin
-  // 1. ValidaÁ„o e Captura do CodInterno do formul·rio principal (frmmenu)
+  // 1. Valida√ß√£o e Captura do CodInterno
   if not Assigned(Formalterapreco) or not Assigned(Formalterapreco.Editcodinterno) or (Trim(Formalterapreco.Editcodinterno.text) = '') then
   begin
-    ShowMessage('O CÛdigo Interno do produto n„o est· disponÌvel no formul·rio principal.');
+    ShowMessage('O C√≥digo Interno do produto n√£o est√° dispon√≠vel no formul√°rio principal.');
     Exit;
   end;
 
   sCodInterno := Trim(Formalterapreco.Editcodinterno.text);
 
-  // 1.5. CAPTURA O NOME DO PRODUTO E EXIBE NA LABEL DO NOVO FORMUL¡RIO
-  if Assigned(Formalterapreco.Editcodinterno) then
-    LabelProd.Caption := Formalterapreco.Editcodinterno.text
+  // 1.5. CAPTURA O NOME DO PRODUTO
+  if Assigned(Formalterapreco.labelproduto) and (Formalterapreco.labelproduto.Caption <> '') then
+    LabelProd.Caption := Formalterapreco.labelproduto.Caption
   else
-    LabelProd.Caption := 'Produto n„o carregado';
+    LabelProd.Caption := 'Produto n√£o carregado';
 
   // Verifica se o DBGrid tem o DataSource antes de tentar abrir
   if not Assigned(DBGridmovestoque.DataSource) then
   begin
-    // VocÍ precisa de um TDataSource associado ‡ qryTabest1mov no DataModule1
-    // Supondo que vocÍ criou: DataModule1.DSqryTabest1mov
     DBGridmovestoque.DataSource := DataModule1.DSqryTabest1mov;
   end;
 
   try
-    // 2. Define e executa o SQL para consultar a TabEst1Mov
     with DataModule1.qryTabest1mov do
     begin
       Close;
-
       SQL.Clear;
-      SQL.Add('SELECT top 50');
-      SQL.Add('    M.*, T.*, U.USUARIO AS NomeUsuario');
 
-      SQL.Add('FROM');
-      SQL.Add('    TabEst1Mov M WITH (NOLOCK)');
+      SQL.Add('SELECT TOP 50');
+
+      SQL.Add('    T.Tipo,'); // 2Ô∏è‚É£ Tipo segundo
+      SQL.Add('    M.*,');    // 3Ô∏è‚É£ Todas as outras colunas de M (inclusive Data de novo, mas sem problema)
+      SQL.Add('    U.USUARIO AS NomeUsuario,');
+      SQL.Add('    CASE M.LkOperacao WHEN 1 THEN ''SAIDA'' ELSE ''ENTRADA'' END AS OperacaoEstoque');
+
+      SQL.Add('FROM TabEst1Mov M WITH (NOLOCK)');
       SQL.Add('INNER JOIN SERV U ON U.Controle = M.LkUsuario');
       SQL.Add('INNER JOIN TabEstMovTipo T ON T.Controle = M.LkTipo');
-
-      // Filtro pelo CodInterno
       SQL.Add('WHERE M.CodInterno = :CodInterno');
       SQL.Add('ORDER BY M.Data DESC');
 
-      // Define o par‚metro antes de abrir
       ParamByName('CodInterno').AsString := sCodInterno;
-
-      // 3. Abre a Query
       Open;
     end;
 
-    // 4. Exibe o formul·rio modalmente
+    // 4. Exibe o formul√°rio modalmente
     Self.ShowModal;
 
   except
     on E: Exception do
     begin
-      ShowMessage('Erro ao consultar movimentaÁ„o: ' + E.Message);
+      ShowMessage('Erro ao consultar movimenta√ß√£o: ' + E.Message);
     end;
   end;
 end;
 
 
 
-procedure Tformmov.CarregarMovimentoParaProduto(const ACodInterno: string);
-var
-  sCodInterno: string;
-begin
-  sCodInterno := ACodInterno;
 
-  if (Trim(sCodInterno) = '') then
-  begin
-    ShowMessage('O CÛdigo Interno do produto n„o foi informado para a consulta de movimento.');
-    Exit;
-  end;
 
-  // 1. DefiniÁ„o da Conex„o e ExecuÁ„o da Query
-  // Assumindo que DataModule1.qryTabest1mov existe e est· configurada
-  try
-    with DataModule1.qryTabest1mov do
-    begin
-      Close;
 
-      // O SQL deve ser o mesmo usado na sua rotina original (com filtro WHERE)
-      // Exemplo do filtro:
-      // SQL.Add('WHERE M.CodInterno = :CodInterno');
-
-      ParamByName('CodInterno').AsString := sCodInterno;
-      Open;
-
-      // 2. Atualiza a label do produto (Busca o nome para exibir no cabeÁalho)
-      with DataModule1.QRYPRODUTOSBASE do // QRYPRODUTOSBASE È uma query auxiliar
-      begin
-        Close;
-        SQL.Text := 'SELECT PRODUTO FROM TABEST1 WITH (NOLOCK) WHERE CodInterno = :Cod';
-        ParamByName('Cod').AsString := sCodInterno;
-        Open;
-        if not IsEmpty then
-          LabelProd.Caption := 'MovimentaÁ„o do Produto: ' + FieldByName('PRODUTO').AsString
-        else
-          LabelProd.Caption := 'MovimentaÁ„o (Cod: ' + sCodInterno + ')';
-      end;
-    end;
-
-    // 3. Exibe o formul·rio
-    Self.ShowModal;
-  except
-    on E: Exception do
-      ShowMessage('Erro ao carregar movimentaÁ„o: ' + E.Message);
-  end;
-end;
 
 
 

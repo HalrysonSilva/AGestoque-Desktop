@@ -1,9 +1,9 @@
 object Formposicaoest: TFormposicaoest
   Left = 0
   Top = 0
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'Formposicaoest'
-  ClientHeight = 817
+  ClientHeight = 761
   ClientWidth = 1029
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -13,6 +13,9 @@ object Formposicaoest: TFormposicaoest
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poMainFormCenter
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 17
   object Panel1: TPanel
@@ -26,7 +29,7 @@ object Formposicaoest: TFormposicaoest
       Left = 1
       Top = 1
       Width = 1027
-      Height = 35
+      Height = 30
       Align = alTop
       Alignment = taCenter
       Caption = 'Produtos Lan'#231'ados em Pre-Vendas ou Or'#231'amentos'
@@ -41,34 +44,30 @@ object Formposicaoest: TFormposicaoest
       Transparent = False
       StyleElements = []
       OnClick = Label1Click
+      ExplicitWidth = 486
     end
     object DBGridprodutos: TDBCtrlGrid
       Left = 1
-      Top = 36
+      Top = 31
       Width = 1027
-      Height = 372
+      Height = 377
       Align = alClient
       Color = clBtnFace
       DataSource = DSQRYPRODUTOSABERTOS
-      PanelHeight = 124
+      PanelHeight = 125
       PanelWidth = 1010
       ParentColor = False
       TabOrder = 0
       StyleElements = []
-      ExplicitLeft = 4
-      ExplicitTop = 34
-      ExplicitWidth = 1021
-      ExplicitHeight = 371
       object Panel3: TPanel
         AlignWithMargins = True
         Left = 3
         Top = 3
         Width = 113
-        Height = 118
+        Height = 119
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 0
-        ExplicitHeight = 117
         object DBText2: TDBText
           Left = 0
           Top = 85
@@ -138,12 +137,10 @@ object Formposicaoest: TFormposicaoest
         Left = 122
         Top = 3
         Width = 560
-        Height = 118
+        Height = 119
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 554
-        ExplicitHeight = 117
         object DBText1: TDBText
           Left = 0
           Top = 17
@@ -196,12 +193,10 @@ object Formposicaoest: TFormposicaoest
         Left = 894
         Top = 3
         Width = 113
-        Height = 118
+        Height = 119
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitLeft = 888
-        ExplicitHeight = 117
         object DBText3: TDBText
           Left = 0
           Top = 91
@@ -281,12 +276,10 @@ object Formposicaoest: TFormposicaoest
         Left = 688
         Top = 3
         Width = 200
-        Height = 118
+        Height = 119
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 3
-        ExplicitLeft = 682
-        ExplicitHeight = 117
         object DBText8: TDBText
           Left = 0
           Top = 85
@@ -357,14 +350,15 @@ object Formposicaoest: TFormposicaoest
     Left = 0
     Top = 409
     Width = 1029
-    Height = 408
+    Height = 352
     Align = alClient
     TabOrder = 1
+    ExplicitHeight = 408
     object Label2: TLabel
       Left = 1
       Top = 1
       Width = 1027
-      Height = 35
+      Height = 30
       Align = alTop
       Alignment = taCenter
       Caption = 'Pedidos'
@@ -378,33 +372,32 @@ object Formposicaoest: TFormposicaoest
       ParentFont = False
       Transparent = False
       StyleElements = []
+      ExplicitWidth = 75
     end
     object DBGridpedidos: TDBCtrlGrid
       Left = 1
-      Top = 36
+      Top = 31
       Width = 1027
-      Height = 371
+      Height = 320
       Align = alClient
       Color = clBtnFace
       DataSource = DSQRYPEDIDOS
-      PanelHeight = 123
+      PanelHeight = 106
       PanelWidth = 1010
       ParentColor = False
       TabOrder = 0
       StyleElements = []
-      ExplicitLeft = 7
-      ExplicitTop = 42
-      ExplicitWidth = 1021
-      ExplicitHeight = 365
+      ExplicitHeight = 376
       object Panel7: TPanel
         AlignWithMargins = True
         Left = 122
         Top = 3
         Width = 200
-        Height = 117
+        Height = 100
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitHeight = 119
         object Label15: TLabel
           Left = 0
           Top = 47
@@ -465,11 +458,11 @@ object Formposicaoest: TFormposicaoest
         Left = 328
         Top = 3
         Width = 560
-        Height = 117
+        Height = 100
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
-        ExplicitWidth = 554
+        ExplicitHeight = 119
         object DBText15: TDBText
           Left = 0
           Top = 17
@@ -518,11 +511,11 @@ object Formposicaoest: TFormposicaoest
         Left = 894
         Top = 3
         Width = 113
-        Height = 117
+        Height = 100
         Align = alRight
         BevelOuter = bvNone
         TabOrder = 2
-        ExplicitLeft = 888
+        ExplicitHeight = 119
         object Label20: TLabel
           Left = 0
           Top = 34
@@ -583,10 +576,11 @@ object Formposicaoest: TFormposicaoest
         Left = 3
         Top = 3
         Width = 113
-        Height = 117
+        Height = 100
         Align = alLeft
         BevelOuter = bvNone
         TabOrder = 3
+        ExplicitHeight = 119
         object Label23: TLabel
           Left = 0
           Top = 34

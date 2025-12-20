@@ -11,7 +11,8 @@ uses
   FRMMOVIMENTO in 'FRMMOVIMENTO.pas' {formmov},
   FRMPOSICAOESTOQUE in 'FRMPOSICAOESTOQUE.pas' {Formposicaoest},
   FRM_MENU in 'FRM_MENU.pas' {Formenu},
-  FRMALTERAPRECOS in 'FRMALTERAPRECOS.pas' {Formalterapreco};
+  FRMALTERAPRECOS in 'FRMALTERAPRECOS.pas' {Formalterapreco},
+  TELAESPERA in 'TELAESPERA.pas' {FRMESPERA};
 
 {$R *.res}
 
